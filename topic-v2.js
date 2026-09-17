@@ -11,7 +11,7 @@ const esc = x => String(x).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>'
 function renderNewLesson(topic, note, index, title, units) {
   const progress = Math.round((index / units.length) * 100);
   nav.innerHTML = `<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
-  root.innerHTML = `<div class="notebook"><div class="notebook-inner">
+  root.innerHTML = `<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
     <div class="unit-download"><span class="progress-badge">${progress}% syllabus</span><button class="pill" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">Download / Save Unit PDF ↗</button></div>
     <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · UNIT ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
     <section class="note-section"><h2>Unit at a Glance</h2><p>${note.overview}</p></section>
