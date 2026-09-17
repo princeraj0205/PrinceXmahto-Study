@@ -1,128 +1,76 @@
-/* PrinceXmahto Study — deep handwritten-style lesson expansion */
+/* PrinceXmahto Study — deep handwritten notebook layer */
 (function(){
- const L=window.PX_LESSONS||(window.PX_LESSONS={});
- const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
- const focus={
-  'Algebra Determinant':'determinants, matrices, Cramer’s rule, adjoint/inverse, simultaneous equations and vectors',
-  'Differential Calculus':'functions, domain/range, limits, continuity, first-principle differentiation, rules and implicit/logarithmic differentiation',
-  'Application of Differential Calculus':'stationary points, increasing/decreasing functions, maxima/minima, tangent/normal and rate-of-change applications',
-  'Co-ordinate Geometry':'coordinate plane, distance, section formula, slope, straight lines and basic circle relations',
-  'Probability and Statistics':'sample space, events, probability laws, mean, median, mode and interpretation of data',
-  'Unit and Measurements':'SI units, dimensions, significant figures, accuracy, precision, uncertainty and error analysis',
-  'Simple Harmonic and Wave Motion':'SHM, displacement, amplitude, time period, frequency, phase and mechanical waves',
-  'Electrostatics, Electromagnetism and Current Electricity':'charge, field, potential, current, resistance, Ohm’s law and magnetic effect of current',
-  'Semiconductor Physics':'energy bands, intrinsic/extrinsic semiconductor, p-type/n-type material, junction and diode behaviour',
-  'Modern Physics':'photons, atomic models, radioactivity, nuclear energy and introductory quantum ideas',
-  'Basic Electrical Parameters and Concepts':'charge, current, voltage, resistance, power, energy, electrical units and Ohm’s law',
-  'Fundamentals of D.C. and A.C. Circuits':'DC/AC, series and parallel circuits, Kirchhoff laws, power and basic waveform quantities',
-  'Magnetic Circuits and Electromagnetic Induction':'flux, flux density, MMF, reluctance, Faraday law, Lenz law and induced emf',
-  'Basic Electronic Components':'resistors, capacitors, inductors, diodes, LEDs, transistors, symbols and applications',
-  'Overview of Digital Electronics':'binary numbers, Boolean algebra, logic gates, truth tables and basic digital systems',
-  'Introduction to IT Systems and Digital Technologies':'hardware, software, data, operating systems, networking, cloud and digital representation',
-  'Fundamentals of Artificial Intelligence':'AI definition, problem formulation, data, models, learning approaches, evaluation and responsible AI',
-  'Core AI Applications - Computer Vision & NLP':'image classification/detection/OCR and language tasks such as classification, translation and question answering',
-  'Conversational AI and Generative Systems':'chatbots, intent/entity, context, tokens, prompting, generation, grounding and limitations',
-  'Programming Logic & Computational Thinking using Python':'decomposition, abstraction, algorithms, pseudocode, variables, conditions, loops, functions and debugging',
-  'Electrical measuring instruments and components':'ammeter, voltmeter, multimeter, range selection, component identification and safe measurement',
-  'Basic electrical wiring and safety':'conductors, switches, protection, earthing, insulation, isolation and safe wiring principles',
-  'Electronic components and identification':'symbols, markings, polarity, values, datasheets and identification before assembly',
-  'Soldering, PCB and multimeter practices':'PCB layout, solder-joint quality, inspection, continuity, resistance and voltage checks',
-  'Fire safety and first aid':'hazard identification, fire prevention, evacuation, emergency communication and trained first-aid response',
-  'Word Processing':'document creation, styles, formatting, tables, page setup, headers, footers, references and PDF export',
-  'Spreadsheets':'cells, formulas, references, functions, sorting, filtering, charts and data interpretation',
-  'Presentation Tool':'slide structure, layout, typography, diagrams, charts, speaker support and presentation delivery',
-  'Basics of Internet':'Internet/Web, URL, DNS, browser, server, HTTP/HTTPS, email and online safety',
-  'Constitution and Preamble':'constitutional purpose, historical background, salient features and values expressed by the Preamble',
-  'Fundamental Rights and Directive Principles':'purpose, broad categories, constitutional relationship and civic significance',
-  'Governance and Amendments':'constitutional institutions, governance structure, accountability and amendment framework',
-  'Open Educational Resources':'open access, permissions, reuse, adaptation and educational sharing',
-  'Copyright and Open Licensing':'copyright, permissions, public domain, licences and attribution',
-  'Creative Common Licenses':'CC licence conditions including attribution and combinations of SA, NC and ND',
-  'OER Repositories and Quality Assurance':'discovering OER, checking accuracy, relevance, accessibility, currency and licence metadata',
-  'Atomic Structure and Chemical Bonding':'atomic models, subatomic particles, electronic configuration, valency and ionic/covalent bonding',
-  'Water':'impurities, hardness, temporary/permanent hardness, EDTA idea and water treatment',
-  'Engineering Materials':'metals, alloys, polymers, ceramics/composites and mechanical/chemical properties',
-  'Chemistry of Fuel and Lubricants':'fuel properties, combustion, calorific value, octane/cetane and lubricant functions',
-  'Electrochemistry':'oxidation-reduction, cells, electrodes, electrolysis, EMF and corrosion',
-  'Introduction to Thermodynamics':'system, surroundings, properties, heat, work, first law, entropy direction and basic cycles',
-  'Internal Combustion Engine and Refrigeration':'engine components and four-stroke sequence plus basic vapour-compression refrigeration cycle',
-  'Manufacturing Processes and Machine Tools':'casting, forming, machining, joining and basic lathe/drilling/milling/grinding operations',
-  'Power Transmission':'belts, chains, gears, shafts, couplings, speed ratio, torque and power transmission',
-  'Communication':'communication process, feedback, barriers, listening, clarity and effective communication',
-  'Types of Communication':'oral, written, non-verbal, visual, formal/informal and channel selection',
-  'Reading Comprehension':'main idea, details, inference, vocabulary in context and evidence-based response',
-  'Vocabulary and Grammar':'parts of speech, sentence structure, tense, agreement, vocabulary and common usage',
-  'Professional Writing':'professional email, notice/report, tone, structure, clarity, concision and proofreading',
-  'Basic Elements of Drawing':'instruments, sheet sizes, line conventions, lettering, scale and dimensioning',
-  'Orthographic Projections':'principal views, projection planes, alignment, hidden lines and first/third angle concepts',
-  'Isometric Projection':'isometric axes, construction, visible edges, circles and pictorial representation',
-  'Free Hand Sketches of Engineering Elements':'proportion, centre lines, simple machine elements, labels and visual clarity',
-  'Basic Computer Aided Drafting':'coordinates, layers, object snaps, drawing/editing tools, dimensions and file organisation',
-  'Advanced Computer Aided Drafting':'blocks, hatching, annotations, layers, layouts, standards and plotting',
-  'Workshop safety and measuring tools':'PPE, housekeeping, safe tool handling, steel rule, vernier and micrometer basics',
-  'Carpentry and wood working':'marking, sawing, chiselling, planing, joints and safe workholding',
-  'Joining and welding processes':'welding, brazing, soldering, riveting, process selection and hot-work safety',
-  'Electrical and electronics workshop practices':'safe wiring, component handling, soldering, continuity testing and fault awareness',
-  'Values and Ethics in Day to Day Life':'integrity, honesty, responsibility, respect, fairness, empathy and ethical decisions',
-  'Values and Ethics in Profession':'professional responsibility, competence, safety, confidentiality, honesty and accountability',
-  'Sports and Exercises':'physical activity, fitness components, warm-up, coordination, recovery and healthy participation',
-  'Yoga and Meditation':'posture, breathing, attention, relaxation and consistent comfortable practice',
-  'Fitness and Wellness':'physical, mental and social wellness, sleep, activity, nutrition and recovery',
-  'Basic electrical quantities and circuits':'current, voltage, resistance, power, series/parallel circuits and circuit diagrams',
-  'Capacitance and inductance':'charge storage, capacitance, electric energy, inductive behaviour and magnetic energy storage',
-  'D.C. and A.C. circuits':'steady and alternating current, frequency, period, RMS concept and R/L/C behaviour',
-  'Magnetic circuits':'flux, MMF, reluctance, magnetic path and air-gap effects',
-  'Electromagnetism':'magnetic field due to current, force, induction and engineering applications',
-  'Atomic structure and bonding':'atomic particles, valence electrons, ionic/covalent bonds and material behaviour',
-  'Water and its treatment':'impurities, hardness, clarification, filtration, softening and disinfection',
-  'Engineering materials':'metals/alloys, polymers, ceramics/composites and material selection',
-  'Fuel and lubricants':'fuel combustion properties and lubricant viscosity, cooling, sealing and wear reduction',
-  'Force systems and equilibrium':'force systems, moments, free-body diagrams and equilibrium equations',
-  'Friction':'static, limiting and kinetic friction, coefficient and practical effects',
-  'Centroid and centre of gravity':'centroid of standard/composite areas and centre of gravity concepts',
-  'Simple lifting machines':'load, effort, mechanical advantage, velocity ratio and efficiency',
-  'Kinematics and dynamics':'displacement, velocity, acceleration, equations of motion and Newton’s laws',
-  'Electrical tools and measurements':'insulated tools, measurement modes, ranges, leads and safe testing',
-  'Electronic components':'component function, symbol, polarity, value and application',
-  'Soldering and PCB practices':'component placement, solder joints, inspection and continuity',
-  'Basic testing with multimeter':'voltage, resistance, continuity and current measurement with correct settings',
-  'Environment and ecosystems':'ecosystem components, food chains/webs, energy flow and ecological balance',
-  'Natural resources':'renewable/non-renewable resources, conservation and efficient use',
-  'Pollution and control':'air, water, soil and noise pollution, effects and control measures',
-  'Sustainable development':'long-term balance of environmental, social and economic needs',
-  'Climate and environmental responsibility':'climate change basics, mitigation, adaptation and responsible practices'
- };
- const starred={
-  'Algebra Determinant':['Define determinant.','Evaluate a 3×3 determinant.','Solve simultaneous equations by Cramer’s rule.','Find inverse using adjoint.'],
-  'Differential Calculus':['Define limit and continuity.','Differentiate using first principle.','Apply product, quotient and chain rules.','Perform implicit/logarithmic differentiation.'],
-  'Application of Differential Calculus':['Find stationary points.','Test maxima/minima using derivatives.','Find tangent and normal.'],
-  'Co-ordinate Geometry':['Derive/use distance and section formula.','Find equation of a straight line.','Solve slope/intercept problems.'],
-  'Probability and Statistics':['Define sample space and event.','Solve basic probability.','Calculate mean, median and mode.'],
-  'Unit and Measurements':['Differentiate accuracy and precision.','Explain dimensions and significant figures.','Calculate percentage error.'],
-  'Basic Electrical Parameters and Concepts':['State Ohm’s law.','Calculate current, voltage, resistance and power.','Differentiate electrical power and energy.'],
-  'Fundamentals of D.C. and A.C. Circuits':['Differentiate AC and DC.','Calculate series/parallel resistance.','State Kirchhoff’s laws.'],
-  'Magnetic Circuits and Electromagnetic Induction':['Define flux, MMF and reluctance.','State Faraday and Lenz laws.','Explain induced emf.'],
-  'Overview of Digital Electronics':['Write truth tables of basic gates.','Explain NAND/NOR as universal gates.','Simplify a Boolean expression.'],
-  'Fundamentals of Artificial Intelligence':['Define AI and machine learning.','Explain an AI workflow.','Discuss responsible AI considerations.'],
-  'Programming Logic & Computational Thinking using Python':['Write an algorithm/pseudocode for a problem.','Explain variables, conditions and loops.','Write a small Python function and debug it.']
- };
- function deep(t,n){
-  const f=focus[t]||n.overview||'the major concepts, terminology, applications and examination approach';
-  const qs=starred[t]||[`Define ${t}.`,`Explain the main concepts of ${t}.`,`Describe the process/principle involved in ${t}.`,`State important applications and limitations of ${t}.`];
-  const extra=[
-   ['Notebook Study Map',`<p><b>Chapter idea:</b> ${esc(t)}</p><p>This unit should be studied as a connected chain, not as isolated definitions. The main scope is <b>${esc(f)}</b>.</p><div class="formula">CONCEPT → PRINCIPLE → DIAGRAM/FORMULA → EXAMPLE → APPLICATION → REVISION</div>`],
-   ['Detailed Explanation',`<p>Start with the meaning of the topic and then identify its parts, quantities, conditions and relationships. For each new term, write <b>meaning + symbol/name + unit (if applicable) + purpose + one example</b>.</p><p><b>Layer 1 — What?</b> State what the concept is. <b>Layer 2 — How?</b> Explain the mechanism or sequence. <b>Layer 3 — Why?</b> Explain why it is useful. <b>Layer 4 — Where?</b> Connect it with engineering or daily use.</p><ul><li>Do not memorise a formula without understanding its variables.</li><li>Do not draw a diagram without labels.</li><li>For theory, keep the answer in logical order.</li><li>For numericals, write given → formula → substitution → result → unit.</li></ul>`],
-   ['Important Terms & Relations',`<div class="term-grid"><div><b>Definition</b><span>Write the exact idea in 1–2 lines.</span></div><div><b>Principle</b><span>State the rule/law behind the concept.</span></div><div><b>Application</b><span>Give a concrete engineering use.</span></div><div><b>Precaution</b><span>Mention conditions or limitations.</span></div></div>`],
-   ['Diagram Notebook',`<div class="diagram-note"><p><span class="pen-blue">BLUE PEN:</span> headings and labels &nbsp; <span class="pen-black">BLACK:</span> explanation &nbsp; <span class="pen-red">RED:</span> formula/VVI &nbsp; <span class="pen-green">GREEN:</span> example/result.</p><p>Draw the simplest labelled representation first. Add arrows, axes, component names and important values only where they improve understanding.</p><div class="sketch-lines">↳ LABEL → PART → FUNCTION<br>↳ INPUT → PROCESS → OUTPUT<br>↳ GIVEN → FORMULA → SOLUTION</div></div>`],
-   ['How to Write in Examination',`<ol class="steps"><li>Read the command word: define, explain, derive, calculate, compare or draw.</li><li>Start with the definition or governing principle.</li><li>Use a neat labelled diagram/formula where appropriate.</li><li>Explain the steps in the same order as the process.</li><li>Box the final numerical result and write the unit.</li><li>End with application, conclusion or precaution if asked.</li></ol>`],
-   ['★ VVI — Marked Inside the Topic',`<div class="vvi"><p><span class="star">★ VVI</span> These are the high-priority questions to practise from this unit:</p><ol>${qs.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><p class="muted">VVI means high-priority practice; it is not a prediction of the question paper.</p></div>`],
-   ['Self-Check Before Closing the Notebook',`<ul><li>Can I explain the definition without looking?</li><li>Can I reproduce the main formula/relationship?</li><li>Can I draw and label the main diagram?</li><li>Can I solve one basic example?</li><li>Can I explain one practical application?</li><li>Can I answer the ★ VVI questions in my own words?</li></ul>`]
-  ];
-  n.sections=n.sections||[];
-  const existing=n.sections.map(s=>s[0]);
-  extra.reverse().forEach(s=>{if(!existing.includes(s[0]))n.sections.unshift(s);});
-  n._deep=true;
- }
- Object.keys(L).forEach(t=>deep(t,L[t]));
- window.PX_LESSONS=L;
+  const L = window.PX_LESSONS || (window.PX_LESSONS = {});
+  const esc = s => String(s).replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
+
+  const focus = {
+    'Algebra Determinant':'determinants, matrices, Cramer’s rule, adjoint/inverse and simultaneous equations',
+    'Differential Calculus':'functions, limits, continuity, first principle and differentiation rules',
+    'Application of Differential Calculus':'rate of change, stationary points, maxima/minima, tangent and normal',
+    'Co-ordinate Geometry':'distance, section formula, slope, straight lines and coordinate relations',
+    'Probability and Statistics':'sample space, events, probability laws, mean, median, mode and data interpretation',
+    'Unit and Measurements':'SI units, dimensions, significant figures, accuracy, precision, uncertainty and errors',
+    'Simple Harmonic and Wave Motion':'SHM, amplitude, time period, frequency, phase and wave relations',
+    'Electrostatics, Electromagnetism and Current Electricity':'charge, electric field, potential, current, resistance and magnetic effects',
+    'Semiconductor Physics':'energy bands, intrinsic/extrinsic semiconductors, p-type, n-type, junction and diode',
+    'Modern Physics':'photons, atomic models, radioactivity, nuclear energy and quantum ideas',
+    'Basic Electrical Parameters and Concepts':'charge, current, voltage, resistance, power, energy and Ohm’s law',
+    'Fundamentals of D.C. and A.C. Circuits':'DC/AC, series-parallel circuits, Kirchhoff laws and waveform quantities',
+    'Magnetic Circuits and Electromagnetic Induction':'flux, flux density, MMF, reluctance, Faraday law and Lenz law',
+    'Basic Electronic Components':'resistors, capacitors, inductors, diodes, LEDs and transistors',
+    'Overview of Digital Electronics':'binary numbers, Boolean algebra, logic gates and truth tables',
+    'Fundamentals of Artificial Intelligence':'AI, machine learning, data, models, evaluation and responsible AI',
+    'Core AI Applications - Computer Vision & NLP':'classification, detection, OCR, NLP tasks and limitations',
+    'Conversational AI and Generative Systems':'chatbots, intent/entity, tokens, prompting, generation, grounding and limitations',
+    'Programming Logic & Computational Thinking using Python':'decomposition, abstraction, algorithms, pseudocode, variables, conditions, loops and functions',
+    'Word Processing':'documents, styles, formatting, tables, page setup and PDF export',
+    'Spreadsheets':'cells, formulas, references, functions, sorting, filtering, charts and interpretation',
+    'Presentation Tool':'slides, layouts, typography, diagrams, charts and delivery',
+    'Basics of Internet':'Internet/Web, URL, DNS, browser, server, HTTP/HTTPS and online safety',
+    'Atomic Structure and Chemical Bonding':'atomic models, subatomic particles, electronic configuration, valency and chemical bonding'
+  };
+
+  /* The screenshot topic gets a genuinely expanded class-notebook treatment. */
+  L['Atomic Structure and Chemical Bonding'] = {
+    unit:'Unit 1',
+    overview:'Atomic structure explains what an atom contains, how its particles are arranged and how electrons are distributed. Chemical bonding explains why atoms combine and how ionic, covalent and coordinate bonds are formed.',
+    sections:[
+      ['1. Matter → Molecule → Atom','<p><b>Matter</b> is anything that has mass and occupies space. Matter may be divided into elements, compounds and mixtures. An <b>element</b> contains one kind of atom, while a compound contains atoms of different elements chemically combined in a fixed proportion.</p><div class="formula">Matter → Element / Compound / Mixture<br>Element → Atoms<br>Atoms → Molecules / Ions</div><p class="green-note"><b>★ Exam point:</b> An atom is the basic unit of an element that retains the chemical identity of that element.</p>'],
+      ['2. Structure of an Atom','<p>An atom has a very small, dense <b>nucleus</b> containing positively charged protons and neutral neutrons. Negatively charged electrons occupy regions around the nucleus called shells or energy levels.</p><div class="atom-diagram"><svg viewBox="0 0 520 260" role="img" aria-label="Simple labelled atom diagram"><circle cx="260" cy="130" r="45" fill="none" stroke="#145dcc" stroke-width="3"/><circle cx="260" cy="130" r="90" fill="none" stroke="#145dcc" stroke-width="2"/><circle cx="260" cy="130" r="135" fill="none" stroke="#145dcc" stroke-width="2"/><circle cx="260" cy="130" r="22" fill="#fff" stroke="#d52b2b" stroke-width="3"/><text x="260" y="126" text-anchor="middle" font-size="13" fill="#15171c">Nucleus</text><text x="260" y="143" text-anchor="middle" font-size="11" fill="#d52b2b">p⁺ + n⁰</text><circle cx="260" cy="40" r="7" fill="#145dcc"/><circle cx="260" cy="220" r="7" fill="#145dcc"/><circle cx="125" cy="130" r="7" fill="#145dcc"/><text x="276" y="39" font-size="12" fill="#145dcc">e⁻</text><text x="276" y="220" font-size="12" fill="#145dcc">e⁻</text><text x="105" y="126" font-size="12" fill="#145dcc">e⁻</text><text x="382" y="42" font-size="13" fill="#17834b">Shell / energy level</text><line x1="365" y1="47" x2="300" y2="65" stroke="#17834b" stroke-width="2"/></svg></div><ul><li><b>Proton:</b> charge +1, relative mass ≈ 1 u.</li><li><b>Neutron:</b> charge 0, relative mass ≈ 1 u.</li><li><b>Electron:</b> charge −1, very small relative mass.</li></ul><p><b>★ Remember:</b> In a neutral atom, number of protons = number of electrons.</p>'],
+      ['3. Atomic Number and Mass Number','<p><b>Atomic number (Z)</b> is the number of protons in the nucleus. It identifies the element. For a neutral atom, it is also equal to the number of electrons.</p><p><b>Mass number (A)</b> is the total number of protons and neutrons.</p><div class="formula">Z = number of protons<br>A = protons + neutrons<br>Number of neutrons = A − Z</div><p><b>Example:</b> If an atom has A = 23 and Z = 11, then protons = 11, electrons = 11 and neutrons = 12.</p><p class="red-note"><b>★ VVI:</b> Calculate protons, electrons and neutrons when A and Z are given.</p>'],
+      ['4. Isotopes, Isobars and Isotones','<p><b>Isotopes</b> are atoms of the same element having the same atomic number but different mass numbers. Therefore, they have the same number of protons but different numbers of neutrons.</p><p><b>Isobars</b> have the same mass number but different atomic numbers. <b>Isotones</b> have the same number of neutrons.</p><div class="term-grid"><div><b>Isotopes</b><span>Z same, A different</span></div><div><b>Isobars</b><span>A same, Z different</span></div><div><b>Isotones</b><span>Neutrons same</span></div><div><b>Neutral atom</b><span>protons = electrons</span></div></div><p class="green-note"><b>★ Exam point:</b> Always compare Z, A and N separately; do not decide from names alone.</p>'],
+      ['5. Early Atomic Models','<p><b>Thomson model:</b> the atom was pictured as a positively charged body with electrons embedded in it.</p><p><b>Rutherford model:</b> the scattering experiment supported a small, dense, positively charged nucleus and showed that most of the atom is empty space.</p><p><b>Limitation:</b> the classical picture could not satisfactorily explain the stability of electrons around the nucleus.</p><p><b>★ VVI:</b> Draw and explain the Rutherford model and write its main conclusion.</p>'],
+      ['6. Bohr Model and Energy Levels','<p>Bohr proposed that electrons occupy permitted energy levels or shells around the nucleus. An electron in an allowed stationary orbit does not continuously lose energy. Energy is absorbed or emitted when an electron moves between permitted levels.</p><div class="formula">ΔE = E₂ − E₁ = hν<br>h = Planck’s constant</div><div class="diagram-note"><b>Notebook diagram:</b><br><span class="pen-blue">K shell</span> → first energy level<br><span class="pen-blue">L shell</span> → second energy level<br><span class="pen-blue">M shell</span> → third energy level<br><span class="pen-red">Electron jumps between levels → energy change</span></div><p><b>★ Exam point:</b> Larger energy-level separation means a larger energy change for the transition.</p>'],
+      ['7. Electronic Configuration','<p>Electrons are arranged in shells/energy levels. For introductory diploma chemistry, shell capacity is commonly represented by the rule <b>2n²</b>, where <b>n</b> is the shell number.</p><div class="formula">Maximum electrons in nth shell = 2n²<br>K (n=1) → 2<br>L (n=2) → 8<br>M (n=3) → 18</div><p>For many first-period and second-period examples, the outer-shell electrons are especially important because they influence chemical behaviour.</p><p><b>Example:</b> Sodium (Z=11) → 2, 8, 1. Chlorine (Z=17) → 2, 8, 7.</p><p class="red-note"><b>★ VVI:</b> Write electronic configuration for an element from its atomic number.</p>'],
+      ['8. Valence Electrons and Valency','<p><b>Valence electrons</b> are electrons in the outermost occupied shell. Atoms often become more stable by losing, gaining or sharing electrons. <b>Valency</b> describes the combining capacity of an atom in a simple introductory sense.</p><div class="formula">Na: 2,8,1 → tends to lose 1 e⁻ → Na⁺<br>Cl: 2,8,7 → tends to gain 1 e⁻ → Cl⁻</div><p>Thus sodium and chlorine can form an ionic compound because electron transfer produces oppositely charged ions.</p>'],
+      ['9. Why Chemical Bonds Form','<p>A chemical bond is an attractive interaction that holds atoms or ions together in a stable arrangement. Bond formation is closely related to the electronic configuration of the outer shell.</p><div class="formula">Atom → electron transfer / electron sharing → stable bonded arrangement</div><p><b>Octet idea:</b> many main-group atoms tend toward an outer shell containing eight electrons, although there are important exceptions. Treat the octet rule as a useful introductory guideline rather than a universal law.</p><p class="green-note"><b>★ Think:</b> Before identifying a bond, look at the valence electrons and ask whether electrons are transferred or shared.</p>'],
+      ['10. Ionic (Electrovalent) Bond','<p>An <b>ionic bond</b> is associated with electron transfer and the electrostatic attraction between oppositely charged ions. It is commonly illustrated using a metal and a non-metal.</p><div class="formula">Na → Na⁺ + e⁻<br>Cl + e⁻ → Cl⁻<br>Na⁺ + Cl⁻ → NaCl</div><div class="diagram-note"><span class="pen-blue">Na</span> loses 1 electron → <span class="pen-red">Na⁺</span><br><span class="pen-blue">Cl</span> gains 1 electron → <span class="pen-red">Cl⁻</span><br><span class="pen-green">Opposite charges attract → ionic crystal</span></div><p><b>Typical properties:</b> ionic compounds generally form crystal lattices, often have relatively high melting points, and conduct electricity when molten or dissolved because mobile ions are present.</p><p class="red-note"><b>★ VVI:</b> Explain formation of NaCl using electron transfer and draw the electron-dot representation.</p>'],
+      ['11. Covalent Bond','<p>A <b>covalent bond</b> forms when atoms share electron pairs. It is especially common between non-metal atoms. A shared pair can help each atom achieve a more stable valence-shell arrangement.</p><div class="formula">H· + ·H → H:H<br>One shared pair = single covalent bond</div><p><b>Single bond:</b> one shared pair. <b>Double bond:</b> two shared pairs. <b>Triple bond:</b> three shared pairs.</p><div class="diagram-note"><b>Lewis-style sketch:</b><br><span class="pen-blue">H</span> — <span class="pen-blue">H</span> &nbsp; → one shared pair<br><span class="pen-blue">O</span> = <span class="pen-blue">O</span> &nbsp; → two shared pairs</div><p class="green-note"><b>★ Exam point:</b> In a covalent bond, electrons are shared rather than completely transferred from one atom to another.</p>'],
+      ['12. Coordinate (Dative) Bond','<p>In a <b>coordinate covalent bond</b>, the shared electron pair is supplied by the same atom. After formation, it behaves as a covalent shared pair.</p><div class="formula">Donor atom with lone pair → accepts electron-deficient centre<br>lone pair → shared pair</div><p>A common introductory example is formation of ammonium ion, where ammonia supplies a lone pair to H⁺.</p><p><b>★ VVI:</b> Define coordinate bond and explain its formation with one example.</p>'],
+      ['13. Polar and Non-Polar Covalent Bonds','<p>If bonded atoms have similar attraction for the shared electrons, the bond may be described as <b>non-polar</b>. If the shared electrons are pulled more strongly toward one atom, the bond is <b>polar</b>.</p><p>This unequal sharing creates partial charges, represented as δ⁺ and δ⁻.</p><div class="formula">Unequal sharing → δ⁺—δ⁻ → bond polarity</div><p><b>Important:</b> bond polarity and overall molecular polarity are related but not always identical; molecular shape also matters.</p>'],
+      ['14. Hydrogen Bonding','<p><b>Hydrogen bonding</b> is a relatively strong intermolecular interaction involving hydrogen attached to a strongly electronegative atom and attraction toward another electronegative atom having suitable electron density.</p><p>It helps explain several unusual properties of water and influences boiling point, solubility and biological structures.</p><div class="diagram-note"><span class="pen-blue">O—H</span> ··· <span class="pen-blue">O</span><br><span class="pen-red">··· = hydrogen-bond attraction</span></div><p class="green-note"><b>★ Exam point:</b> Do not confuse hydrogen bonding with an ordinary covalent bond inside the molecule.</p>'],
+      ['15. Ionic vs Covalent — Notebook Comparison','<table class="note-table"><tr><th>Point</th><th>Ionic</th><th>Covalent</th></tr><tr><td>Basic idea</td><td>Electron transfer + ion attraction</td><td>Electron sharing</td></tr><tr><td>Common combination</td><td>Often metal + non-metal</td><td>Often non-metal + non-metal</td></tr><tr><td>Particles</td><td>Ions in lattice</td><td>Molecules / covalent networks</td></tr><tr><td>Conductivity</td><td>Often when molten/aqueous</td><td>Generally poor for molecular compounds</td></tr></table><p class="red-note"><b>★ VVI:</b> Differentiate ionic and covalent bonds on formation, particles and electrical conductivity.</p>'],
+      ['16. Complete Chapter Connection','<div class="formula">Atomic number → electronic configuration → valence electrons<br>↓<br>electron transfer / sharing<br>↓<br>ionic / covalent / coordinate bonding<br>↓<br>properties of the substance</div><p>This is the main story of the chapter. If you understand this chain, individual definitions become easier to remember.</p><p><b>★ Final practice inside the topic:</b> (1) Find p⁺, n⁰ and e⁻ from A and Z. (2) Write shell configuration. (3) Explain NaCl formation. (4) Compare ionic and covalent bonds. (5) Explain coordinate bonding with an example.</p>']
+    ],
+    example:'<b>Full worked example:</b> Consider sodium, Z = 11 and A = 23. Step 1: protons = Z = 11. Step 2: for a neutral atom, electrons = 11. Step 3: neutrons = A − Z = 23 − 11 = 12. Step 4: electronic configuration = 2,8,1. Step 5: one outer electron makes loss of one electron a simple model for forming Na⁺. Chlorine has configuration 2,8,7 and can gain one electron to form Cl⁻. The electrostatic attraction between Na⁺ and Cl⁻ is the basis of the ionic-bond model for NaCl.',
+    questions:['Define atom and name its three main subatomic particles.','Calculate protons, neutrons and electrons from atomic number and mass number.','Differentiate isotopes, isobars and isotones.','Explain Rutherford’s atomic model and one limitation.','Explain Bohr’s energy-level idea.','Write electronic configuration from atomic number.','Explain formation of NaCl using electron transfer.','Define covalent bond and distinguish single, double and triple bonds.','Define coordinate bond with an example.','Differentiate ionic and covalent compounds.'],
+    mcqs:['Atomic number represents: <b>A)</b> number of protons &nbsp; <b>B)</b> protons + neutrons &nbsp; <b>C)</b> electrons + neutrons &nbsp; <b>D)</b> mass only','For A=23 and Z=11, neutrons are: <b>A)</b> 12 &nbsp; <b>B)</b> 11 &nbsp; <b>C)</b> 23 &nbsp; <b>D)</b> 34','Na (2,8,1) tends to: <b>A)</b> lose one electron &nbsp; <b>B)</b> gain seven electrons &nbsp; <b>C)</b> share no electrons &nbsp; <b>D)</b> lose eight electrons','A covalent bond involves: <b>A)</b> sharing of electron pair(s) &nbsp; <b>B)</b> only neutron transfer &nbsp; <b>C)</b> proton transfer &nbsp; <b>D)</b> no electrons','In a coordinate bond, the shared pair is initially supplied by: <b>A)</b> one atom &nbsp; <b>B)</b> both nuclei &nbsp; <b>C)</b> a neutron &nbsp; <b>D)</b> the crystal lattice'],
+    revision:'Atom → nucleus + electrons; Z = protons; A = protons + neutrons; N = A − Z. Electronic configuration determines valence electrons. Ionic bonding is associated with electron transfer and ion attraction; covalent bonding with sharing; coordinate bonding with one-atom donation of the shared pair.'
+  };
+
+  Object.keys(L).forEach(topic=>{
+    if(topic === 'Atomic Structure and Chemical Bonding') return;
+    const n = L[topic];
+    const f = focus[topic] || n.overview || 'the main concepts, terminology, principles, applications and examination approach';
+    n.sections = n.sections || [];
+    const headings = n.sections.map(s=>s[0]);
+    const additions = [
+      ['Notebook Study Map',`<p><b>Chapter:</b> ${esc(topic)}</p><p>The topic should be studied as a connected chain. Main scope: <b>${esc(f)}</b>.</p><div class="formula">CONCEPT → PRINCIPLE → DIAGRAM / FORMULA → EXAMPLE → APPLICATION → REVISION</div>`],
+      ['How to Study This Topic',`<p>For every new term, write <b>meaning + parts/variables + principle + one example + application</b>. For numericals use <b>Given → Formula → Substitution → Result → Unit</b>. For diagrams use clear labels and arrows.</p><p class="green-note"><b>★ Exam point:</b> Learn the reason behind the formula or process instead of memorising an isolated line.</p>`],
+      ['Diagram / Formula Notebook',`<div class="diagram-note"><p><span class="pen-blue">BLUE:</span> headings and labels &nbsp; <span class="pen-black">BLACK:</span> explanation &nbsp; <span class="pen-red">RED:</span> formula / key warning &nbsp; <span class="pen-green">GREEN:</span> example / result</p><div class="sketch-lines">INPUT → PROCESS → OUTPUT<br>GIVEN → FORMULA → SOLUTION<br>PART → FUNCTION → APPLICATION</div></div>`],
+      ['Examination Writing Method',`<ol class="steps"><li>Identify whether the question asks to define, explain, derive, compare, calculate or draw.</li><li>Start with the governing definition/principle.</li><li>Add a labelled diagram or formula where useful.</li><li>Write steps in logical order.</li><li>Box the final numerical result and unit.</li></ol>`]
+    ];
+    additions.reverse().forEach(s=>{if(!headings.includes(s[0])) n.sections.unshift(s);});
+  });
+  window.PX_LESSONS = L;
 })();
