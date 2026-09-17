@@ -1,0 +1,16 @@
+/* PrinceXmahto Study — handwritten notebook layer */
+:root{--paper:#fffdf4;--ink:#15171c;--blue:#145dcc;--red:#d52b2b;--green:#17834b;--line:#d7e2ef}
+.notebook{background:var(--paper);position:relative;border:1px solid #e4dfd0;border-radius:18px;overflow:hidden;box-shadow:0 18px 60px rgba(30,40,60,.08)}
+.notebook:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,rgba(60,120,190,.13) 32px);pointer-events:none}
+.notebook:after{content:"";position:absolute;top:0;bottom:0;left:52px;width:1px;background:rgba(210,55,55,.28);pointer-events:none}
+.notebook-inner{position:relative;padding:36px 54px 60px 76px;font-family:"Comic Sans MS","Segoe Print",cursive}
+.notebook .definition{border-left:4px solid var(--blue);background:rgba(220,235,255,.55);font-family:"Comic Sans MS","Segoe Print",cursive}
+.notebook .formula{color:var(--red);background:rgba(255,244,230,.7);border-color:#efd8c2;font-family:"Segoe Print","Comic Sans MS",cursive}
+.notebook .steps li:nth-child(3n){color:var(--green)}
+.notebook h2{color:var(--blue);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.notebook .vvi{border-left:5px solid var(--red);background:rgba(255,232,232,.7);padding:12px 15px;border-radius:0 12px 12px 0}
+.notebook .star{color:var(--red);font-weight:900}
+.unit-download{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+.unit-download .pill{font-family:inherit}
+@media(max-width:700px){.notebook:after{left:30px}.notebook-inner{padding:28px 24px 45px 48px}.notebook:before{background:repeating-linear-gradient(to bottom,transparent 0,transparent 28px,rgba(60,120,190,.13) 29px)}}
+@media print{body{background:var(--paper)}.notebook{border:0;box-shadow:none;border-radius:0}.notebook-inner{padding:24px 38px 40px 68px}.notebook:after{left:46px}.unit-download{display:none!important}}
