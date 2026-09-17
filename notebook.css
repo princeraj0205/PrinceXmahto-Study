@@ -10,7 +10,7 @@
 .notebook h2{color:var(--blue);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
 .notebook .vvi{border-left:5px solid var(--red);background:rgba(255,232,232,.7);padding:12px 15px;border-radius:0 12px 12px 0}
 .notebook .star{color:var(--red);font-weight:900}
-.unit-download{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
-.unit-download .pill{font-family:inherit}
-@media(max-width:700px){.notebook:after{left:30px}.notebook-inner{padding:28px 24px 45px 48px}.notebook:before{background:repeating-linear-gradient(to bottom,transparent 0,transparent 28px,rgba(60,120,190,.13) 29px)}}
-@media print{body{background:var(--paper)}.notebook{border:0;box-shadow:none;border-radius:0}.notebook-inner{padding:24px 38px 40px 68px}.notebook:after{left:46px}.unit-download{display:none!important}}
+.notebook .term-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.notebook .term-grid>div{border:1px dashed #c9d5e4;border-radius:12px;padding:13px;background:rgba(255,255,255,.45)}.notebook .term-grid b{display:block;color:var(--blue);margin-bottom:3px}.notebook .term-grid span{display:block;color:#555b67;font-size:13px}.diagram-note{border:1px dashed #cbd7e4;padding:14px;border-radius:12px;background:rgba(255,255,255,.5)}.pen-blue{color:var(--blue);font-weight:800}.pen-black{color:#111;font-weight:800}.pen-red{color:var(--red);font-weight:800}.pen-green{color:var(--green);font-weight:800}.sketch-lines{margin-top:10px;color:var(--green);line-height:2;font-weight:700}
+.unit-download{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}.unit-download .pill{font-family:inherit}
+@media(max-width:700px){.notebook:after{left:30px}.notebook-inner{padding:28px 24px 45px 48px}.notebook:before{background:repeating-linear-gradient(to bottom,transparent 0,transparent 28px,rgba(60,120,190,.13) 29px)}.notebook .term-grid{grid-template-columns:1fr}}
+@media print{body{background:var(--paper)}.notebook{border:0;box-shadow:none;border-radius:0}.notebook-inner{padding:24px 38px 40px 68px}.notebook:after{left:46px}.unit-download{display:none!important}.note-section{break-inside:avoid}.term-grid,.diagram-note,.vvi{break-inside:avoid}}
