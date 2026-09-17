@@ -8,7 +8,6 @@ const root=document.querySelector('#notes');
 const nav=document.querySelector('#topicNav');
 const esc=x=>String(x).replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
 
-/* Pack the already-rendered lesson into real A4-sized pages before printing. */
 function paginateUnit(){
  const inner=root.querySelector('.notebook-inner');
  if(!inner||inner.dataset.paginated==='1')return;
@@ -86,8 +85,8 @@ function addPdfControls(){
  const bar=document.createElement('div');
  bar.className='unit-download pdf-action-bar';
  bar.innerHTML=`<button class="pill" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">🖨️ Print</button><button class="pill" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">📄 Save PDF</button>`;
- bar.style.cssText='display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px;position:relative;z-index:20;';
- root.parentNode.insertBefore(bar,root.nextSibling);
+ bar.style.cssText='display:flex!important;gap:10px;flex-wrap:wrap;margin:0 auto 18px;position:relative;z-index:50;max-width:1400px;padding:0 24px;';
+ root.parentNode.insertBefore(bar,root);
 }
 
 function renderNewLesson(topic,note,index,title,units){
@@ -95,7 +94,7 @@ function renderNewLesson(topic,note,index,title,units){
  nav.innerHTML=`<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
  const sections=note.sections.map(([heading,html])=>`<section class="note-section lesson-page"><h2>${esc(heading)}</h2>${html}</section>`).join('');
  root.innerHTML=`<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
- <div class="unit-download"><span class="progress-badge">${progress}% syllabus</span><button class="pill" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">🖨️ Print / Save PDF</button></div>
+ <div class="unit-download"><span class="progress-badge">${progress}% syllabus</span></div>
  <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · UNIT ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
  <section class="note-section lesson-page"><h2>Unit at a Glance</h2><p>${note.overview}</p><div class="formula">FIRST UNDERSTAND → THEN LEARN → THEN PRACTISE → THEN REVISE</div></section>
  ${sections}
