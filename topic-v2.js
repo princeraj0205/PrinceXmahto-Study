@@ -15,7 +15,7 @@ function paginateUnit(){
  const nodes=[...inner.children].filter(el=>!el.classList.contains('unit-download'));
  const pagesWrap=document.createElement('div');
  pagesWrap.className='pdf-pages';
- const PAGE_LIMIT=1000;
+ const PAGE_LIMIT=850;
  let page=null,pageNo=0;
  const newPage=()=>{
    pageNo++;
@@ -25,7 +25,23 @@ function paginateUnit(){
    page.style.pageBreakAfter='always';
    page.style.breakInside='auto';
    page.style.pageBreakInside='auto';
-   page.innerHTML=`<div class="pdf-page-label">PRINCEXMAHTO STUDY <span>PAGE ${String(pageNo).padStart(2,'0')}</span></div>`;
+   page.innerHTML=`
+     <div class="pdf-page-header">
+       <div class="pdf-brand-row">
+         <img src="assets/princexmahto-logo.svg" alt="PrinceXmahto logo">
+         <div class="pdf-brand-name"><strong>Prince<span>Xmahto</span></strong><small>STUDY • LEARN • GROW • SUCCEED</small></div>
+         <div class="pdf-motto">Education<br><i>for a Better</i><br>Tomorrow</div>
+       </div>
+       <div class="pdf-info-row">
+         <span>🎓 Diploma &amp; Polytechnic Study Notes</span><span>🌐 www.princexmahto.in</span><span>◎ @princexmahto</span><span>▶ PrinceXmahto</span>
+       </div>
+     </div>
+     <div class="pdf-page-label"><span>PRINCEXMAHTO STUDY</span><b>PAGE ${String(pageNo).padStart(2,'0')}</b></div>
+     <div class="pdf-page-footer">
+       <div><strong>PrinceXmahto</strong><small>STUDY RESOURCES</small></div>
+       <span>🌐 www.princexmahto.in</span><span>◎ @princexmahto</span><span>▶ PrinceXmahto</span>
+       <b>PAGE ${String(pageNo).padStart(2,'0')}</b>
+     </div>`;
    pagesWrap.appendChild(page);
    return page;
  };
