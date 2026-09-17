@@ -8,6 +8,14 @@ const root=document.querySelector('#notes');
 const nav=document.querySelector('#topicNav');
 const esc=x=>String(x).replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
 
+function syllabusBlock(topic){
+ const d=window.PX_SYLLABUS_DETAIL&&window.PX_SYLLABUS_DETAIL[topic];
+ if(!d)return '';
+ const points=(d.points||[]).map(x=>`<li>${esc(x)}</li>`).join('');
+ const learn=(d.learn||[]).map(x=>`<span>${esc(x)}</span>`).join('');
+ return `<section class="syllabus-map"><h2>SBTE Syllabus Coverage</h2><div class="unit-label">${esc(d.unit||'Prescribed syllabus topic')}</div><ul>${points}</ul>${learn?`<div class="learn"><b>Notes will include:</b> ${learn}</div>`:''}</section>`;
+}
+
 function renderLesson(topic,note,index,title,units){
  const progress=Math.round((index/units.length)*100);
  nav.innerHTML=`<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
@@ -19,7 +27,7 @@ function renderLesson(topic,note,index,title,units){
  const revision=note.revision?`<section class="note-section"><h2>Quick Revision</h2><p>${note.revision}</p></section>`:'';
  root.innerHTML=`<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
  <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · TOPIC ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
- ${overview}${sections}${example}${questions}${mcqs}${revision}
+ ${syllabusBlock(topic)}${overview}${sections}${example}${questions}${mcqs}${revision}
  </div></div>`;
 }
 
@@ -29,5 +37,5 @@ else{
  const topic=units.includes(selected)?selected:units[0];
  const note=window.PX_LESSONS&&window.PX_LESSONS[topic];
  if(note)renderLesson(topic,note,units.indexOf(topic)+1,title,units);
- else{const script=document.createElement('script');script.src='topic.js?v=20260918.3';document.body.appendChild(script);}
+ else{const script=document.createElement('script');script.src='topic.js?v=20260918.5';document.body.appendChild(script);}
 }
