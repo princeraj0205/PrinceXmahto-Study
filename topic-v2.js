@@ -8,8 +8,8 @@ const root=document.querySelector('#notes');
 const nav=document.querySelector('#topicNav');
 const esc=x=>String(x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
 
-/* Build real A4-sized content pages before printing. Pages are filled continuously
-   instead of forcing every topic/section onto its own mostly-empty sheet. */
+/* Pack the already-rendered lesson into real A4-sized pages before printing.
+   Short sections share a page; long sections continue onto the next page. */
 function paginateUnit(){
  const inner=root.querySelector('.notebook-inner');
  if(!inner||inner.dataset.paginated==='1')return;
@@ -18,35 +18,39 @@ function paginateUnit(){
  const pagesWrap=document.createElement('div');
  pagesWrap.className='pdf-pages';
  const PAGE_LIMIT=1000;
- let page=null;
- let pageNo=0;
+ let page=null,pageNo=0;
  const newPage=()=>{
    pageNo++;
    page=document.createElement('section');
    page.className='pdf-page';
+   page.style.breakAfter='page';
+   page.style.pageBreakAfter='always';
+   page.style.breakInside='auto';
+   page.style.pageBreakInside='auto';
    page.innerHTML=`<div class="pdf-page-label">PRINCEXMAHTO STUDY <span>PAGE ${String(pageNo).padStart(2,'0')}</span></div>`;
    pagesWrap.appendChild(page);
    return page;
  };
  const over=()=>page&&page.scrollHeight>PAGE_LIMIT;
- const putSimple=(node)=>{
+ const putSimple=node=>{
    if(!page)newPage();
    const copy=node.cloneNode(true);
    page.appendChild(copy);
    if(over()){
      page.removeChild(copy);
-     if(page.querySelector('.pdf-page-label')&&page.children.length===1)newPage();
-     else newPage();
+     newPage();
      page.appendChild(copy);
    }
  };
- const putSection=(section)=>{
+ const putSection=section=>{
    const parts=[...section.children];
    if(!parts.length){putSimple(section);return;}
    let shell=null;
    const makeShell=()=>{
      shell=document.createElement('section');
-     shell.className=section.className.replace(/\blesson-page\b/g,'');
+     shell.className=section.className.replace(/\blesson-page\b/g,'').trim()||'note-section';
+     shell.style.breakInside='auto';
+     shell.style.pageBreakInside='auto';
      page.appendChild(shell);
    };
    for(const part of parts){
@@ -56,7 +60,7 @@ function paginateUnit(){
      shell.appendChild(copy);
      if(over()){
        shell.removeChild(copy);
-       if(shell.children.length<=1){
+       if(shell.children.length===1){
          page.removeChild(shell);
          newPage();
          makeShell();
@@ -65,19 +69,14 @@ function paginateUnit(){
          makeShell();
        }
        shell.appendChild(copy);
-       if(over()&&shell.children.length===2){
-         /* A single unusually large block is allowed to flow naturally rather
-            than creating a blank page or clipping the content. */
-       }
      }
    }
  };
- nodes.forEach(node=>{
-   if(node.classList.contains('note-section'))putSection(node);
-   else putSimple(node);
- });
+ nodes.forEach(node=>node.classList.contains('note-section')?putSection(node):putSimple(node));
  inner.innerHTML='';
  inner.appendChild(pagesWrap);
+ pagesWrap.lastElementChild?.style.removeProperty('break-after');
+ pagesWrap.lastElementChild?.style.removeProperty('page-break-after');
 }
 
 function renderNewLesson(topic,note,index,title,units){
@@ -95,6 +94,11 @@ function renderNewLesson(topic,note,index,title,units){
  <section class="note-section lesson-page"><h2>Quick Revision</h2><p>${note.revision}</p></section>
  <section class="note-section lesson-page final-tip"><h2>Last Page — Revise Before Exam</h2><p>Definitions → principles → formulas → diagrams → solved examples → ★ VVI practice → applications/precautions.</p><p><b>PrinceXmahto Study</b> · Learn · Build · Grow</p></section>
  </div></div>`;
- requestAnimationFrame(()=>paginateUnit());
+ /* Temporarily use the compact A4 typography while measuring, then restore the normal site view. */
+ document.documentElement.classList.add('px-paginating');
+ requestAnimationFrame(()=>{
+   paginateUnit();
+   document.documentElement.classList.remove('px-paginating');
+ });
 }
 if(!branch||!subject){root.innerHTML='<div class="empty">Topic path not found. <a href="./">Return to catalogue</a>.</div>';}else{const[code,title,units]=subject;const topic=units.includes(selected)?selected:units[0];const note=window.PX_LESSONS&&window.PX_LESSONS[topic];if(note)renderNewLesson(topic,note,units.indexOf(topic)+1,title,units);else{const script=document.createElement('script');script.src='topic.js';document.body.appendChild(script);}}
