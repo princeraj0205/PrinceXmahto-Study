@@ -80,16 +80,17 @@ function paginateUnit(){
 function renderNewLesson(topic,note,index,title,units){
  const progress=Math.round((index/units.length)*100);
  nav.innerHTML=`<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
- const sections=note.sections.map(([heading,html])=>`<section class="note-section lesson-page"><h2>${esc(heading)}</h2>${html}</section>`).join('');
+ const sections=note.sections.map(([heading,html])=>`<section class="note-section"><h2>${esc(heading)}</h2>${html}</section>`).join('');
+ const overview=note.overview?`<section class="chapter-overview"><p>${note.overview}</p></section>`:'';
  root.innerHTML=`<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
  <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · UNIT ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
- <section class="note-section lesson-page"><h2>Unit at a Glance</h2><p>${note.overview}</p><div class="formula">FIRST UNDERSTAND → THEN LEARN → THEN PRACTISE → THEN REVISE</div></section>
+ ${overview}
  ${sections}
- <section class="note-section lesson-page"><h2>Worked Example</h2><p>${note.example}</p></section>
- <section class="note-section lesson-page"><h2>Practice Questions</h2><ol class="exam-list">${note.questions.map((x,i)=>`<li>${i<Math.min(4,note.questions.length)?'<span class="star">★</span> ':''}${esc(x)}</li>`).join('')}</ol></section>
- <section class="note-section lesson-page"><h2>MCQ Quick Check</h2><ol class="mcq-list">${note.mcqs.map(x=>`<li>${x}</li>`).join('')}</ol>${note.answerKey?`<details class="answer-key"><summary>Show answer key</summary><p>${note.answerKey.map((x,i)=>`<b>${i+1}. ${esc(x)}</b>`).join(' &nbsp; ')}</p></details>`:''}</section>
- <section class="note-section lesson-page"><h2>Quick Revision</h2><p>${note.revision}</p></section>
- <section class="note-section lesson-page final-tip"><h2>Last Page — Revise Before Exam</h2><p>Definitions → principles → formulas → diagrams → solved examples → ★ VVI practice → applications/precautions.</p><p><b>PrinceXmahto Study</b> · Learn · Build · Grow</p></section>
+ <section class="note-section"><h2>Worked Example</h2><p>${note.example}</p></section>
+ <section class="note-section"><h2>Practice Questions</h2><ol class="exam-list">${note.questions.map((x,i)=>`<li>${i<Math.min(4,note.questions.length)?'<span class="star">★</span> ':''}${esc(x)}</li>`).join('')}</ol></section>
+ <section class="note-section"><h2>MCQ Quick Check</h2><ol class="mcq-list">${note.mcqs.map(x=>`<li>${x}</li>`).join('')}</ol>${note.answerKey?`<details class="answer-key"><summary>Show answer key</summary><p>${note.answerKey.map((x,i)=>`<b>${i+1}. ${esc(x)}</b>`).join(' &nbsp; ')}</p></details>`:''}</section>
+ <section class="note-section"><h2>Quick Revision</h2><p>${note.revision}</p></section>
+ <section class="note-section final-tip"><h2>Exam Revision</h2><p>Revise the definitions, key relations, diagrams, solved examples and the ★ questions from this chapter.</p><p><b>PrinceXmahto Study</b> · Learn · Build · Grow</p></section>
  </div></div>`;
  document.documentElement.classList.add('px-paginating');
  requestAnimationFrame(()=>{
