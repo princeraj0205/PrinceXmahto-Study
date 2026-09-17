@@ -6,7 +6,7 @@ const branch=PX_CURRICULUM.findBranch(branchId);
 const subject=branch&&PX_CURRICULUM.findSubject(branchId,subjectCode);
 const root=document.querySelector('#notes');
 const nav=document.querySelector('#topicNav');
-const esc=x=>String(x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+const esc=x=>String(x).replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
 
 /* Pack the already-rendered lesson into real A4-sized pages before printing.
    Short sections share a page; long sections continue onto the next page. */
@@ -14,6 +14,7 @@ function paginateUnit(){
  const inner=root.querySelector('.notebook-inner');
  if(!inner||inner.dataset.paginated==='1')return;
  inner.dataset.paginated='1';
+ const downloadBar=inner.querySelector('.unit-download');
  const nodes=[...inner.children].filter(el=>!el.classList.contains('unit-download'));
  const pagesWrap=document.createElement('div');
  pagesWrap.className='pdf-pages';
@@ -74,6 +75,7 @@ function paginateUnit(){
  };
  nodes.forEach(node=>node.classList.contains('note-section')?putSection(node):putSimple(node));
  inner.innerHTML='';
+ if(downloadBar)inner.appendChild(downloadBar);
  inner.appendChild(pagesWrap);
  pagesWrap.lastElementChild?.style.removeProperty('break-after');
  pagesWrap.lastElementChild?.style.removeProperty('page-break-after');
@@ -84,7 +86,7 @@ function renderNewLesson(topic,note,index,title,units){
  nav.innerHTML=`<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
  const sections=note.sections.map(([heading,html])=>`<section class="note-section lesson-page"><h2>${esc(heading)}</h2>${html}</section>`).join('');
  root.innerHTML=`<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
- <div class="unit-download"><span class="progress-badge">${progress}% syllabus</span><button class="pill" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">Download / Save Unit PDF ↗</button></div>
+ <div class="unit-download"><span class="progress-badge">${progress}% syllabus</span><button class="pill" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">🖨️ Print / Save PDF</button></div>
  <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · UNIT ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
  <section class="note-section lesson-page"><h2>Unit at a Glance</h2><p>${note.overview}</p><div class="formula">FIRST UNDERSTAND → THEN LEARN → THEN PRACTISE → THEN REVISE</div></section>
  ${sections}
