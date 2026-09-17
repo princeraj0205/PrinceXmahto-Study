@@ -4,21 +4,25 @@ Standalone study-materials product for **SBTE Bihar Diploma — Admission Sessio
 
 ## Product flow
 
-`Catalogue → Branch → Subject → Unit → Lesson → Print / Save PDF`
+`Catalogue → Branch → Subject → Unit → Handwritten Notes → Download / Save Unit PDF`
 
-## Current foundation
+## Notes standard
 
-- Six programme-specific branch catalogues: CE, CRE, CSE, EE, ELX and ME.
-- Course codes and subject names mapped from the supplied 2026 SBTE curriculum documents.
-- Responsive, typography-led academic interface.
-- Original lesson layer with concept-first explanations, examples, exam approach and revision.
-- Print surface designed for A4-style browser PDF output.
-- PrinceXmahto logo included as a local asset.
-- Vercel-ready static deployment configuration.
+- Each curriculum unit is treated as a long-form lesson; there is no artificial page limit.
+- Notes use a notebook-style ruled-paper presentation with a handwritten font.
+- **Blue** is used for major headings/labels, **black** for explanation, **red** for formulas and high-priority marks, and **green** for worked examples/revision cues.
+- Diagrams and visual study blocks are included wherever they improve understanding.
+- High-priority questions are marked with a red **★** inside the topic instead of being moved to a separate VVI page.
+- Existing detailed lessons are preserved and expanded rather than replaced by short filler notes.
+- Each unit has a **Download / Save Unit PDF** action. The browser print surface is formatted for clean A4 output and repeats the PrinceXmahto logo/brand header when the browser's print settings allow background graphics.
 
-## Important content rule
+## Curriculum source
 
-The curriculum map is the source-of-truth for course organization. Lesson prose is original writing; it does not reproduce textbook pages. Before publishing a subject as complete, its unit/topic list should be checked against the corresponding official curriculum PDF and each topic should receive its own lesson, diagrams where useful, worked examples, exam questions, MCQs and revision material.
+The six programme-specific maps are based on the supplied SBTE Bihar Semester-I curriculum PDFs for CE, CRE, CSE, EE, ELX and ME. The curriculum map remains the source of truth for course organization; lesson prose is original educational writing and does not reproduce textbook pages.
+
+## Engineering note
+
+Where a curriculum topic is practical or safety-related, notes emphasize safe procedure, hazard awareness and trained/institutional guidance rather than unsafe experimentation.
 
 ## Deployment
 
