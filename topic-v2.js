@@ -7,6 +7,79 @@ const subject=branch&&PX_CURRICULUM.findSubject(branchId,subjectCode);
 const root=document.querySelector('#notes');
 const nav=document.querySelector('#topicNav');
 const esc=x=>String(x).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+
+/* Build real A4-sized content pages before printing. Pages are filled continuously
+   instead of forcing every topic/section onto its own mostly-empty sheet. */
+function paginateUnit(){
+ const inner=root.querySelector('.notebook-inner');
+ if(!inner||inner.dataset.paginated==='1')return;
+ inner.dataset.paginated='1';
+ const nodes=[...inner.children].filter(el=>!el.classList.contains('unit-download'));
+ const pagesWrap=document.createElement('div');
+ pagesWrap.className='pdf-pages';
+ const PAGE_LIMIT=1000;
+ let page=null;
+ let pageNo=0;
+ const newPage=()=>{
+   pageNo++;
+   page=document.createElement('section');
+   page.className='pdf-page';
+   page.innerHTML=`<div class="pdf-page-label">PRINCEXMAHTO STUDY <span>PAGE ${String(pageNo).padStart(2,'0')}</span></div>`;
+   pagesWrap.appendChild(page);
+   return page;
+ };
+ const over=()=>page&&page.scrollHeight>PAGE_LIMIT;
+ const putSimple=(node)=>{
+   if(!page)newPage();
+   const copy=node.cloneNode(true);
+   page.appendChild(copy);
+   if(over()){
+     page.removeChild(copy);
+     if(page.querySelector('.pdf-page-label')&&page.children.length===1)newPage();
+     else newPage();
+     page.appendChild(copy);
+   }
+ };
+ const putSection=(section)=>{
+   const parts=[...section.children];
+   if(!parts.length){putSimple(section);return;}
+   let shell=null;
+   const makeShell=()=>{
+     shell=document.createElement('section');
+     shell.className=section.className.replace(/\blesson-page\b/g,'');
+     page.appendChild(shell);
+   };
+   for(const part of parts){
+     if(!page)newPage();
+     if(!shell)makeShell();
+     const copy=part.cloneNode(true);
+     shell.appendChild(copy);
+     if(over()){
+       shell.removeChild(copy);
+       if(shell.children.length<=1){
+         page.removeChild(shell);
+         newPage();
+         makeShell();
+       }else{
+         newPage();
+         makeShell();
+       }
+       shell.appendChild(copy);
+       if(over()&&shell.children.length===2){
+         /* A single unusually large block is allowed to flow naturally rather
+            than creating a blank page or clipping the content. */
+       }
+     }
+   }
+ };
+ nodes.forEach(node=>{
+   if(node.classList.contains('note-section'))putSection(node);
+   else putSimple(node);
+ });
+ inner.innerHTML='';
+ inner.appendChild(pagesWrap);
+}
+
 function renderNewLesson(topic,note,index,title,units){
  const progress=Math.round((index/units.length)*100);
  nav.innerHTML=`<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
@@ -22,5 +95,6 @@ function renderNewLesson(topic,note,index,title,units){
  <section class="note-section lesson-page"><h2>Quick Revision</h2><p>${note.revision}</p></section>
  <section class="note-section lesson-page final-tip"><h2>Last Page — Revise Before Exam</h2><p>Definitions → principles → formulas → diagrams → solved examples → ★ VVI practice → applications/precautions.</p><p><b>PrinceXmahto Study</b> · Learn · Build · Grow</p></section>
  </div></div>`;
+ requestAnimationFrame(()=>paginateUnit());
 }
 if(!branch||!subject){root.innerHTML='<div class="empty">Topic path not found. <a href="./">Return to catalogue</a>.</div>';}else{const[code,title,units]=subject;const topic=units.includes(selected)?selected:units[0];const note=window.PX_LESSONS&&window.PX_LESSONS[topic];if(note)renderNewLesson(topic,note,units.indexOf(topic)+1,title,units);else{const script=document.createElement('script');script.src='topic.js';document.body.appendChild(script);}}
