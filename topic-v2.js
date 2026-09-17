@@ -12,7 +12,6 @@ function paginateUnit(){
  const inner=root.querySelector('.notebook-inner');
  if(!inner||inner.dataset.paginated==='1')return;
  inner.dataset.paginated='1';
- const downloadBar=inner.querySelector('.unit-download');
  const nodes=[...inner.children].filter(el=>!el.classList.contains('unit-download'));
  const pagesWrap=document.createElement('div');
  pagesWrap.className='pdf-pages';
@@ -73,20 +72,9 @@ function paginateUnit(){
  };
  nodes.forEach(node=>node.classList.contains('note-section')?putSection(node):putSimple(node));
  inner.innerHTML='';
- if(downloadBar)inner.appendChild(downloadBar);
  inner.appendChild(pagesWrap);
  pagesWrap.lastElementChild?.style.removeProperty('break-after');
  pagesWrap.lastElementChild?.style.removeProperty('page-break-after');
-}
-
-function addPdfControls(){
- const old=document.querySelector('.pdf-action-bar');
- if(old)old.remove();
- const bar=document.createElement('div');
- bar.className='unit-download pdf-action-bar';
- bar.innerHTML=`<button class="pill" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">🖨️ Print</button><button class="pill" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">📄 Save PDF</button>`;
- bar.style.cssText='display:flex!important;gap:10px;flex-wrap:wrap;margin:0 auto 18px;position:relative;z-index:50;max-width:1400px;padding:0 24px;';
- root.parentNode.insertBefore(bar,root);
 }
 
 function renderNewLesson(topic,note,index,title,units){
@@ -95,7 +83,7 @@ function renderNewLesson(topic,note,index,title,units){
  const sections=note.sections.map(([heading,html])=>`<section class="note-section lesson-page"><h2>${esc(heading)}</h2>${html}</section>`).join('');
  root.innerHTML=`<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
  <div class="unit-download"><span class="progress-badge">${progress}% syllabus</span></div>
- <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · UNIT ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
+ <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · UNIT ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div><div class="lesson-actions"><button class="pill small" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">🖨️ Print</button><button class="pill small" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">📄 Save PDF</button></div></div>
  <section class="note-section lesson-page"><h2>Unit at a Glance</h2><p>${note.overview}</p><div class="formula">FIRST UNDERSTAND → THEN LEARN → THEN PRACTISE → THEN REVISE</div></section>
  ${sections}
  <section class="note-section lesson-page"><h2>Worked Example</h2><p>${note.example}</p></section>
@@ -104,7 +92,6 @@ function renderNewLesson(topic,note,index,title,units){
  <section class="note-section lesson-page"><h2>Quick Revision</h2><p>${note.revision}</p></section>
  <section class="note-section lesson-page final-tip"><h2>Last Page — Revise Before Exam</h2><p>Definitions → principles → formulas → diagrams → solved examples → ★ VVI practice → applications/precautions.</p><p><b>PrinceXmahto Study</b> · Learn · Build · Grow</p></section>
  </div></div>`;
- addPdfControls();
  document.documentElement.classList.add('px-paginating');
  requestAnimationFrame(()=>{
    paginateUnit();
