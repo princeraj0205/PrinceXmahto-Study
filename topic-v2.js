@@ -8,8 +8,7 @@ const root=document.querySelector('#notes');
 const nav=document.querySelector('#topicNav');
 const esc=x=>String(x).replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]));
 
-/* Pack the already-rendered lesson into real A4-sized pages before printing.
-   Short sections share a page; long sections continue onto the next page. */
+/* Pack the already-rendered lesson into real A4-sized pages before printing. */
 function paginateUnit(){
  const inner=root.querySelector('.notebook-inner');
  if(!inner||inner.dataset.paginated==='1')return;
@@ -81,12 +80,22 @@ function paginateUnit(){
  pagesWrap.lastElementChild?.style.removeProperty('page-break-after');
 }
 
+function addPdfControls(){
+ const old=document.querySelector('.pdf-action-bar');
+ if(old)old.remove();
+ const bar=document.createElement('div');
+ bar.className='unit-download pdf-action-bar';
+ bar.innerHTML=`<button class="pill" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">🖨️ Print</button><button class="pill" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">📄 Save PDF</button>`;
+ bar.style.cssText='display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px;position:relative;z-index:20;';
+ root.parentNode.insertBefore(bar,root.nextSibling);
+}
+
 function renderNewLesson(topic,note,index,title,units){
  const progress=Math.round((index/units.length)*100);
  nav.innerHTML=`<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
  const sections=note.sections.map(([heading,html])=>`<section class="note-section lesson-page"><h2>${esc(heading)}</h2>${html}</section>`).join('');
  root.innerHTML=`<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
- <div class="unit-download"><span class="progress-badge">${progress}% syllabus</span><button class="pill" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">🖨️ Print / Save PDF</button></div>
+ <div class="unit-download"><span class="progress-badge">${progress}% syllabus</span><button class="pill" type="button" onclick="window.PX_PRINT_UNIT?PX_PRINT_UNIT():window.print()">🖨️ Print / Save PDF</button></div>
  <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · UNIT ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
  <section class="note-section lesson-page"><h2>Unit at a Glance</h2><p>${note.overview}</p><div class="formula">FIRST UNDERSTAND → THEN LEARN → THEN PRACTISE → THEN REVISE</div></section>
  ${sections}
@@ -96,7 +105,7 @@ function renderNewLesson(topic,note,index,title,units){
  <section class="note-section lesson-page"><h2>Quick Revision</h2><p>${note.revision}</p></section>
  <section class="note-section lesson-page final-tip"><h2>Last Page — Revise Before Exam</h2><p>Definitions → principles → formulas → diagrams → solved examples → ★ VVI practice → applications/precautions.</p><p><b>PrinceXmahto Study</b> · Learn · Build · Grow</p></section>
  </div></div>`;
- /* Temporarily use the compact A4 typography while measuring, then restore the normal site view. */
+ addPdfControls();
  document.documentElement.classList.add('px-paginating');
  requestAnimationFrame(()=>{
    paginateUnit();
