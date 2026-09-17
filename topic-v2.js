@@ -16,18 +16,30 @@ function syllabusBlock(topic){
  return `<section class="syllabus-map"><h2>SBTE Syllabus Coverage</h2><div class="unit-label">${esc(d.unit||'Prescribed syllabus topic')}</div><ul>${points}</ul>${learn?`<div class="learn"><b>Notes will include:</b> ${learn}</div>`:''}</section>`;
 }
 
+function teacherBlock(note){
+ let out='';
+ if(note.def)out+=`<section class="teacher-card concept"><div class="teacher-label">👨‍🏫 Pehle concept samjho</div><p>${note.def}</p></section>`;
+ if(note.body)out+=`<section class="teacher-card explanation"><div class="teacher-label">📖 Ab detail mein samajhte hain</div>${note.body}</section>`;
+ if(note.formula)out+=`<section class="teacher-card formula"><div class="teacher-label">✍️ Formula / Core idea</div><pre>${esc(note.formula)}</pre></section>`;
+ if(note.ex)out+=`<section class="teacher-card example"><div class="teacher-label">🧮 Chalo example se karte hain</div>${note.ex}</section>`;
+ return out;
+}
+
 function renderLesson(topic,note,index,title,units){
  const progress=Math.round((index/units.length)*100);
  nav.innerHTML=`<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
- const overview=note.overview?`<section class="chapter-overview"><p>${note.overview}</p></section>`:'';
- const sections=(note.sections||[]).map(([heading,html])=>`<section class="note-section"><h2>${esc(heading)}</h2>${html}</section>`).join('');
- const example=note.example?`<section class="note-section"><h2>Worked Examples</h2><div class="worked-example">${note.example}</div></section>`:'';
- const questions=(note.questions||[]).length?`<section class="note-section"><h2>Important &amp; Practice Questions</h2><ol class="exam-list">${note.questions.map((x,i)=>`<li>${i<Math.min(4,note.questions.length)?'<span class="star">★</span> ':''}${esc(x)}</li>`).join('')}</ol></section>`:'';
- const mcqs=(note.mcqs||[]).length?`<section class="note-section"><h2>MCQ Practice</h2><ol class="mcq-list">${note.mcqs.map(x=>`<li>${x}</li>`).join('')}</ol>${note.answerKey?`<details class="answer-key"><summary>Answer key</summary><p>${note.answerKey.map((x,i)=>`<b>${i+1}. ${esc(x)}</b>`).join(' &nbsp; ')}</p></details>`:''}</section>`:'';
- const revision=note.revision?`<section class="note-section"><h2>Quick Revision</h2><p>${note.revision}</p></section>`:'';
+ const overview=note.overview?`<section class="chapter-overview"><div class="teacher-label">🎓 Aaj hum kya seekhenge?</div><p>${note.overview}</p></section>`:'';
+ const teaching=teacherBlock(note);
+ const sections=(note.sections||[]).map(([heading,html])=>`<section class="note-section"><h2>${esc(heading)}</h2><div class="teacher-copy">${html}</div></section>`).join('');
+ const example=note.example?`<section class="note-section"><h2>Worked Examples — Step by Step</h2><div class="worked-example">${note.example}</div></section>`:'';
+ const questions=(note.questions||[]).length?`<section class="note-section"><h2>Ab khud solve karo</h2><p class="teacher-hint">Pehle question ko khud try karo. Ye questions isi lesson ke concepts ko check karne ke liye hain.</p><ol class="exam-list">${note.questions.map((x,i)=>`<li>${i<Math.min(4,note.questions.length)?'<span class="star">★</span> ':''}${esc(x)}</li>`).join('')}</ol></section>`:'';
+ const mcqs=(note.mcqs||[]).length?`<section class="note-section"><h2>Quick Check — MCQ</h2><ol class="mcq-list">${note.mcqs.map(x=>`<li>${x}</li>`).join('')}</ol>${note.answerKey?`<details class="answer-key"><summary>Answer key</summary><p>${note.answerKey.map((x,i)=>`<b>${i+1}. ${esc(x)}</b>`).join(' &nbsp; ')}</p></details>`:''}</section>`:'';
+ const revision=note.revision?`<section class="note-section"><h2>Class ke end mein — Quick Revision</h2><p>${note.revision}</p></section>`:'';
  root.innerHTML=`<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
- <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · TOPIC ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
- ${syllabusBlock(topic)}${overview}${sections}${example}${questions}${mcqs}${revision}
+ <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · LESSON ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
+ <section class="teacher-intro"><strong>Class shuru karte hain.</strong><p>Is page ko sirf notes ki tarah mat padho. Yahan topic ko step-by-step samjhaya gaya hai: pehle concept, phir explanation, phir formula, example aur practice.</p></section>
+ ${syllabusBlock(topic)}${overview}${teaching}${sections}${example}${questions}${mcqs}${revision}
+ <section class="teacher-intro end"><strong>Lesson complete karne se pehle:</strong><p>Bina dekhe definition/concept explain karo, main formula ya rule likho, aur ek example khud solve karo.</p></section>
  </div></div>`;
 }
 
@@ -37,5 +49,5 @@ else{
  const topic=units.includes(selected)?selected:units[0];
  const note=window.PX_LESSONS&&window.PX_LESSONS[topic];
  if(note)renderLesson(topic,note,units.indexOf(topic)+1,title,units);
- else{const script=document.createElement('script');script.src='topic.js?v=20260918.5';document.body.appendChild(script);}
+ else{const script=document.createElement('script');script.src='topic.js?v=20260918.6';document.body.appendChild(script);}
 }
