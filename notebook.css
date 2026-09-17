@@ -7,68 +7,69 @@
 .print-brand{display:flex;align-items:center;gap:8px;position:relative;margin:0 0 18px;color:#667085;font:700 11px Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase}.print-brand img{width:28px;height:28px}.notebook .formula{color:#b42318;background:#fff7ed;border:1px solid #f3d6b2;border-radius:10px;font-size:18px;font-weight:700;line-height:1.7;padding:14px 18px;margin:16px 0}.notebook .steps li:nth-child(3n){color:var(--green)}.notebook .vvi{border-left:5px solid var(--red);background:#fff1f0;padding:12px 15px;border-radius:0 12px 12px 0}.notebook .star{color:var(--red);font-weight:900}.notebook .term-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.notebook .term-grid>div{border:1px dashed #c9d5e4;border-radius:12px;padding:13px;background:#f8fafc}.notebook .term-grid b{display:block;color:var(--blue);margin-bottom:3px}.notebook .term-grid span{display:block;color:#555b67;font-size:13px}.diagram-note{border:1px dashed #cbd7e4;padding:14px;border-radius:12px;background:#f8fafc;margin:14px 0}.pen-blue{color:var(--blue);font-weight:800}.pen-black{color:#111;font-weight:800}.pen-red{color:var(--red);font-weight:800}.pen-green{color:var(--green);font-weight:800}.sketch-lines{margin-top:10px;color:var(--green);line-height:2;font-weight:700}.unit-download{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}.unit-download .pill{font-family:Arial,Helvetica,sans-serif}.note-section{margin-bottom:30px}.note-section p{margin:11px 0}.note-section li{margin:6px 0}.exam-list li,.mcq-list li{padding:4px 0}.final-tip{margin-top:45px;padding-bottom:100px}.lesson-page{min-height:360px}
 @media(max-width:700px){.notebook:after{left:30px}.notebook-inner{padding:28px 24px 65px 48px;font-size:14px}.notebook:before{background:repeating-linear-gradient(to bottom,transparent 0,transparent 28px,rgba(60,120,190,.11) 29px)}.notebook .term-grid{grid-template-columns:1fr}.print-brand{margin-bottom:10px}}
 
-/* =========================================================
-   PRINT: low-cost A4 study notes
-   - pure white paper for cheap B/W + colour printing
-   - natural document flow instead of one section per page
-   - compact spacing to reduce page count
-   - no decorative ruled-paper background
-   ========================================================= */
 @media print{
-  @page{size:A4 portrait;margin:8mm 9mm 9mm 9mm}
-  *,*::before,*::after{box-sizing:border-box!important}
-  html,body{width:210mm;min-height:297mm;background:#fff!important;background-image:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body{margin:0!important;font-family:Arial,Helvetica,sans-serif;font-size:9.4pt;line-height:1.34;color:#111827;background:#fff!important}
-  body::before,body::after{display:none!important;content:none!important}
+ @page{size:A4 portrait;margin:7mm 8mm 9mm 8mm}
+ *,*::before,*::after{box-sizing:border-box!important}
+ html,body{width:210mm;min-height:297mm;background:#fff!important;background-image:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ body{margin:0!important;font-family:Arial,Helvetica,sans-serif;font-size:9.2pt;line-height:1.34;color:#111827;background:#fff!important}
+ body::before,body::after{display:none!important;content:none!important}
+ .topbar,.topic-nav,.unit-download,.screen-only,.no-print,.print-hide,.pdf-action-bar{display:none!important}
+ .content,.notes-layout{display:block!important;width:100%!important;max-width:none!important;padding:0!important;margin:0!important}
+ .notebook{width:100%!important;min-height:0!important;border:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;background:#fff!important;background-image:none!important}
+ .notebook::before,.notebook::after{display:none!important;content:none!important}
+ .notebook-inner{position:relative;width:auto!important;max-width:none!important;min-height:0!important;padding:0 0 5mm!important;font-family:Arial,Helvetica,sans-serif;font-size:9.2pt;line-height:1.34;color:#111827;background:#fff!important;background-image:none!important}
+ .print-brand{display:flex!important;align-items:center;gap:3mm;margin:0 0 3mm;height:11mm;padding:0 0 2mm;border-bottom:1.1pt solid #155eef;font-size:7pt;letter-spacing:.11em;color:#344054}
+ .print-brand img{width:9mm!important;height:9mm!important;object-fit:contain}
+ .print-brand span{font-size:7pt!important;font-weight:800!important;color:#172033}
+ .lesson-head{margin:0 0 4mm;padding:3mm 3.5mm 3mm;border:1pt solid #c9d9f2;border-radius:2.5mm;background:#fff!important;position:relative;overflow:hidden}
+ .lesson-head::after{content:"";position:absolute;right:-8mm;top:-9mm;width:32mm;height:32mm;border-radius:50%;border:2.5mm solid #e8f0ff}
+ .eyebrow{font-size:7.4pt!important;font-weight:800!important;letter-spacing:.1em;color:#155eef;margin:0 0 1.5mm}
+ .notebook h1{font-size:23pt;line-height:1.05;margin:0 0 1.7mm;color:#101828;letter-spacing:-.025em}
+ .lesson-head .sub{font-size:8.2pt;color:#667085;margin:0}
+ .lesson-head::before{content:"PRINCEXMAHTO STUDY";display:block;font-size:6.3pt;font-weight:800;letter-spacing:.16em;color:#98a2b3;margin-bottom:1.5mm}
+ .note-section{margin:0 0 3mm!important;padding:0!important;min-height:0!important;height:auto!important;break-inside:auto!important;page-break-inside:auto!important}
+ .notebook h2{font-size:12.4pt;line-height:1.16;margin:3mm 0 1.5mm;color:#102a56;text-decoration:none;border:0;padding:1.3mm 2.5mm;background:#eef5ff;border-left:1.2mm solid #155eef;border-radius:1mm}
+ .notebook h3{font-size:10.4pt;line-height:1.16;margin:2.2mm 0 1mm;color:#344054}
+ .note-section p{margin:1.1mm 0!important}
+ .note-section ul,.note-section ol{margin:1mm 0;padding-left:5.2mm}
+ .note-section li{margin:.35mm 0!important}
+ .lesson-page{display:block!important;break-before:auto!important;page-break-before:auto!important;break-after:auto!important;page-break-after:auto!important;min-height:0!important;height:auto!important;margin:0 0 3mm!important;padding:0!important;break-inside:auto!important;page-break-inside:auto!important}
+ .lesson-page:first-of-type{break-before:auto!important;page-break-before:auto!important}
+ .final-tip{break-before:page!important;page-break-before:always!important;margin-top:2mm!important;padding-bottom:3mm!important}
+ .notebook .formula{font-size:9.5pt;line-height:1.3;padding:2.2mm 3mm;margin:1.8mm 0;border:1pt solid #d9a97e;border-radius:1.5mm;background:#fff!important;color:#b42318;font-weight:800;break-inside:avoid;page-break-inside:avoid}
+ .notebook .definition,.notebook .vvi,.diagram-note,.notebook .term-grid{break-inside:avoid;page-break-inside:avoid}
+ .notebook .definition{background:#fff!important;border-left:1.2mm solid #155eef;padding:2mm 2.5mm}
+ .notebook .vvi{background:#fff!important;border:1pt solid #f0b4ae;border-left:1.2mm solid #d92d20;padding:2mm 2.5mm;border-radius:0 1.5mm 1.5mm 0}
+ .diagram-note{background:#fff!important;border:1pt dashed #98a2b3;padding:2mm 2.5mm;margin:1.8mm 0}
+ .notebook .term-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8mm}
+ .notebook .term-grid>div{border:1pt solid #d0d5dd;border-radius:1mm;padding:1.8mm;background:#fff!important}
+ .notebook .term-grid b{margin-bottom:1mm;color:#155eef}
+ .notebook .term-grid span{font-size:7.7pt;color:#344054}
+ .notebook .steps{margin-top:1mm!important}
+ .notebook .steps li:nth-child(3n),.pen-blue,.pen-black,.pen-red,.pen-green{font-weight:700}
+ .sketch-lines{line-height:1.45;margin-top:1.5mm}
+ .exam-list,.mcq-list{padding-left:5mm!important}
+ .exam-list li,.mcq-list li{padding:.6mm 1.5mm!important;border-bottom:.4pt solid #e4e7ec;break-inside:avoid;page-break-inside:avoid}
+ .answer-key{margin-top:1.5mm;break-inside:avoid;page-break-inside:avoid}
+ .note-section>h2,.note-section>h3{break-after:avoid;page-break-after:avoid}
+ .note-section p,.note-section li{orphans:2;widows:2}
+ a{color:inherit;text-decoration:none}
 
-  .topbar,.topic-nav,.unit-download,.screen-only,.no-print,.print-hide{display:none!important}
-  .content,.notes-layout{display:block!important;width:100%!important;max-width:none!important;padding:0!important;margin:0!important}
-  .notebook{width:100%!important;min-height:0!important;border:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;background:#fff!important;background-image:none!important}
-  .notebook::before,.notebook::after{display:none!important;content:none!important}
-  .notebook-inner{position:relative;width:auto!important;max-width:none!important;min-height:0!important;padding:0 0 4mm!important;font-family:Arial,Helvetica,sans-serif;font-size:9.4pt;line-height:1.34;color:#111827;background:#fff!important;background-image:none!important}
+ /* Generated A4 pages: clean study-book frame, footer branding and page number */
+ .pdf-pages{display:block!important;width:100%!important}
+ .pdf-page{position:relative!important;width:100%!important;min-height:281mm!important;margin:0!important;padding:4mm 3mm 13mm!important;border:0!important;background:#fff!important;overflow:visible!important;break-after:page!important;page-break-after:always!important}
+ .pdf-page:last-child{break-after:auto!important;page-break-after:auto!important}
+ .pdf-page::before{content:"";display:block;height:1.4mm;margin:0 0 2.5mm;border-radius:1mm;background:linear-gradient(90deg,#155eef 0 24%,#dce9ff 24% 100%)}
+ .pdf-page::after{content:"PrinceXmahto Study  •  Prince Raj  •  Learn · Build · Grow";position:absolute;left:3mm;right:3mm;bottom:3.5mm;padding-top:2mm;border-top:.6pt solid #d0d5dd;font-size:6.3pt;font-weight:700;letter-spacing:.04em;color:#667085;text-align:left}
+ .pdf-page-label{display:flex!important;justify-content:space-between;align-items:center;margin:0 0 2.5mm;padding:1.3mm 2mm;border-bottom:.5pt solid #d9e2ec;font-size:6.2pt;font-weight:800;letter-spacing:.1em;color:#667085;text-transform:uppercase}
+ .pdf-page-label span{color:#155eef;font-weight:900;letter-spacing:.08em}
+ .pdf-page:first-child .pdf-page-label{border-bottom:1pt solid #155eef}
+ .pdf-page:first-child .lesson-head{border-top:2.5pt solid #155eef}
+ .pdf-page:first-child .lesson-head h1{font-size:25pt}
+ .pdf-page:first-child .note-section h2{margin-top:2mm}
 
-  .print-brand{display:flex!important;align-items:center;gap:2.5mm;margin:0 0 3mm;height:auto;padding:0 0 2mm;border-bottom:.6pt solid #d0d5dd;font-size:6.5pt;letter-spacing:.1em;color:#667085}
-  .print-brand img{width:5mm;height:5mm}
-  .print-brand span{font-size:6.5pt}
-
-  .lesson-head{margin:0 0 3mm;padding:0 0 2mm;border-bottom:1.2pt solid #155eef}
-  .eyebrow{font-size:7pt!important;font-weight:700!important;letter-spacing:.08em;color:#155eef;margin:0 0 1.2mm}
-  .notebook h1{font-size:19pt;line-height:1.08;margin:0 0 1.5mm;color:#101828;letter-spacing:-.01em}
-  .notebook h1::after{content:none!important}
-  .lesson-head .sub{font-size:8pt;color:#667085;margin:0}
-
-  .note-section{margin:0 0 2.8mm!important;padding:0!important;min-height:0!important;height:auto!important}
-  .notebook h2{font-size:12.2pt;line-height:1.16;margin:3.2mm 0 1.4mm;color:#155eef;text-decoration:none;border-bottom:.45pt solid #d9e2ec;padding:0 0 .8mm}
-  .notebook h3{font-size:10.4pt;line-height:1.16;margin:2.2mm 0 1mm;color:#344054}
-  .note-section p{margin:1.1mm 0!important}
-  .note-section ul,.note-section ol{margin:1mm 0;padding-left:5.2mm}
-  .note-section li{margin:.35mm 0!important}
-
-  /* IMPORTANT: never force every lesson section onto a fresh A4 page. */
-  .lesson-page{display:block!important;break-before:auto!important;page-break-before:auto!important;break-after:auto!important;page-break-after:auto!important;min-height:0!important;height:auto!important;margin:0 0 2.8mm!important;padding:0!important;break-inside:auto!important;page-break-inside:auto!important}
-  .lesson-page:first-of-type{break-before:auto!important;page-break-before:auto!important}
-  .final-tip{break-before:page!important;page-break-before:always!important;margin-top:2mm!important;padding-bottom:3mm!important}
-
-  .notebook .formula{font-size:9.4pt;line-height:1.25;padding:2mm 2.6mm;margin:1.8mm 0;border:1px solid #e4b9a7;border-radius:1.2mm;background:#fff!important;color:#b42318;font-weight:700;break-inside:avoid;page-break-inside:avoid}
-  .notebook .definition,.notebook .vvi,.diagram-note,.notebook .term-grid{break-inside:avoid;page-break-inside:avoid}
-  .notebook .definition{background:#fff!important;border-left:2.5pt solid #155eef;padding:1.8mm 2.4mm}
-  .notebook .vvi{background:#fff!important;border-left:3pt solid #d92d20;padding:1.8mm 2.4mm;border-radius:0}
-  .diagram-note{background:#fff!important;border:1px dashed #98a2b3;padding:2mm 2.5mm;margin:1.8mm 0}
-
-  .notebook .term-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8mm}
-  .notebook .term-grid>div{border:1px solid #d0d5dd;border-radius:1mm;padding:1.8mm;background:#fff!important}
-  .notebook .term-grid b{margin-bottom:1mm;color:#155eef}
-  .notebook .term-grid span{font-size:7.8pt;color:#344054}
-
-  .notebook .steps{margin-top:1mm!important}
-  .notebook .steps li:nth-child(3n),.pen-blue,.pen-black,.pen-red,.pen-green{font-weight:700}
-  .sketch-lines{line-height:1.45;margin-top:1.5mm}
-  .exam-list li,.mcq-list li{padding:.35mm 0;break-inside:avoid;page-break-inside:avoid}
-  .answer-key{margin-top:1.5mm;break-inside:avoid;page-break-inside:avoid}
-  .note-section>h2,.note-section>h3{break-after:avoid;page-break-after:avoid}
-  .note-section p,.note-section li{orphans:2;widows:2}
-  a{color:inherit;text-decoration:none}
-
-  /* Remove decorative colour fills so students can print cheaply. */
-  [style*="background"],.card,.panel,.box{background-color:#fff!important;background-image:none!important}
+ /* Low-cost print: white paper, thin rules, no heavy colour blocks */
+ [style*="background"],.card,.panel,.box{background-color:#fff!important;background-image:none!important}
+ .final-tip{border:1pt solid #155eef!important;padding:2.5mm!important}
+ .final-tip h2{background:#fff!important;border-left:1.2mm solid #155eef!important}
 }
