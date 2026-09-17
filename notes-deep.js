@@ -1,0 +1,128 @@
+/* PrinceXmahto Study — deep handwritten-style lesson expansion */
+(function(){
+ const L=window.PX_LESSONS||(window.PX_LESSONS={});
+ const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+ const focus={
+  'Algebra Determinant':'determinants, matrices, Cramer’s rule, adjoint/inverse, simultaneous equations and vectors',
+  'Differential Calculus':'functions, domain/range, limits, continuity, first-principle differentiation, rules and implicit/logarithmic differentiation',
+  'Application of Differential Calculus':'stationary points, increasing/decreasing functions, maxima/minima, tangent/normal and rate-of-change applications',
+  'Co-ordinate Geometry':'coordinate plane, distance, section formula, slope, straight lines and basic circle relations',
+  'Probability and Statistics':'sample space, events, probability laws, mean, median, mode and interpretation of data',
+  'Unit and Measurements':'SI units, dimensions, significant figures, accuracy, precision, uncertainty and error analysis',
+  'Simple Harmonic and Wave Motion':'SHM, displacement, amplitude, time period, frequency, phase and mechanical waves',
+  'Electrostatics, Electromagnetism and Current Electricity':'charge, field, potential, current, resistance, Ohm’s law and magnetic effect of current',
+  'Semiconductor Physics':'energy bands, intrinsic/extrinsic semiconductor, p-type/n-type material, junction and diode behaviour',
+  'Modern Physics':'photons, atomic models, radioactivity, nuclear energy and introductory quantum ideas',
+  'Basic Electrical Parameters and Concepts':'charge, current, voltage, resistance, power, energy, electrical units and Ohm’s law',
+  'Fundamentals of D.C. and A.C. Circuits':'DC/AC, series and parallel circuits, Kirchhoff laws, power and basic waveform quantities',
+  'Magnetic Circuits and Electromagnetic Induction':'flux, flux density, MMF, reluctance, Faraday law, Lenz law and induced emf',
+  'Basic Electronic Components':'resistors, capacitors, inductors, diodes, LEDs, transistors, symbols and applications',
+  'Overview of Digital Electronics':'binary numbers, Boolean algebra, logic gates, truth tables and basic digital systems',
+  'Introduction to IT Systems and Digital Technologies':'hardware, software, data, operating systems, networking, cloud and digital representation',
+  'Fundamentals of Artificial Intelligence':'AI definition, problem formulation, data, models, learning approaches, evaluation and responsible AI',
+  'Core AI Applications - Computer Vision & NLP':'image classification/detection/OCR and language tasks such as classification, translation and question answering',
+  'Conversational AI and Generative Systems':'chatbots, intent/entity, context, tokens, prompting, generation, grounding and limitations',
+  'Programming Logic & Computational Thinking using Python':'decomposition, abstraction, algorithms, pseudocode, variables, conditions, loops, functions and debugging',
+  'Electrical measuring instruments and components':'ammeter, voltmeter, multimeter, range selection, component identification and safe measurement',
+  'Basic electrical wiring and safety':'conductors, switches, protection, earthing, insulation, isolation and safe wiring principles',
+  'Electronic components and identification':'symbols, markings, polarity, values, datasheets and identification before assembly',
+  'Soldering, PCB and multimeter practices':'PCB layout, solder-joint quality, inspection, continuity, resistance and voltage checks',
+  'Fire safety and first aid':'hazard identification, fire prevention, evacuation, emergency communication and trained first-aid response',
+  'Word Processing':'document creation, styles, formatting, tables, page setup, headers, footers, references and PDF export',
+  'Spreadsheets':'cells, formulas, references, functions, sorting, filtering, charts and data interpretation',
+  'Presentation Tool':'slide structure, layout, typography, diagrams, charts, speaker support and presentation delivery',
+  'Basics of Internet':'Internet/Web, URL, DNS, browser, server, HTTP/HTTPS, email and online safety',
+  'Constitution and Preamble':'constitutional purpose, historical background, salient features and values expressed by the Preamble',
+  'Fundamental Rights and Directive Principles':'purpose, broad categories, constitutional relationship and civic significance',
+  'Governance and Amendments':'constitutional institutions, governance structure, accountability and amendment framework',
+  'Open Educational Resources':'open access, permissions, reuse, adaptation and educational sharing',
+  'Copyright and Open Licensing':'copyright, permissions, public domain, licences and attribution',
+  'Creative Common Licenses':'CC licence conditions including attribution and combinations of SA, NC and ND',
+  'OER Repositories and Quality Assurance':'discovering OER, checking accuracy, relevance, accessibility, currency and licence metadata',
+  'Atomic Structure and Chemical Bonding':'atomic models, subatomic particles, electronic configuration, valency and ionic/covalent bonding',
+  'Water':'impurities, hardness, temporary/permanent hardness, EDTA idea and water treatment',
+  'Engineering Materials':'metals, alloys, polymers, ceramics/composites and mechanical/chemical properties',
+  'Chemistry of Fuel and Lubricants':'fuel properties, combustion, calorific value, octane/cetane and lubricant functions',
+  'Electrochemistry':'oxidation-reduction, cells, electrodes, electrolysis, EMF and corrosion',
+  'Introduction to Thermodynamics':'system, surroundings, properties, heat, work, first law, entropy direction and basic cycles',
+  'Internal Combustion Engine and Refrigeration':'engine components and four-stroke sequence plus basic vapour-compression refrigeration cycle',
+  'Manufacturing Processes and Machine Tools':'casting, forming, machining, joining and basic lathe/drilling/milling/grinding operations',
+  'Power Transmission':'belts, chains, gears, shafts, couplings, speed ratio, torque and power transmission',
+  'Communication':'communication process, feedback, barriers, listening, clarity and effective communication',
+  'Types of Communication':'oral, written, non-verbal, visual, formal/informal and channel selection',
+  'Reading Comprehension':'main idea, details, inference, vocabulary in context and evidence-based response',
+  'Vocabulary and Grammar':'parts of speech, sentence structure, tense, agreement, vocabulary and common usage',
+  'Professional Writing':'professional email, notice/report, tone, structure, clarity, concision and proofreading',
+  'Basic Elements of Drawing':'instruments, sheet sizes, line conventions, lettering, scale and dimensioning',
+  'Orthographic Projections':'principal views, projection planes, alignment, hidden lines and first/third angle concepts',
+  'Isometric Projection':'isometric axes, construction, visible edges, circles and pictorial representation',
+  'Free Hand Sketches of Engineering Elements':'proportion, centre lines, simple machine elements, labels and visual clarity',
+  'Basic Computer Aided Drafting':'coordinates, layers, object snaps, drawing/editing tools, dimensions and file organisation',
+  'Advanced Computer Aided Drafting':'blocks, hatching, annotations, layers, layouts, standards and plotting',
+  'Workshop safety and measuring tools':'PPE, housekeeping, safe tool handling, steel rule, vernier and micrometer basics',
+  'Carpentry and wood working':'marking, sawing, chiselling, planing, joints and safe workholding',
+  'Joining and welding processes':'welding, brazing, soldering, riveting, process selection and hot-work safety',
+  'Electrical and electronics workshop practices':'safe wiring, component handling, soldering, continuity testing and fault awareness',
+  'Values and Ethics in Day to Day Life':'integrity, honesty, responsibility, respect, fairness, empathy and ethical decisions',
+  'Values and Ethics in Profession':'professional responsibility, competence, safety, confidentiality, honesty and accountability',
+  'Sports and Exercises':'physical activity, fitness components, warm-up, coordination, recovery and healthy participation',
+  'Yoga and Meditation':'posture, breathing, attention, relaxation and consistent comfortable practice',
+  'Fitness and Wellness':'physical, mental and social wellness, sleep, activity, nutrition and recovery',
+  'Basic electrical quantities and circuits':'current, voltage, resistance, power, series/parallel circuits and circuit diagrams',
+  'Capacitance and inductance':'charge storage, capacitance, electric energy, inductive behaviour and magnetic energy storage',
+  'D.C. and A.C. circuits':'steady and alternating current, frequency, period, RMS concept and R/L/C behaviour',
+  'Magnetic circuits':'flux, MMF, reluctance, magnetic path and air-gap effects',
+  'Electromagnetism':'magnetic field due to current, force, induction and engineering applications',
+  'Atomic structure and bonding':'atomic particles, valence electrons, ionic/covalent bonds and material behaviour',
+  'Water and its treatment':'impurities, hardness, clarification, filtration, softening and disinfection',
+  'Engineering materials':'metals/alloys, polymers, ceramics/composites and material selection',
+  'Fuel and lubricants':'fuel combustion properties and lubricant viscosity, cooling, sealing and wear reduction',
+  'Force systems and equilibrium':'force systems, moments, free-body diagrams and equilibrium equations',
+  'Friction':'static, limiting and kinetic friction, coefficient and practical effects',
+  'Centroid and centre of gravity':'centroid of standard/composite areas and centre of gravity concepts',
+  'Simple lifting machines':'load, effort, mechanical advantage, velocity ratio and efficiency',
+  'Kinematics and dynamics':'displacement, velocity, acceleration, equations of motion and Newton’s laws',
+  'Electrical tools and measurements':'insulated tools, measurement modes, ranges, leads and safe testing',
+  'Electronic components':'component function, symbol, polarity, value and application',
+  'Soldering and PCB practices':'component placement, solder joints, inspection and continuity',
+  'Basic testing with multimeter':'voltage, resistance, continuity and current measurement with correct settings',
+  'Environment and ecosystems':'ecosystem components, food chains/webs, energy flow and ecological balance',
+  'Natural resources':'renewable/non-renewable resources, conservation and efficient use',
+  'Pollution and control':'air, water, soil and noise pollution, effects and control measures',
+  'Sustainable development':'long-term balance of environmental, social and economic needs',
+  'Climate and environmental responsibility':'climate change basics, mitigation, adaptation and responsible practices'
+ };
+ const starred={
+  'Algebra Determinant':['Define determinant.','Evaluate a 3×3 determinant.','Solve simultaneous equations by Cramer’s rule.','Find inverse using adjoint.'],
+  'Differential Calculus':['Define limit and continuity.','Differentiate using first principle.','Apply product, quotient and chain rules.','Perform implicit/logarithmic differentiation.'],
+  'Application of Differential Calculus':['Find stationary points.','Test maxima/minima using derivatives.','Find tangent and normal.'],
+  'Co-ordinate Geometry':['Derive/use distance and section formula.','Find equation of a straight line.','Solve slope/intercept problems.'],
+  'Probability and Statistics':['Define sample space and event.','Solve basic probability.','Calculate mean, median and mode.'],
+  'Unit and Measurements':['Differentiate accuracy and precision.','Explain dimensions and significant figures.','Calculate percentage error.'],
+  'Basic Electrical Parameters and Concepts':['State Ohm’s law.','Calculate current, voltage, resistance and power.','Differentiate electrical power and energy.'],
+  'Fundamentals of D.C. and A.C. Circuits':['Differentiate AC and DC.','Calculate series/parallel resistance.','State Kirchhoff’s laws.'],
+  'Magnetic Circuits and Electromagnetic Induction':['Define flux, MMF and reluctance.','State Faraday and Lenz laws.','Explain induced emf.'],
+  'Overview of Digital Electronics':['Write truth tables of basic gates.','Explain NAND/NOR as universal gates.','Simplify a Boolean expression.'],
+  'Fundamentals of Artificial Intelligence':['Define AI and machine learning.','Explain an AI workflow.','Discuss responsible AI considerations.'],
+  'Programming Logic & Computational Thinking using Python':['Write an algorithm/pseudocode for a problem.','Explain variables, conditions and loops.','Write a small Python function and debug it.']
+ };
+ function deep(t,n){
+  const f=focus[t]||n.overview||'the major concepts, terminology, applications and examination approach';
+  const qs=starred[t]||[`Define ${t}.`,`Explain the main concepts of ${t}.`,`Describe the process/principle involved in ${t}.`,`State important applications and limitations of ${t}.`];
+  const extra=[
+   ['Notebook Study Map',`<p><b>Chapter idea:</b> ${esc(t)}</p><p>This unit should be studied as a connected chain, not as isolated definitions. The main scope is <b>${esc(f)}</b>.</p><div class="formula">CONCEPT → PRINCIPLE → DIAGRAM/FORMULA → EXAMPLE → APPLICATION → REVISION</div>`],
+   ['Detailed Explanation',`<p>Start with the meaning of the topic and then identify its parts, quantities, conditions and relationships. For each new term, write <b>meaning + symbol/name + unit (if applicable) + purpose + one example</b>.</p><p><b>Layer 1 — What?</b> State what the concept is. <b>Layer 2 — How?</b> Explain the mechanism or sequence. <b>Layer 3 — Why?</b> Explain why it is useful. <b>Layer 4 — Where?</b> Connect it with engineering or daily use.</p><ul><li>Do not memorise a formula without understanding its variables.</li><li>Do not draw a diagram without labels.</li><li>For theory, keep the answer in logical order.</li><li>For numericals, write given → formula → substitution → result → unit.</li></ul>`],
+   ['Important Terms & Relations',`<div class="term-grid"><div><b>Definition</b><span>Write the exact idea in 1–2 lines.</span></div><div><b>Principle</b><span>State the rule/law behind the concept.</span></div><div><b>Application</b><span>Give a concrete engineering use.</span></div><div><b>Precaution</b><span>Mention conditions or limitations.</span></div></div>`],
+   ['Diagram Notebook',`<div class="diagram-note"><p><span class="pen-blue">BLUE PEN:</span> headings and labels &nbsp; <span class="pen-black">BLACK:</span> explanation &nbsp; <span class="pen-red">RED:</span> formula/VVI &nbsp; <span class="pen-green">GREEN:</span> example/result.</p><p>Draw the simplest labelled representation first. Add arrows, axes, component names and important values only where they improve understanding.</p><div class="sketch-lines">↳ LABEL → PART → FUNCTION<br>↳ INPUT → PROCESS → OUTPUT<br>↳ GIVEN → FORMULA → SOLUTION</div></div>`],
+   ['How to Write in Examination',`<ol class="steps"><li>Read the command word: define, explain, derive, calculate, compare or draw.</li><li>Start with the definition or governing principle.</li><li>Use a neat labelled diagram/formula where appropriate.</li><li>Explain the steps in the same order as the process.</li><li>Box the final numerical result and write the unit.</li><li>End with application, conclusion or precaution if asked.</li></ol>`],
+   ['★ VVI — Marked Inside the Topic',`<div class="vvi"><p><span class="star">★ VVI</span> These are the high-priority questions to practise from this unit:</p><ol>${qs.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><p class="muted">VVI means high-priority practice; it is not a prediction of the question paper.</p></div>`],
+   ['Self-Check Before Closing the Notebook',`<ul><li>Can I explain the definition without looking?</li><li>Can I reproduce the main formula/relationship?</li><li>Can I draw and label the main diagram?</li><li>Can I solve one basic example?</li><li>Can I explain one practical application?</li><li>Can I answer the ★ VVI questions in my own words?</li></ul>`]
+  ];
+  n.sections=n.sections||[];
+  const existing=n.sections.map(s=>s[0]);
+  extra.reverse().forEach(s=>{if(!existing.includes(s[0]))n.sections.unshift(s);});
+  n._deep=true;
+ }
+ Object.keys(L).forEach(t=>deep(t,L[t]));
+ window.PX_LESSONS=L;
+})();
