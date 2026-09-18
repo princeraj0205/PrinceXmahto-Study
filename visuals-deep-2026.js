@@ -81,5 +81,41 @@
  V['Manufacturing Processes and Machine Tools']=svg('Manufacturing process chain','<svg viewBox="0 0 760 300"><rect width="760" height="300" fill="white"/><g font-family="Arial" font-size="17" text-anchor="middle"><rect x="35" y="105" width="135" height="70" fill="#eef6ff" stroke="#155eef" stroke-width="3"/><text x="102" y="147">Raw material</text><rect x="205" y="105" width="135" height="70" fill="#f4f8ff" stroke="#087443" stroke-width="3"/><text x="272" y="147">Form / cast</text><rect x="375" y="105" width="135" height="70" fill="#fff7ed" stroke="#b54708" stroke-width="3"/><text x="442" y="147">Machine</text><rect x="545" y="105" width="170" height="70" fill="#fff4f2" stroke="#d92d20" stroke-width="3"/><text x="630" y="147">Inspect / finish</text></g><path d="M170 140h35M340 140h35M510 140h35" stroke="#344054" stroke-width="3"/></svg>');
  V['Power Transmission']=svg('Power transmission','<svg viewBox="0 0 760 300"><rect width="760" height="300" fill="white"/><circle cx="230" cy="150" r="85" fill="none" stroke="#155eef" stroke-width="7"/><circle cx="530" cy="150" r="45" fill="none" stroke="#087443" stroke-width="7"/><path d="M230 65C350 40 430 80 530 105M230 235C350 260 430 220 530 195" fill="none" stroke="#b54708" stroke-width="12"/><text x="230" y="285" text-anchor="middle" font-size="17" font-family="Arial">driver</text><text x="530" y="285" text-anchor="middle" font-size="17" font-family="Arial">driven</text></svg>');
  V['Engineering Materials']=svg('Engineering material selection','<svg viewBox="0 0 760 300"><rect width="760" height="300" fill="white"/><g font-family="Arial" font-size="17" text-anchor="middle"><circle cx="380" cy="150" r="65" fill="#eef6ff" stroke="#155eef" stroke-width="3"/><text x="380" y="145">Material</text><text x="380" y="166">selection</text><circle cx="130" cy="80" r="48" fill="#fff" stroke="#087443" stroke-width="3"/><text x="130" y="85">Strength</text><circle cx="630" cy="80" r="48" fill="#fff" stroke="#b54708" stroke-width="3"/><text x="630" y="85">Cost</text><circle cx="130" cy="225" r="48" fill="#fff" stroke="#d92d20" stroke-width="3"/><text x="130" y="230">Environment</text><circle cx="630" cy="225" r="48" fill="#fff" stroke="#155eef" stroke-width="3"/><text x="630" y="230">Manufacture</text><path d="M170 90L320 130M590 90L440 130M170 215L320 170M590 215L440 170" stroke="#344054" stroke-width="2"/></g></svg>');
+
+ const mini=(title,labels)=>svg(title,'<svg viewBox="0 0 760 260"><rect width="760" height="260" fill="white"/><g font-family="Arial" font-size="17" text-anchor="middle">'+labels.map((x,i)=>'<rect x="'+(35+i*145)+'" y="85" width="115" height="70" rx="10" fill="'+(i%2?'#f4f8ff':'#eef6ff')+'" stroke="'+(i%2?'#087443':'#155eef')+'" stroke-width="3"/><text x="'+(92+i*145)+'" y="126">'+x+'</text>').join('')+'</g><g stroke="#344054" stroke-width="3">'+labels.slice(0,-1).map((x,i)=>'<path d="M'+(150+i*145)+' 120h30"/>').join('')+'</g><text x="380" y="215" text-anchor="middle" font-size="15" font-family="Arial">'+title+'</text></svg>');
+ const extra={
+ 'Capacitance and inductance':mini('Energy storage in electric and magnetic fields',['Voltage','Capacitor','Inductor','Energy']),
+ 'D.C. and A.C. circuits':mini('Source → circuit → load',['Source','Circuit','Load','Output']),
+ 'Magnetic circuits':mini('Magnetic flux path',['MMF','Flux','Core','Reluctance']),
+ 'Electromagnetism':mini('Current and magnetic field',['Current','Field','Force','Motion']),
+ 'Basic electrical quantities and circuits':mini('Electrical quantities are linked through circuit laws',['Charge','Current','Voltage','Power']),
+ 'Electrical wiring and tools':mini('Safe wiring workflow',['Supply','Protection','Switch','Load']),
+ 'Basic electrical wiring and safety':mini('Safe wiring sequence',['Isolate','Connect','Check','Energize']),
+ 'Fire safety and first aid':V['Fire safety and first aid'],
+ 'Safety and first aid':V['Fire safety and first aid'],
+ 'Electrical measuring instruments and components':V['Basic Electrical Parameters and Concepts'],
+ 'Constitution and Preamble':V['Indian Constitution'],
+ 'Fundamental Rights and Directive Principles':V['Indian Constitution'],
+ 'Governance and Amendments':V['Indian Constitution'],
+ 'Introduction to IT Systems and Digital Technologies':V['Basics of Internet'],
+ 'Programming Logic & Computational Thinking using Python':V['Programming Logic & Computational Thinking using Python'],
+ 'Sports and Exercises':V['Simple Harmonic and Wave Motion'],
+ 'Yoga and Meditation':V['Simple Harmonic and Wave Motion'],
+ 'Fitness and Wellness':V['Simple Harmonic and Wave Motion'],
+ 'Chemistry of Fuel and Lubricants':mini('Fuel energy conversion chain',['Fuel','Combustion','Heat','Work']),
+ 'Fuels & Lubricants':mini('Fuel energy conversion chain',['Fuel','Combustion','Heat','Work']),
+ 'Engineering Materials':V['Engineering Materials'],
+ 'Engineering materials':V['Engineering Materials'],
+ 'Solid state':V['Solid state'],
+ 'Water and its treatment':V['Water and its treatment'],
+ 'Atomic structure and bonding':V['Atomic Structure and Chemical Bonding'],
+ 'Internal Combustion Engine and Refrigeration':V['Internal Combustion Engine and Refrigeration'],
+ 'Force systems and equilibrium':V['Force systems and equilibrium'],
+ 'Friction':V['Friction'],
+ 'Centroid and centre of gravity':V['Centroid and centre of gravity'],
+ 'Simple lifting machines':V['Simple lifting machines'],
+ 'Kinematics and dynamics':V['Kinematics and dynamics']
+ };
+ Object.keys(extra).forEach(k=>{if(extra[k])V[k]=extra[k];});
  window.PX_TOPIC_VISUALS=V;
 })();
