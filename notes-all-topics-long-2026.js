@@ -15,3 +15,67 @@
    add(t,'Deep Revision Map',`<p><b>Remember:</b> ${core}. <b>Connect it with:</b> ${app}. Before moving to the next topic, you should be able to explain the idea without looking at the note, reproduce the important diagram or process, state the governing relation, and solve or discuss one representative problem.</p><p><b>Self-check:</b> What is the definition? What are the important parts/variables? Why does the process work? What changes when a condition changes? Where is it used? What is one limitation or common error?</p>`);
  });
 })();
+
+
+/* DEEP_TECH_BATCH_01 */
+(function(){
+ const L=window.PX_LESSONS||(window.PX_LESSONS={});
+ const D={
+ "Water":[
+ ["Hardness in Detail","<p>Hardness is mainly caused by dissolved calcium and magnesium salts. Temporary hardness is commonly associated with bicarbonates, while permanent hardness is associated with sulphates, chlorides and related salts. Hardness affects soap consumption and can form deposits in boilers and heat-transfer equipment.</p><p>For an engineering answer, distinguish the source of hardness, its effect and the treatment selected for it.</p>"],
+ ["EDTA Method — Principle and Procedure","<p>In complexometric estimation, EDTA forms a stable complex with hardness-producing metal ions. The sample is buffered to the required condition and an indicator is used to identify the endpoint. The titration result is then converted to hardness expressed as calcium carbonate equivalent.</p><ol><li>Measure the specified sample volume.</li><li>Add buffer and indicator as prescribed.</li><li>Titrate with standard EDTA until the endpoint colour change.</li><li>Use the titrant volume and concentration to calculate hardness.</li><li>Report the result with its correct unit.</li></ol>"],
+ ["Treatment Processes","<p>Municipal treatment commonly uses a sequence such as screening, coagulation/flocculation, sedimentation, filtration and disinfection. Industrial or boiler water may require softening or demineralisation. No single process removes every impurity.</p>"],
+ ["Quality Parameters","<p>pH indicates acidity/alkalinity; dissolved oxygen describes oxygen present in water; BOD represents oxygen demand associated with biodegradable organic matter; COD represents chemically oxidisable matter under the specified test conditions. These parameters answer different questions and must not be treated as interchangeable.</p>"],
+ ["Engineering Diagram Study","<p><b>Draw:</b> Source → Screening → Coagulation/Flocculation → Sedimentation → Filtration → Disinfection → Storage/Distribution. Under each block write its main purpose. This flow diagram should be reproduced in long-answer questions.</p>"]
+ ],
+ "Electrochemistry":[
+ ["Redox Foundation","<p>Oxidation and reduction occur together. Oxidation is loss of electrons and reduction is gain of electrons. In a cell, identifying the two half-reactions first makes the electrode reactions and electron direction much easier to understand.</p>"],
+ ["Galvanic Cell — Working","<p>A galvanic cell converts chemical energy into electrical energy through a spontaneous redox reaction. Oxidation occurs at the anode and reduction at the cathode. Electrons travel through the external circuit while ions move through the electrolyte or salt bridge to maintain electrical neutrality.</p>"],
+ ["Nernst Equation","<p>The electrode potential changes with concentration and reaction conditions. At 25 °C, a common form is E = E° − (0.0591/n) log Q, when Q is written consistently with the reaction. Always identify n and the reaction quotient before substituting.</p>"],
+ ["Batteries and Corrosion","<p>Batteries use controlled electrochemical reactions to provide electrical energy. Corrosion is an electrochemical deterioration process; prevention can include coatings, suitable material selection, inhibitors and cathodic protection.</p>"],
+ ["Cell Diagram","<p><b>Draw:</b> Anode | electrolyte || electrolyte | Cathode. Mark oxidation at the anode, reduction at the cathode, electron flow through the external circuit and ion movement through the electrolyte/salt bridge.</p>"]
+ ],
+ "Introduction to Thermodynamics":[
+ ["System, Boundary and Surroundings","<p>Selecting a thermodynamic system defines what is being analysed. A closed system allows energy transfer but not mass transfer across its boundary; an open system allows mass and energy transfer. An isolated system ideally allows neither.</p>"],
+ ["Properties and State","<p>Pressure, temperature, volume and internal energy are state properties. Heat and work describe energy transfer during a process. This distinction is fundamental: heat is not simply a substance stored inside an object.</p>"],
+ ["First Law — Meaning","<p>The first law expresses conservation of energy. With Q positive to the system and W positive by the system, ΔU = Q − W. A solution should state the sign convention, identify every energy transfer and keep units consistent.</p>"],
+ ["Second Law and Practical Limits","<p>The second law introduces direction and limitations. A heat engine cannot convert all supplied heat into useful work. A refrigerator requires work input to transfer heat from a lower-temperature region to a higher-temperature region.</p>"],
+ ["Energy Flow Diagram","<p><b>Draw:</b> Heat source → Heat Engine → Work output, with rejected heat to the sink. For refrigeration draw: Low-temperature space → Evaporator → Compressor → Condenser → Expansion device → Evaporator.</p>"]
+ ],
+ "Internal Combustion Engine and Refrigeration":[
+ ["Four-Stroke Cycle","<p>The four strokes are intake, compression, power and exhaust. The piston moves between top and bottom positions while the crankshaft converts reciprocating motion into rotation. Valve timing controls the admission and removal of gases.</p>"],
+ ["SI and CI Engines","<p>In a spark-ignition engine the charge is ignited by a spark under the engine's operating design. In a compression-ignition engine, air is compressed and fuel is introduced under conditions that support ignition. Their mixture formation and ignition arrangements therefore differ.</p>"],
+ ["Refrigeration Cycle","<p>The compressor raises refrigerant pressure; the condenser rejects heat; the expansion device lowers pressure; the evaporator absorbs heat from the refrigerated space. The refrigerant then returns to the compressor and the cycle repeats.</p>"],
+ ["Performance","<p>Engine analysis may use power, efficiency and fuel-consumption measures. Refrigeration performance is described by COP = desired refrigeration effect/work input. COP should not be confused with heat-engine thermal efficiency.</p>"],
+ ["Two Diagrams","<p><b>Draw both:</b> four piston strokes with valve positions, and the closed-loop vapour-compression cycle with four labelled components and arrows showing refrigerant direction.</p>"]
+ ],
+ "Manufacturing Processes and Machine Tools":[
+ ["Process Selection","<p>Manufacturing process selection depends on material, geometry, production quantity, dimensional tolerance, surface finish, equipment and cost. Casting, forming, machining and joining solve different manufacturing problems.</p>"],
+ ["Casting and Forming","<p>Casting fills a mould with molten material and allows it to solidify. Forming changes shape mainly by plastic deformation. Defects, shrinkage, material behaviour and tooling affect the result.</p>"],
+ ["Lathe Operations","<p>A lathe commonly rotates the workpiece while a cutting tool removes material. Turning reduces diameter, facing produces a flat end surface, tapering creates a conical surface, and threading creates a helical profile.</p>"],
+ ["Drilling and Milling","<p>Drilling produces holes using a rotating drill. Milling uses a rotating cutter to produce flats, slots, steps and profiles. Workholding and tool alignment are essential for accuracy.</p>"],
+ ["Manufacturing Flow Diagram","<p><b>Draw:</b> Raw material → Primary shaping → Machining → Finishing → Inspection. Add small labelled sketches of a lathe, drilling machine and milling cutter below the flow.</p>"]
+ ],
+ "Power Transmission":[
+ ["Power and Torque","<p>For rotating systems, mechanical power is related to torque and angular speed by P = Tω. This explains why a transmission can trade rotational speed for torque while accounting for losses.</p>"],
+ ["Belt Drive","<p>A belt transmits motion between pulleys and can work over a comparatively large centre distance. Slip and creep can alter the exact speed ratio, while belt tension and alignment affect performance.</p>"],
+ ["Chain Drive","<p>A chain engages sprocket teeth and therefore provides positive transmission with little of the slip associated with ordinary belt drives. Correct alignment, lubrication and tension are important for service life.</p>"],
+ ["Gear Drive","<p>Gears use tooth engagement to maintain a defined speed relationship. Gear selection depends on ratio, torque, centre distance, load, lubrication, noise and manufacturing accuracy.</p>"],
+ ["Comparison Diagram","<p><b>Draw:</b> Motor → Transmission → Machine, followed by three branches labelled Belt-Pulley, Chain-Sprocket and Gear Pair. Under each write one advantage and one limitation.</p>"]
+ ],
+ "Basic Electrical Parameters and Concepts":[
+ ["Charge, Current and Voltage","<p>Current is the rate of charge flow, I = Q/t. Voltage is energy transferred per unit charge. Resistance describes opposition to current under the applicable conditions.</p>"],
+ ["Ohm's Law and Power","<p>For an ohmic element, V = IR. Electrical power is P = VI, and for a resistor P can also be written as I²R or V²/R. Use the form that matches the known quantities.</p>"],
+ ["Series and Parallel","<p>In a series path the same current flows through ideal series elements. In parallel branches share the same voltage. The physical topology determines which circuit quantity is common.</p>"],
+ ["Measurement","<p>A voltmeter is connected across the measured element, while an ammeter is inserted in the current path using the correct terminal and range. Resistance measurements require the appropriate de-energized condition.</p>"],
+ ["Circuit Diagram","<p><b>Draw:</b> source → switch → resistor/load → return, with V and I labels. Then draw one series and one parallel example and label the common quantity in each.</p>"]
+ ],
+ "Fundamentals of D.C. and A.C. Circuits":[
+ ["DC and AC","<p>Direct current has a fixed direction in the idealized basic model. Alternating current varies periodically, so waveform, frequency, period and phase become important quantities.</p>"],
+ ["KCL and KVL","<p>Kirchhoff's Current Law follows charge conservation at a node: the algebraic sum of currents is zero. Kirchhoff's Voltage Law follows energy conservation around a closed loop: the algebraic voltage sum is zero.</p>"],
+ ["Series and Parallel Analysis","<p>Draw the circuit first, choose reference directions, identify known quantities, write equations and solve. Always substitute the result back into at least one original relation to check consistency.</p>"],
+ ["Sinusoidal AC","<p>For v = Vm sin(ωt), Vm is peak value and ω is angular frequency. The period and frequency satisfy f = 1/T. For a sine wave, Vrms = Vm/√2.</p>"],
+ ["Waveform Diagram","<p><b>Draw:</b> a sine wave and mark zero crossing, positive peak, negative peak, one period T and peak value Vm. Add a simple resistor circuit beside it.</p>"]
+ };
+ Object.keys(D).forEach(t=>{const n=L[t];if(!n)return;n.sections=n.sections||[];D[t].forEach(x=>{if(!n.sections.some(s=>s[0]===x[0]))n.sections.push(x)});n.longForm=true});
+})();
