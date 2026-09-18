@@ -80,3 +80,6 @@
 
  [style*="background"],.card,.panel,.box{background-color:#fff!important;background-image:none!important}
 }
+
+/* Original topic figures */
+.topic-figure{margin:22px 0 30px;padding:16px 18px;border:1px solid #d6e2f4;border-radius:14px;background:#fff;break-inside:avoid;page-break-inside:avoid}.figure-title{font:800 15px Arial,sans-serif;color:#155eef;margin-bottom:10px}.figure-svg{width:100%;overflow:hidden}.figure-svg svg{display:block;width:100%;height:auto;max-height:310px}.figure-caption{font:12px Arial,sans-serif;color:#667085;margin-top:9px;text-align:center}.teacher-copy p{max-width:100%}@media print{.topic-figure{margin:2.5mm 0 3mm;padding:2mm 2.5mm;border:1pt solid #cfd8e3}.figure-title{font-size:9pt;margin-bottom:1.5mm}.figure-caption{font-size:7pt;margin-top:1mm}.figure-svg svg{max-height:58mm}.figure-svg{break-inside:avoid;page-break-inside:avoid}}
