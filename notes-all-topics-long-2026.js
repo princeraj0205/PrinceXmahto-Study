@@ -79,3 +79,235 @@
  };
  Object.keys(D).forEach(t=>{const n=L[t];if(!n)return;n.sections=n.sections||[];D[t].forEach(x=>{if(!n.sections.some(s=>s[0]===x[0]))n.sections.push(x)});n.longForm=true});
 })();
+
+/* DEEP_ALL_REMAINING_BATCH_2026 */
+(function(){
+ const L=window.PX_LESSONS||(window.PX_LESSONS={});
+ const packs={
+ "Communication":[
+ ["Communication Process in Detail","<p>Communication begins when a sender has an idea and converts it into a message. Encoding may use spoken language, written words, symbols, drawings, tables or gestures. The message travels through a selected channel to a receiver, who interprets it and provides feedback. Any disturbance that changes the intended meaning is communication noise.</p>"],
+ ["Barriers and Their Removal","<p>Physical barriers include distance and unsuitable surroundings. Semantic barriers arise from ambiguous words, unfamiliar technical terms or different meanings. Psychological and organizational barriers may affect attention and information flow. A useful remedy is to use precise language, suitable channels, confirmation and feedback.</p>"],
+ ["Technical Communication","<p>Engineers communicate instructions, measurements, specifications, designs and decisions. A technical message should be accurate, concise and traceable. A drawing may communicate geometry better than a paragraph, while a report can preserve reasoning and evidence.</p>"],
+ ["Diagram Practice","<p><b>Draw:</b> Sender → Encoding → Message → Channel → Receiver → Decoding → Feedback. Mark noise crossing the channel. Write one engineering example below each stage.</p>"],
+ ["Long Answer Framework","<p>For an examination answer, define communication, explain the cycle, describe barriers with examples, state methods of improvement and finish with an engineering application.</p>"]
+ ],
+ "Types of Communication":[
+ ["Classification in Detail","<p>Communication can be classified by medium, formality, direction and participants. Oral and written forms differ in permanence and speed. Formal communication follows an organizational structure, whereas informal communication follows social interaction. Verbal content is supported by non-verbal signals.</p>"],
+ ["Choosing the Correct Type","<p>An urgent instruction may need direct oral communication, while a specification should normally be recorded in writing. A presentation combines verbal and visual communication. Channel choice depends on urgency, complexity, audience and the need for a permanent record.</p>"],
+ ["Non-Verbal Communication","<p>Posture, facial expression, gestures, eye contact and tone influence how a message is interpreted. In technical presentations, readable visual material and controlled delivery help the audience follow the main argument.</p>"],
+ ["Comparison Table Study","<p><b>Oral:</b> fast feedback, less permanent. <b>Written:</b> recordable, carefully structured. <b>Formal:</b> official channel. <b>Informal:</b> flexible social channel. <b>Verbal:</b> words. <b>Non-verbal:</b> signals accompanying or modifying words.</p>"],
+ ["Exam Practice","<p>Prepare comparisons with definition, two characteristics, one advantage, one limitation and one engineering example for each major type.</p>"]
+ ],
+ "Reading Comprehension":[
+ ["Reading Strategy","<p>Begin by identifying the title or opening idea and predicting the subject. Read for the central argument, then locate supporting details. Technical passages often follow definition → explanation → example → conclusion.</p>"],
+ ["Main Idea and Details","<p>The main idea is the central point that controls the passage. Supporting details provide evidence, explanation, examples or data. An answer should not treat a minor example as the main idea.</p>"],
+ ["Inference and Evidence","<p>An inference is a conclusion supported by information in the passage. It should not contradict explicit statements. Words such as therefore, however, because and although often reveal relationships between ideas.</p>"],
+ ["Question Solving","<p>Read each question precisely, locate the relevant evidence, eliminate choices contradicted by the passage and answer only what is asked. For vocabulary-in-context questions, use the surrounding sentence rather than memorizing a dictionary meaning.</p>"],
+ ["Exam Practice","<p>For long answers, quote the idea in your own words, identify the supporting evidence and explain the relationship. Avoid adding unrelated outside information.</p>"]
+ ],
+ "Vocabulary and Grammar":[
+ ["Context-Based Vocabulary","<p>Technical words acquire precise meanings from context. The word current in electrical engineering is not the same concept as current in everyday language. Learn a word together with its field, collocation and example sentence.</p>"],
+ ["Sentence Structure","<p>A clear sentence makes the subject, action and result easy to identify. Subject-verb agreement, tense, articles, prepositions and punctuation contribute to technical accuracy because grammatical ambiguity can change an instruction.</p>"],
+ ["Active and Passive Voice","<p>Active voice directly identifies the actor: “The operator records the reading.” Passive voice focuses on the action or result: “The reading is recorded.” Both are useful; choose according to whether the actor or procedure is the focus.</p>"],
+ ["Editing Method","<p>Review in stages: spelling and punctuation first, grammar second, technical terminology and units third, then overall clarity. Reading the document once only for meaning and once only for language helps reveal different errors.</p>"],
+ ["Practice","<p>Prepare examples involving tense, articles, prepositions, subject-verb agreement, active/passive transformation, synonyms, antonyms and technical vocabulary in context.</p>"]
+ ],
+ "Professional Writing":[
+ ["Report Writing in Detail","<p>A technical report normally communicates purpose, background, method, observations/results, discussion and conclusion. The exact sections depend on the assignment. Tables and figures should have clear titles and should be referred to in the surrounding text.</p>"],
+ ["Professional Email","<p>Use a specific subject, appropriate greeting, concise purpose, essential context, requested action and professional closing. State dates, document names and attachments explicitly. Review recipients before sending.</p>"],
+ ["Application and Formal Letter","<p>A formal application should identify the recipient, purpose, relevant facts, requested action and respectful closing. Avoid unnecessary personal detail and keep the request unambiguous.</p>"],
+ ["Technical Editing","<p>Check grammar, technical facts, numerical values, units, headings, numbering, figure references and consistency. A technically correct calculation can still become unusable if its units or assumptions are omitted.</p>"],
+ ["Diagram/Format Study","<p>Practise the visual structure of a report page: heading → purpose → numbered sections → table/figure → discussion → conclusion. Formatting should help retrieval of information rather than act as decoration.</p>"]
+ ],
+ "Basic Elements of Drawing":[
+ ["Drawing Standards","<p>Engineering drawing uses conventions so different readers interpret the same geometry consistently. Line types, lettering, dimensioning and projection symbols therefore carry defined meanings.</p>"],
+ ["Line Types","<p>Visible outlines, hidden edges, centre lines, dimension lines and construction lines serve different functions. Use the adopted standard and keep construction geometry visually subordinate to the final drawing.</p>"],
+ ["Scales and Dimensioning","<p>A scale relates drawing size to actual size. Dimensions communicate size and location. Avoid duplicate dimensions and place values so they can be read without ambiguity.</p>"],
+ ["Geometric Construction","<p>Common constructions include perpendiculars, parallels, angle division and circles. Establish light construction lines first, verify intersections and then darken the required geometry.</p>"],
+ ["Figure Practice","<p>Draw a simple plate with a circular hole, centre lines, visible outline and three dimensions. Label each line type and explain why it is used.</p>"]
+ ],
+ "Orthographic Projections":[
+ ["Projection Principle","<p>Orthographic projection uses projectors perpendicular to the reference plane. Each view is a geometric projection of the same object, so corresponding points must remain aligned between related views.</p>"],
+ ["Selecting the Front View","<p>Choose a view that shows the characteristic shape and important features with minimum hidden detail. The front view then becomes the reference for projecting other views.</p>"],
+ ["First-Angle and Third-Angle","<p>The arrangement of views depends on the adopted projection convention. Always identify the projection symbol and then apply the corresponding view arrangement instead of assuming from memory.</p>"],
+ ["Step-by-Step Problem","<p>Study the object, select front view, project top and side views, transfer depths consistently, add hidden and centre lines, then dimension. Check that every feature visible in one view is geometrically supported by the other views.</p>"],
+ ["Figure Practice","<p>Practise a stepped block with a cylindrical hole. Draw front, top and side views and label visible, hidden and centre lines.</p>"]
+ ],
+ "Isometric Projection":[
+ ["Three-Dimensional Construction","<p>Isometric representation provides a pictorial view of a three-dimensional object using three principal directions. Begin with an overall bounding box and place features relative to the same reference axes.</p>"],
+ ["Construction Sequence","<p>Draw the axes, construct the overall length-width-height box, mark steps and cut-outs, locate centres of circular features, add curves and finally darken visible edges. Remove or lighten unnecessary construction lines.</p>"],
+ ["Circular Features","<p>A circle on an isometric face is represented by an ellipse-like curve. Locate its centre and extreme points from the enclosing construction geometry before drawing the curve.</p>"],
+ ["Orthographic Comparison","<p>Orthographic projection is preferred for precise multi-view documentation. Isometric projection is useful for visualizing several faces simultaneously. They describe the same object using different graphical conventions.</p>"],
+ ["Figure Practice","<p>Draw an isometric stepped block containing a circular hole and label the three principal directions.</p>"]
+ ],
+ "Free Hand Sketches of Engineering Elements":[
+ ["Purpose and Proportion","<p>A free-hand engineering sketch communicates shape and functional features quickly. It should preserve recognizable proportions and important details rather than aim for artistic decoration.</p>"],
+ ["Construction Method","<p>Estimate the overall ratio, establish a centreline or bounding form, add major features, refine edges and apply labels/dimensions. Keep guide lines light and final lines clear.</p>"],
+ ["Common Elements","<p>Practice sketches of bolts, nuts, shafts, bearings, simple joints and machine parts. Select the view that communicates the important feature most clearly.</p>"],
+ ["Field Use","<p>Engineers may sketch a damaged part, proposed modification or measurement arrangement before producing a formal drawing. The sketch becomes a record of observation and design intent.</p>"],
+ ["Figure Practice","<p>Draw a bolt-and-nut assembly in a simple pictorial form, add centre information and label the principal parts.</p>"]
+ ],
+ "Basic Computer Aided Drafting":[
+ ["CAD Workspace and Coordinates","<p>CAD represents geometry numerically, allowing precise coordinates and repeatable editing. Set units and drawing limits or workspace according to the required task before creating final geometry.</p>"],
+ ["Core Commands","<p>Line, polyline, circle and arc create geometry. Trim and extend modify boundaries. Offset creates parallel geometry, while copy, move, rotate and mirror reduce repetitive work.</p>"],
+ ["Object Snaps","<p>Object snaps locate exact geometric references such as endpoints, midpoints, centres and intersections. They are essential for avoiding small gaps and unintended inaccuracies.</p>"],
+ ["Layers and Dimensions","<p>Layers separate categories such as object outlines, construction geometry and dimensions. Dimensions should communicate size and location consistently with the drawing standard.</p>"],
+ ["CAD Practice","<p>Construct a simple plate with a hole using layers and object snaps, then add dimensions and prepare a print preview.</p>"]
+ ],
+ "Advanced Computer Aided Drafting":[
+ ["Constraints","<p>Geometric constraints express relationships such as horizontal, vertical, parallel, tangent and concentric. Dimensional constraints control size. Together they encode design intent and reduce accidental geometry changes.</p>"],
+ ["Reusable Content","<p>Blocks or reusable components reduce repeated drafting of standard symbols. Updating a controlled reusable element can maintain consistency across a drawing set.</p>"],
+ ["Drawing Management","<p>Complex drawings require disciplined layers, naming, units, references and output settings. Poor organization makes editing and printing difficult even when the geometry itself is correct.</p>"],
+ ["Quality Audit","<p>Before issue, check units, scale, dimensions, line weights, layer visibility, missing references, text readability and print preview. A final audit catches errors that are difficult to notice while editing individual objects.</p>"],
+ ["Advanced Practice","<p>Build a constrained rectangular plate with repeated holes, organize it into layers, reuse a standard feature and produce a clean dimensioned output.</p>"]
+ ],
+ "Unit and Measurements":[
+ ["Physical Quantities and SI","<p>Physical quantities are described by numerical value and unit. SI provides a consistent system of base units from which derived units are formed. Engineering calculations become meaningful only when units are carried consistently.</p>"],
+ ["Accuracy, Precision and Error","<p>Accuracy describes closeness to an accepted value, while precision describes repeatability. Random and systematic effects influence measurement differently. Reporting a value with unjustified decimal places can falsely imply precision.</p>"],
+ ["Significant Figures","<p>Significant figures communicate the meaningful precision of a measurement. In calculations, the final reported precision should reflect the least precise relevant input and the measurement capability.</p>"],
+ ["Dimensions","<p>Dimensional analysis checks whether an equation is dimensionally consistent. It can also help convert units and establish relationships, but dimensional consistency alone does not prove that an equation is physically correct.</p>"],
+ ["Measurement Diagram","<p>Draw an instrument scale, mark least count and reading position, then show the difference between a repeatable cluster of readings and a shifted cluster to illustrate precision versus accuracy.</p>"]
+ ],
+ "Simple Harmonic and Wave Motion":[
+ ["Periodic and Oscillatory Motion","<p>Periodic motion repeats after a definite time. Oscillatory motion occurs about an equilibrium position. SHM is a special oscillation in which restoring acceleration is proportional to displacement and directed toward equilibrium.</p>"],
+ ["SHM Equation","<p>A basic displacement representation is x=A sin(ωt+φ). Differentiation gives velocity and acceleration; the defining relation is a=−ω²x. The negative sign indicates acceleration toward equilibrium.</p>"],
+ ["Wave Parameters","<p>Amplitude describes maximum disturbance, wavelength is the spatial period, frequency is cycles per second, and phase describes the state of oscillation. For a simple progressive wave, v=fλ.</p>"],
+ ["Superposition","<p>When waves overlap, their instantaneous displacements combine according to the principle of superposition. This leads to constructive and destructive interference depending on phase relationship.</p>"],
+ ["Figure Practice","<p>Draw an SHM displacement-time curve marking amplitude and time period, then draw a wave with wavelength λ and identify crest, trough and amplitude.</p>"]
+ ],
+ "Semiconductor Physics":[
+ ["Band Theory Foundation","<p>In solids, allowed electron energies form bands separated by forbidden energy regions. The band structure helps explain why materials behave as conductors, semiconductors or insulators.</p>"],
+ ["Intrinsic and Extrinsic Semiconductor","<p>An intrinsic semiconductor is comparatively pure. Doping introduces controlled impurity atoms and changes carrier concentration. Donor-type doping produces an N-type material, while acceptor-type doping produces a P-type material.</p>"],
+ ["P-N Junction","<p>When P-type and N-type regions meet, carriers diffuse and a depletion region develops. An internal electric field forms across this region. Applying external bias changes the junction condition and current behavior.</p>"],
+ ["Device Connection","<p>Diodes exploit junction behavior. Semiconductor physics therefore provides the foundation for rectifiers, LEDs, transistors and many integrated devices.</p>"],
+ ["Figure Practice","<p>Draw P-region | depletion region | N-region and show conventional current direction under forward and reverse bias separately.</p>"]
+ ],
+ "Modern Physics":[
+ ["Quantum Idea","<p>Classical physics cannot explain every microscopic phenomenon. Quantum theory introduces quantized energy and wave-particle behavior. Photon energy is E=hν.</p>"],
+ ["Photoelectric Effect","<p>Light can transfer energy to electrons. The maximum electron kinetic energy depends on photon energy and the material's work function. Frequency and intensity play different roles in the phenomenon.</p>"],
+ ["Matter Waves","<p>de Broglie proposed that moving matter has wave character, represented by λ=h/p. This relation connects particle momentum with wavelength.</p>"],
+ ["Atomic Models","<p>Rutherford established the nuclear nature of the atom from scattering observations, while Bohr introduced quantized orbits in his model of hydrogen. Modern quantum mechanics uses wavefunctions and probability rather than fixed classical orbits.</p>"],
+ ["Figure Practice","<p>Draw a simple energy-level diagram showing an electron transition and photon emission, with energy difference labelled.</p>"]
+ ],
+ "Programming Logic & Computational Thinking using Python":[
+ ["Problem Decomposition","<p>Break a large problem into smaller tasks with clear inputs, processing and outputs. This reduces complexity and allows each part to be tested independently.</p>"],
+ ["Algorithm and Pseudocode","<p>An algorithm is a finite ordered procedure. Pseudocode expresses logic without committing to programming syntax, making it easier to review before implementation.</p>"],
+ ["Python Fundamentals","<p>Variables, data types, operators, input/output, conditions, loops and functions form the basic programming toolkit. Indentation is syntactically significant in Python and should be used consistently.</p>"],
+ ["Testing and Debugging","<p>Use normal, boundary and invalid test cases. A syntax error prevents correct parsing; a logic error allows execution but produces an incorrect result. Debugging requires isolating the failing step and retesting after correction.</p>"],
+ ["Flowchart Practice","<p>Draw: Problem → Input → Process/Decision → Output → Test. Add a loop branch for repeated processing and explain why the loop terminates.</p>"]
+ ],
+ "Word Processing":[
+ ["Document Structure","<p>Word processors separate content from presentation through styles, headings, paragraphs, tables and page settings. A structured document is easier to navigate, revise and convert to PDF.</p>"],
+ ["Formatting and Styles","<p>Use heading styles consistently rather than changing every heading manually. Styles support automatic navigation and consistent appearance across a long technical document.</p>"],
+ ["Tables and Figures","<p>Tables organize comparable data while figures communicate geometry, process or relationships. Give each meaningful table or figure a title and refer to it from the text where necessary.</p>"],
+ ["Review and Output","<p>Before final output, check spelling, page breaks, headings, numbering, references, margins and PDF appearance. Printing should be treated as a final quality check.</p>"],
+ ["Practice","<p>Create a two-page technical report with title, headings, one table, one figure caption and page numbering.</p>"]
+ ],
+ "Spreadsheets":[
+ ["Cells and References","<p>A spreadsheet is a grid of cells addressed by row and column. Relative references change when formulas are copied, while absolute references keep the referenced cell fixed.</p>"],
+ ["Formulas and Functions","<p>Formulas combine cell references, constants and operators. Functions perform common operations such as sum, average, minimum and maximum. Always verify that the selected range includes the intended data.</p>"],
+ ["Data Analysis","<p>Sorting and filtering help inspect data. Charts convert numerical patterns into visual form, but the chart type should match the data and the message being communicated.</p>"],
+ ["Error Checking","<p>Common spreadsheet errors include wrong ranges, copied formulas with unintended references, text stored as numbers and inconsistent units. Check sample calculations manually before trusting a large sheet.</p>"],
+ ["Practice","<p>Build a marks or laboratory-data sheet with formulas for total, average and highest value, then create one suitable chart.</p>"]
+ ],
+ "Presentation Tool":[
+ ["Presentation Planning","<p>Start with the audience and purpose. Organize the message into introduction, main technical points, evidence/figures and conclusion. One slide should have a clear communication purpose.</p>"],
+ ["Visual Hierarchy","<p>Use readable text, meaningful headings, diagrams and charts. Avoid filling slides with paragraphs; detailed explanation belongs in speech or supporting notes when appropriate.</p>"],
+ ["Technical Figures","<p>Charts should have labelled axes and units. Diagrams should use readable labels and a logical flow. Every visual should help the audience understand a technical relationship.</p>"],
+ ["Delivery","<p>Rehearse timing, transitions and explanation of figures. Do not simply read every word from the screen. Check that the presentation remains understandable if the audience looks away briefly.</p>"],
+ ["Practice","<p>Prepare a short engineering presentation with title, problem, method, diagram, result and conclusion slides.</p>"]
+ ],
+ "Basics of Internet":[
+ ["Internet and Web","<p>The Internet is a global network of interconnected networks. The World Wide Web is one service that operates over the Internet using web protocols and browsers.</p>"],
+ ["Client-Server Model","<p>A browser acts as a client requesting resources from a server. The server processes the request and returns a response. This basic model supports web pages, APIs and many online services.</p>"],
+ ["URL and DNS","<p>A URL identifies a resource location. Domain names provide human-readable names, while DNS translates domain names into network addresses used for communication.</p>"],
+ ["Protocols and Safety","<p>HTTP/HTTPS are used for web communication; HTTPS adds encryption and authentication mechanisms through TLS. Users should protect credentials, verify domains and avoid entering sensitive information on suspicious pages.</p>"],
+ ["Network Diagram","<p>Draw: User Device → Router/Network → Internet → DNS → Web Server → Response. Label request and response directions.</p>"]
+ ],
+ "Constitution and Preamble":[
+ ["Constitutional Framework","<p>The Constitution provides the framework for governance, institutions, rights and duties. The Preamble states key constitutional ideals and describes the nature and objectives of the Republic.</p>"],
+ ["Reading the Preamble","<p>Study the terms used in the Preamble and understand their constitutional context rather than treating them as isolated vocabulary. They express broad goals and values of the constitutional system.</p>"],
+ ["Citizen Connection","<p>Constitutional literacy helps students understand institutions, rights, responsibilities and lawful participation in public life. It also provides a framework for understanding how government authority is organized.</p>"],
+ ["Answer Structure","<p>For a long answer, define the Constitution, explain the role of the Preamble, identify major ideals and connect them with the broader constitutional framework.</p>"],
+ ["Revision","<p>Prepare a labelled concept map: Constitution → Institutions + Rights + Directive Principles + Governance + Amendment framework.</p>"]
+ ],
+ "Fundamental Rights and Directive Principles":[
+ ["Two Constitutional Components","<p>Fundamental Rights and Directive Principles serve different constitutional functions. Rights protect important freedoms and interests within the constitutional framework, while Directive Principles guide the state toward specified social and economic objectives.</p>"],
+ ["Understanding the Difference","<p>Do not describe the two as identical. Study their purpose, legal character and relationship with governance. The syllabus-level distinction is important for examination answers.</p>"],
+ ["Examples and Context","<p>Learn the major categories of Fundamental Rights and the broad themes addressed by Directive Principles. Use the Constitution's terminology when writing answers.</p>"],
+ ["Civic Application","<p>Understanding rights and principles helps students read public policies and institutional actions in their constitutional context without relying only on informal summaries.</p>"],
+ ["Exam Practice","<p>Write answers using: definition → purpose → major categories → distinction → constitutional significance.</p>"]
+ ],
+ "Governance and Amendments":[
+ ["Institutions","<p>The constitutional system distributes functions among institutions including the legislature, executive and judiciary. Their roles are connected through a framework of authority, procedure and accountability.</p>"],
+ ["Legislature and Executive","<p>The legislature performs law-making functions within the constitutional framework, while the executive carries out administration. Their precise powers and relationships should be studied using constitutional terminology.</p>"],
+ ["Judiciary","<p>The judiciary interprets law and resolves disputes within its constitutional and statutory jurisdiction. Judicial review and constitutional interpretation are important concepts for understanding governance.</p>"],
+ ["Amendment","<p>Constitutional amendment is not the same as ordinary administrative change. The Constitution prescribes procedures for amendments, and different provisions can have different procedural requirements.</p>"],
+ ["Concept Map","<p>Draw: Constitution → Legislature / Executive / Judiciary, with a separate branch showing Amendment Procedure. Add one line describing the role of each institution.</p>"]
+ ],
+ "Open Educational Resources":[
+ ["What Makes OER Open","<p>OER are educational materials made available with permissions that support specified forms of reuse. Free access by itself does not necessarily mean a work is openly licensed.</p>"],
+ ["Finding Reliable Resources","<p>Check creator, institution, date, syllabus relevance, factual accuracy, accessibility and license. Engineering resources should also be checked for equations, units and diagrams.</p>"],
+ ["Attribution","<p>Where a license requires attribution, retain the creator, title, license and source information as appropriate. Do not remove license conditions simply because the material is available online.</p>"],
+ ["Website Use","<p>A study website can prefer original explanations and diagrams, supplemented by properly licensed OER. Keeping source records makes later verification easier.</p>"],
+ ["Quality Diagram","<p>Draw: Search → Verify Authority → Check Content → Check License → Attribute → Use/Adapt → Review.</p>"]
+ ],
+ "Copyright and Open Licensing":[
+ ["Copyright Basics","<p>Copyright can protect original text, images, diagrams, software and other creative works. Ownership and licensing determine what another person may reproduce, adapt or distribute.</p>"],
+ ["License as Permission","<p>An open license does not mean copyright disappears. It provides permissions under stated conditions. The user remains responsible for following those conditions.</p>"],
+ ["Educational Website Practice","<p>Prefer original diagrams, public-domain works or properly licensed resources. Keep attribution and license information where required and do not assume that search-engine visibility grants copying permission.</p>"],
+ ["Adaptation and Distribution","<p>Before modifying or redistributing a resource, check whether the license permits adaptation and whether additional conditions apply. Different licenses provide different permissions.</p>"],
+ ["Exam Practice","<p>Differentiate copyright, public domain and open licensing; explain why license checking is necessary before reusing an online resource.</p>"]
+ ],
+ "Creative Common Licenses":[
+ ["License Elements","<p>Creative Commons licenses use standardized conditions. BY requires attribution; SA requires adaptations to use the same or a compatible licensing approach under the applicable terms; NC restricts commercial use; ND restricts adaptations.</p>"],
+ ["Reading a License","<p>Always identify the exact license attached to the work. Do not infer permission from a generic Creative Commons logo without checking the specific conditions.</p>"],
+ ["Attribution","<p>A practical attribution normally identifies the creator, title where available, source and license, while following the license's particular requirements.</p>"],
+ ["Choosing Content","<p>If a resource has restrictions incompatible with the intended use, select another resource or create original material. This is especially important for educational websites that may redistribute or adapt content.</p>"],
+ ["Revision","<p>Memorize the meaning of BY, SA, NC and ND, then practise interpreting combinations such as BY-SA or BY-NC-ND using the exact license conditions.</p>"]
+ ],
+ "OER Repositories and Quality Assurance":[
+ ["Repository Search","<p>Repositories organize educational materials by subject, level, format or collection. Search using the exact syllabus topic and verify the resource before incorporating it into study material.</p>"],
+ ["Authority and Accuracy","<p>Check the creator or institution, references, date and technical correctness. For engineering notes, independently verify equations, units and diagrams before publication.</p>"],
+ ["License Quality Check","<p>Content quality and legal reuse are separate checks. A highly accurate resource can still have a license that does not permit the intended reuse.</p>"],
+ ["Accessibility","<p>Good educational resources should be readable, navigable and usable by the intended learners. Text alternatives for important figures and clear document structure improve accessibility.</p>"],
+ ["Evaluation Flow","<p>Draw: Search → Relevance → Authority → Accuracy → Currency → Accessibility → License → Final Use.</p>"]
+ ],
+ "Environment and ecosystems":[
+ ["Ecosystem Components","<p>Abiotic components include light, temperature, water, soil and nutrients. Biotic components include producers, consumers and decomposers. The components interact continuously.</p>"],
+ ["Energy Flow","<p>Energy enters many ecosystems primarily through producers and passes through trophic levels. Energy is not recycled in the same way as matter; much is dissipated as heat.</p>"],
+ ["Food Chain and Web","<p>A food chain shows a simplified feeding pathway. A food web connects multiple pathways and better represents ecological interdependence.</p>"],
+ ["Engineering Impact","<p>Infrastructure, extraction, manufacturing and waste can alter habitat, water and air. Environmental assessment should therefore consider interactions rather than one isolated pollutant.</p>"],
+ ["Ecosystem Diagram","<p>Draw: Sun → Producers → Primary Consumers → Secondary Consumers → Decomposers, with arrows showing energy transfer and a separate matter-cycle arrow returning nutrients to the system.</p>"]
+ ],
+ "Natural resources":[
+ ["Resource Classification","<p>Renewable resources can regenerate on human timescales when use remains within regeneration limits. Non-renewable resources form too slowly for practical replacement on human timescales.</p>"],
+ ["Water and Energy","<p>Resource conservation combines demand reduction, efficient technology, reuse, recovery and protection of natural cycles. A resource being physically available does not mean unlimited extraction is sustainable.</p>"],
+ ["Minerals and Materials","<p>Mineral resources supply engineering materials. Efficient design, recycling and recovery can reduce pressure on primary extraction.</p>"],
+ ["Engineering Role","<p>Engineers influence resource demand through process efficiency, material selection, water treatment, energy systems, maintenance and end-of-life planning.</p>"],
+ ["Conservation Flow","<p>Draw: Resource → Efficient Use → Reuse/Recovery → Recycling → Reduced Primary Demand, and identify where engineering decisions intervene.</p>"]
+ ],
+ "Pollution and control":[
+ ["Pollution Pathway","<p>Pollution can be understood as Source → Pollutant → Pathway → Receptor → Effect. This model helps identify where prevention or control should be applied.</p>"],
+ ["Air Pollution","<p>Air pollutants can include particulate matter and harmful gases. Control can involve cleaner processes, capture devices, filtration, combustion improvement and monitoring according to pollutant type.</p>"],
+ ["Water and Soil Pollution","<p>Water pollution may involve organic matter, nutrients, pathogens or toxic substances. Soil pollution can arise from improper waste disposal, chemicals or contaminated materials. Control depends on the pollutant and exposure pathway.</p>"],
+ ["Prevention Hierarchy","<p>Source reduction is generally preferable to treating pollution after release. Cleaner production, process modification, recovery and treatment can be combined according to the situation.</p>"],
+ ["Control Diagram","<p>Draw: Source → Pollutant → Environment → Receptor, with control options branching at Source, Pathway and Release stages.</p>"]
+ ],
+ "Sustainable development":[
+ ["Three Dimensions","<p>Sustainable development considers environmental protection together with social and economic needs. A technically efficient design can still be unsuitable if it creates unacceptable environmental or social impacts.</p>"],
+ ["Life-Cycle Thinking","<p>Consider raw-material extraction, manufacturing, transport, operation, maintenance and end-of-life. This avoids judging a design only by its initial purchase cost.</p>"],
+ ["Engineering Design","<p>Durability, repairability, material recovery, energy efficiency and responsible resource use can reduce life-cycle impacts. The correct solution depends on service conditions and project objectives.</p>"],
+ ["SDG Connection","<p>The Sustainable Development Goals provide a global framework covering areas including water, energy, infrastructure, responsible consumption and climate. Engineering projects can influence several goals simultaneously.</p>"],
+ ["Sustainability Diagram","<p>Draw three intersecting circles labelled Environment, Society and Economy, with Sustainable Development in the common region.</p>"]
+ ],
+ "Climate and environmental responsibility":[
+ ["Greenhouse Effect","<p>Greenhouse gases absorb and re-emit infrared radiation, affecting the Earth's energy balance. Changes in atmospheric composition can alter climate conditions.</p>"],
+ ["Mitigation","<p>Mitigation addresses causes by reducing greenhouse-gas emissions or increasing removals. Examples include energy efficiency, lower-carbon energy and reduced waste emissions.</p>"],
+ ["Adaptation","<p>Adaptation addresses vulnerability to impacts. Examples include resilient infrastructure, water planning, heat management and risk-informed design.</p>"],
+ ["Engineering Responsibility","<p>Engineers can incorporate climate information into material selection, energy systems, drainage, buildings, transport and infrastructure maintenance. Decisions should consider uncertainty and service life.</p>"],
+ ["Comparison Diagram","<p>Draw two branches: Climate Change → Mitigation (reduce causes) and Climate Change → Adaptation (reduce vulnerability/impact). Add two examples under each.</p>"]
+ ]
+ };
+ Object.keys(packs).forEach(t=>{const n=L[t];if(!n)return;n.sections=n.sections||[];packs[t].forEach(x=>{if(!n.sections.some(s=>s[0]===x[0]))n.sections.push(x)});n.longForm=true});
+})();
