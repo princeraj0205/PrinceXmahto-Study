@@ -442,3 +442,64 @@ S('Scope of the five units','<p>The five units move from atomic structure and bo
 
 window.PX_LESSONS=L;
 })();
+// === LONG-FORM NOTE FORMATTER ===
+// Each configured topic is expanded into a real 3-4 page classroom-note structure.
+// It preserves existing topic-specific material and adds only sections whose headings
+// are not already present. No repeated filler paragraphs are generated.
+(function(){
+  const L=window.PX_LESSONS||(window.PX_LESSONS={});
+  const add=(t,h,b)=>{const n=L[t]; if(!n)return; n.sections=Array.isArray(n.sections)?n.sections:[]; if(!n.sections.some(x=>x[0]===h)) n.sections.push([h,b]);};
+  const common={
+    'Algebra Determinant':[
+      ['Determinant of a 2×2 Matrix — Detailed Method','<p>For a square matrix A = [[a,b],[c,d]], the determinant is written |A| = ad − bc. The two products are formed on the two diagonals and subtracted. This operation is not an arbitrary formula: it measures whether the two rows or columns provide independent linear information. If the determinant is zero, the matrix is singular and an ordinary inverse cannot be formed.</p><p>For a 3×3 determinant, expand along a convenient row or column. Each element is multiplied by its cofactor, whose sign follows the alternating pattern +, −, +. In examination work, write every minor clearly before simplifying; this reduces sign errors.</p>'],
+      ['Cramer’s Rule — Step by Step','<p>Consider two simultaneous equations ax + by = e and cx + dy = f. First form D = ad − bc. Then replace the x-column by the constants to obtain Dₓ and replace the y-column to obtain Dᵧ. The solution is x = Dₓ/D and y = Dᵧ/D, provided D ≠ 0. The method shows directly why the determinant is central to solving simultaneous linear equations.</p><ol><li>Write coefficient matrix.</li><li>Calculate D.</li><li>Calculate Dₓ and Dᵧ.</li><li>Divide by D.</li><li>Substitute the values back into the original equations.</li></ol>'],
+      ['Engineering Interpretation and Common Errors','<p>Determinants occur in coordinate transformations, systems of equations, geometric calculations and numerical engineering models. Common errors are interchanging rows without changing the sign, forgetting a negative cofactor, applying an inverse when D = 0, and reporting a solution without checking the original equations.</p>']
+    ],
+    'Differential Calculus':[
+      ['Derivative from First Principle — Full Derivation','<p>The derivative at x is defined as f′(x)=lim(h→0)[f(x+h)−f(x)]/h. For f(x)=x², f(x+h)=(x+h)²=x²+2xh+h². Subtracting f(x) gives 2xh+h²; dividing by h gives 2x+h. Taking h→0 gives f′(x)=2x. This derivation explains where the power rule comes from rather than treating it as a memorized result.</p>'],
+      ['Rules of Differentiation — When to Use Each','<p>Use the sum rule when terms are added, the product rule for two changing factors, the quotient rule for a ratio, and the chain rule when one function is inside another. In an engineering expression, first identify the outer and inner functions; this prevents the common mistake of differentiating only the visible outer part.</p><p>For y=u·v, dy/dx=u(dv/dx)+v(du/dx). For y=u/v, dy/dx=[v(du/dx)−u(dv/dx)]/v². For y=f(g(x)), dy/dx=f′(g(x))g′(x).</p>'],
+      ['Worked Example — Physical Meaning','<p>If displacement is s(t)=3t²+2t metres, velocity is ds/dt=6t+2 m/s and acceleration is d²s/dt²=6 m/s². At t=2 s, v=14 m/s. The calculation shows how a derivative converts a displacement-time relation into instantaneous velocity.</p>']
+    ],
+    'Application of Differential Calculus':[
+      ['Maxima and Minima — Complete Procedure','<p>For a differentiable function, first find f′(x)=0 to obtain stationary points. Then use the second derivative: f″(x)&gt;0 indicates a local minimum and f″(x)&lt;0 indicates a local maximum, subject to the function’s domain and the usual differentiability conditions. For a robust check, inspect the sign of f′ on either side of the point.</p>'],
+      ['Engineering Optimization Example','<p>Suppose a rectangular sheet has fixed perimeter P. If sides are x and y, then 2x+2y=P, so y=P/2−x. Area becomes A(x)=x(P/2−x). Differentiating gives A′=P/2−2x; setting A′=0 gives x=P/4 and therefore y=P/4. The result demonstrates why optimization must begin by expressing the constraint mathematically.</p>'],
+      ['Tangent, Normal and Rate of Change','<p>At a point on y=f(x), the tangent slope is dy/dx. The normal is perpendicular to the tangent, so when both slopes are finite their product is −1. Rate-of-change problems follow the same derivative idea but usually require careful identification of which physical quantity depends on which variable.</p>']
+    ],
+    'Co-ordinate Geometry':[
+      ['Straight Line — Forms and Meaning','<p>The slope-intercept form is y=mx+c, where m gives direction and c is the y-intercept. Point-slope form y−y₁=m(x−x₁) is useful when one point and the slope are known. The two-point form is useful when two coordinates are given. In engineering drawing and CAD, these forms describe edges, centre lines and paths.</p>'],
+      ['Distance, Section and Angle','<p>For points (x₁,y₁) and (x₂,y₂), distance is √[(x₂−x₁)²+(y₂−y₁)²]. The section formula locates a point dividing a line in a specified ratio. Angle between lines follows from their slopes. Always maintain the coordinate order consistently to avoid sign errors.</p>'],
+      ['Circle — Construction and Interpretation','<p>(x−h)²+(y−k)²=r² describes a circle with centre (h,k) and radius r. Expanding it gives the general form x²+y²+Dx+Ey+F=0. Completing the square recovers the centre and radius. The same geometry is used for circular holes, shafts and arcs in engineering layouts.</p>']
+    ],
+    'Probability and Statistics':[
+      ['Probability Rules — Detailed','<p>For events A and B, P(A∪B)=P(A)+P(B)−P(A∩B). If A and B are mutually exclusive, P(A∩B)=0. For independent events, P(A∩B)=P(A)P(B). Conditional probability is P(A|B)=P(A∩B)/P(B), when P(B) is non-zero. These formulas must be selected according to the relationship between events.</p>'],
+      ['Mean, Variance and Standard Deviation','<p>The arithmetic mean is the sum of observations divided by their number. Variance measures squared spread about the mean, while standard deviation is the square root of variance and therefore returns to the original unit. In engineering measurement data, a small standard deviation indicates observations are clustered more closely around the mean, but it does not by itself prove that the measurement system is accurate.</p>'],
+      ['Worked Data Interpretation','<p>For readings 10, 12 and 14, the mean is 12. Deviations are −2, 0 and +2. Their pattern shows how spread is assessed around the centre. In actual laboratory work, retain units, state the number of observations and distinguish measured variation from instrument uncertainty.</p>']
+    ],
+    'Communication':[
+      ['Communication Cycle — Detailed','<p>The sender first develops an idea, encodes it into words or symbols, selects a channel and transmits it. The receiver decodes the message and produces feedback. Noise can interfere at any stage. In technical communication, drawings, equations, tables and controlled terminology act as additional forms of encoding.</p>'],
+      ['Barriers to Effective Communication','<p>Physical noise includes distance and sound interference. Semantic barriers arise when words or symbols are interpreted differently. Psychological barriers may affect attention or willingness to communicate, while organizational barriers can arise from unclear authority or information flow. The remedy depends on the barrier: clearer terminology, confirmation, better channel selection or structured feedback.</p>'],
+      ['Technical Communication Example','<p>A maintenance instruction should identify the equipment, required isolation, operation sequence, acceptance condition and record to be made. A vague sentence such as “repair the unit properly” does not define an observable action. Precision is therefore a safety and quality issue, not merely a language preference.</p>']
+    ],
+    'Professional Writing':[
+      ['Technical Report — Detailed Structure','<p>A report normally begins with a title and purpose, followed by relevant background, method or procedure, observations/results, discussion and conclusion. Where required, references and appendices provide supporting information. Tables and figures should have numbers and meaningful captions.</p>'],
+      ['Professional Email — Complete Format','<p>A professional email should have a specific subject line, greeting, one clear purpose, essential context, requested action and closing. Dates, document names and required attachments should be stated explicitly. Before sending, verify recipients, attachment presence and factual accuracy.</p>'],
+      ['Editing Checklist','<p>Review a draft at three levels: language accuracy, technical correctness and document usability. Check grammar and spelling, then units/equations/names, then headings, numbering, figure references and readability. Editing is part of technical work because errors can change the meaning of an instruction.</p>']
+    ],
+    'Basic Elements of Drawing':[
+      ['Line Types — Meaning and Use','<p>Continuous thick lines commonly indicate visible outlines, while dashed lines indicate hidden features and centre lines identify axes or centres. Dimension and extension lines communicate measurements. The exact convention should follow the adopted engineering-drawing standard; line type is a communication code, not decoration.</p>'],
+      ['Dimensioning — Step by Step','<p>First identify the feature that needs a size or location. Select an appropriate dimensioning method, place extension lines clear of the object where required, write the numerical value legibly and avoid unnecessary duplication. Dimensions should describe manufacturing or inspection information unambiguously.</p>'],
+      ['Geometric Construction','<p>Common constructions include perpendiculars, parallel lines, angle division and circles. Use light construction lines first, verify intersections and then darken the final geometry. Accuracy comes from construction method rather than repeated freehand correction.</p>']
+    ],
+    'Orthographic Projections':[
+      ['Projection Planes and View Selection','<p>Orthographic projection uses projectors perpendicular to the plane on which the view is formed. The front view normally communicates the principal shape; the top and side views supply depth and additional features. Choose the front view so the object’s characteristic shape and important features are represented clearly.</p>'],
+      ['First-Angle Projection — Reading Method','<p>In first-angle projection the relative placement of views follows the standard first-angle convention. Learn the arrangement from the projection symbol rather than memorizing an isolated picture. Projectors must remain aligned between corresponding views.</p>'],
+      ['Worked View Interpretation','<p>Start with visible outlines in the front view. Project corresponding points to the top and side views, transfer depths consistently, add hidden edges only where required, and finish with centre lines and dimensions. This sequence prevents a common error: inventing an edge that cannot be supported by the other views.</p>']
+    ],
+    'Isometric Projection':[
+      ['Isometric Axes and Scale','<p>An isometric representation uses three principal directions separated by equal angles in the drawing convention. Measurements along these directions follow the adopted isometric construction method. Begin from a bounding box so every feature remains referenced to the same origin.</p>'],
+      ['Circles and Curved Features','<p>A circle on an isometric face appears as an ellipse-like representation. Locate the centre and extreme points from the enclosing rhombus or construction geometry before drawing the curve. This preserves alignment with the three-dimensional form.</p>'],
+      ['Worked Construction Sequence','<p>Draw the three principal directions, construct the overall box, mark length/width/height, locate steps and holes, add curved features, then darken visible edges. Finally remove or lighten construction lines and add necessary dimensions.</p>']
+    ]
+  };
+  Object.keys(common).forEach(t=>common[t].forEach(x=>add(t,x[0],x[1])));
+})();
