@@ -29,6 +29,7 @@ function renderLesson(topic,note,index,title,units){
  const progress=Math.round((index/units.length)*100);
  nav.innerHTML=`<div class="nav-title">${esc(branch.short)} · ${esc(title)}</div><div class="nav-progress"><span style="width:${progress}%"></span></div>${units.map((u,i)=>`<a class="nav-topic ${u===topic?'active':''}" href="topic.html?branch=${encodeURIComponent(branch.id)}&subject=${encodeURIComponent(subjectCode)}&topic=${encodeURIComponent(u)}"><span>${String(i+1).padStart(2,'0')}</span>${esc(u)}</a>`).join('')}`;
  const overview=note.overview?`<section class="chapter-overview"><div class="teacher-label">Learning Objective</div><p>${note.overview}</p></section>`:'';
+ const figure=window.PX_TOPIC_VISUALS&&window.PX_TOPIC_VISUALS[topic]?window.PX_TOPIC_VISUALS[topic]:'';
  const teaching=teacherBlock(note);
  const sections=(note.sections||[]).map(([heading,html])=>`<section class="note-section"><h2>${esc(heading)}</h2><div class="teacher-copy">${html}</div></section>`).join('');
  const example=note.example?`<section class="note-section"><h2>Worked Examples — Step by Step</h2><div class="worked-example">${note.example}</div></section>`:'';
@@ -37,7 +38,7 @@ function renderLesson(topic,note,index,title,units){
  const revision=note.revision?`<section class="note-section"><h2>Quick Revision</h2><p>${note.revision}</p></section>`:'';
  root.innerHTML=`<div class="notebook"><div class="print-brand"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto Study · Semester I</span></div><div class="notebook-inner">
  <div class="lesson-head"><div><div class="eyebrow">${esc(branch.short)} · ${esc(subjectCode)} · LESSON ${String(index).padStart(2,'0')}</div><h1>${esc(topic)}</h1><p class="sub">${esc(title)} · ${esc(branch.name)} · Semester I</p></div></div>
- ${syllabusBlock(topic)}${overview}${teaching}${sections}${example}${questions}${mcqs}${revision}
+ ${syllabusBlock(topic)}${overview}${figure}${teaching}${sections}${example}${questions}${mcqs}${revision}
  </div></div>`;
 }
 
