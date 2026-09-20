@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Applied Physics-B Unit 4 — Semiconductor Physics | PrinceXmahto</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:#18212b;font-family:Arial,Helvetica,sans-serif;line-height:1.72}
+.wrap{max-width:1120px;margin:auto;background:#fff;box-shadow:0 0 25px #0001}.hero{padding:52px 7%;background:linear-gradient(135deg,#09111f,#173d59);color:#fff}.hero h1{font-size:42px;margin:5px 0 10px}.hero p{margin:5px 0;color:#dbe8f3}.kicker{font-size:13px;letter-spacing:1.8px;text-transform:uppercase;color:#9ec7e8;font-weight:700}.badge{display:inline-block;padding:6px 11px;border-radius:20px;background:#ffffff18;border:1px solid #ffffff35;margin:7px 5px 0 0}
+main{padding:32px 7%}h2{margin-top:44px;border-left:6px solid #173b5f;padding:9px 14px;background:#eef4f9}h3{color:#173b5f;margin-top:28px}h4{color:#28577e}.card{background:#f8fafc;border:1px solid #dce5ee;border-radius:12px;padding:20px;margin:18px 0}.note{background:#fff8e6;border-left:5px solid #e4a72c;padding:15px;margin:18px 0}.exam{background:#edf7ef;border-left:5px solid #2e7d32;padding:15px;margin:18px 0}.warn{background:#fff0f0;border-left:5px solid #c62828;padding:15px}.formula{background:#101820;color:#fff;border-radius:10px;padding:15px 20px;font-size:18px;overflow:auto;margin:14px 0}.diagram{font-family:Consolas,"Courier New",monospace;background:#f7f7f7;border:1px dashed #9aa7b3;padding:16px;white-space:pre-wrap;border-radius:8px;overflow:auto}.flow{background:#edf5ff;border:1px solid #c9dcf4;padding:16px;border-radius:10px}.vvi{background:#fff3cf;border:1px solid #e6c76b;padding:15px;border-radius:10px}.small{font-size:14px;color:#5c6874}table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #cfd9e3;padding:10px;vertical-align:top}th{background:#173b5f;color:#fff}li{margin:6px 0}.footer{text-align:center;padding:34px;background:#101820;color:#fff}
+@media(max-width:700px){.hero h1{font-size:31px}main{padding:18px}.card{padding:16px}table{display:block;overflow-x:auto}}@media print{body{background:#fff}.wrap{box-shadow:none}.hero{background:#173b5f!important}main{padding:18px}.card,.diagram{break-inside:avoid}}
+</style></head>
+<body><div class="wrap">
+<header class="hero"><div class="kicker">SBTE Bihar • Diploma • Semester-I • Applied Physics-B</div><h1>Unit 4 — Semiconductor Physics</h1>
+<p style="font-size:21px"><b>Energy Bands • Charge Carriers • p-n Junction • Rectifiers • Photocells • Solar Cells</b></p>
+<p>Book-style notes • concept explanation • diagrams • formulas • applications • exam practice</p>
+<span class="badge">Course Code: 2600102B / T2600102B</span><span class="badge">CO4</span><span class="badge">BY PRINCEXMAHTO</span></header>
+<main>
+<div class="note"><b>Official scope:</b> Unit 4 covers energy bands and band gap; conductor, semiconductor and insulator; intrinsic and extrinsic semiconductors; drift velocity, drift and diffusion current, mobility, current density and law of mass action; depletion layer, barrier potential, p-n junction and V-I characteristics; half-wave and full-wave rectifiers; photocells and solar cells with working principles and engineering applications. citeturn0search12</div>
+
+<h2>Unit 4 at a Glance</h2><div class="card"><table><tr><th>Section</th><th>Core syllabus</th><th>What to understand</th></tr>
+<tr><td>4.1</td><td>Energy band and band gap; conductor, semiconductor, insulator</td><td>Why materials conduct differently and how forbidden energy gap controls behaviour.</td></tr>
+<tr><td>4.2</td><td>Intrinsic/extrinsic semiconductors; drift velocity; drift/diffusion current; mobility; current density; law of mass action</td><td>How electrons and holes are created and how they move.</td></tr>
+<tr><td>4.3</td><td>Depletion layer; barrier potential; p-n junction; V-I characteristics; half-wave and full-wave rectifier</td><td>How a junction behaves under bias and how AC is converted into pulsating DC.</td></tr>
+<tr><td>4.4</td><td>Photocells; solar cells; working principle and engineering applications</td><td>How semiconductor devices convert light into electrical signals or power.</td></tr></table></div>
+
+<h2>4.1 Energy Bands and Band Gap</h2>
+<h3>4.1.1 From Individual Atoms to Energy Bands</h3>
+<p>In an isolated atom, electrons occupy discrete energy levels. When a very large number of atoms come together to form a solid, the interaction between neighbouring atoms causes these closely spaced energy levels to form broad ranges called <b>energy bands</b>.</p>
+<p>The two bands most important for electrical conduction are the <b>valence band</b> and the <b>conduction band</b>. The valence band contains electrons associated with bonding, while electrons that reach the conduction band can participate much more freely in electrical conduction.</p>
+<div class="diagram">Energy
+  ↑
+  │       CONDUCTION BAND
+  │   ┌────────────────────┐
+  │   │  electrons can     │
+  │   │  contribute to     │
+  │   │  conduction        │
+  │   └────────────────────┘
+  │          ↑  Eg
+  │      forbidden gap
+  │          ↓
+  │   ┌────────────────────┐
+  │   │   VALENCE BAND     │
+  │   └────────────────────┘
+  └────────────────────────────→</div>
+<h3>4.1.2 Forbidden Energy Gap</h3><div class="definition"></div>
+<p>The <b>band gap Eg</b> is the energy separation between the top of the valence band and the bottom of the conduction band. In the ideal band picture, electrons cannot occupy the forbidden energy region between these bands.</p>
+<div class="formula">Eg = Ec − Ev</div>
+<p>Here Ec is the conduction-band edge and Ev is the valence-band edge. The size of this gap strongly affects whether a material behaves as a conductor, semiconductor or insulator.</p>
+<h3>4.1.3 Conductor, Semiconductor and Insulator</h3>
+<table><tr><th>Material</th><th>Band picture</th><th>Electrical behaviour</th></tr>
+<tr><td><b>Conductor</b></td><td>Valence and conduction bands overlap or a band is partially filled.</td><td>Many mobile charge carriers are available; current flows readily.</td></tr>
+<tr><td><b>Semiconductor</b></td><td>Small forbidden energy gap.</td><td>Conductivity lies between conductor and insulator and changes strongly with temperature, light and doping.</td></tr>
+<tr><td><b>Insulator</b></td><td>Large forbidden energy gap.</td><td>Very few carriers can reach the conduction band under ordinary conditions.</td></tr></table>
+<p>Common elemental semiconductors include silicon and germanium. Semiconductor behaviour is especially useful because conductivity can be deliberately controlled.</p>
+<h3>4.1.4 Temperature Effect</h3><p>In a semiconductor, increasing temperature provides thermal energy that can generate more electron-hole pairs, so conductivity generally increases and resistance decreases. This trend is opposite to the usual metallic trend.</p>
+<div class="vvi"><b>VVI:</b> Explain the difference between conductor, semiconductor and insulator on the basis of energy-band structure.</div>
+
+<h2>4.2 Charge Carriers and Semiconductor Types</h2>
+<h3>4.2.1 Intrinsic Semiconductor</h3><p>A chemically pure semiconductor is called an <b>intrinsic semiconductor</b>. At thermal equilibrium, thermal energy can create electron-hole pairs. The number of free electrons and holes is equal in an intrinsic semiconductor.</p>
+<div class="formula">n = p = nᵢ</div>
+<p>Here n is electron concentration, p is hole concentration and ni is intrinsic carrier concentration.</p>
+<div class="diagram">INTRINSIC SEMICONDUCTOR
+
+Covalent bonding in silicon
+   Si — Si — Si
+    |    |    |
+   Si — Si — Si
+
+Thermal energy can break a bond:
+       Si — Si
+          ↓
+     electron + hole
+
+electron (−) moves through conduction states
+hole (+ effective carrier) moves through valence states</div>
+<h3>4.2.2 Hole</h3><p>When an electron leaves a covalent bond, the empty state behaves as a positive charge carrier called a <b>hole</b>. A hole is not a separate positive particle in the same sense as a proton; it is a useful model for describing the missing electron state in a semiconductor.</p>
+<h3>4.2.3 Extrinsic Semiconductor</h3><p>A semiconductor whose conductivity is intentionally changed by adding a small controlled amount of impurity is called an <b>extrinsic semiconductor</b>. This process is called <b>doping</b>.</p>
+<h3>4.2.4 n-Type Semiconductor</h3><p>When a suitable pentavalent impurity is added to silicon or germanium, four impurity electrons can participate in covalent bonding while the fifth electron is relatively weakly bound and can become a conduction electron. Such material is called <b>n-type</b>.</p>
+<div class="flow"><b>n-type:</b> donor impurity → extra conduction electrons → electrons are majority carriers → holes are minority carriers.</div>
+<h3>4.2.5 p-Type Semiconductor</h3><p>When a suitable trivalent impurity is added, one bond is short of an electron. This creates a hole. Such material is called <b>p-type</b>.</p>
+<div class="flow"><b>p-type:</b> acceptor impurity → holes are created → holes are majority carriers → electrons are minority carriers.</div>
+<table><tr><th>Feature</th><th>n-type</th><th>p-type</th></tr><tr><td>Majority carrier</td><td>Electron</td><td>Hole</td></tr><tr><td>Minority carrier</td><td>Hole</td><td>Electron</td></tr><tr><td>Typical dopant family</td><td>Pentavalent donor</td><td>Trivalent acceptor</td></tr><tr><td>Overall charge</td><td>Electrically neutral as a whole</td><td>Electrically neutral as a whole</td></tr></table>
+
+<h3>4.2.6 Drift Velocity</h3><p>When an electric field is applied to a semiconductor, charge carriers acquire an average directed velocity superimposed on their random thermal motion. This average directed velocity is called <b>drift velocity</b>.</p>
+<div class="formula">v<sub>d</sub> = μE</div>
+<p>For electrons, the conventional current direction is opposite to electron drift direction. For holes, hole drift and conventional current are in the same general direction.</p>
+<h3>4.2.7 Mobility</h3><p><b>Mobility</b> measures how readily a charge carrier acquires drift velocity under an applied electric field.</p>
+<div class="formula">μ = v<sub>d</sub>/E</div>
+<p>Its SI unit is m²/(V·s).</p>
+<h3>4.2.8 Current Density</h3><p>Current density is electric current per unit cross-sectional area normal to the direction of current flow.</p>
+<div class="formula">J = I/A</div>
+<p>For carrier conduction, the current density depends on carrier concentration, charge and drift velocity. For one carrier type:</p>
+<div class="formula">J = nqv<sub>d</sub></div>
+<p>For both electrons and holes in a semiconductor, their contributions add in the conventional current description:</p>
+<div class="formula">J = q(nμ<sub>n</sub> + pμ<sub>p</sub>)E</div>
+<h3>4.2.9 Drift Current</h3><p>Current caused by the directed motion of charge carriers under an applied electric field is called <b>drift current</b>. It exists because the electric field produces drift motion.</p>
+<h3>4.2.10 Diffusion Current</h3><p>When carrier concentration is not uniform, carriers tend to move from a region of higher concentration toward a region of lower concentration. This concentration-gradient-driven current is called <b>diffusion current</b>.</p>
+<div class="diagram">Carrier concentration
+
+HIGH n                         LOW n
+● ● ● ● ● ● ●  ─────────────→  ● ●
+
+          diffusion direction
+
+No external electric field is required
+for the basic concentration-gradient process.</div>
+<p>Drift and diffusion are distinct mechanisms. Drift is associated with an electric field, whereas diffusion is associated with a non-uniform carrier concentration.</p>
+<h3>4.2.11 Law of Mass Action</h3><p>For a semiconductor in thermal equilibrium, the product of electron concentration and hole concentration is related to intrinsic carrier concentration:</p>
+<div class="formula">np = nᵢ²</div>
+<p>For intrinsic material, n=p=ni, which immediately gives np=ni². In an n-type semiconductor, electron concentration increases, so equilibrium hole concentration correspondingly decreases; in p-type material the opposite occurs.</p>
+<div class="exam"><b>Exam focus:</b> Be able to distinguish intrinsic/extrinsic, n-type/p-type, majority/minority carriers, drift/diffusion and mobility/current density.</div>
+
+<h2>4.3 p-n Junction and Its Electrical Behaviour</h2>
+<h3>4.3.1 Formation of a p-n Junction</h3><p>A <b>p-n junction</b> is formed when p-type and n-type regions exist together in the same semiconductor crystal. Immediately after junction formation, the large carrier concentration difference causes electrons to diffuse from n-side toward p-side and holes to diffuse from p-side toward n-side.</p>
+<p>As mobile carriers leave the neighbourhood of the junction, uncovered ionized donor and acceptor atoms remain. This region becomes depleted of mobile carriers and is called the <b>depletion layer</b>.</p>
+<div class="diagram">p-side                 junction                 n-side
+
+ holes →→→       | DEPLETION REGION |       ←←← electrons
+                 |  fixed ions      |
+          (-) (-) (-)      (+) (+) (+)
+             acceptor          donor ions
+
+Electric field develops across the depletion region.
+It opposes further diffusion of majority carriers.</div>
+<h3>4.3.2 Depletion Layer</h3><p>The depletion layer is a region near the junction containing very few mobile charge carriers compared with the neutral p and n regions. The fixed charged ions create an internal electric field.</p>
+<h3>4.3.3 Barrier Potential</h3><p>The internal electric field creates a potential difference called the <b>barrier potential</b>. It opposes further diffusion of majority carriers across the junction at equilibrium.</p>
+<p>The exact numerical barrier potential depends on semiconductor material, temperature and junction conditions; therefore it should not be treated as one universal constant for every diode.</p>
+<h3>4.3.4 Unbiased Junction</h3><p>With no external voltage, diffusion and drift processes reach equilibrium. The depletion region and built-in electric field remain present, but the net external current is zero under equilibrium conditions.</p>
+<h3>4.3.5 Forward Bias</h3><p>In forward bias, the p-side is connected to the positive terminal and the n-side to the negative terminal of the external source. The applied field opposes the junction barrier, reducing the effective barrier and allowing substantial majority-carrier injection when the applied voltage is sufficient.</p>
+<div class="diagram">FORWARD BIAS
+
+ + battery                         − battery
+   │                                   │
+   │          p | junction | n        │
+   └───────────●|──────────|●──────────┘
+                → conventional current
+
+Barrier is reduced; depletion width decreases.</div>
+<h3>4.3.6 Reverse Bias</h3><p>In reverse bias, the p-side is connected to the negative terminal and the n-side to the positive terminal. The depletion region widens and the barrier effect increases. A small reverse current due to minority carriers exists before breakdown conditions are reached.</p>
+<div class="diagram">REVERSE BIAS
+
+ − battery                         + battery
+   │                                   │
+   │          p | junction | n        │
+   └───────────●|──────────|●──────────┘
+
+Depletion width increases; conventional current is very small
+until breakdown region is reached.</div>
+<h3>4.3.7 V-I Characteristic of a p-n Junction Diode</h3><p>The V-I characteristic shows how diode current changes with applied voltage.</p>
+<table><tr><th>Region</th><th>Behaviour</th></tr><tr><td>Forward region</td><td>Current remains relatively small initially and then rises rapidly as the applied forward voltage increases beyond the practical knee/threshold region.</td></tr><tr><td>Reverse region</td><td>Only a small reverse current flows before breakdown.</td></tr><tr><td>Breakdown</td><td>A large reverse current can occur after the breakdown condition is reached; practical circuits require current limiting where appropriate.</td></tr></table>
+<div class="diagram">I
+↑
+│                         /
+│                       /
+│                    __/
+│___________________/────────────→ V
+│
+│   small reverse current
+│───────────────
+│               │                  breakdown
+│                 └──────────────────────────────</div>
+<h3>4.3.8 Diode as a Rectifying Device</h3><p>A diode allows current much more readily in one direction than the other. This directional conduction makes it useful for <b>rectification</b>—conversion of an alternating voltage into a unidirectional or pulsating output.</p>
+
+<h3>4.3.9 Half-Wave Rectifier</h3><p>A half-wave rectifier uses a single diode to pass one half-cycle of an AC input while blocking the opposite half-cycle.</p>
+<div class="diagram">AC source ───►|─── Load ─── return
+
+Positive half-cycle: diode conducts → output pulse
+Negative half-cycle: diode blocks   → output ≈ 0
+
+Input:       ~  ~  ~  ~  ~
+Output:      /‾\____/‾\____/‾\___</div>
+<p>The output is pulsating DC, not smooth constant DC. A filter capacitor can be added in practical power supplies to reduce ripple.</p>
+<h3>4.3.10 Full-Wave Rectifier</h3><p>A full-wave rectifier uses both half-cycles of the AC input so that current through the load has the same direction during both halves. Common implementations use a centre-tapped arrangement with two diodes or a bridge arrangement with four diodes.</p>
+<div class="diagram">FULL-WAVE IDEA
+
+Input:      + half     − half     + half
+Load path:     →          →          →
+Output:      /‾\        /‾\        /‾\
+             all half-cycles appear as
+             the same polarity at load</div>
+<table><tr><th>Feature</th><th>Half-wave</th><th>Full-wave</th></tr><tr><td>Input half-cycles used</td><td>One</td><td>Both</td></tr><tr><td>Output ripple frequency</td><td>Same as supply frequency</td><td>Twice supply frequency for ideal full-wave rectification</td></tr><tr><td>Utilization of input</td><td>Lower</td><td>Higher</td></tr><tr><td>Basic idea</td><td>One diode conducts one half-cycle</td><td>Arrangement routes both half-cycles through load in same direction</td></tr></table>
+<div class="vvi"><b>VVI:</b> Draw and explain p-n junction formation, forward/reverse bias, V-I characteristic, half-wave rectifier and full-wave rectifier.</div>
+
+<h2>4.4 Photocells and Solar Cells</h2>
+<h3>4.4.1 Semiconductor Interaction with Light</h3><p>Light can transfer energy to electrons in a semiconductor. If the photon energy is sufficient, an electron can be excited and an electron-hole pair can be generated. This light-sensitive behaviour is the basis of several photonic semiconductor devices.</p>
+<h3>4.4.2 Photocell</h3><p>A <b>photocell</b> is a light-sensitive device in which an electrical quantity changes in response to incident light. Semiconductor photocells are used for light detection and automatic control.</p>
+<div class="flow"><b>Light intensity changes → semiconductor carrier population/current changes → electrical signal changes → circuit detects or uses the signal.</b></div>
+<h3>4.4.3 Engineering Applications of Photocells</h3><ul><li>Automatic street-light control.</li><li>Object detection and counting.</li><li>Light meters and sensing systems.</li><li>Security and alarm systems.</li><li>Industrial automation and control.</li></ul>
+<h3>4.4.4 Solar Cell</h3><p>A <b>solar cell</b> is a semiconductor device that converts incident light energy directly into electrical energy through the photovoltaic effect.</p>
+<div class="diagram">SOLAR CELL — BASIC WORKING
+
+          sunlight ↓↓↓↓↓
+       ┌─────────────────┐
+       │ front contact   │
+       │ p-type / junction│
+       │ n-type region   │
+       │ back contact    │
+       └─────────────────┘
+              │     │
+              └─load┘
+
+Photons create charge carriers.
+The junction electric field separates carriers.
+External circuit receives electrical power.</div>
+<h3>4.4.5 Working Principle</h3><ol><li>Sunlight falls on the semiconductor junction.</li><li>Photons with sufficient energy generate electron-hole pairs.</li><li>The built-in electric field of the junction helps separate the carriers.</li><li>The separated charges create a potential difference.</li><li>When an external load is connected, current flows through the circuit and electrical power is delivered.</li></ol>
+<h3>4.4.6 Photocell vs Solar Cell</h3><table><tr><th>Photocell</th><th>Solar cell</th></tr><tr><td>Primarily used to detect or respond to light.</td><td>Primarily designed to convert light energy into useful electrical power.</td></tr><tr><td>Output may be used as a control signal.</td><td>Output is used to supply an electrical load or charge a storage system.</td></tr></table>
+<h3>4.4.7 Solar Cell Applications</h3><ul><li>Solar panels for electricity generation.</li><li>Calculators and low-power electronics.</li><li>Remote sensors and monitoring stations.</li><li>Satellite and space power systems.</li><li>Off-grid lighting and rural power systems.</li></ul>
+
+<h2>Concept Connections</h2><div class="flow">
+<b>Energy band</b> → explains conductivity<br>
+↓<br>
+<b>Intrinsic / extrinsic semiconductor</b> → controls carrier concentration<br>
+↓<br>
+<b>Drift + diffusion</b> → explains carrier transport<br>
+↓<br>
+<b>p-n junction</b> → creates depletion region and built-in field<br>
+↓<br>
+<b>Forward/reverse bias</b> → controls diode current<br>
+↓<br>
+<b>Rectifier</b> → converts AC to pulsating DC<br>
+↓<br>
+<b>Photocell / solar cell</b> → uses semiconductor-light interaction
+</div>
+
+<h2>Formula Sheet</h2><div class="formula">
+Band gap: Eg = Ec − Ev<br><br>
+Intrinsic equilibrium: n = p = ni<br><br>
+Law of mass action: np = ni²<br><br>
+Mobility: μ = vd/E<br><br>
+Drift velocity: vd = μE<br><br>
+Current density: J = I/A<br><br>
+One-carrier current density: J = nqvd<br><br>
+General semiconductor conductivity: σ = q(nμn + pμp)<br><br>
+Resistivity: ρ = 1/σ
+</div>
+
+<h2>Worked Examples</h2>
+<h3>Example 1 — Mobility</h3><div class="card"><b>Question:</b> A carrier has drift velocity 2×10⁻³ m/s under an electric field of 100 V/m. Find mobility.</div>
+<p>Use μ=vd/E.</p><div class="formula">μ = (2×10⁻³)/100 = 2×10⁻⁵ m²/(V·s)</div>
+<p><b>Answer:</b> 2×10⁻⁵ m²/(V·s).</p>
+<h3>Example 2 — Current Density</h3><div class="card"><b>Question:</b> A current of 2 A flows uniformly through an area of 4×10⁻⁴ m². Find current density.</div>
+<div class="formula">J = I/A = 2/(4×10⁻⁴) = 5×10³ A/m²</div><p><b>Answer:</b> 5×10³ A/m².</p>
+<h3>Example 3 — Law of Mass Action</h3><div class="card"><b>Question:</b> At thermal equilibrium, a semiconductor has electron concentration n=10¹⁶ m⁻³ and intrinsic concentration ni=10¹³ m⁻³. Find hole concentration.</div>
+<div class="formula">np = ni² → p = ni²/n = (10¹³)²/10¹⁶ = 10¹⁰ m⁻³</div><p><b>Answer:</b> 10¹⁰ m⁻³.</p>
+
+<h2>Common Mistakes</h2><div class="warn"><ol><li>Do not say a p-type semiconductor is negatively charged overall. Doping does not make the bulk material electrically charged.</li><li>Do not confuse a hole with a proton; a hole represents a missing electron state.</li><li>Drift current is field-driven; diffusion current is concentration-gradient-driven.</li><li>Do not confuse depletion region with a region having more mobile carriers; it is depleted of mobile carriers.</li><li>Forward bias and reverse bias connections must be drawn correctly.</li><li>A rectifier output is pulsating DC unless filtering is applied.</li><li>Photocell detection and solar-cell power generation are related but not identical functions.</li><li>Keep majority and minority carrier definitions clear.</li></ol></div>
+
+<h2>Exam-Focused Questions</h2>
+<h3>Very Short / 1–2 Marks</h3><ol><li>What is an energy band?</li><li>Define band gap.</li><li>Differentiate conductor, semiconductor and insulator.</li><li>Define intrinsic semiconductor.</li><li>What is doping?</li><li>What are majority and minority carriers?</li><li>Define drift velocity.</li><li>Define mobility.</li><li>What is current density?</li><li>State the law of mass action.</li><li>What is a depletion layer?</li><li>What is barrier potential?</li><li>Define p-n junction.</li><li>What is forward bias?</li><li>What is reverse bias?</li><li>What is a rectifier?</li><li>Define photocell.</li><li>Define solar cell.</li></ol>
+<h3>Long / Derivation-Oriented</h3><ol><li>Explain energy bands and distinguish conductors, semiconductors and insulators on the basis of band gap.</li><li>Explain intrinsic and extrinsic semiconductors with n-type and p-type formation.</li><li>Explain drift velocity, mobility, drift current, diffusion current and current density.</li><li>State and explain the law of mass action.</li><li>Explain formation of a p-n junction, depletion layer and barrier potential with a diagram.</li><li>Explain forward and reverse bias and the V-I characteristic of a p-n junction diode.</li><li>Explain the working of a half-wave rectifier.</li><li>Explain the working of a full-wave rectifier and compare it with half-wave rectification.</li><li>Explain the working principle and engineering applications of photocells.</li><li>Explain the construction, working principle and applications of a solar cell.</li></ol>
+<h3>Numerical Practice</h3><ol><li>Calculate drift velocity from mobility and electric field.</li><li>Calculate current density from current and cross-sectional area.</li><li>Use np=ni² to find minority carrier concentration.</li><li>Calculate conductivity when electron/hole concentrations and mobilities are given.</li></ol>
+
+<h2>MCQ Self-Test</h2><ol>
+<li>The forbidden energy region between valence and conduction bands is called: (A) mobility (B) band gap (C) drift region (D) depletion current<br><b>Answer: B</b></li>
+<li>In an n-type semiconductor, majority carriers are: (A) holes (B) electrons (C) protons (D) ions only<br><b>Answer: B</b></li>
+<li>In a p-type semiconductor, majority carriers are: (A) electrons (B) holes (C) neutrons (D) photons<br><b>Answer: B</b></li>
+<li>Mobility is defined as: (A) E/vd (B) vd/E (C) I/A (D) Q/V<br><b>Answer: B</b></li>
+<li>Law of mass action is: (A) n+p=ni (B) np=ni² (C) n−p=ni² (D) np=2ni<br><b>Answer: B</b></li>
+<li>The region around a p-n junction depleted of mobile carriers is: (A) conduction band (B) depletion layer (C) emitter (D) collector<br><b>Answer: B</b></li>
+<li>Forward bias generally: (A) increases the junction barrier (B) reduces the effective barrier (C) removes all carriers (D) creates an insulator<br><b>Answer: B</b></li>
+<li>A rectifier is used to convert: (A) DC into light only (B) AC into a unidirectional/pulsating output (C) heat into charge (D) sound into current<br><b>Answer: B</b></li>
+<li>A solar cell primarily converts: (A) electrical energy to mechanical energy (B) light energy to electrical energy (C) heat to sound (D) magnetic energy to light<br><b>Answer: B</b></li>
+<li>Current density is: (A) I/A (B) IA (C) A/I (D) QV<br><b>Answer: A</b></li>
+</ol>
+
+<h2>Quick Revision — 15 Minutes</h2><div class="card"><b>Remember the chain:</b><br><br>
+Energy bands → band gap → conductor / semiconductor / insulator<br>↓<br>
+Intrinsic → doping → extrinsic → n-type / p-type<br>↓<br>
+Carriers → drift / diffusion → mobility → current density<br>↓<br>
+p-n junction → depletion layer → barrier potential<br>↓<br>
+Forward/reverse bias → V-I characteristic<br>↓<br>
+Diode → half-wave / full-wave rectifier<br>↓<br>
+Light interaction → photocell / solar cell
+</div>
+
+<h2>Final Exam Checklist</h2><div class="exam"><ul>
+<li>✔ Energy-band diagram and band-gap comparison</li><li>✔ Conductor vs semiconductor vs insulator</li><li>✔ Intrinsic/extrinsic and n-type/p-type</li><li>✔ Majority/minority carriers</li><li>✔ Drift velocity, mobility and current density</li><li>✔ Drift vs diffusion current</li><li>✔ Law of mass action</li><li>✔ p-n junction formation and depletion layer</li><li>✔ Barrier potential and biasing</li><li>✔ V-I characteristic of diode</li><li>✔ Half-wave and full-wave rectifier</li><li>✔ Photocell and solar-cell working/application</li></ul></div>
+<p class="small"><b>Source note:</b> The uploaded file in this turn is titled/structured as <b>Applied Physics-B Unit 3</b>, not Unit 4; therefore it was not silently treated as Unit 4. Unit 4 scope and terminology were checked against the SBTE Bihar syllabus, while the explanatory notes above are original teaching material based on that scope. citeturn0search12</p>
+</main>
+<footer class="footer"><h2 style="background:none;border:0;color:white;margin:0">BY PRINCEXMAHTO</h2><p>Applied Physics-B • Unit 4 • Semiconductor Physics</p><p style="color:#b9c7d3">Study • Practice • Revise</p></footer>
+</div></body></html>
