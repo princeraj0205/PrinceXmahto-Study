@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applied Chemistry-B | Unit 4 Solid State | By PrinceXmahto</title>
+<style>
+:root{--ink:#182230;--muted:#5d6878;--paper:#fff;--bg:#eef2f7;--line:#d9e0e8;--accent:#173b63;--accent2:#2f6ea6;--soft:#eef5fc;--warn:#fff7df;--good:#eef9f1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.72}
+header{background:linear-gradient(135deg,#0c2038,#245b8f);color:white;padding:42px 22px;box-shadow:0 5px 20px #0002}
+.wrap{max-width:1180px;margin:auto}.brand{letter-spacing:3px;font-weight:800;font-size:14px}.hero h1{font-size:42px;margin:10px 0}.hero p{margin:7px 0;color:#e9f2fb}.badge{display:inline-block;padding:6px 12px;border:1px solid #ffffff55;border-radius:30px;margin:6px 6px 0 0;font-size:13px}
+.layout{display:grid;grid-template-columns:275px 1fr;gap:22px;max-width:1180px;margin:24px auto;padding:0 16px}
+aside{position:sticky;top:15px;align-self:start;background:white;border:1px solid var(--line);border-radius:14px;padding:18px;max-height:calc(100vh - 30px);overflow:auto}
+aside h3{margin-top:0}aside a{display:block;text-decoration:none;color:#294c70;padding:7px 8px;border-radius:7px;font-size:14px}aside a:hover{background:var(--soft)}
+main{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:34px;min-width:0}
+h2{font-size:30px;border-bottom:2px solid var(--line);padding-bottom:10px;margin-top:46px}h3{font-size:23px;color:var(--accent);margin-top:30px}h4{font-size:18px;color:#274f78;margin-bottom:8px}
+.card,.definition,.example,.exam,.mistake,.formula,.note{border:1px solid var(--line);border-radius:12px;padding:17px 19px;margin:18px 0;background:#fff}
+.definition{background:linear-gradient(90deg,#f0f6fd,#fff);border-left:5px solid var(--accent2)}
+.definition b:first-child{color:var(--accent)}
+.example{background:var(--good);border-left:5px solid #3c8b55}.exam{background:#f6f4ff;border-left:5px solid #6b5ca5}.mistake{background:#fff3f1;border-left:5px solid #bd5445}.formula{background:#f5f8fb;border-left:5px solid #456b8d;font-family:Georgia,serif}.note{background:var(--warn);border-left:5px solid #c08a24}
+table{width:100%;border-collapse:collapse;margin:15px 0;font-size:14px}th,td{border:1px solid var(--line);padding:9px;vertical-align:top}th{background:#edf3f8;text-align:left}
+code,.eq{background:#f0f3f6;padding:2px 6px;border-radius:5px}.eq{font-family:Georgia,serif;font-size:17px}
+.diagram{font-family:"Courier New",monospace;white-space:pre;overflow:auto;background:#101923;color:#eaf2f8;border-radius:10px;padding:18px;line-height:1.45}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}.pill{display:inline-block;background:#eaf2fa;border-radius:20px;padding:4px 10px;margin:3px;font-size:13px}
+ul,ol{padding-left:25px}.tocbox{background:#f7fafc;border:1px solid var(--line);border-radius:12px;padding:20px}
+footer{margin-top:35px;background:#0d1b2a;color:#dbe7f2;padding:28px;text-align:center}
+.small{color:var(--muted);font-size:13px}.center{text-align:center}.pagebreak{page-break-before:always}
+@media(max-width:850px){.layout{display:block}aside{position:relative;top:auto;max-height:none;margin-bottom:18px}.hero h1{font-size:31px}main{padding:21px}.grid2{grid-template-columns:1fr}h2{font-size:26px}}
+@media print{body{background:#fff}header{box-shadow:none}.layout{display:block;margin:0}.layout aside{display:none}main{border:0;padding:0}h2{break-before:page}.diagram{color:#000;background:#f4f4f4;border:1px solid #999}a{color:#000;text-decoration:none}.no-print{display:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap hero">
+<div class="brand">BY PRINCEXMAHTO</div>
+<h1>Applied Chemistry-B — Unit 4: Solid State</h1>
+<p>Full Book-Style Deep Notes • Diploma in Electronics Engineering • Semester-I • SBTE Bihar</p>
+<span class="badge">Course Code: T2600103B</span><span class="badge">Unit 4.0 • Solid State</span><span class="badge">Exam Oriented</span><span class="badge">Simple English</span>
+</div>
+</header>
+
+<div class="layout">
+<aside>
+<h3>📚 Contents</h3>
+<a href="#overview">Unit Overview</a>
+<a href="#41">4.1 Characteristics of Solid State</a>
+<a href="#42">4.2 Classification of Crystalline Solids</a>
+<a href="#43">4.3 Crystal Lattice & Unit Cells</a>
+<a href="#44">4.4 Imperfections / Point Defects</a>
+<a href="#45">4.5 Electrical Properties & Band Theory</a>
+<a href="#46">4.6 Magnetic Properties</a>
+<a href="#47">4.7 X-Ray Diffraction & Bragg's Law</a>
+<a href="#48">4.8 Melting Point — Kjeldahl Method</a>
+<a href="#glossary">📖 Definition Glossary</a>
+<a href="#formula">Formula Sheet</a>
+<a href="#revision">Quick Revision</a>
+<a href="#questions">Exam Question Bank</a>
+<a href="#mcq">MCQs</a>
+</aside>
+
+<main>
+<section id="overview">
+<h2>Unit Overview</h2>
+<div class="tocbox">
+<p><b>Official syllabus order used in this book:</b></p>
+<ol>
+<li>4.1 General characteristics of solid state, crystalline and amorphous solid.</li>
+<li>4.2 Classification of crystalline solid — molecular, ionic, metallic, covalent solids.</li>
+<li>4.3 Crystal lattice and unit cells — primitive, BCC, FCC.</li>
+<li>4.4 Imperfections of solid — stoichiometric, impurity and non-stoichiometric point defects.</li>
+<li>4.5 Electrical properties — conduction in metals and semiconductors; band theory.</li>
+<li>4.6 Magnetic properties — ferro-, para-, dia-, antiferro- and ferrimagnetism.</li>
+<li>4.7 General introduction to X-ray diffraction method — Bragg's law.</li>
+<li>4.8 Melting point determination of crystalline solid by Kjeldahl method.</li>
+</ol>
+</div>
+<div class="note"><b>Source discipline:</b> This book follows the Unit-4 sequence in the uploaded SBTE Bihar Electronics Engineering Semester-I curriculum. Extra explanations below are added only as supporting textbook material for understanding the listed topics; the syllabus order itself is not changed. The official assessment table assigns Unit 4.0 Solid State <b>8 classroom hours</b> and <b>10 ETA marks</b> (4 Remember, 3 Understanding, 3 Application & above).</div>
+<div class="definition"><b>Book Definition — Solid State:</b> A solid state is a state of matter in which particles are closely packed and the substance possesses a definite or nearly definite volume and shape.</div>
+</section>
+
+<section id="41">
+<h2>4.1 General Characteristics of Solid State</h2>
+<h3>4.1.1 What is a solid?</h3>
+<div class="definition"><b>Definition:</b> A solid is a form of matter in which constituent particles are held together by comparatively strong attractive forces and have limited freedom of movement.</div>
+<p>In a solid, atoms, ions or molecules are not completely motionless. They vibrate about their mean positions. Because the attractive forces are strong, the particles generally cannot move freely from one place to another.</p>
+
+<h3>General characteristics</h3>
+<table><tr><th>Property</th><th>Explanation</th></tr>
+<tr><td>Definite shape</td><td>Particles are strongly held, so a solid normally keeps its own shape.</td></tr>
+<tr><td>Definite volume</td><td>The particles are closely packed, giving the solid a fixed volume.</td></tr>
+<tr><td>High density</td><td>Particles are generally close together.</td></tr>
+<tr><td>Very low compressibility</td><td>There is little empty space between particles.</td></tr>
+<tr><td>Diffusion</td><td>Diffusion is very slow because particles cannot move freely.</td></tr>
+<tr><td>Rigidity</td><td>A solid resists change in shape under a small force.</td></tr>
+<tr><td>Thermal expansion</td><td>Heating increases vibration and generally increases dimensions.</td></tr>
+<tr><td>Melting</td><td>On sufficient heating, a solid can change into a liquid.</td></tr>
+</table>
+
+<h3>Crystalline and amorphous solids</h3>
+<div class="definition"><b>Crystalline solid:</b> A solid in which constituent particles are arranged in a regular, repeating three-dimensional pattern over long distances.</div>
+<div class="definition"><b>Amorphous solid:</b> A solid in which particles do not possess long-range periodic order.</div>
+
+<table><tr><th>Crystalline</th><th>Amorphous</th></tr>
+<tr><td>Long-range order</td><td>No long-range periodic order</td></tr>
+<tr><td>Usually sharp melting point</td><td>Generally softens over a range</td></tr>
+<tr><td>Definite geometrical faces may be present</td><td>No regular crystal geometry</td></tr>
+<tr><td>Often anisotropic</td><td>Generally isotropic</td></tr>
+<tr><td>Examples: NaCl, quartz, many metals</td><td>Examples: glass, many plastics, rubber</td></tr></table>
+
+<div class="diagram">CRYSTALLINE                  AMORPHOUS
+● ● ● ● ● ●                 ● ●   ● ●
+ ● ● ● ● ● ●                  ●   ● ●
+● ● ● ● ● ●                 ● ● ●   ●
+(repeating order)            (irregular arrangement)</div>
+
+<div class="example"><b>Easy example:</b> Table salt has an ordered crystal structure. Ordinary glass does not have the same long-range periodic arrangement, so it is classified as amorphous.</div>
+
+<div class="exam"><b>Exam Focus:</b> Be able to define crystalline and amorphous solids and write at least four differences.</div>
+</section>
+
+<section id="42">
+<h2>4.2 Classification of Crystalline Solids</h2>
+<p>Crystalline solids are classified according to the nature of particles and the forces holding those particles together.</p>
+
+<div class="grid2">
+<div class="card"><h3>Molecular solids</h3><div class="definition"><b>Definition:</b> Crystalline solids whose lattice points are occupied by molecules.</div><p>Intermolecular forces may be dispersion forces, dipole-dipole forces or hydrogen bonding.</p><p><b>Examples:</b> iodine crystals, solid CO₂, ice (hydrogen-bonded molecular solid).</p><p><b>Typical behavior:</b> many have relatively low melting points and poor electrical conductivity.</p></div>
+<div class="card"><h3>Ionic solids</h3><div class="definition"><b>Definition:</b> Crystalline solids containing positive and negative ions arranged in a lattice and held by electrostatic attraction.</div><p><b>Examples:</b> NaCl, KCl, MgO.</p><p>They are generally hard and brittle. They conduct electricity when molten or dissolved in water because ions become mobile.</p></div>
+<div class="card"><h3>Metallic solids</h3><div class="definition"><b>Definition:</b> Crystalline solids in which metal atoms/positive cores are held together by metallic bonding involving delocalized electrons.</div><p><b>Examples:</b> Cu, Al, Fe.</p><p>They generally show electrical and thermal conductivity, malleability and ductility.</p></div>
+<div class="card"><h3>Covalent solids</h3><div class="definition"><b>Definition:</b> Crystalline solids in which atoms are joined by an extended network of strong covalent bonds.</div><p><b>Examples:</b> diamond, silicon, silicon carbide.</p><p>They are generally hard and have high melting points. Graphite is an important exception in electrical conductivity because of delocalized electrons between layers.</p></div>
+</div>
+
+<table><tr><th>Type</th><th>Particles</th><th>Main force</th><th>General properties</th><th>Examples</th></tr>
+<tr><td>Molecular</td><td>Molecules</td><td>Intermolecular forces</td><td>Often soft, low conductivity</td><td>I₂, ice</td></tr>
+<tr><td>Ionic</td><td>Cations + anions</td><td>Electrostatic</td><td>Hard, brittle, molten/aqueous conduction</td><td>NaCl, MgO</td></tr>
+<tr><td>Metallic</td><td>Metal atoms/cores + electrons</td><td>Metallic bond</td><td>Conducting, ductile, malleable</td><td>Cu, Fe</td></tr>
+<tr><td>Covalent</td><td>Atoms</td><td>Network covalent bonds</td><td>Very strong; often high melting</td><td>Diamond, Si</td></tr></table>
+
+<div class="exam"><b>Short-answer pattern:</b> “Classify crystalline solids on the basis of binding forces and give examples.” Write the four classes, force, two properties and examples.</div>
+</section>
+
+<section id="43">
+<h2>4.3 Crystal Lattice and Unit Cells — Primitive, BCC and FCC</h2>
+<h3>Crystal lattice</h3>
+<div class="definition"><b>Definition:</b> A crystal lattice is a regular three-dimensional arrangement of points representing equivalent positions of particles in a crystalline solid.</div>
+
+<h3>Unit cell</h3>
+<div class="definition"><b>Definition:</b> A unit cell is the smallest repeating structural unit of a crystal lattice which, when repeated in three dimensions, generates the crystal structure.</div>
+
+<div class="diagram">Crystal lattice idea
+
+●───●───●───●
+│   │   │   │
+●───●───●───●
+│   │   │   │
+●───●───●───●
+
+One repeating block = unit cell</div>
+
+<h3>Important cubic unit cells</h3>
+<table><tr><th>Unit cell</th><th>Particle positions</th><th>Number of effective particles per cell</th><th>Coordination number</th></tr>
+<tr><td>Primitive / simple cubic (SC)</td><td>Corners only</td><td>1</td><td>6</td></tr>
+<tr><td>Body-centred cubic (BCC)</td><td>Corners + one body-centre particle</td><td>2</td><td>8</td></tr>
+<tr><td>Face-centred cubic (FCC)</td><td>Corners + one particle at each face centre</td><td>4</td><td>12</td></tr></table>
+
+<h3>How do we count particles?</h3>
+<p>A corner particle is shared by 8 unit cells, so its contribution is <b>1/8</b>. A face-centred particle is shared by 2 cells, so its contribution is <b>1/2</b>. A body-centred particle belongs completely to one cell, so its contribution is <b>1</b>.</p>
+
+<div class="example"><b>Example — BCC:</b> 8 corners × 1/8 = 1 effective particle. One body-centre particle × 1 = 1. Total = <b>2 particles per unit cell</b>.</div>
+<div class="example"><b>Example — FCC:</b> 8 corners × 1/8 = 1 and 6 faces × 1/2 = 3. Total = <b>4 particles per unit cell</b>.</div>
+
+<h3>Simple cubic (Primitive)</h3>
+<div class="diagram">       ●────────●
+      /│       /│
+     ●────────● │
+     │ │      │ │
+     │ ●──────│─●
+     │/       │/
+     ●────────●
+Corners only</div>
+
+<h3>BCC</h3>
+<div class="diagram">       ●────────●
+      /│       /│
+     ●────────● │
+     │ │  ●   │ │
+     │ ●──────│─●
+     │/       │/
+     ●────────●
+Corners + one body-centre particle</div>
+
+<h3>FCC</h3>
+<div class="diagram">       ●────●────●
+      /│         /│
+     ● │   ●    ● │
+     │ ●────────│ ●
+     │    ●      │
+     ●───────────●
+Corners + face-centre particles</div>
+
+<h3>Radius-edge relationships for cubic cells</h3>
+<div class="formula">
+Simple cubic: a = 2r<br>
+BCC: √3 a = 4r  →  a = 4r/√3<br>
+FCC: √2 a = 4r  →  a = 2√2 r
+</div>
+<p>Here <b>a</b> is edge length and <b>r</b> is atomic radius. These relationships are useful in numerical problems.</p>
+
+<h3>Density of a unit cell</h3>
+<div class="formula">Density ρ = (Z × M) / (N<sub>A</sub> × a³)</div>
+<ul><li><b>Z</b> = number of effective particles per unit cell</li><li><b>M</b> = molar mass</li><li><b>N<sub>A</sub></b> = Avogadro constant</li><li><b>a³</b> = unit-cell volume for a cubic cell</li></ul>
+
+<div class="example"><b>Numerical idea:</b> If a metal has an FCC unit cell, use Z = 4. Convert a to cm if density is required in g cm⁻³. Substitute all quantities with consistent units.</div>
+
+<div class="mistake"><b>Common mistake:</b> Do not write Z = 8 for a cubic cell just because there are 8 corners. Corner particles are shared, so their effective contribution is only 1 in total.</div>
+</section>
+
+<section id="44">
+<h2>4.4 Imperfections of Solids — Point Defects</h2>
+<div class="definition"><b>Definition — Crystal defect:</b> A crystal defect is an irregularity or deviation from the ideal periodic arrangement of particles in a crystalline solid.</div>
+<p>Real crystals are not perfectly ideal. Defects can affect density, colour, electrical properties, ionic conductivity and mechanical behavior.</p>
+
+<h3>Point defects</h3>
+<div class="definition"><b>Definition:</b> A point defect is a localized imperfection associated with one lattice point or a small region around it.</div>
+
+<h3>4.4.1 Stoichiometric defects</h3>
+<p>Stoichiometric defects do not change the overall stoichiometric ratio of the compound.</p>
+
+<h4>Vacancy defect</h4>
+<div class="definition"><b>Definition:</b> A vacancy defect occurs when an atom or ion is missing from its normal lattice site.</div>
+<p>In an ionic solid, if equal numbers of positive and negative ions are missing, electrical neutrality can be maintained.</p>
+
+<h4>Interstitial defect</h4>
+<div class="definition"><b>Definition:</b> An interstitial defect occurs when an extra particle occupies a normally vacant interstitial site.</div>
+
+<h4>Frenkel defect</h4>
+<div class="definition"><b>Definition:</b> Frenkel defect is a dislocation defect in which a smaller ion, usually a cation, leaves its normal site and occupies an interstitial position.</div>
+<div class="diagram">Normal:        Frenkel defect:
++  -  +        +  -  +
+-  +  -        -     -
++  -  +        +  -  +
+                 ↑
+          cation in interstitial site</div>
+<p>Because an ion moves rather than leaving the crystal completely, density generally remains essentially unchanged.</p>
+
+<h4>Schottky defect</h4>
+<div class="definition"><b>Definition:</b> Schottky defect is a vacancy defect in which equal numbers of cations and anions are absent from their normal lattice sites.</div>
+<p>Electrical neutrality is maintained, while the mass per unit volume decreases, so density decreases.</p>
+
+<table><tr><th>Schottky</th><th>Frenkel</th></tr><tr><td>Ions are missing from normal sites.</td><td>An ion moves to an interstitial site.</td></tr><tr><td>Density decreases.</td><td>Density is generally unchanged.</td></tr><tr><td>Common in crystals where ions have comparable sizes.</td><td>Common when a smaller ion can fit into an interstitial site.</td></tr></table>
+
+<h3>4.4.2 Impurity defects</h3>
+<div class="definition"><b>Definition:</b> An impurity defect is produced when foreign atoms or ions are introduced into a crystal lattice.</div>
+<p>Impurities may occupy normal lattice sites or interstitial sites. In ionic crystals, aliovalent impurity ions can create vacancies to maintain electrical neutrality.</p>
+
+<h3>4.4.3 Non-stoichiometric defects</h3>
+<div class="definition"><b>Definition:</b> Non-stoichiometric defects are defects in which the ratio of constituent elements deviates from the ideal chemical formula.</div>
+<p>Two important categories often discussed are <b>metal excess</b> and <b>metal deficiency</b> defects.</p>
+
+<h4>Metal excess due to anion vacancies</h4>
+<p>An anion vacancy can trap an electron. Such an electron-filled vacancy is commonly called an <b>F-centre</b>. These defects can impart colour to crystals.</p>
+<div class="definition"><b>F-centre:</b> An anion vacancy occupied by an electron in an ionic crystal.</div>
+
+<h4>Metal deficiency</h4>
+<p>Metal deficiency can arise when some metal ions are missing and charge balance is maintained by ions of the same element in a higher oxidation state.</p>
+
+<div class="exam"><b>Exam Focus:</b> Learn definitions and the difference between Schottky and Frenkel defects. Also know the three syllabus categories: stoichiometric, impurity and non-stoichiometric defects.</div>
+</section>
+
+<section id="45">
+<h2>4.5 Electrical Properties — Metals and Semiconductors: Band Theory</h2>
+<h3>Electrical conductivity</h3>
+<div class="definition"><b>Definition:</b> Electrical conductivity is the ability of a material to allow electric charge to flow through it.</div>
+
+<h3>Band theory — basic idea</h3>
+<p>In an isolated atom, electrons occupy discrete energy levels. When a very large number of atoms come together to form a solid, their energy levels split into a very large number of closely spaced levels. These groups of levels form <b>energy bands</b>.</p>
+
+<div class="diagram">Energy ↑
+
+Conduction band
+══════════════════
+       Band gap
+───────────────
+Valence band
+══════════════════
+
+For a conductor, bands may overlap or the highest
+occupied band may be partially filled.</div>
+
+<div class="definition"><b>Valence band:</b> The energy band containing the valence electrons in a solid.</div>
+<div class="definition"><b>Conduction band:</b> An energy band in which electrons can move through the solid and contribute to electrical conduction.</div>
+<div class="definition"><b>Forbidden energy gap:</b> The energy interval between the valence band and conduction band in which electron energy states are not allowed.</div>
+
+<h3>Conductors, semiconductors and insulators</h3>
+<table><tr><th>Material</th><th>Band picture</th><th>Conductivity</th><th>Examples</th></tr>
+<tr><td>Conductor</td><td>Valence and conduction bands overlap or conduction band is partially filled</td><td>High</td><td>Cu, Al</td></tr>
+<tr><td>Semiconductor</td><td>Small forbidden gap</td><td>Intermediate; strongly temperature dependent</td><td>Si, Ge</td></tr>
+<tr><td>Insulator</td><td>Large forbidden gap</td><td>Very low under ordinary conditions</td><td>Glass, rubber</td></tr></table>
+
+<h3>Semiconductors</h3>
+<div class="definition"><b>Definition:</b> A semiconductor is a material whose electrical conductivity lies between that of a good conductor and an insulator and whose conductivity can be strongly influenced by temperature and impurities.</div>
+
+<h4>Intrinsic semiconductor</h4>
+<p>A pure semiconductor is called an intrinsic semiconductor. In it, electrons and holes are generated thermally, and the number of electrons is approximately equal to the number of holes.</p>
+
+<h4>Extrinsic semiconductor</h4>
+<p>A semiconductor whose conductivity is modified by adding a small controlled amount of impurity is called an extrinsic semiconductor.</p>
+<table><tr><th>Type</th><th>Doping idea</th><th>Majority carrier</th></tr>
+<tr><td>n-type</td><td>Add donor impurity to provide extra electrons</td><td>Electrons</td></tr>
+<tr><td>p-type</td><td>Add acceptor impurity to create holes</td><td>Holes</td></tr></table>
+
+<div class="example"><b>Electronics connection:</b> Silicon is widely used in semiconductor devices. Controlled impurity addition allows its conductivity to be tailored for electronic components.</div>
+</section>
+
+<section id="46">
+<h2>4.6 Magnetic Properties</h2>
+<div class="definition"><b>Definition — Magnetism:</b> Magnetism is the set of physical phenomena associated with magnetic moments and the response of matter to a magnetic field.</div>
+
+<p>The syllabus asks for five categories: diamagnetism, paramagnetism, ferromagnetism, antiferromagnetism and ferrimagnetism.</p>
+
+<h3>4.6.1 Diamagnetism</h3>
+<div class="definition"><b>Definition:</b> A diamagnetic substance has no permanent net magnetic moment from unpaired electrons and is weakly repelled by an external magnetic field.</div>
+<p>All electrons are paired in the idealized simple picture. The induced magnetic moment is opposite to the applied field.</p>
+
+<h3>4.6.2 Paramagnetism</h3>
+<div class="definition"><b>Definition:</b> A paramagnetic substance contains unpaired electrons and is weakly attracted by an external magnetic field.</div>
+<p>Without an external field, magnetic moments are largely randomly oriented. The attraction is weak.</p>
+
+<h3>4.6.3 Ferromagnetism</h3>
+<div class="definition"><b>Definition:</b> Ferromagnetism is a strong form of magnetism in which magnetic moments can align cooperatively in the same direction, producing strong magnetization.</div>
+<p>Examples include iron, cobalt and nickel under suitable conditions. Ferromagnetic materials can retain magnetization after the external field is removed.</p>
+
+<h3>4.6.4 Antiferromagnetism</h3>
+<div class="definition"><b>Definition:</b> Antiferromagnetism is magnetic ordering in which neighboring magnetic moments align oppositely, giving a small or zero net magnetic moment in the ideal case.</div>
+<div class="diagram">Antiferromagnetic arrangement
+↑ ↓ ↑ ↓ ↑ ↓</div>
+
+<h3>4.6.5 Ferrimagnetism</h3>
+<div class="definition"><b>Definition:</b> Ferrimagnetism is magnetic ordering with oppositely directed magnetic moments of unequal magnitudes, producing a net magnetic moment.</div>
+<div class="diagram">Ferrimagnetic arrangement
+↑ ↑ ↑  ↓ ↓
+(net moment remains because magnitudes/number differ)</div>
+
+<table><tr><th>Type</th><th>Response to field</th><th>Basic magnetic arrangement</th></tr>
+<tr><td>Diamagnetic</td><td>Weak repulsion</td><td>No permanent net moment; paired-electron picture</td></tr>
+<tr><td>Paramagnetic</td><td>Weak attraction</td><td>Unpaired moments, mostly random without field</td></tr>
+<tr><td>Ferromagnetic</td><td>Strong attraction</td><td>Parallel cooperative alignment</td></tr>
+<tr><td>Antiferromagnetic</td><td>Opposing order</td><td>Opposite equal moments ideally cancel</td></tr>
+<tr><td>Ferrimagnetic</td><td>Strong net magnetism possible</td><td>Opposite unequal moments</td></tr></table>
+
+<div class="exam"><b>Remember:</b> Para = weak attraction; Dia = weak repulsion; Ferro = parallel strong alignment; Antiferro = opposite equal; Ferri = opposite unequal.</div>
+</section>
+
+<section id="47">
+<h2>4.7 X-Ray Diffraction Method — Bragg's Law</h2>
+<h3>X-rays and crystals</h3>
+<div class="definition"><b>Definition — X-ray diffraction:</b> X-ray diffraction is a technique in which X-rays interact with the regularly spaced atoms/planes of a crystalline material and produce a diffraction pattern that can be used to study crystal structure.</div>
+
+<p>Crystal planes act as regularly spaced reflecting/diffracting layers. At certain angles, waves from successive planes reinforce each other. This is constructive interference.</p>
+
+<div class="diagram">Incident X-rays
+       \   \   \
+        \   \   \
+─────────\───\────────  Plane 1
+          \   \
+───────────\───\──────  Plane 2
+             ↑
+        path difference
+
+For constructive interference:
+path difference = nλ</div>
+
+<h3>Bragg's law</h3>
+<div class="definition"><b>Bragg's law:</b> The condition for constructive interference of X-rays reflected from successive parallel crystal planes is expressed as <b>nλ = 2d sin θ</b>.</div>
+
+<div class="formula">nλ = 2d sin θ</div>
+<ul>
+<li><b>n</b> = order of diffraction (1, 2, 3, ...)</li>
+<li><b>λ</b> = wavelength of X-ray</li>
+<li><b>d</b> = spacing between crystal planes</li>
+<li><b>θ</b> = Bragg angle</li>
+</ul>
+
+<h3>Derivation idea</h3>
+<p>Consider two rays incident on two adjacent parallel planes. The lower ray travels an extra distance on entering and leaving the lower plane. Geometry gives the total path difference as <b>2d sin θ</b>. For constructive interference, this path difference must be an integral multiple of wavelength:</p>
+<div class="formula">2d sin θ = nλ</div>
+
+<h3>Step-by-step numerical</h3>
+<div class="example">
+<b>Question:</b> X-rays of wavelength 0.154 nm give first-order diffraction at θ = 30°. Find d.<br><br>
+For first order, n = 1.<br>
+nλ = 2d sinθ<br>
+d = nλ/(2sinθ)<br>
+= 0.154/(2 × 0.5) nm<br>
+= <b>0.154 nm</b>.
+</div>
+
+<h3>Uses of X-ray diffraction</h3>
+<ul><li>Determination of crystal structure.</li><li>Measurement of interplanar spacing.</li><li>Identification of crystalline materials.</li><li>Study of defects and phases in suitable applications.</li></ul>
+
+<div class="mistake"><b>Common mistake:</b> In Bragg's law, θ is the glancing/Bragg angle, while many instruments display 2θ. Read the problem carefully before substitution.</div>
+</section>
+
+<section id="48">
+<h2>4.8 Melting Point Determination of Crystalline Solid by Kjeldahl Method</h2>
+<div class="note"><b>Important syllabus note:</b> The uploaded curriculum specifically names “melting point determination of crystalline solid by Kjeldahl method.” The syllabus snippet does not provide a complete apparatus diagram or a detailed procedural table. The following is therefore a textbook-level explanation of the principle and a general laboratory description; exact apparatus/procedure should be matched with your institute's practical manual.</div>
+
+<h3>Melting point</h3>
+<div class="definition"><b>Definition:</b> The melting point of a crystalline substance is the temperature at which the solid changes into a liquid under specified pressure. A pure crystalline substance generally has a sharp melting point.</div>
+
+<h3>Principle</h3>
+<p>A small quantity of a powdered crystalline sample is heated gradually while its temperature is observed. The temperature at which the solid begins to melt and the temperature at which melting is complete are noted. For a sufficiently pure sample, the melting range is narrow.</p>
+
+<h3>General Kjeldahl-type melting point arrangement</h3>
+<div class="diagram">          Thermometer
+               │
+               │
+        ┌──────┴──────┐
+        │ heating bath │
+        │              │
+        │  capillary   │ ← sample
+        │     │        │
+        └─────┴────────┘
+             heat
+        controlled heating
+
+(Exact apparatus arrangement may vary by laboratory manual.)</div>
+
+<h3>General procedure</h3>
+<ol>
+<li>Dry and finely powder the crystalline sample if required by the laboratory instructions.</li>
+<li>Fill a small amount of sample into a capillary tube as instructed.</li>
+<li>Place the capillary and thermometer in the prescribed heating arrangement.</li>
+<li>Heat slowly and uniformly, especially near the expected melting point.</li>
+<li>Observe the temperature when melting begins.</li>
+<li>Observe the temperature when the sample becomes completely liquid.</li>
+<li>Report the melting range and compare it with the expected value where appropriate.</li>
+</ol>
+
+<h3>Why slow heating near the melting point?</h3>
+<p>If the sample is heated too rapidly, the thermometer may not accurately represent the sample temperature and the observed melting range can be misleading.</p>
+
+<div class="example"><b>Observation format:</b><br>
+Sample: __________<br>
+Melting begins: __________ °C<br>
+Melting complete: __________ °C<br>
+Observed melting range: __________ °C
+</div>
+
+<h3>Factors affecting observed melting point</h3>
+<ul><li>Purity of sample</li><li>Heating rate</li><li>Particle/sample packing</li><li>Thermometer calibration</li><li>Experimental pressure and apparatus conditions</li></ul>
+</section>
+
+<section id="glossary">
+<h2>📖 Unit 4 — Book-Style Definition Glossary</h2>
+<table>
+<tr><th>Term</th><th>Book-style definition</th></tr>
+<tr><td>Solid</td><td>A state of matter with closely held constituent particles and a definite shape and volume under ordinary conditions.</td></tr>
+<tr><td>Crystalline solid</td><td>A solid having a regular, repeating long-range arrangement of constituent particles.</td></tr>
+<tr><td>Amorphous solid</td><td>A solid lacking long-range periodic order.</td></tr>
+<tr><td>Crystal lattice</td><td>A regular three-dimensional arrangement of equivalent lattice points representing positions in a crystal.</td></tr>
+<tr><td>Unit cell</td><td>The smallest repeating structural unit of a crystal lattice.</td></tr>
+<tr><td>Point defect</td><td>A localized imperfection associated with a lattice site or nearby region.</td></tr>
+<tr><td>Vacancy defect</td><td>A defect produced when a particle is absent from its normal lattice site.</td></tr>
+<tr><td>Interstitial defect</td><td>A defect produced when an extra particle occupies an interstitial position.</td></tr>
+<tr><td>Schottky defect</td><td>An ionic crystal defect involving vacancies of equal numbers of cations and anions.</td></tr>
+<tr><td>Frenkel defect</td><td>A defect in which a smaller ion leaves its normal site and occupies an interstitial site.</td></tr>
+<tr><td>Impurity defect</td><td>A defect produced by introduction of foreign atoms or ions into a crystal.</td></tr>
+<tr><td>Non-stoichiometric defect</td><td>A defect that causes deviation from the ideal stoichiometric ratio.</td></tr>
+<tr><td>Valence band</td><td>The energy band associated with valence electrons in a solid.</td></tr>
+<tr><td>Conduction band</td><td>An energy band in which mobile electrons can contribute to conduction.</td></tr>
+<tr><td>Band gap</td><td>The forbidden energy interval between the valence and conduction bands.</td></tr>
+<tr><td>Semiconductor</td><td>A material having conductivity between a conductor and insulator, strongly influenced by temperature and impurities.</td></tr>
+<tr><td>Diamagnetism</td><td>Weak repulsion from a magnetic field associated with substances having no permanent net magnetic moment from unpaired electrons.</td></tr>
+<tr><td>Paramagnetism</td><td>Weak attraction to a magnetic field due to unpaired magnetic moments.</td></tr>
+<tr><td>Ferromagnetism</td><td>Strong cooperative parallel alignment of magnetic moments.</td></tr>
+<tr><td>Antiferromagnetism</td><td>Opposite alignment of neighboring magnetic moments with cancellation in the ideal case.</td></tr>
+<tr><td>Ferrimagnetism</td><td>Opposite magnetic alignment with unequal moment magnitudes, leaving a net moment.</td></tr>
+<tr><td>X-ray diffraction</td><td>Diffraction of X-rays by regularly spaced crystal planes.</td></tr>
+<tr><td>Bragg's law</td><td>The constructive-interference condition nλ = 2d sinθ for X-rays diffracted by crystal planes.</td></tr>
+<tr><td>Melting point</td><td>The temperature at which a solid changes to a liquid under specified conditions.</td></tr>
+</table>
+</section>
+
+<section id="formula">
+<h2>🧮 Unit 4 Formula Sheet</h2>
+<div class="formula">
+<b>Effective particles per cubic unit cell</b><br>
+SC = 8 × 1/8 = 1<br>
+BCC = 8 × 1/8 + 1 = 2<br>
+FCC = 8 × 1/8 + 6 × 1/2 = 4
+</div>
+<div class="formula">
+<b>Radius-edge relations</b><br>
+SC: a = 2r<br>
+BCC: √3a = 4r<br>
+FCC: √2a = 4r
+</div>
+<div class="formula">
+<b>Density</b><br>
+ρ = ZM/(N<sub>A</sub>a³)
+</div>
+<div class="formula">
+<b>Bragg's law</b><br>
+nλ = 2d sinθ
+</div>
+</section>
+
+<section id="revision">
+<h2>⚡ Quick Revision — One Look</h2>
+<table>
+<tr><th>Topic</th><th>Must remember</th></tr>
+<tr><td>Crystalline</td><td>Long-range periodic order; generally sharp melting point.</td></tr>
+<tr><td>Amorphous</td><td>No long-range periodic order; softening over a range is common.</td></tr>
+<tr><td>SC/BCC/FCC</td><td>Z = 1, 2, 4 respectively.</td></tr>
+<tr><td>Schottky</td><td>Equal cation/anion vacancies; density decreases.</td></tr>
+<tr><td>Frenkel</td><td>Ion shifts to interstitial site; density generally unchanged.</td></tr>
+<tr><td>Metal</td><td>Overlapping/partly filled bands; high conductivity.</td></tr>
+<tr><td>Semiconductor</td><td>Small band gap; conductivity strongly affected by temperature/doping.</td></tr>
+<tr><td>Dia</td><td>Weakly repelled.</td></tr>
+<tr><td>Para</td><td>Weakly attracted.</td></tr>
+<tr><td>Ferro</td><td>Strong parallel cooperative alignment.</td></tr>
+<tr><td>Antiferro</td><td>Opposite equal moments ideally cancel.</td></tr>
+<tr><td>Ferri</td><td>Opposite unequal moments leave net magnetism.</td></tr>
+<tr><td>Bragg</td><td>nλ = 2d sinθ.</td></tr>
+<tr><td>Kjeldahl method</td><td>Determine melting behavior of a crystalline sample by controlled heating and temperature observation.</td></tr>
+</table>
+</section>
+
+<section id="questions">
+<h2>📝 Exam Question Bank</h2>
+<h3>Very Short Questions</h3>
+<ol>
+<li>Define crystalline solid.</li>
+<li>Define amorphous solid.</li>
+<li>What is a unit cell?</li>
+<li>What is a crystal lattice?</li>
+<li>How many effective particles are present in BCC?</li>
+<li>Define Schottky defect.</li>
+<li>Define Frenkel defect.</li>
+<li>What is an F-centre?</li>
+<li>Define valence band.</li>
+<li>Define conduction band.</li>
+<li>What is a semiconductor?</li>
+<li>Define diamagnetism.</li>
+<li>State Bragg's law.</li>
+<li>What is melting point?</li>
+</ol>
+
+<h3>Short Questions</h3>
+<ol>
+<li>Differentiate between crystalline and amorphous solids.</li>
+<li>Explain molecular, ionic, metallic and covalent crystalline solids.</li>
+<li>Explain particle counting in SC, BCC and FCC unit cells.</li>
+<li>Differentiate between Schottky and Frenkel defects.</li>
+<li>Explain stoichiometric, impurity and non-stoichiometric defects.</li>
+<li>Explain band theory of solids.</li>
+<li>Differentiate between conductor, semiconductor and insulator using band theory.</li>
+<li>Differentiate between diamagnetism and paramagnetism.</li>
+<li>Differentiate between ferromagnetism, antiferromagnetism and ferrimagnetism.</li>
+<li>Explain the principle of X-ray diffraction.</li>
+</ol>
+
+<h3>Long-answer / 5–8 mark practice</h3>
+<ol>
+<li>Explain the characteristics of solid state and distinguish crystalline and amorphous solids.</li>
+<li>Classify crystalline solids on the basis of binding forces with properties and examples.</li>
+<li>Explain SC, BCC and FCC unit cells with diagrams and calculate their effective number of particles.</li>
+<li>Explain point defects and discuss Schottky and Frenkel defects with comparison.</li>
+<li>Explain band theory and distinguish conductors, semiconductors and insulators.</li>
+<li>Explain the five types of magnetic behavior listed in the syllabus.</li>
+<li>Derive Bragg's law and solve a numerical based on it.</li>
+<li>Explain the principle and general procedure for melting point determination by Kjeldahl method.</li>
+</ol>
+
+<h3>Numerical Practice</h3>
+<div class="example"><b>1.</b> An FCC crystal has edge length a. Express atomic radius r in terms of a.<br><b>Answer:</b> √2a = 4r, therefore r = √2a/4.</div>
+<div class="example"><b>2.</b> X-ray wavelength is 0.154 nm and first-order diffraction occurs at 30°. Find d.<br><b>Answer:</b> d = 0.154 nm.</div>
+<div class="example"><b>3.</b> A BCC unit cell contains how many effective particles?<br><b>Answer:</b> 2.</div>
+</section>
+
+<section id="mcq">
+<h2>🎯 MCQs</h2>
+<ol>
+<li>The number of effective particles in FCC is: <b>(A) 1 (B) 2 (C) 4 (D) 6</b><br>Answer: <b>C</b></li>
+<li>Schottky defect generally: <b>(A) increases density (B) decreases density (C) creates polymer (D) creates band gap</b><br>Answer: <b>B</b></li>
+<li>Frenkel defect involves: <b>(A) complete melting (B) ion in interstitial site (C) electron emission (D) X-ray production</b><br>Answer: <b>B</b></li>
+<li>The majority carriers in n-type semiconductor are: <b>(A) holes (B) neutrons (C) electrons (D) ions</b><br>Answer: <b>C</b></li>
+<li>Weak repulsion by a magnetic field is: <b>(A) paramagnetism (B) diamagnetism (C) ferromagnetism (D) ferrimagnetism</b><br>Answer: <b>B</b></li>
+<li>Strong parallel cooperative magnetic alignment is: <b>(A) ferromagnetism (B) diamagnetism (C) antiferromagnetism (D) none</b><br>Answer: <b>A</b></li>
+<li>Bragg's law is: <b>(A) E=mc² (B) nλ=2d sinθ (C) PV=nRT (D) F=ma</b><br>Answer: <b>B</b></li>
+<li>Diamond is an example of: <b>(A) ionic solid (B) metallic solid (C) covalent solid (D) molecular solid</b><br>Answer: <b>C</b></li>
+<li>In BCC, the body-centre particle contributes: <b>(A) 1/8 (B) 1/2 (C) 1 (D) 2</b><br>Answer: <b>C</b></li>
+<li>The valence band and conduction band are separated in a semiconductor by a: <b>(A) crystal plane (B) forbidden energy gap (C) lattice point (D) magnetic domain</b><br>Answer: <b>B</b></li>
+</ol>
+</section>
+
+<section>
+<h2>🏁 Final Exam Strategy</h2>
+<div class="card">
+<ul>
+<li>First memorize the definitions and four crystal-solid classifications.</li>
+<li>Practice SC/BCC/FCC particle counting until it becomes automatic.</li>
+<li>Draw Schottky and Frenkel defects clearly and learn their comparison.</li>
+<li>Understand the band diagrams rather than memorizing only the words.</li>
+<li>Make a one-page comparison table for Dia/Para/Ferro/Antiferro/Ferri.</li>
+<li>Memorize Bragg's law and practice at least 3 numerical variations.</li>
+<li>For Kjeldahl method, learn principle, apparatus idea, procedure, observation and precautions from your practical manual.</li>
+</ul>
+</div>
+<div class="note"><b>Important:</b> This HTML is a study book based on the uploaded SBTE syllabus. For laboratory-specific apparatus, exact practical steps and teacher-prescribed values, use the institute practical manual alongside these notes.</div>
+</section>
+</main>
+</div>
+
+<footer>
+<div class="brand">BY PRINCE X MAHTO</div>
+<p>PrinceXmahto Study Materials • Applied Chemistry-B • Unit 4: Solid State</p>
+<p class="small">Designed as a clean, responsive, print-friendly single-file study book.</p>
+</footer>
+</body>
+</html>
