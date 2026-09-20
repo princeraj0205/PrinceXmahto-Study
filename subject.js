@@ -4,8 +4,8 @@ if(!b||!s)root.innerHTML='<div class="empty">Subject not found. <a href="./">Ret
 else{
  const [code,title,units]=s;
  const cards=units.map((u,i)=>{
-  const chemSpecial=code==='2600103B'&&(b.id==='elx'||b.id==='electronics')&&(i===0||i===1||i===2);
-  const href=chemSpecial?'chemistry-unit'+(i+1)+'.html?v=20260920.12':'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u);
+  const chemSpecial=code==='2600103B'&&(b.id==='elx'||b.id==='electronics')&&(i===0||i===1||i===2||i===3);
+  const href=chemSpecial?'chemistry-unit'+(i+1)+'.html?v=20260920.13':'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u);
   const label=chemSpecial?'Open complete Unit '+(i+1)+' deep notes →':'Open topic notes →';
   return '<a class="topic-card" href="'+href+'"><span>UNIT '+String(i+1).padStart(2,'0')+'</span><h2>'+esc(u)+'</h2><p>'+label+'</p></a>';
  }).join('');
