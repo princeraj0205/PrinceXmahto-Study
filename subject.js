@@ -4,10 +4,10 @@ if(!b||!s)root.innerHTML='<div class="empty">Subject not found. <a href="./">Ret
 else{
  const [code,title,units]=s;
  const cards=units.map((u,i)=>{
-  const chemUnit1=(code==='2600103B'&&i===0&&(b.id==='elx'||b.id==='electronics'));
-  const href=chemUnit1?'chemistry-unit1.html':'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u);
-  const label=chemUnit1?'Open complete Unit 1 deep notes →':'Open topic notes →';
+  const chemUnit2=(code==='2600103B'&&i===1&&(b.id==='elx'||b.id==='electronics'));
+  const href=chemUnit2?'chemistry-unit2.html':'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u);
+  const label=chemUnit2?'Open complete Unit 2 deep notes →':'Open topic notes →';
   return '<a class="topic-card" href="'+href+'"><span>UNIT '+String(i+1).padStart(2,'0')+'</span><h2>'+esc(u)+'</h2><p>'+label+'</p></a>';
  }).join('');
- root.innerHTML='<div class="eyebrow">'+esc(b.short)+' · '+esc(code)+' · SEMESTER I</div><h1 class="page-title">'+esc(title)+'</h1><p class="lead">'+esc(b.name)+' · '+units.length+' curriculum units. Select a topic to open its lesson view.</p><div class="subject-meta"><span>Course code '+esc(code)+'</span><span>'+units.length+' units</span><span>Session 2026</span></div><div class="topic-grid">'+cards+'</div><div class="source-strip">The complete uploaded Applied Chemistry-B Unit 1 is available as a dedicated deep-notes page.</div>';
+ root.innerHTML='<div class="eyebrow">'+esc(b.short)+' · '+esc(code)+' · SEMESTER I</div><h1 class="page-title">'+esc(title)+'</h1><p class="lead">'+esc(b.name)+' · '+units.length+' curriculum units. Select a topic to open its lesson view.</p><div class="subject-meta"><span>Course code '+esc(code)+'</span><span>'+units.length+' units</span><span>Session 2026</span></div><div class="topic-grid">'+cards+'</div>';
 }
