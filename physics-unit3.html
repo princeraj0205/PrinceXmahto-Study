@@ -1,1 +1,552 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applied Physics-B Unit 3 — Full Book | PrinceXmahto</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f3f6fa;color:#18212b;font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+.container{max-width:1100px;margin:auto;background:#fff;box-shadow:0 0 25px #0001}
+.hero{padding:55px 7%;background:linear-gradient(135deg,#0b1320,#18324a);color:#fff}
+.hero h1{font-size:42px;margin:0 0 10px}.hero p{margin:6px 0;color:#dbe8f3}
+.badge{display:inline-block;padding:7px 12px;border-radius:20px;background:#ffffff18;border:1px solid #ffffff35;margin:4px 5px 0 0}
+main{padding:35px 7%}
+h2{margin-top:45px;border-left:6px solid #173b5f;padding:10px 14px;background:#eef4f9}
+h3{margin-top:30px;color:#173b5f}
+h4{color:#234b70}
+.card{background:#f8fafc;border:1px solid #dce5ee;border-radius:12px;padding:20px;margin:18px 0}
+.note{background:#fff8e6;border-left:5px solid #e4a72c;padding:15px;margin:18px 0}
+.exam{background:#edf7ef;border-left:5px solid #2e7d32;padding:15px;margin:18px 0}
+.warn{background:#fff0f0;border-left:5px solid #c62828;padding:15px}
+.formula{background:#101820;color:#fff;border-radius:10px;padding:16px 20px;font-size:18px;overflow:auto}
+.diagram{font-family:Consolas,monospace;background:#f7f7f7;border:1px dashed #9aa7b3;padding:16px;white-space:pre-wrap;border-radius:8px}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #cfd9e3;padding:10px;vertical-align:top}th{background:#173b5f;color:white}
+li{margin:6px 0}.small{font-size:14px;color:#5c6874}
+.footer{text-align:center;padding:35px;background:#101820;color:#fff}
+.kicker{text-transform:uppercase;letter-spacing:2px;font-size:13px;color:#9ec7e8;font-weight:bold}
+@media print{body{background:white}.container{box-shadow:none}.hero{background:#173b5f!important}main{padding:20px}.card,.diagram{break-inside:avoid}h2{break-after:avoid}}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="hero">
+<div class="kicker">SBTE Bihar • Diploma in Electronics Engineering • Semester-I</div>
+<h1>Applied Physics-B — Unit 3</h1>
+<p style="font-size:22px"><b>Electrostatics, Electromagnetism and Electric Current</b></p>
+<p>Full Book-Style • Beginner Friendly • Exam Focused • Numericals • Derivations • Revision</p>
+<span class="badge">Course Code: T2600102B</span>
+<span class="badge">CO3</span>
+<span class="badge">BY PRINCEXMAHTO</span>
+</header>
+
+<main>
+<div class="note"><b>Syllabus basis:</b> This book follows the uploaded SBTE Bihar Semester-I Applied Physics-B curriculum and keeps Unit 3 in the official 3.1 → 3.6 order. The official specification table allocates <b>12 classroom-instruction hours and 20 ETA marks</b> to Unit 3.</div>
+
+<h2>Unit 3 at a Glance</h2>
+<div class="card">
+<table>
+<tr><th>Section</th><th>Official syllabus topic</th><th>What you will learn</th></tr>
+<tr><td>3.1</td><td>Electric Charge, Coulomb’s law, Electric field, electric lines of force, electric flux, electric potential & potential difference, electric dipole</td><td>How charges interact and how electric fields and potentials describe that interaction.</td></tr>
+<tr><td>3.2</td><td>Gauss’ law; field due to straight charged conductor, charged plane sheet and charged sphere</td><td>Using symmetry and Gauss’ law to obtain electric-field expressions.</td></tr>
+<tr><td>3.3</td><td>Dielectric; parallel-plate capacitor; factors affecting capacitance</td><td>How capacitors store charge and how geometry/material change capacitance.</td></tr>
+<tr><td>3.4</td><td>Magnetic field and units; Biot-Savart law; straight/circular current-carrying wire; Lorentz force</td><td>How electric current produces magnetic fields and force on moving charges.</td></tr>
+<tr><td>3.5</td><td>Magnetic flux; Faraday’s law; Lenz’s law; self/mutual induction; eddy current; motional emf</td><td>How changing magnetic flux produces emf and current.</td></tr>
+<tr><td>3.6</td><td>DC and AC currents; average, RMS and peak value of AC current</td><td>How DC and AC differ and how AC is quantitatively described.</td></tr>
+</table>
+</div>
+
+<h2>3.1 Electric Charge and Electrostatic Concepts</h2>
+
+<h3>3.1.1 Electric Charge</h3>
+<p><b>Electric charge</b> is a basic physical property of matter because of which electrical attraction and repulsion occur. Charge is represented by <b>Q</b> or <b>q</b>.</p>
+<ul>
+<li>SI unit: <b>coulomb (C)</b></li>
+<li>Two types: <b>positive</b> and <b>negative</b></li>
+<li>Like charges repel; unlike charges attract.</li>
+<li>Charge is conserved: total charge of an isolated system remains constant.</li>
+<li>Charge is quantized: <b>Q = ne</b>, where n is an integer and e is elementary charge.</li>
+</ul>
+<div class="formula">Q = ne &nbsp;&nbsp;&nbsp; e = 1.6 × 10⁻¹⁹ C (magnitude)</div>
+
+<div class="diagram">Like charges:       (+)  ←── repulsion ──→  (+)
+
+Unlike charges:     (+)  ─── attraction ───→  (−)</div>
+
+<h3>3.1.2 Coulomb’s Law</h3>
+<p>Coulomb’s law gives the electrostatic force between two point charges. The magnitude of force is directly proportional to the product of charges and inversely proportional to the square of distance between them.</p>
+<div class="formula">F = (1 / 4πε₀) × |q₁q₂| / r²</div>
+<p>In vacuum, <b>1/(4πε₀) = 9 × 10⁹ N·m²/C²</b> approximately.</p>
+<ul>
+<li>F = electrostatic force in newton</li>
+<li>q₁, q₂ = charges in coulomb</li>
+<li>r = separation in metre</li>
+<li>ε₀ = permittivity of free space</li>
+</ul>
+<p><b>Direction:</b> along the line joining the two charges.</p>
+
+<h4>Worked Example 1</h4>
+<div class="card"><b>Question:</b> Two charges 2 μC and 3 μC are 0.30 m apart in air. Find the magnitude of force.</div>
+<p><b>Given:</b> q₁ = 2×10⁻⁶ C, q₂ = 3×10⁻⁶ C, r = 0.30 m.</p>
+<p>F = 9×10⁹ × (2×10⁻⁶)(3×10⁻⁶)/(0.30)²</p>
+<p>F = <b>0.60 N</b>. Since both charges are positive, the force is repulsive.</p>
+
+<h3>3.1.3 Electric Field</h3>
+<p>The <b>electric field</b> at a point is the region/property in which an electric test charge experiences electric force. Electric field intensity is force per unit positive test charge.</p>
+<div class="formula">E = F/q₀</div>
+<p>For a point charge:</p>
+<div class="formula">E = (1 / 4πε₀) × Q/r²</div>
+<p>SI unit: <b>N/C</b> (also expressible as V/m).</p>
+
+<h3>3.1.4 Electric Lines of Force</h3>
+<p>Electric lines of force are imaginary lines used to represent the direction and relative strength of an electric field.</p>
+<ul>
+<li>They start from positive charge and terminate on negative charge (or at infinity).</li>
+<li>The tangent to a field line gives field direction.</li>
+<li>Field lines never intersect each other.</li>
+<li>Closer lines represent a stronger field.</li>
+<li>For a conductor in electrostatic equilibrium, field lines are normal to the surface.</li>
+</ul>
+
+<div class="diagram">Positive point charge             Negative point charge
+
+          ↑                                  ↓
+       ↗  |  ↖                          ↘   |   ↙
+     ←──  (+)  ──→                    →──  (−)  ──←
+       ↘  |  ↙                          ↗   |   ↖
+
+Direction of field around + is outward; around − is inward.</div>
+
+<h3>3.1.5 Electric Flux</h3>
+<p><b>Electric flux</b> measures the amount of electric field passing through a surface.</p>
+<div class="formula">Φ = E A cosθ</div>
+<p>For a uniform field through a flat surface, where θ is the angle between E and the normal to the surface.</p>
+<ul><li>SI unit: <b>N·m²/C</b></li><li>Maximum flux occurs when θ = 0°.</li><li>Flux is zero when θ = 90°.</li></ul>
+
+<h3>3.1.6 Electric Potential</h3>
+<p>Electric potential at a point is the work done per unit positive test charge in bringing it from infinity to that point without acceleration.</p>
+<div class="formula">V = W/q</div>
+<p>For a point charge:</p>
+<div class="formula">V = (1 / 4πε₀) × Q/r</div>
+<p>SI unit: <b>volt (V)</b> = joule/coulomb.</p>
+
+<h3>3.1.7 Potential Difference</h3>
+<p>Potential difference between two points is the work done per unit charge in moving a test charge between those points.</p>
+<div class="formula">V_B − V_A = W_AB/q</div>
+<table>
+<tr><th>Electric Field</th><th>Electric Potential</th></tr>
+<tr><td>Vector quantity</td><td>Scalar quantity</td></tr>
+<tr><td>Unit: N/C or V/m</td><td>Unit: volt</td></tr>
+<tr><td>E = F/q</td><td>V = W/q</td></tr>
+</table>
+
+<h3>3.1.8 Electric Dipole</h3>
+<p>An <b>electric dipole</b> consists of two equal and opposite charges separated by a small distance.</p>
+<div class="diagram">      separation = d
+(+q) ●────────────● (−q)
+       ← dipole axis →</div>
+<p>Dipole moment is defined as charge multiplied by separation vector magnitude:</p>
+<div class="formula">p = qd</div>
+<p>SI unit: <b>C·m</b>. Its direction is conventionally from negative charge to positive charge.</p>
+
+<h2>3.2 Gauss’ Law and Electric Field of Symmetric Charge Distributions</h2>
+
+<h3>3.2.1 Gauss’ Law</h3>
+<p>Gauss’ law relates the total electric flux through a closed surface to the net charge enclosed by that surface.</p>
+<div class="formula">∮ E · dA = Q_enclosed / ε₀</div>
+<p>For a highly symmetric charge distribution, Gauss’ law can make electric-field calculations much easier.</p>
+
+<div class="card"><b>How to use Gauss’ law</b>
+<ol>
+<li>Identify the symmetry: cylindrical, planar or spherical.</li>
+<li>Choose a suitable closed Gaussian surface.</li>
+<li>Determine where E has the same magnitude.</li>
+<li>Calculate total flux through the surface.</li>
+<li>Set flux equal to enclosed charge divided by ε₀.</li>
+<li>Solve for E.</li>
+</ol></div>
+
+<h3>3.2.2 Long Straight Charged Conductor</h3>
+<p>For a long straight uniformly charged conductor, choose a cylindrical Gaussian surface of radius r and length L.</p>
+<div class="diagram">          Gaussian cylinder
+       ╭──────────────────╮
+       │   charged wire   │
+       │       ││         │
+       ╰──────────────────╯
+             radius r
+
+Field E is radial and has the same magnitude on the curved surface.</div>
+<p>If λ is charge per unit length, enclosed charge is λL. Therefore:</p>
+<div class="formula">E(2πrL) = λL/ε₀
+E = λ/(2πε₀r)</div>
+
+<h3>3.2.3 Charged Plane Sheet</h3>
+<p>For an infinite uniformly charged plane sheet with surface charge density σ, a cylindrical pillbox Gaussian surface gives:</p>
+<div class="formula">E = σ/(2ε₀)</div>
+<p>The field is normal to the sheet and, for the ideal infinite sheet, independent of distance from the sheet.</p>
+
+<h3>3.2.4 Charged Spherical Shell</h3>
+<p>For a uniformly charged spherical shell:</p>
+<ul>
+<li><b>Outside the shell:</b> field behaves as if the total charge were concentrated at the centre.</li>
+<li><b>Inside the shell:</b> electric field is zero for an ideal conducting spherical shell in electrostatic equilibrium.</li>
+</ul>
+<div class="formula">Outside: E = (1/4πε₀) Q/r²
+Inside conducting shell: E = 0</div>
+
+<div class="exam"><b>Exam focus:</b> Practice the Gaussian-surface idea and remember why symmetry is important. The official syllabus specifically includes field intensity for a straight charged conductor, charged plane sheet and charged sphere.</div>
+
+<h2>3.3 Dielectric and Capacitance</h2>
+
+<h3>3.3.1 Dielectric</h3>
+<p>A <b>dielectric</b> is an insulating material that becomes polarized when placed in an electric field. Examples include glass, mica, ceramic and many polymers.</p>
+<p>When a dielectric is inserted between capacitor plates, polarization changes the effective electric field and can increase capacitance.</p>
+
+<h3>3.3.2 Capacitor</h3>
+<p>A <b>capacitor</b> is a device used to store electric charge and electrical energy. A simple capacitor has two conducting plates separated by an insulating medium.</p>
+<div class="diagram">   + + + + + + +        − − − − − − −
+   ┌───────────┐        ┌───────────┐
+   │ Positive  │        │ Negative  │
+   │   plate   │        │   plate   │
+   └───────────┘        └───────────┘
+          ←──── separation d ────→
+              dielectric/air</div>
+
+<h3>3.3.3 Capacitance</h3>
+<p>Capacitance is the charge stored per unit potential difference.</p>
+<div class="formula">C = Q/V</div>
+<p>SI unit: <b>farad (F)</b>.</p>
+
+<h3>3.3.4 Parallel-Plate Capacitor</h3>
+<p>For two large parallel plates of area A separated by distance d, neglecting edge effects:</p>
+<div class="formula">C = ε₀A/d</div>
+<p>With dielectric of relative permittivity εᵣ:</p>
+<div class="formula">C = εᵣ ε₀ A/d</div>
+
+<h3>3.3.5 Factors Affecting Capacitance</h3>
+<table>
+<tr><th>Factor</th><th>Effect</th></tr>
+<tr><td>Plate area A</td><td>Capacitance increases when plate area increases.</td></tr>
+<tr><td>Plate separation d</td><td>Capacitance decreases when separation increases.</td></tr>
+<tr><td>Dielectric material</td><td>Higher relative permittivity generally gives higher capacitance.</td></tr>
+</table>
+
+<h4>Worked Example 2</h4>
+<div class="card"><b>Question:</b> A parallel-plate capacitor has A = 0.02 m² and d = 1 mm. Find capacitance in air.</div>
+<p>C = ε₀A/d = (8.854×10⁻¹² × 0.02)/(1×10⁻³)</p>
+<p><b>C ≈ 1.77×10⁻¹⁰ F = 177 pF.</b></p>
+
+<h2>3.4 Magnetic Field, Biot-Savart Law and Lorentz Force</h2>
+
+<h3>3.4.1 Magnetic Field</h3>
+<p>A <b>magnetic field</b> is the region around a magnet or current-carrying conductor in which magnetic effects can be observed.</p>
+<p>Magnetic field is represented by <b>B</b>. SI unit: <b>tesla (T)</b>.</p>
+
+<h3>3.4.2 Biot-Savart Law</h3>
+<p>The Biot-Savart law gives the magnetic field contribution due to a small current element.</p>
+<div class="formula">dB = (μ₀/4π) × (I dl sinθ)/r²</div>
+<ul>
+<li>I = current</li><li>dl = small length element</li><li>r = distance from current element</li><li>θ = angle between dl and r</li><li>μ₀ = permeability of free space</li>
+</ul>
+
+<h3>3.4.3 Long Straight Current-Carrying Wire</h3>
+<p>For a long straight wire carrying current I, at distance r:</p>
+<div class="formula">B = μ₀I/(2πr)</div>
+<div class="diagram">             magnetic field lines
+                 ↺  ↺  ↺
+                   │
+                   │ I
+                   │
+                 ↻  ↻  ↻
+              straight wire</div>
+<p>Direction is obtained using the <b>right-hand thumb rule</b>: thumb in current direction; curled fingers show magnetic-field direction.</p>
+
+<h3>3.4.4 Circular Current-Carrying Wire</h3>
+<p>At the centre of a circular loop of radius R carrying current I:</p>
+<div class="formula">B = μ₀I/(2R)</div>
+<p>For N turns:</p>
+<div class="formula">B = μ₀NI/(2R)</div>
+<p>This is one of the direct expressions relevant to the official TSO 3e.</p>
+
+<h3>3.4.5 Lorentz Force</h3>
+<p>A charged particle moving in electric and magnetic fields experiences Lorentz force:</p>
+<div class="formula">F = q(E + v × B)</div>
+<p>If only the magnetic field is present:</p>
+<div class="formula">F = q(v × B)
+|F| = qvB sinθ</div>
+<p>For v parallel to B, force is zero. For v perpendicular to B, force is maximum.</p>
+
+<h2>3.5 Magnetic Flux and Electromagnetic Induction</h2>
+
+<h3>3.5.1 Magnetic Flux</h3>
+<p>Magnetic flux is the amount of magnetic field passing through a surface.</p>
+<div class="formula">Φ = BA cosθ</div>
+<p>SI unit: <b>weber (Wb)</b>.</p>
+
+<h3>3.5.2 Faraday’s Law of Electromagnetic Induction</h3>
+<p>Whenever the magnetic flux linked with a circuit changes, an emf is induced in the circuit. The magnitude of induced emf is proportional to the rate of change of flux linkage.</p>
+<div class="formula">ε = −N dΦ/dt</div>
+<p>For average change:</p>
+<div class="formula">ε_avg = −N(ΔΦ/Δt)</div>
+
+<h3>3.5.3 Lenz’s Law</h3>
+<p>Lenz’s law states that the direction of induced current is such that it opposes the change in magnetic flux responsible for its production.</p>
+<p>The negative sign in Faraday’s law represents this opposition.</p>
+
+<div class="diagram">Magnet approaching coil
+        N  →→→     [ COIL ]
+        ↑ flux increases
+
+Induced current produces a magnetic effect
+that opposes the increase in flux.</div>
+
+<h3>3.5.4 Self-Induction</h3>
+<p>When current in a coil changes, the changing magnetic flux produced by that same coil induces emf in the coil itself. This is <b>self-induction</b>.</p>
+<div class="formula">ε = −L dI/dt</div>
+<p>L is self-inductance; SI unit is <b>henry (H)</b>.</p>
+
+<h3>3.5.5 Mutual Induction</h3>
+<p>When a changing current in one coil induces emf in a nearby second coil, the phenomenon is <b>mutual induction</b>.</p>
+<div class="formula">ε₂ = −M dI₁/dt</div>
+<p>M is mutual inductance.</p>
+
+<h3>3.5.6 Eddy Current</h3>
+<p><b>Eddy currents</b> are circulating currents induced inside bulk conducting materials when magnetic flux through them changes.</p>
+<p>They can produce heating and energy loss, but they are also useful in electromagnetic braking, induction heating and some measuring instruments.</p>
+
+<h3>3.5.7 Motional EMF</h3>
+<p>When a conductor moves through a magnetic field and cuts magnetic flux, an emf can be induced across it. For a straight conductor of length l moving with speed v perpendicular to a magnetic field B:</p>
+<div class="formula">ε = Blv</div>
+
+<h4>Worked Example 3</h4>
+<div class="card"><b>Question:</b> A 200-turn coil experiences a flux change of 0.02 Wb to 0.08 Wb in 0.10 s. Find the magnitude of average induced emf.</div>
+<p>|ε| = N|ΔΦ|/Δt = 200×0.06/0.10 = <b>120 V</b>.</p>
+
+<h2>3.6 DC and AC Current</h2>
+
+<h3>3.6.1 Electric Current</h3>
+<p>Electric current is the rate of flow of electric charge through a cross-section.</p>
+<div class="formula">I = Q/t</div>
+<p>SI unit: <b>ampere (A)</b>.</p>
+
+<h3>3.6.2 Direct Current (DC)</h3>
+<p>In DC, current flows in one direction. Its magnitude may be constant or may vary with time while retaining one direction.</p>
+<div class="diagram">DC current
+I
+│      ─────────────────
+│
+└──────────────────────→ t</div>
+
+<h3>3.6.3 Alternating Current (AC)</h3>
+<p>In AC, current changes magnitude and reverses direction periodically. A sinusoidal current may be written as:</p>
+<div class="formula">i = I₀ sin(ωt + φ)</div>
+<p>where I₀ is peak current, ω is angular frequency and φ is phase constant.</p>
+
+<h3>3.6.4 Peak Value</h3>
+<p>The maximum magnitude reached by an AC quantity is its <b>peak value</b>, represented by I₀ for current.</p>
+
+<h3>3.6.5 Average Value of AC</h3>
+<p>For a complete symmetrical sinusoidal cycle, positive and negative halves cancel, so the average value over one complete cycle is <b>zero</b>.</p>
+<p>For a sinusoidal current over a half-cycle:</p>
+<div class="formula">I_avg = 2I₀/π ≈ 0.637 I₀</div>
+
+<h3>3.6.6 RMS Value</h3>
+<p>The <b>root mean square (RMS)</b> value of an AC current is the equivalent DC current that produces the same heating effect in a resistor.</p>
+<div class="formula">I_rms = I₀/√2 ≈ 0.707 I₀</div>
+<p>Similarly, for voltage:</p>
+<div class="formula">V_rms = V₀/√2</div>
+
+<table>
+<tr><th>Quantity</th><th>Sinusoidal relation</th><th>Important point</th></tr>
+<tr><td>Peak current</td><td>I₀</td><td>Maximum instantaneous current</td></tr>
+<tr><td>Average current</td><td>2I₀/π (half-cycle)</td><td>Full-cycle average = 0</td></tr>
+<tr><td>RMS current</td><td>I₀/√2</td><td>Heating-effect equivalent</td></tr>
+</table>
+
+<h4>Worked Example 4</h4>
+<div class="card"><b>Question:</b> A sinusoidal current has peak value 10 A. Find RMS current and half-cycle average current.</div>
+<p>I<sub>rms</sub> = 10/√2 = <b>7.07 A</b>.</p>
+<p>I<sub>avg</sub> = 2×10/π = <b>6.37 A</b>.</p>
+
+<h2>Important Concept Connections</h2>
+<div class="card">
+<ul>
+<li><b>Charge → Electric field:</b> charge creates an electric field.</li>
+<li><b>Electric field → Force:</b> F = qE for a charge in an electric field.</li>
+<li><b>Current → Magnetic field:</b> a current-carrying conductor produces a magnetic field.</li>
+<li><b>Changing magnetic flux → Induced emf:</b> Faraday’s law.</li>
+<li><b>Changing current → Self-induced emf:</b> self-induction.</li>
+<li><b>Moving conductor in magnetic field → Motional emf:</b> ε = Blv under the stated perpendicular-motion condition.</li>
+</ul>
+</div>
+
+<h2>Most Important Formula Sheet</h2>
+<div class="formula">
+Coulomb: F = (1/4πε₀)|q₁q₂|/r²
+
+Electric field: E = F/q = (1/4πε₀)Q/r²
+
+Potential: V = W/q = (1/4πε₀)Q/r
+
+Electric flux: Φ = EA cosθ
+
+Dipole moment: p = qd
+
+Gauss law: ∮E·dA = Q/ε₀
+
+Long straight conductor: E = λ/(2πε₀r)
+
+Infinite plane sheet: E = σ/(2ε₀)
+
+Spherical shell outside: E = (1/4πε₀)Q/r²
+
+Parallel plate capacitor: C = ε₀A/d
+
+With dielectric: C = εᵣε₀A/d
+
+Biot-Savart: dB = (μ₀/4π)(I dl sinθ/r²)
+
+Long straight wire: B = μ₀I/(2πr)
+
+Circular loop centre: B = μ₀I/(2R), N turns → μ₀NI/(2R)
+
+Lorentz force: F = q(E + v×B)
+
+Magnetic flux: Φ = BA cosθ
+
+Faraday: ε = −N dΦ/dt
+
+Self induction: ε = −L dI/dt
+
+Mutual induction: ε₂ = −M dI₁/dt
+
+Motional emf: ε = Blv
+
+Current: I = Q/t
+
+AC: i = I₀ sin(ωt + φ)
+
+Half-cycle average: Iavg = 2I₀/π
+
+RMS: Irms = I₀/√2
+</div>
+
+<h2>Common Mistakes to Avoid</h2>
+<div class="warn">
+<ol>
+<li>Do not confuse <b>electric field E</b> with <b>electric potential V</b>.</li>
+<li>Do not forget that Coulomb force varies as <b>1/r²</b>.</li>
+<li>In flux, θ is the angle between the field and the <b>normal</b> to the surface.</li>
+<li>Electric field is a vector; potential is a scalar.</li>
+<li>For Faraday’s law, do not remove the negative sign when explaining direction; it represents Lenz’s law.</li>
+<li>Do not use full-cycle average AC = 0 and then incorrectly use it as the half-cycle average.</li>
+<li>For circular-wire magnetic field, check whether the question asks for the field at the <b>centre</b>.</li>
+<li>In capacitor numericals, convert mm, μF, nF, pF and μC into consistent SI units.</li>
+</ol>
+</div>
+
+<h2>Exam-Focused Questions</h2>
+<h3>Very Short / 1–2 Mark</h3>
+<ol>
+<li>Define electric charge and state its SI unit.</li>
+<li>State Coulomb’s law.</li>
+<li>Define electric field intensity.</li>
+<li>What is electric flux?</li>
+<li>Define electric potential and potential difference.</li>
+<li>What is an electric dipole?</li>
+<li>State Gauss’ law.</li>
+<li>Define dielectric and capacitance.</li>
+<li>Write the capacitance of a parallel-plate capacitor.</li>
+<li>State Biot-Savart law.</li>
+<li>What is Lorentz force?</li>
+<li>State Faraday’s law and Lenz’s law.</li>
+<li>Define self-induction and mutual induction.</li>
+<li>What are eddy currents?</li>
+<li>Differentiate DC and AC.</li>
+<li>Define RMS value of AC.</li>
+</ol>
+
+<h3>Long / Derivation-Oriented</h3>
+<ol>
+<li>Explain Coulomb’s law and the factors affecting electrostatic force.</li>
+<li>Explain electric field, electric flux, electric potential and potential difference.</li>
+<li>State Gauss’ law and obtain the field of a long straight charged conductor.</li>
+<li>Obtain the electric field due to an infinite charged plane sheet using Gauss’ law.</li>
+<li>Explain the field of a charged spherical shell.</li>
+<li>Explain the construction and capacitance of a parallel-plate capacitor and factors affecting capacitance.</li>
+<li>State Biot-Savart law and obtain the magnetic field at the centre of a circular current-carrying wire.</li>
+<li>Explain Lorentz force with its vector expression.</li>
+<li>Explain Faraday’s laws and Lenz’s law with applications.</li>
+<li>Explain self-induction, mutual induction, eddy current and motional emf.</li>
+<li>Differentiate DC and AC and explain average, peak and RMS values of sinusoidal AC.</li>
+</ol>
+
+<h3>Numerical Practice</h3>
+<ol>
+<li>Calculate electrostatic force for given q₁, q₂ and r.</li>
+<li>Calculate electric field at a point due to a point charge.</li>
+<li>Calculate capacitance from A and d.</li>
+<li>Calculate magnetic field near a long straight current-carrying wire.</li>
+<li>Calculate magnetic field at the centre of a circular coil.</li>
+<li>Calculate induced emf from N, change in flux and time.</li>
+<li>Calculate RMS and average current from peak current.</li>
+</ol>
+
+<h2>Quick Revision — 15 Minutes</h2>
+<div class="card">
+<b>Remember this flow:</b><br><br>
+Charge → Coulomb force → Electric field → Electric flux → Potential → Dipole<br>
+↓<br>
+Gauss law → Straight conductor / Plane sheet / Spherical shell<br>
+↓<br>
+Dielectric → Capacitor → C = εA/d<br>
+↓<br>
+Current → Magnetic field → Biot-Savart → Lorentz force<br>
+↓<br>
+Changing flux → Faraday → Lenz → Induction → Eddy current / Motional emf<br>
+↓<br>
+DC vs AC → Peak → Average → RMS
+</div>
+
+<h2>MCQs for Self-Test</h2>
+<ol>
+<li>The SI unit of electric charge is: (A) Volt (B) Coulomb (C) Tesla (D) Weber<br><b>Answer: B</b></li>
+<li>Electrostatic force between point charges varies as: (A) r (B) r² (C) 1/r (D) 1/r²<br><b>Answer: D</b></li>
+<li>Electric potential is a: (A) vector (B) scalar (C) tensor (D) none<br><b>Answer: B</b></li>
+<li>SI unit of capacitance is: (A) Henry (B) Tesla (C) Farad (D) Weber<br><b>Answer: C</b></li>
+<li>Magnetic field is measured in: (A) Tesla (B) Volt (C) Coulomb (D) Ohm<br><b>Answer: A</b></li>
+<li>Faraday’s law concerns: (A) electrostatic force (B) electromagnetic induction (C) heat conduction (D) pressure<br><b>Answer: B</b></li>
+<li>The RMS value of a sinusoidal current with peak I₀ is: (A) I₀ (B) 2I₀ (C) I₀/√2 (D) πI₀<br><b>Answer: C</b></li>
+<li>The SI unit of magnetic flux is: (A) Tesla (B) Weber (C) Farad (D) Coulomb<br><b>Answer: B</b></li>
+<li>Lenz’s law gives the: (A) magnitude of charge (B) direction of induced effect (C) capacitance (D) resistance<br><b>Answer: B</b></li>
+<li>A dielectric inserted between capacitor plates generally: (A) reduces capacitance to zero (B) increases capacitance by its relative permittivity factor in the ideal model (C) removes charge (D) creates DC current automatically<br><b>Answer: B</b></li>
+</ol>
+
+<h2>Final Exam Checklist</h2>
+<div class="exam">
+<ul>
+<li>✔ Coulomb’s law and electric field numericals</li>
+<li>✔ Electric flux, potential and potential difference</li>
+<li>✔ Electric dipole and dipole moment</li>
+<li>✔ Gauss’ law + three standard symmetric cases</li>
+<li>✔ Parallel-plate capacitor and factors affecting capacitance</li>
+<li>✔ Biot-Savart law + circular wire at centre</li>
+<li>✔ Lorentz force</li>
+<li>✔ Faraday + Lenz laws</li>
+<li>✔ Self/mutual induction, eddy current, motional emf</li>
+<li>✔ DC vs AC, peak/average/RMS values</li>
+<li>✔ Units and SI conversions in every numerical</li>
+</ul>
+</div>
+
+<p class="small"><b>Source note:</b> Official uploaded SBTE Bihar curriculum wording was used to define the Unit 3 scope and sequence. Explanatory text, standard equations, examples and revision material are presented in textbook form to make those listed topics understandable; they should be treated as teaching material, not as additional syllabus items.</p>
+</main>
+
+<footer class="footer">
+<h2 style="background:none;border:0;color:white;margin:0">BY PRINCEXMAHTO</h2>
+<p>Applied Physics-B • Unit 3 • Electrostatics, Electromagnetism and Electric Current</p>
+<p class="small" style="color:#b9c7d3">SBTE Bihar Diploma in Electronics Engineering — Semester I</p>
+</footer>
+</div>
+</body>
+</html>
