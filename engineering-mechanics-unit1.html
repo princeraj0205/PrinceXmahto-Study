@@ -1,0 +1,158 @@
+from pathlib import Path
+
+sections = """
+<h2>1.1 Significance and Relevance</h2>
+<h3>Mechanics</h3><p>Mechanics is the branch of engineering science dealing with bodies at rest or in motion under the action of forces.</p>
+<h3>Applied Mechanics</h3><p>Applied mechanics applies the principles of mechanics to practical engineering problems such as beams, machines and force systems.</p>
+<h3>Statics and Dynamics</h3><table><tr><th>Statics</th><th>Dynamics</th></tr><tr><td>Deals with bodies at rest/equilibrium.</td><td>Deals with bodies in motion.</td></tr><tr><td>Example: loaded beam at rest.</td><td>Example: moving vehicle.</td></tr></table>
+
+<h2>1.2 Basic Terms</h2>
+<h3>Space</h3><p>The geometric region in which positions of bodies are described.</p>
+<h3>Time</h3><p>Measure of duration and sequence of events. SI unit: second (s).</p>
+<h3>Mass</h3><p>Quantity of matter in a body. SI unit: kilogram (kg).</p>
+<h3>Particle</h3><p>An idealized body whose dimensions are negligible compared with the distances involved.</p>
+<h3>Body</h3><p>A physical object having mass and occupying space.</p>
+<h3>Rigid Body</h3><p>An idealized body in which the distance between any two points remains constant when forces act.</p>
+
+<h2>1.3 Scalar, Vector and Units</h2>
+<h3>Scalar Quantity</h3><p>A quantity having magnitude only. Examples: mass, time, temperature, length and speed.</p>
+<h3>Vector Quantity</h3><p>A quantity having both magnitude and direction. Examples: force, displacement, velocity and acceleration.</p>
+<pre>A ●────────────────► B
+       vector F
+Arrow = direction; length = magnitude (to scale).</pre>
+<h3>SI Fundamental Units</h3><table><tr><th>Quantity</th><th>Unit</th><th>Symbol</th></tr>
+<tr><td>Length</td><td>metre</td><td>m</td></tr><tr><td>Mass</td><td>kilogram</td><td>kg</td></tr><tr><td>Time</td><td>second</td><td>s</td></tr><tr><td>Current</td><td>ampere</td><td>A</td></tr><tr><td>Temperature</td><td>kelvin</td><td>K</td></tr><tr><td>Amount</td><td>mole</td><td>mol</td></tr><tr><td>Luminous intensity</td><td>candela</td><td>cd</td></tr></table>
+<h3>Derived Units</h3><p>Units formed from fundamental units are derived units.</p><table><tr><th>Quantity</th><th>Unit</th></tr><tr><td>Velocity</td><td>m/s</td></tr><tr><td>Acceleration</td><td>m/s²</td></tr><tr><td>Force</td><td>N = kg·m/s²</td></tr><tr><td>Work</td><td>J = kg·m²/s²</td></tr><tr><td>Power</td><td>W = kg·m²/s³</td></tr></table>
+
+<h2>1.4 Force</h2>
+<h3>Definition and Unit</h3><p>Force is an external agency that tends to change the state of rest or motion of a body, or change its shape. Force is a vector.</p>
+<div class="formula">F = ma &nbsp;&nbsp;&nbsp; 1 N = 1 kg·m/s²</div>
+<h3>Representation and Characteristics</h3><p>A force is represented by an arrow. Its important characteristics are magnitude, direction, line of action and point of application.</p>
+<pre>             F →
+       A ●────────────● B
+       point       line of action</pre>
+<h3>Bow's Notation</h3><p>Bow's notation identifies forces in graphical force diagrams by labelling the spaces/regions around the structure and naming a force by the two adjacent letters.</p>
+<h3>Effects of Force</h3><ul><li>Starts or stops motion.</li><li>Changes velocity or direction.</li><li>Produces rotation.</li><li>Changes shape or size.</li></ul>
+<h3>Principle of Transmissibility</h3><p>For a rigid body, a force may be moved anywhere along its own line of action without changing its external effect on the body.</p>
+<pre>Original: A ●────────────► F
+Same line: A ●────● B────► F
+</pre>
+<h3>Force System and Classification</h3><table><tr><th>Type</th><th>Meaning</th></tr><tr><td>Collinear</td><td>Same straight line.</td></tr><tr><td>Concurrent</td><td>Lines of action meet at one point.</td></tr><tr><td>Parallel</td><td>Lines of action are parallel.</td></tr><tr><td>Coplanar</td><td>Forces lie in one plane.</td></tr><tr><td>Non-concurrent</td><td>Lines do not meet at one common point.</td></tr></table>
+
+<h2>1.5 Resolution of a Force and Moment</h2>
+<h3>Resolution</h3><p>Resolution means replacing one force by components whose combined effect is equivalent to the original force.</p>
+<h3>Orthogonal Components</h3>
+<pre>             F
+            /|
+           / |
+          /  | Fy
+         /θ  |
+        /____|
+          Fx
+Fx = F cosθ       Fy = F sinθ
+F = √(Fx²+Fy²)   tanθ = Fy/Fx</pre>
+<div class="exam"><b>Example:</b> Resolve 100 N at 30° to horizontal.<br>
+Fx = 100 cos30° = <b>86.6 N</b><br>Fy = 100 sin30° = <b>50 N</b>.</div>
+<h3>Non-Orthogonal Components</h3><p>Components that are not perpendicular are non-orthogonal. Their geometry must be considered; do not automatically use the rectangular-component formulas.</p>
+<h3>Moment of a Force</h3><p>Moment is the turning effect of a force about a point.</p>
+<div class="formula">M = F × d</div><p>d is the perpendicular distance from the reference point to the line of action. Unit: N·m.</p>
+<pre>                F ↓
+                │
+O ●─────────────┼
+      distance d
+Moment about O = Fd</pre>
+<p>Moment may be clockwise or anticlockwise.</p>
+<h3>Avignon's Theorem</h3><p>For a force resolved into components, the moment of the original force about a point equals the algebraic sum of the moments of its components about that point.</p>
+<div class="formula">M(F) = M(Fx) + M(Fy)</div>
+
+<h2>1.6 Composition of Forces</h2>
+<h3>Resultant</h3><p>The resultant is a single force having the same external effect as a given force system.</p>
+<h3>Two Concurrent Forces</h3><div class="formula">R = √(P² + Q² + 2PQ cosθ)</div>
+<div class="formula">tanα = Q sinθ / (P + Q cosθ)</div>
+<h3>Law of Parallelogram of Forces</h3><p>If two concurrent forces are represented by two adjacent sides of a parallelogram, the diagonal through their common point represents their resultant.</p>
+<pre>          B
+         /|
+        / |
+       /  | Q
+      /   |
+     O────A
+       P
+Diagonal OB = resultant R</pre>
+<h3>Law of Triangle of Forces</h3><p>If two forces are represented by two sides of a triangle taken in order, the third side taken in the opposite direction represents their resultant.</p>
+<h3>Law of Polygon of Forces</h3><p>If several forces are represented by the sides of a polygon taken in order, the closing side represents the resultant.</p>
+<h3>Component Method</h3><div class="formula">ΣFx = algebraic sum of horizontal components<br>ΣFy = algebraic sum of vertical components<br>R = √[(ΣFx)² + (ΣFy)²]<br>tanθ = ΣFy / ΣFx</div>
+<div class="exam"><b>Example 1:</b> 30 N and 40 N perpendicular.<br>R = √(30²+40²) = <b>50 N</b>.</div>
+<div class="exam"><b>Example 2:</b> 20 N and 30 N at 60°.<br>R = √(20²+30²+2×20×30×0.5) = √1900 ≈ <b>43.6 N</b>.</div>
+
+<h2>1.7 Graphic Statics</h2>
+<h3>Meaning</h3><p>Graphic statics uses scaled graphical constructions to analyse forces and determine resultants/equilibrium conditions.</p>
+<h3>Graphical Representation</h3><p>Choose a force scale, draw a line whose length represents magnitude, and use the arrow for direction.</p>
+<pre>Scale: 1 cm = 10 N
+50 N → 5 cm line</pre>
+<h3>Space Diagram</h3><p>Shows the actual arrangement of the body, loads, supports and lines of action.</p>
+<h3>Force Diagram</h3><p>Shows the forces separately with their directions and relative magnitudes.</p>
+<h3>Polar Diagram</h3><p>A graphical construction using a selected pole and rays associated with a force polygon, used with the funicular construction.</p>
+<h3>Funicular Polygon</h3><p>A graphical construction used to determine the resultant, especially for parallel force systems, including its line of action.</p>
+<h3>Graphical Resultant — Concurrent Forces</h3><ol><li>Select a scale.</li><li>Draw the first force to scale.</li><li>Draw remaining forces head-to-tail.</li><li>Join the starting point to the final point.</li><li>The closing line gives resultant magnitude and direction.</li></ol>
+<pre>O ─────► A
+         \
+          \────► B
+                 \
+                  \────► C
+O to C = resultant</pre>
+<h3>Graphical Resultant — Parallel Forces</h3><p>Use the force polygon together with the polar construction and funicular polygon to locate the resultant and its line of action.</p>
+
+<h2>Formula Sheet</h2><table><tr><th>Concept</th><th>Formula</th></tr>
+<tr><td>Force</td><td>F = ma</td></tr><tr><td>Horizontal component</td><td>Fx = F cosθ</td></tr><tr><td>Vertical component</td><td>Fy = F sinθ</td></tr><tr><td>Resultant components</td><td>R = √(Fx²+Fy²)</td></tr><tr><td>Direction</td><td>tanθ = Fy/Fx</td></tr><tr><td>Moment</td><td>M = Fd</td></tr><tr><td>Two-force resultant</td><td>R = √(P²+Q²+2PQcosθ)</td></tr><tr><td>Two-force direction</td><td>tanα = Qsinθ/(P+Qcosθ)</td></tr></table>
+
+<h2>Common Mistakes</h2><ul>
+<li>Force is a vector, not a scalar.</li><li>Mass is measured in kg; force in N.</li><li>Moment uses perpendicular distance.</li><li>Transmissibility permits movement along the same line of action, not to an arbitrary parallel line.</li><li>Draw a force diagram before resolving forces.</li><li>For graphical solutions always state the scale.</li>
+</ul>
+
+<h2>Exam-Focused Questions</h2>
+<div class="exam">1. Define mechanics, applied mechanics, statics and dynamics.</div>
+<div class="exam">2. Define space, time, mass, particle, body and rigid body.</div>
+<div class="exam">3. Differentiate scalar and vector quantities.</div>
+<div class="exam">4. Explain characteristics and effects of a force.</div>
+<div class="exam">5. Explain principle of transmissibility of force.</div>
+<div class="exam">6. Explain classification of force systems.</div>
+<div class="exam">7. Resolve a force into orthogonal components.</div>
+<div class="exam">8. Define moment and explain Avignon's theorem.</div>
+<div class="exam">9. State and explain parallelogram, triangle and polygon laws of forces.</div>
+<div class="exam">10. Explain space diagram, force diagram, polar diagram and funicular polygon.</div>
+<div class="exam">11. Solve resultant numericals analytically and graphically.</div>
+
+<h2>MCQs</h2><ol>
+<li>Mechanics dealing with equilibrium is (a) Dynamics (b) Statics (c) Thermodynamics (d) Optics</li>
+<li>Force is a (a) scalar (b) vector (c) dimensionless quantity (d) unit</li>
+<li>SI unit of force is (a) kg (b) J (c) N (d) W</li>
+<li>Turning effect of force is called (a) moment (b) mass (c) power (d) density</li>
+<li>M = (a) F+d (b) F/d (c) Fd (d) d/F</li>
+<li>Two perpendicular forces P and Q have resultant (a) P+Q (b) P−Q (c) √(P²+Q²) (d) PQ</li>
+<li>Parallelogram diagonal represents (a) resultant (b) mass (c) time (d) pressure</li>
+<li>Forces whose lines meet at one point are (a) parallel (b) concurrent (c) random (d) non-coplanar</li>
+<li>Bow's notation is used in (a) graphical force representation (b) temperature (c) electricity (d) chemistry</li>
+<li>Closing side of a force polygon represents the (a) resultant (b) mass (c) area (d) time</li>
+</ol><p><b>Answers:</b> 1-b, 2-b, 3-c, 4-a, 5-c, 6-c, 7-a, 8-b, 9-a, 10-a.</p>
+
+<h2>Quick Revision</h2>
+<p><b>Mechanics:</b> bodies + forces + rest/motion. <b>Statics:</b> equilibrium. <b>Dynamics:</b> motion. <b>Force:</b> vector, F=ma. <b>Resolution:</b> force → components. <b>Moment:</b> M=Fd. <b>Resultant:</b> one force equivalent to a force system. <b>Parallelogram:</b> diagonal gives resultant. <b>Triangle/Polygon:</b> closing side gives resultant. <b>Graphic statics:</b> scaled graphical analysis using force/polar/funicular diagrams.</p>
+
+<h2>Final Checklist</h2><ul>
+<li>□ Mechanics, applied mechanics, statics, dynamics</li><li>□ Space, time, mass, particle, body, rigid body</li><li>□ Scalar/vector and SI units</li><li>□ Force, Bow's notation, characteristics and effects</li><li>□ Transmissibility and force-system classification</li><li>□ Orthogonal/non-orthogonal resolution</li><li>□ Moment and Avignon's theorem</li><li>□ Resultant and parallelogram/triangle/polygon laws</li><li>□ Graphic statics, space/force/polar/funicular diagrams</li><li>□ Analytical and graphical resultant problems</li></ul>
+"""
+
+css = """body{font-family:Arial,sans-serif;line-height:1.65;color:#222;max-width:1000px;margin:auto;padding:25px;background:#f5f5f5}main{background:#fff;padding:35px;border-radius:14px}h1,h2,h3{color:#111}h1{text-align:center;font-size:34px}h2{margin-top:40px;border-bottom:2px solid #222;padding-bottom:7px}h3{margin-top:27px}.box,.exam{border:1px solid #bbb;border-radius:9px;padding:15px;margin:15px 0;background:#fafafa}.exam{border-left:5px solid #222}.formula,pre{display:block;background:#f0f0f0;padding:13px;border-radius:8px;margin:10px 0;white-space:pre-wrap;overflow:auto}table{width:100%;border-collapse:collapse;margin:16px 0}th,td{border:1px solid #aaa;padding:9px;vertical-align:top}th{background:#eee}"""
+
+doc = f"""<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Engineering Mechanics Unit 1 — PrinceXmahto</title><style>{css}</style></head><body><main>
+<h1>ENGINEERING MECHANICS<br>UNIT 1 — MECHANICS AND FORCE SYSTEM</h1>
+<p style="text-align:center"><b>SBTE Bihar Diploma — Electronics Engineering</b><br>Course Code: <b>2625104</b><br><b>BY PRINCEXMAHTO</b></p>
+<div class="box"><b>Syllabus basis:</b> This book follows the uploaded SBTE Bihar curriculum in the exact Unit-1 order: 1.1 Significance and relevance; 1.2 Space, time, mass, particle, body, rigid body; 1.3 Scalar/vector and SI units; 1.4 Force, Bow's notation, characteristics/effects, transmissibility and force systems; 1.5 Resolution, moment and Avignon's theorem; 1.6 Composition/resultant and force laws; 1.7 Graphic statics.</div>
+{sections}
+<div class="box"><b>Source & scope note:</b> Unit headings and named topics are based on the uploaded SBTE Bihar Engineering Mechanics curriculum. Standard formulas, explanations, examples, diagrams and practice questions are expanded teaching material for the listed topics.</div>
+<p style="text-align:center;margin-top:40px"><b>BY PRINCEXMAHTO</b><br>Engineering Mechanics • Unit 1 • Mechanics and Force System</p>
+</main></body></html>"""
+
+path = Path("/mnt/data/Engineering_Mechanics_Unit_1_Full_Book_by_PrinceXmahto.html")
+path.write_text(doc, encoding="utf-8")
+print(path)
