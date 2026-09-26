@@ -67,7 +67,143 @@ ul,ol{padding-left:25px}.small{font-size:13px;color:var(--muted)}.qbox{padding:1
 </ol>
 </div>
 
-<h2 id="overview">Unit Overview & Syllabus Coverage</h2>
+
+<h2 id="hinglish-unit2">🇮🇳 Unit 2 — Hinglish Theory Book</h2>
+<p class="lead"><b>Unit ka main idea:</b> Program ko decision lena sikhana aur same kaam ko baar-baar karwana. Conditional statements decision ke liye aur loops repetition ke liye use hote hain.</p>
+
+<h3>1. Conditional Statement kya hota hai?</h3>
+<p>Jab program ko kisi condition ke basis par decide karna ho ki <b>konsa code execute hoga</b>, tab conditional statement use karte hain. Condition generally <code>True</code> ya <code>False</code> result deti hai.</p>
+<pre>marks = 70
+
+if marks &gt;= 40:
+    print("Pass")</pre>
+<p>Agar condition true hai to indented block chalega. False hone par block skip ho jayega.</p>
+
+<h3>2. Simple if Statement</h3>
+<p>Simple <code>if</code> ka use tab karte hain jab sirf ek condition check karni ho.</p>
+<pre>age = 20
+
+if age &gt;= 18:
+    print("Eligible")</pre>
+<p>Yahan age 18 ya usse zyada hai to message print hoga. Agar condition false hui to kuch bhi print nahi hoga.</p>
+
+<h3>3. if-else Statement</h3>
+<p>Jab do possible cases hon, <code>if-else</code> use karo. Ek block condition true hone par aur doosra false hone par execute hota hai.</p>
+<pre>n = int(input("Enter number: "))
+
+if n % 2 == 0:
+    print("Even")
+else:
+    print("Odd")</pre>
+<p>Yahan number 2 se divide karne par remainder 0 hua to Even, warna Odd.</p>
+
+<h3>4. if-elif-else</h3>
+<p>Jab two se zyada possibilities hon, <code>elif</code> use karte hain. Python conditions ko <b>top to bottom</b> check karta hai aur pehli true condition ka block execute karta hai.</p>
+<pre>marks = int(input("Enter marks: "))
+
+if marks &gt;= 80:
+    print("A")
+elif marks &gt;= 60:
+    print("B")
+elif marks &gt;= 40:
+    print("C")
+else:
+    print("Fail")</pre>
+<div class="note"><strong>Important:</strong> Conditions ka order important hai. Agar broad condition pehle true ho gayi to neeche wali conditions check nahi hongi.</div>
+
+<h3>5. Nested if</h3>
+<p>Ek <code>if</code> ke andar doosra <code>if</code> ho to use nested if bolte hain. Iska use tab useful hai jab second decision first decision par depend kare.</p>
+<pre>age = 20
+has_id = True
+
+if age &gt;= 18:
+    if has_id:
+        print("Allowed")
+    else:
+        print("ID required")
+else:
+    print("Not eligible")</pre>
+
+<h3>6. Iterative Statement / Loop kya hai?</h3>
+<p>Jab same kaam repeatedly karna ho, baar-baar same code likhne ke bajay loop use karte hain. Isse code short aur manageable hota hai.</p>
+<div class="flow"><span>Start</span><b class="arrow">→</b><span>Condition / Next item</span><b class="arrow">→</b><span>Body execute</span><b class="arrow">→</b><span>Repeat</span></div>
+
+<h3>7. while Loop</h3>
+<p><code>while</code> loop tab tak repeat hota hai jab tak uski condition <code>True</code> hai.</p>
+<pre>i = 1
+
+while i &lt;= 5:
+    print(i)
+    i += 1</pre>
+<p>Output 1 se 5 tak aayega. Yahan <code>i += 1</code> important hai, kyunki value update hone se eventually condition false hoti hai.</p>
+<div class="warn"><strong>Common mistake:</strong> while loop mein control variable update nahi kiya to infinite loop ban sakta hai.</div>
+
+<h3>8. for Loop</h3>
+<p><code>for</code> loop ka use iterable ke items ko one-by-one process karne ke liye hota hai. Numbers ke liye ise <code>range()</code> ke saath bahut use kiya jata hai.</p>
+<pre>for i in range(1, 6):
+    print(i)</pre>
+<p>Yahan i ko 1, 2, 3, 4 aur 5 values milengi.</p>
+
+<h3>9. range() Function</h3>
+<p><code>range()</code> integer values ki sequence provide karta hai. Sabse important rule: <b>start included hota hai, stop excluded hota hai.</b></p>
+<table><tr><th>Form</th><th>Meaning</th><th>Example</th></tr>
+<tr><td><code>range(stop)</code></td><td>0 se start, stop excluded.</td><td><code>range(5)</code> → 0,1,2,3,4</td></tr>
+<tr><td><code>range(start, stop)</code></td><td>start included, stop excluded.</td><td><code>range(2,6)</code> → 2,3,4,5</td></tr>
+<tr><td><code>range(start, stop, step)</code></td><td>step ke according move.</td><td><code>range(2,10,2)</code> → 2,4,6,8</td></tr></table>
+
+<h3>10. break</h3>
+<p><code>break</code> current loop ko <b>completely stop</b> kar deta hai.</p>
+<pre>for i in range(1, 10):
+    if i == 5:
+        break
+    print(i)</pre>
+<p>Output 1, 2, 3, 4 hoga. 5 aate hi loop terminate ho jayega.</p>
+
+<h3>11. continue</h3>
+<p><code>continue</code> loop ko completely stop nahi karta. Sirf <b>current iteration skip</b> karta hai aur next iteration par chala jata hai.</p>
+<pre>for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)</pre>
+<p>Output 1, 2, 4, 5 hoga.</p>
+
+<table><tr><th>break</th><th>continue</th></tr>
+<tr><td>Poora loop stop.</td><td>Sirf current iteration skip.</td></tr>
+<tr><td>Control loop ke bahar.</td><td>Control next iteration par.</td></tr></table>
+
+<h3>12. Nested Loop</h3>
+<p>Jab ek loop ke andar doosra loop ho, use nested loop bolte hain. Outer loop ki har iteration ke liye inner loop apni iterations perform karta hai.</p>
+<pre>for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, j)</pre>
+<p>Nested loops ka use patterns, tables aur multi-level repetition problems mein hota hai.</p>
+
+<h3>13. Practical programs ka logic</h3>
+<p>SBTE Unit 2 practicals mein <b>Positive/Negative/Zero, Leap Year, Prime Numbers, Multiplication Table, Fibonacci aur Factorial</b> diye gaye hain. fileciteturn36file1</p>
+
+<h4>Positive / Negative / Zero</h4>
+<p>Pehle number ko 0 se compare karo. Greater than 0 → positive, less than 0 → negative, otherwise zero.</p>
+
+<h4>Leap Year</h4>
+<p>Easy rule: year 400 se divisible ho to leap year. Agar 100 se divisible hai to normally leap nahi. Agar 4 se divisible hai to leap year.</p>
+
+<h4>Prime Number</h4>
+<p>Prime number woh number hai jiske exactly do positive factors hote hain: 1 aur number itself. Program mein possible divisors check karo; divisor milte hi <code>break</code> karke next number par ja sakte ho.</p>
+
+<h4>Multiplication Table</h4>
+<p>Ek number input lo aur <code>for</code> loop se 1 se 10 tak multiply karao.</p>
+
+<h4>Fibonacci</h4>
+<p>Fibonacci mein next term = previous two terms ka sum. Common sequence: <code>0, 1, 1, 2, 3, 5, 8...</code></p>
+
+<h4>Factorial</h4>
+<p><code>n!</code> ka matlab 1 se n tak sabhi positive integers ka product. Example: <code>5! = 5×4×3×2×1 = 120</code>. Aur <code>0! = 1</code>.</p>
+
+<h3>14. Unit 2 ka simple problem-solving formula</h3>
+<div class="flow"><span>Question samjho</span><b class="arrow">→</b><span>Condition/Loop identify karo</span><b class="arrow">→</b><span>Algorithm banao</span><b class="arrow">→</b><span>Code likho</span><b class="arrow">→</b><span>Sample input se test karo</span></div>
+
+<div class="exam"><strong>🔥 Unit 2 Exam Focus</strong> if, if-else, if-elif-else, while, for, range(), break vs continue, nested loops aur six practical programs ko code ke saath practice karo.</div>
+<h2 id="overview">Unit Overview — Syllabus Map</h2>
 <p class="lead">Unit 2 teaches how a Python program can make decisions and repeat instructions. These two ideas are the foundation of problem-solving: <b>selection</b> chooses a path, while <b>iteration</b> repeats a block of work.</p>
 <div class="note"><strong>SBTE Bihar Unit 2</strong> The uploaded syllabus names this unit <b>Conditional and Iterative Statements</b>. It includes simple <code>if</code>, <code>if-else</code>, <code>if-elif-else</code>, <code>while</code>, <code>for</code>, <code>range</code>, <code>break</code>, <code>continue</code> and nested loops. The theory outcomes are to write Python programs using decision-making statements and loop structures. fileciteturn24file0</div>
 <p>The syllabus also places Unit 2 under <b>CO-2</b>: writing and executing programs using control statements. The suggested theory assessment gives Unit 2 six classroom-instruction hours and 10 marks in the end-theory specification table. fileciteturn24file1</p>
