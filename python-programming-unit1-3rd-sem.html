@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PRINCE RAJ STUDY — CSE 3rd Semester Python Programming Unit 1">
+<title>Python Programming — Unit 1 | PRINCE RAJ STUDY</title>
+<link rel="icon" href="assets/princexmahto-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172033;--muted:#5d6678;--blue:#1359b3;--blue2:#eaf2ff;--line:#dfe5ee;--paper:#fff;--bg:#f4f6f9;--green:#18794e;--greenbg:#edf9f2;--red:#b42318;--redbg:#fff0ee;--yellow:#8a5a00;--yellowbg:#fff8df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.72}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.topin{max-width:1120px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800}.brand img{width:34px;height:34px}.brand small{display:block;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em}.actions{display:flex;gap:8px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13px;background:#fff}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.book{max-width:940px;margin:28px auto 70px;background:var(--paper);box-shadow:0 12px 45px rgba(22,35,55,.08);border:1px solid #e5e9ef}
+.cover{padding:72px 70px 62px;border-bottom:5px solid var(--blue);background:linear-gradient(#fff,#f9fbff)}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--blue);text-transform:uppercase}.cover h1{font:800 43px/1.12 Manrope;margin:15px 0 12px}.cover h2{font:700 24px/1.3 Manrope;margin:0 0 22px;color:#31415d}.cover p{max-width:700px;color:var(--muted);font-size:16px}.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.tag{border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:700}
+.content{padding:48px 70px}.toc{border:1px solid var(--line);padding:24px 26px;background:#fbfcfe;margin-bottom:42px}.toc h2{margin-top:0}.toc a{color:var(--blue);text-decoration:none}.toc li{margin:5px 0}
+h2{font:800 28px/1.25 Manrope;color:#123f7d;margin:46px 0 16px;border-bottom:1px solid var(--line);padding-bottom:9px}h3{font:800 21px/1.35 Manrope;margin:34px 0 12px;color:#203657}h4{font:800 16px Manrope;margin:24px 0 8px;color:#304968}p{margin:8px 0 14px}.lead{font-size:17px;color:#46536a}
+.note,.example,.warn,.exam{margin:18px 0;padding:17px 19px;border-left:4px solid}.note{background:var(--yellowbg);border-color:#d49b16}.example{background:var(--greenbg);border-color:var(--green)}.warn{background:var(--redbg);border-color:var(--red)}.exam{background:var(--blue2);border-color:var(--blue)}
+.note strong,.example strong,.warn strong,.exam strong{display:block;margin-bottom:5px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top}th{background:#f1f5fa;text-align:left}
+pre{background:#111827;color:#e8edf6;border-radius:8px;padding:18px;overflow:auto;font:13px/1.65 "JetBrains Mono",monospace;margin:14px 0}code{font-family:"JetBrains Mono",monospace;background:#f1f3f6;padding:2px 5px;border-radius:4px;font-size:.9em}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:15px 0}.flow span{padding:9px 13px;border:1px solid #b9cbea;background:#f5f9ff;border-radius:6px;font-weight:700}.arrow{color:var(--blue);font-weight:900}
+ul,ol{padding-left:25px}.small{font-size:13px;color:var(--muted)}.vvi{font-weight:800;color:var(--red)}.qbox{padding:14px 16px;border:1px solid var(--line);margin:9px 0;border-radius:7px;background:#fff}
+.footer{padding:25px 70px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+@media(max-width:700px){.topin{padding:10px 12px}.actions .btn:not(.primary){display:none}.book{margin:0;border:0;box-shadow:none}.cover,.content,.footer{padding:34px 20px}.cover h1{font-size:32px}.cover h2{font-size:20px}h2{font-size:24px}.footer{display:block}.footer div{margin-top:7px}table{display:block;overflow-x:auto;white-space:normal}}
+@media print{body{background:#fff}.top{display:none}.book{box-shadow:none;border:0;margin:0;max-width:none}.cover{min-height:250px}.content{padding:30px 45px}.footer{padding:20px 45px}@page{size:A4 portrait;margin:12mm}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+<a class="brand" href="index.html"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PRINCE RAJ STUDY<small>CSE 3rd Semester · Diploma Computer Science & Engineering</small></span></a>
+<div class="actions"><a class="btn" href="cse-3rd-semester.html">← CSE 3rd Sem</a><a class="btn primary" href="#" onclick="window.print();return false">Print / PDF</a></div>
+</div></header>
+<main class="book">
+<section class="cover">
+<div class="eyebrow">PRINCE RAJ STUDY · CSE 3rd SEMESTER</div>
+<h1>Python Programming</h1>
+<h2>Unit 1 — Fundamentals of Python Programming Syntax</h2>
+<p><b>Course Code:</b> 2418305 (T2418305 / P2418305 / S2418305)</p>
+<p>This unit is prepared from the uploaded Semester III SBTE Bihar syllabus. It follows the syllabus order and expands every listed Unit 1 topic into beginner-friendly study notes.</p>
+<div class="meta"><span class="tag">Unit 1</span><span class="tag">CO-1</span><span class="tag">Theory + Practical Foundation</span><span class="tag">By Prince Raj</span></div>
+</section>
+<section class="content">
+<div class="toc">
+<h2 style="margin-top:0">Table of Contents</h2>
+<ol>
+<li><a href="#overview">Unit Overview & Syllabus Coverage</a></li>
+<li><a href="#poo">Procedure-Oriented vs Object-Oriented Programming</a></li>
+<li><a href="#11">1.1 Python Character Set, Tokens, Variables, L-value/R-value and Comments</a></li>
+<li><a href="#12">1.2 Overview of Data Types</a></li>
+<li><a href="#13">1.3 Understanding Operators</a></li>
+<li><a href="#programs">Unit 1 Practical Programs</a></li>
+<li><a href="#exam">Examination Preparation</a></li>
+<li><a href="#mcq">MCQs + Answer Key</a></li>
+<li><a href="#revision">One-Page Quick Revision</a></li>
+</ol>
+</div>
+
+<h2 id="overview">Unit Overview</h2>
+<p class="lead">Unit 1 builds the syntax and expression foundation required for writing Python programs. The uploaded syllabus places this unit under <b>CO-1: Use various data types and operators in formation of expressions.</b></p>
+<div class="note"><strong>According to the uploaded syllabus</strong> Unit 1 is <b>Fundamentals of Python Programming Syntax</b>. Its listed sections are 1.1 Introduction to Python Character Set, Python Tokens, Variables, L value and R value Concepts, and Comments; 1.2 Overview of Data Types; and 1.3 Understanding Operators. fileciteturn6file0</div>
+<h3>Learning focus</h3>
+<ul><li>Recognize the basic building blocks of Python source code.</li><li>Use variables and understand the difference between an L-value and an R-value.</li><li>Choose suitable Python data types and understand mutable versus immutable data.</li><li>Build expressions using arithmetic, relational, logical, assignment and augmented assignment operators.</li><li>Use type conversion and basic input/output.</li><li>Evaluate expressions using operator precedence.</li></ul>
+
+<div class="flow"><span>Source Code</span><b class="arrow">→</b><span>Tokens</span><b class="arrow">→</b><span>Expressions / Statements</span><b class="arrow">→</b><span>Execution</span></div>
+
+<h2 id="poo">Procedure-Oriented vs Object-Oriented Programming</h2>
+<p>The Unit 1 Theory Session Outcomes include differentiating between <b>Procedure Oriented Programming</b> and <b>Object Oriented Programming</b> with an example. fileciteturn6file0</p>
+<table><tr><th>Procedure-Oriented Programming</th><th>Object-Oriented Programming</th></tr>
+<tr><td>Organizes a program mainly around procedures/functions.</td><td>Organizes a program around objects and classes.</td></tr>
+<tr><td>Focus is on the sequence of operations.</td><td>Focus is on objects, their data and behaviour.</td></tr>
+<tr><td>Data and functions are generally treated separately.</td><td>Data and methods can be grouped inside classes.</td></tr>
+<tr><td>Useful for straightforward procedural problems.</td><td>Useful when modelling entities and their relationships is helpful.</td></tr></table>
+<div class="example"><strong>Simple example</strong> A program containing <code>calculate_area()</code> and <code>calculate_perimeter()</code> as independent functions follows a procedural style. A <code>Rectangle</code> class containing dimensions and methods for area/perimeter represents an object-oriented style.</div>
+
+<h2 id="11">1.1 Python Character Set, Tokens, Variables, L-value/R-value and Comments</h2>
+
+<h3>Python Character Set</h3>
+<p>The character set is the collection of characters that can occur in Python source code. Python programs commonly use letters, digits, whitespace, operators, punctuation symbols and characters inside string literals.</p>
+<table><tr><th>Category</th><th>Examples</th><th>Use</th></tr>
+<tr><td>Letters</td><td><code>A-Z</code>, <code>a-z</code></td><td>Identifiers, keywords and text</td></tr>
+<tr><td>Digits</td><td><code>0-9</code></td><td>Numbers and identifiers after the first character</td></tr>
+<tr><td>Whitespace</td><td>space, tab, newline</td><td>Separation and indentation</td></tr>
+<tr><td>Special symbols</td><td><code>+ - * / = ( ) [ ] { } , : .</code></td><td>Operators, grouping, collections and syntax</td></tr>
+<tr><td>String characters</td><td><code>"Hello"</code>, <code>'Python'</code></td><td>Represent text</td></tr></table>
+
+<h3>Python Tokens</h3>
+<p>A <b>token</b> is a meaningful lexical unit of source code. In simple terms, tokens are the small pieces from which Python statements are formed.</p>
+<table><tr><th>Token type</th><th>Example</th><th>Explanation</th></tr>
+<tr><td>Keyword</td><td><code>if</code>, <code>else</code>, <code>True</code></td><td>Reserved words with predefined meaning.</td></tr>
+<tr><td>Identifier</td><td><code>marks</code>, <code>student_name</code></td><td>Name given by the programmer.</td></tr>
+<tr><td>Literal</td><td><code>25</code>, <code>3.14</code>, <code>"CSE"</code></td><td>Fixed value written directly in code.</td></tr>
+<tr><td>Operator</td><td><code>+</code>, <code>==</code>, <code>and</code></td><td>Performs or expresses an operation.</td></tr>
+<tr><td>Delimiter</td><td><code>( )</code>, <code>[ ]</code>, <code>:</code>, <code>,</code></td><td>Helps define structure.</td></tr></table>
+
+<div class="warn"><strong>Common mistake</strong> Python is case-sensitive. <code>marks</code>, <code>Marks</code> and <code>MARKS</code> are different identifiers.</div>
+
+<h3>Variables</h3>
+<p>A variable is a name used to refer to a value. In Python, assignment creates or rebinds a variable name.</p>
+<pre>name = "Prince"
+age = 18
+percentage = 82.5</pre>
+<p>Here, <code>name</code>, <code>age</code> and <code>percentage</code> are variable names. Python determines the type from the value assigned at runtime.</p>
+<h4>Identifier rules</h4>
+<ul><li>Use letters, digits and underscore.</li><li>The first character cannot be a digit.</li><li>Do not use a Python keyword as an identifier.</li><li>Use meaningful names such as <code>total_marks</code> rather than unclear names.</li><li>Identifiers are case-sensitive.</li></ul>
+
+<h3>L-value and R-value</h3>
+<p>The syllabus specifically includes <b>L value and R value concepts</b>. fileciteturn6file0</p>
+<p>The <b>L-value</b> is the location/name that receives a value during an assignment. The <b>R-value</b> is the value or expression being assigned.</p>
+<pre>total = marks + bonus</pre>
+<p><code>total</code> is the assignment target (L-value position), while <code>marks + bonus</code> produces the value (R-value).</p>
+<div class="example"><strong>Remember</strong> In an assignment statement, the left side identifies where the result is stored/rebound and the right side provides the value to be assigned.</div>
+
+<h3>Comments</h3>
+<p>Comments are notes for humans and are ignored as executable Python statements.</p>
+<pre># This is a single-line comment
+marks = 85  # Store the marks</pre>
+<p>Comments improve readability and help document program logic.</p>
+
+<h2 id="12">1.2 Overview of Data Types</h2>
+<p>The uploaded syllabus lists Number Types (<b>Integer, Floating Point, Complex</b>), Boolean, Sequence Types (<b>String, List, Tuple</b>), None, Dictionary, and the distinction between mutable and immutable data types. fileciteturn6file0</p>
+
+<h3>Number Types</h3>
+<table><tr><th>Type</th><th>Example</th><th>Meaning</th></tr>
+<tr><td>Integer (<code>int</code>)</td><td><code>25</code>, <code>-7</code></td><td>Whole-number values.</td></tr>
+<tr><td>Floating point (<code>float</code>)</td><td><code>3.14</code>, <code>-0.5</code></td><td>Numbers containing a fractional part.</td></tr>
+<tr><td>Complex (<code>complex</code>)</td><td><code>2+3j</code></td><td>Has real and imaginary components.</td></tr></table>
+<pre>a = 25
+b = 3.14
+c = 2 + 3j
+
+print(type(a))
+print(type(b))
+print(type(c))</pre>
+<p>Expected output:</p>
+<pre>&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'complex'&gt;</pre>
+
+<h3>Boolean Type</h3>
+<p><code>bool</code> represents a logical truth value: <code>True</code> or <code>False</code>. Boolean values are commonly produced by comparisons.</p>
+<pre>marks = 72
+passed = marks &gt;= 40
+print(passed)</pre>
+<pre>True</pre>
+
+<h3>Sequence Types</h3>
+<h4>String</h4>
+<p>A string represents text. It is written using quotes.</p>
+<pre>name = "Prince Raj"
+print(name)
+print(name[0])</pre>
+<p>Strings support indexing and several operations; detailed string operations belong to Unit 3 in the uploaded syllabus, so this Unit 1 note limits discussion to the data-type foundation.</p>
+
+<h4>List</h4>
+<p>A list stores an ordered collection of values and can contain different data types.</p>
+<pre>marks = [78, 85, 91]
+print(marks)</pre>
+
+<h4>Tuple</h4>
+<p>A tuple stores an ordered collection of values and is written using parentheses.</p>
+<pre>point = (10, 20)
+print(point)</pre>
+
+<h3>None Type</h3>
+<p><code>None</code> represents the absence of a value. It is different from <code>0</code>, <code>False</code> and an empty string.</p>
+<pre>result = None
+print(result)</pre>
+
+<h3>Mapping Type — Dictionary</h3>
+<p>A dictionary stores data as key-value pairs.</p>
+<pre>student = {
+    "name": "Prince",
+    "semester": 3
+}
+print(student["name"])</pre>
+<pre>Prince</pre>
+
+<h3>Mutable vs Immutable Data Types</h3>
+<p><b>Mutable</b> objects can be changed after creation. <b>Immutable</b> objects cannot be changed in place after creation.</p>
+<table><tr><th>Concept</th><th>Typical examples</th><th>Meaning</th></tr>
+<tr><td>Mutable</td><td>List, Dictionary, Set</td><td>Contents can be changed after creation.</td></tr>
+<tr><td>Immutable</td><td>Integer, Float, Boolean, String, Tuple, None</td><td>The object’s value cannot be changed in place.</td></tr></table>
+<div class="example"><strong>Example</strong> A list can be modified with an item assignment such as <code>marks[0] = 90</code>. A string cannot be modified character-by-character in place; a new string value must be produced.</div>
+
+<h2 id="13">1.3 Understanding Operators</h2>
+
+<h3>Arithmetic Operators</h3>
+<table><tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr>
+<tr><td><code>+</code></td><td>Addition</td><td><code>7+3</code></td><td>10</td></tr>
+<tr><td><code>-</code></td><td>Subtraction</td><td><code>7-3</code></td><td>4</td></tr>
+<tr><td><code>*</code></td><td>Multiplication</td><td><code>7*3</code></td><td>21</td></tr>
+<tr><td><code>/</code></td><td>Division</td><td><code>7/2</code></td><td>3.5</td></tr>
+<tr><td><code>//</code></td><td>Floor division</td><td><code>7//2</code></td><td>3</td></tr>
+<tr><td><code>%</code></td><td>Remainder</td><td><code>7%2</code></td><td>1</td></tr>
+<tr><td><code>**</code></td><td>Power</td><td><code>2**3</code></td><td>8</td></tr></table>
+
+<h3>Relational Operators</h3>
+<p>Relational operators compare values and produce a Boolean result.</p>
+<table><tr><th>Operator</th><th>Meaning</th></tr><tr><td><code>==</code></td><td>Equal to</td></tr><tr><td><code>!=</code></td><td>Not equal to</td></tr><tr><td><code>&gt;</code></td><td>Greater than</td></tr><tr><td><code>&lt;</code></td><td>Less than</td></tr><tr><td><code>&gt;=</code></td><td>Greater than or equal to</td></tr><tr><td><code>&lt;=</code></td><td>Less than or equal to</td></tr></table>
+
+<h3>Logical Operators</h3>
+<table><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr><tr><td><code>and</code></td><td>True when both logical conditions are true</td><td><code>x&gt;0 and x&lt;10</code></td></tr><tr><td><code>or</code></td><td>True when at least one condition is true</td><td><code>x==0 or x==1</code></td></tr><tr><td><code>not</code></td><td>Reverses a Boolean result</td><td><code>not passed</code></td></tr></table>
+
+<h3>Assignment and Augmented Assignment Operators</h3>
+<pre>x = 10
+x += 5   # x becomes 15
+x -= 2   # x becomes 13
+x *= 2   # x becomes 26
+x /= 2   # x becomes 13.0</pre>
+<p>Augmented assignment combines an operation with assignment. It makes repeated updates shorter and clearer.</p>
+
+<h3>Expressions and Statements</h3>
+<p>An <b>expression</b> is a combination of values, variables, operators and function calls that produces a value.</p>
+<pre>total = price * quantity</pre>
+<p>The part <code>price * quantity</code> is an expression. An <b>assignment statement</b> uses its result to update <code>total</code>.</p>
+<div class="note"><strong>Exam distinction</strong> An expression evaluates to a value; a statement is a complete instruction executed by the program.</div>
+
+<h3>Type Conversion</h3>
+<p>Type conversion changes a value from one data type to another when the conversion is valid.</p>
+<pre>age_text = "18"
+age = int(age_text)
+
+price = "99.50"
+amount = float(price)
+
+number = 25
+text = str(number)</pre>
+<table><tr><th>Function</th><th>Common use</th></tr><tr><td><code>int()</code></td><td>Convert to integer where valid.</td></tr><tr><td><code>float()</code></td><td>Convert to floating-point value.</td></tr><tr><td><code>str()</code></td><td>Convert a value to text representation.</td></tr><tr><td><code>bool()</code></td><td>Convert a value to Boolean.</td></tr></table>
+
+<h3>Input and Output Mechanisms</h3>
+<p><code>input()</code> reads user input and returns it as text. Convert it when a numerical value is required.</p>
+<pre>name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+
+print("Name:", name)
+print("Age:", age)</pre>
+<div class="warn"><strong>Common mistake</strong> <code>input()</code> returns a string. Writing <code>age = input(...)</code> and then expecting <code>age + 1</code> to perform numerical addition will cause a type problem unless the input is converted with <code>int()</code>.</div>
+
+<h3>Precedence of Operators</h3>
+<p>When an expression contains several operators, Python follows precedence rules to determine which operation is evaluated first. Parentheses can be used to make the intended order explicit.</p>
+<pre>result = 2 + 3 * 4
+print(result)          # 14
+
+result2 = (2 + 3) * 4
+print(result2)         # 20</pre>
+<table><tr><th>General priority</th><th>Examples</th></tr><tr><td>Parentheses / grouping</td><td><code>( )</code></td></tr><tr><td>Power</td><td><code>**</code></td></tr><tr><td>Multiplication group</td><td><code>* / // %</code></td></tr><tr><td>Addition group</td><td><code>+ -</code></td></tr><tr><td>Comparisons</td><td><code>&lt; &lt;= &gt; &gt;= == !=</code></td></tr><tr><td>Logical NOT</td><td><code>not</code></td></tr><tr><td>Logical AND</td><td><code>and</code></td></tr><tr><td>Logical OR</td><td><code>or</code></td></tr></table>
+<p class="small">For an exact expression, use parentheses when clarity matters instead of relying on memory alone.</p>
+
+<h3>Expression Evaluation — Worked Examples</h3>
+<div class="example"><strong>Example 1</strong><br><code>10 + 2 * 5</code><br>Multiplication is evaluated before addition: <code>10 + 10 = 20</code>.</div>
+<div class="example"><strong>Example 2</strong><br><code>(10 + 2) * 5</code><br>Parentheses are evaluated first: <code>12 * 5 = 60</code>.</div>
+<div class="example"><strong>Example 3</strong><br><code>17 // 5</code> gives <code>3</code>, while <code>17 % 5</code> gives <code>2</code>.</div>
+
+<h2 id="programs">Unit 1 Practical Programs</h2>
+<p>The uploaded practical syllabus lists installation/use of IDLE and programs for triangle area, swapping two variables and solving a quadratic equation for real numbers under the first practical group. fileciteturn6file2</p>
+
+<h3>Program 1 — Area of a Triangle Using Three Sides</h3>
+<h4>Problem</h4><p>Given sides <code>a</code>, <code>b</code> and <code>c</code>, calculate the area using Heron's formula.</p>
+<h4>Logic</h4><p>First calculate <code>s=(a+b+c)/2</code>. Then calculate <code>Area = √(s(s-a)(s-b)(s-c))</code>.</p>
+<h4>Algorithm</h4>
+<ol><li>Read <code>a</code>, <code>b</code>, <code>c</code>.</li><li>Calculate semi-perimeter <code>s</code>.</li><li>Calculate the expression inside the square root.</li><li>Calculate and display the area.</li></ol>
+<pre>import math
+
+a = float(input("Enter side a: "))
+b = float(input("Enter side b: "))
+c = float(input("Enter side c: "))
+
+s = (a + b + c) / 2
+area = math.sqrt(s * (s-a) * (s-b) * (s-c))
+
+print("Area =", area)</pre>
+<h4>Sample output</h4>
+<pre>Enter side a: 3
+Enter side b: 4
+Enter side c: 5
+Area = 6.0</pre>
+<div class="warn"><strong>Common error</strong> Heron's formula requires valid triangle sides. For the 3-4-5 example, the expression is valid and gives an area of 6 square units.</div>
+
+<h3>Program 2 — Swap Two Variables</h3>
+<pre>a = 10
+b = 20
+
+a, b = b, a
+
+print("a =", a)
+print("b =", b)</pre>
+<pre>a = 20
+b = 10</pre>
+<p>Python's multiple assignment allows the two values to be exchanged directly.</p>
+
+<h3>Program 3 — Solve a Quadratic Equation for Real Roots</h3>
+<p>For <code>ax² + bx + c = 0</code>, calculate the discriminant <code>D=b²-4ac</code>. Real roots exist when <code>D ≥ 0</code>.</p>
+<pre>import math
+
+a = float(input("Enter a: "))
+b = float(input("Enter b: "))
+c = float(input("Enter c: "))
+
+D = b*b - 4*a*c
+
+if D &gt;= 0:
+    root1 = (-b + math.sqrt(D)) / (2*a)
+    root2 = (-b - math.sqrt(D)) / (2*a)
+    print("Root 1 =", root1)
+    print("Root 2 =", root2)
+else:
+    print("No real roots")</pre>
+<div class="exam"><strong>Exam Tip</strong> Always check the discriminant before taking its square root when the question asks specifically for real roots.</div>
+
+<h2 id="exam">Examination Preparation</h2>
+<h3>⭐ Important Definitions</h3>
+<ol><li>Python token</li><li>Variable</li><li>L-value</li><li>R-value</li><li>Data type</li><li>Mutable data type</li><li>Immutable data type</li><li>Expression</li><li>Statement</li><li>Operator</li></ol>
+
+<h3>Very Short Answer Questions</h3>
+<div class="qbox">1. What is a token in Python?</div><div class="qbox">2. What is a variable?</div><div class="qbox">3. What is an L-value?</div><div class="qbox">4. What is an R-value?</div><div class="qbox">5. Name three Python number types.</div><div class="qbox">6. What is the Boolean data type?</div><div class="qbox">7. What is <code>None</code>?</div><div class="qbox">8. What is a mutable data type?</div><div class="qbox">9. What does <code>//</code> do?</div><div class="qbox">10. What type does <code>input()</code> normally return?</div>
+
+<h3>Short Answer Questions</h3>
+<ol><li>Explain Python character set with examples.</li><li>Explain the major categories of Python tokens.</li><li>Explain variables and identifier rules.</li><li>Differentiate L-value and R-value with an assignment example.</li><li>Explain integer, floating-point and complex data types.</li><li>Explain string, list and tuple as sequence types.</li><li>Differentiate mutable and immutable data types.</li><li>Explain arithmetic and relational operators with examples.</li><li>Explain type conversion and input/output mechanisms.</li><li>Explain expressions, statements and operator precedence.</li></ol>
+
+<h3>Long Answer Questions</h3>
+<ol><li>Explain Python tokens, variables, L-value, R-value and comments in detail with suitable examples.</li><li>Explain Python data types covered in Unit 1 with examples.</li><li>Differentiate mutable and immutable data types with suitable examples.</li><li>Explain arithmetic, relational, logical, assignment and augmented assignment operators.</li><li>Explain expressions and statements and show how Python evaluates expressions.</li><li>Explain type conversion and user input with a suitable Python program.</li><li>Explain operator precedence and evaluate suitable expressions step-by-step.</li><li>Differentiate procedure-oriented and object-oriented programming approaches with examples.</li><li>Write and explain a Python program to calculate the area of a triangle using three sides.</li><li>Write and explain a Python program to solve a quadratic equation for real roots.</li></ol>
+
+<h3>Practical Questions</h3>
+<ol><li>Install/open IDLE and execute a basic Python program.</li><li>Write a program to calculate the area of a triangle from three sides.</li><li>Write a program to swap two variables.</li><li>Write a program to solve a quadratic equation for real roots.</li></ol>
+
+<h2 id="mcq">MCQs</h2>
+<div class="qbox"><b>1.</b> Which is a valid Python identifier?<br>A) 2marks &nbsp; B) student_name &nbsp; C) class &nbsp; D) student-name</div>
+<div class="qbox"><b>2.</b> Which type represents <code>2+3j</code>?<br>A) int &nbsp; B) float &nbsp; C) complex &nbsp; D) bool</div>
+<div class="qbox"><b>3.</b> Which function converts text to an integer when valid?<br>A) float() &nbsp; B) int() &nbsp; C) str() &nbsp; D) list()</div>
+<div class="qbox"><b>4.</b> What is <code>17 % 5</code>?<br>A) 2 &nbsp; B) 3 &nbsp; C) 4 &nbsp; D) 5</div>
+<div class="qbox"><b>5.</b> What is <code>17 // 5</code>?<br>A) 2 &nbsp; B) 3 &nbsp; C) 3.4 &nbsp; D) 4</div>
+<div class="qbox"><b>6.</b> Which operator checks equality?<br>A) = &nbsp; B) == &nbsp; C) != &nbsp; D) =&gt;</div>
+<div class="qbox"><b>7.</b> Which is mutable?<br>A) tuple &nbsp; B) string &nbsp; C) list &nbsp; D) integer</div>
+<div class="qbox"><b>8.</b> What does <code>input()</code> normally return?<br>A) int &nbsp; B) float &nbsp; C) string &nbsp; D) bool</div>
+<div class="qbox"><b>9.</b> Which logical operator is true when both conditions are true?<br>A) or &nbsp; B) not &nbsp; C) and &nbsp; D) xor</div>
+<div class="qbox"><b>10.</b> What is <code>2 + 3 * 4</code>?<br>A) 20 &nbsp; B) 14 &nbsp; C) 24 &nbsp; D) 9</div>
+<div class="qbox"><b>11.</b> Which value represents absence of a value in Python?<br>A) empty &nbsp; B) null &nbsp; C) None &nbsp; D) zero</div>
+<div class="qbox"><b>12.</b> Which symbol starts a single-line comment?<br>A) // &nbsp; B) # &nbsp; C) /* &nbsp; D) --</div>
+<div class="qbox"><b>13.</b> Which is an augmented assignment operator?<br>A) += &nbsp; B) == &nbsp; C) &gt;= &nbsp; D) **</div>
+<div class="qbox"><b>14.</b> Which is immutable?<br>A) list &nbsp; B) dictionary &nbsp; C) tuple &nbsp; D) set</div>
+<div class="qbox"><b>15.</b> Which operator calculates a power?<br>A) ^ &nbsp; B) ** &nbsp; C) // &nbsp; D) %%</div>
+<h4>Answer Key</h4><p><b>1-B, 2-C, 3-B, 4-A, 5-B, 6-B, 7-C, 8-C, 9-C, 10-B, 11-C, 12-B, 13-A, 14-C, 15-B</b></p>
+
+<h2 id="revision">ONE-PAGE QUICK REVISION</h2>
+<table><tr><th>Topic</th><th>Remember</th></tr>
+<tr><td>Tokens</td><td>Keywords, identifiers, literals, operators, delimiters.</td></tr>
+<tr><td>Variable</td><td>Name referring to a value; assignment creates/rebinds it.</td></tr>
+<tr><td>L/R value</td><td>Left side is assignment target; right side supplies the value/expression result.</td></tr>
+<tr><td>Number types</td><td>int, float, complex.</td></tr>
+<tr><td>Boolean</td><td>True / False.</td></tr>
+<tr><td>Sequence types</td><td>String, list, tuple.</td></tr>
+<tr><td>Mapping</td><td>Dictionary stores key-value pairs.</td></tr>
+<tr><td>None</td><td>Represents absence of a value.</td></tr>
+<tr><td>Mutable</td><td>List, dictionary, set can be changed.</td></tr>
+<tr><td>Immutable</td><td>int, float, bool, string, tuple, None cannot be changed in place.</td></tr>
+<tr><td>Arithmetic</td><td>+, -, *, /, //, %, **</td></tr>
+<tr><td>Relational</td><td>==, !=, &gt;, &lt;, &gt;=, &lt;=</td></tr>
+<tr><td>Logical</td><td>and, or, not</td></tr>
+<tr><td>Assignment</td><td>= and augmented forms such as +=, -=, *=, /=.</td></tr>
+<tr><td>Input</td><td><code>input()</code> normally returns text.</td></tr>
+<tr><td>Conversion</td><td>int(), float(), str(), bool().</td></tr>
+<tr><td>Precedence</td><td>Use parentheses to make intended evaluation clear.</td></tr>
+</table>
+<div class="exam"><strong>🔥 High Exam Priority</strong> Tokens and variables; L-value/R-value; all Unit 1 data types; mutable vs immutable; arithmetic/relational/logical operators; type conversion; input/output; precedence and expression evaluation; triangle-area, swap and quadratic-equation programs.</div>
+
+</section>
+<footer class="footer"><span>PRINCE RAJ STUDY · CSE 3rd Semester · Python Programming · Unit 1</span><span>Course Code 2418305</span></footer>
+</main>
+</body>
+</html>
