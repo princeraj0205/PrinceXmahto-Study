@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PRINCE RAJ STUDY — CSE 3rd Semester Python Programming Unit 4">
+<title>Python Programming — Unit 4 | PRINCE RAJ STUDY</title>
+<link rel="icon" href="assets/princexmahto-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172033;--muted:#5d6678;--blue:#1359b3;--blue2:#eaf2ff;--line:#dfe5ee;--paper:#fff;--bg:#f4f6f9;--green:#18794e;--greenbg:#edf9f2;--red:#b42318;--redbg:#fff0ee;--yellow:#8a5a00;--yellowbg:#fff8df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.75}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.topin{max-width:1120px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800}.brand img{width:34px;height:34px}.brand small{display:block;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em}.actions{display:flex;gap:8px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13px;background:#fff}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.book{max-width:940px;margin:28px auto 70px;background:var(--paper);box-shadow:0 12px 45px rgba(22,35,55,.08);border:1px solid #e5e9ef}
+.cover{padding:72px 70px 62px;border-bottom:5px solid var(--blue);background:linear-gradient(#fff,#f9fbff)}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--blue);text-transform:uppercase}.cover h1{font:800 43px/1.12 Manrope;margin:15px 0 12px}.cover h2{font:700 24px/1.3 Manrope;margin:0 0 22px;color:#31415d}.cover p{max-width:700px;color:var(--muted);font-size:16px}.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.tag{border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:700}
+.content{padding:48px 70px}.toc{border:1px solid var(--line);padding:24px 26px;background:#fbfcfe;margin-bottom:42px}.toc h2{margin-top:0}.toc a{color:var(--blue);text-decoration:none}.toc li{margin:6px 0}
+h2{font:800 28px/1.25 Manrope;color:#123f7d;margin:46px 0 16px;border-bottom:1px solid var(--line);padding-bottom:9px}h3{font:800 21px/1.35 Manrope;margin:34px 0 12px;color:#203657}h4{font:800 16px Manrope;margin:24px 0 8px;color:#304968}p{margin:8px 0 14px}.lead{font-size:17px;color:#46536a}
+.note,.example,.warn,.exam{margin:18px 0;padding:17px 19px;border-left:4px solid}.note{background:var(--yellowbg);border-color:#d49b16}.example{background:var(--greenbg);border-color:var(--green)}.warn{background:var(--redbg);border-color:var(--red)}.exam{background:var(--blue2);border-color:var(--blue)}.note strong,.example strong,.warn strong,.exam strong{display:block;margin-bottom:5px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top}th{background:#f1f5fa;text-align:left}
+pre{background:#111827;color:#e8edf6;border-radius:8px;padding:18px;overflow:auto;font:13px/1.65 "JetBrains Mono",monospace;margin:14px 0}code{font-family:"JetBrains Mono",monospace;background:#f1f3f6;padding:2px 5px;border-radius:4px;font-size:.9em}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:15px 0}.flow span{padding:9px 13px;border:1px solid #b9cbea;background:#f5f9ff;border-radius:6px;font-weight:700}.arrow{color:var(--blue);font-weight:900}
+ul,ol{padding-left:25px}.qbox{padding:14px 16px;border:1px solid var(--line);margin:9px 0;border-radius:7px;background:#fff}
+.footer{padding:25px 70px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+@media(max-width:700px){.topin{padding:10px 12px}.actions .btn:not(.primary){display:none}.book{margin:0;border:0;box-shadow:none}.cover,.content,.footer{padding:34px 20px}.cover h1{font-size:32px}.cover h2{font-size:20px}h2{font-size:24px}.footer{display:block}table{display:block;overflow-x:auto}}
+@media print{body{background:#fff}.top{display:none}.book{box-shadow:none;border:0;margin:0;max-width:none}.content{padding:30px 45px}.footer{padding:20px 45px}@page{size:A4 portrait;margin:12mm}}
+</style></head>
+<body>
+<header class="top"><div class="topin"><a class="brand" href="index.html"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PRINCE RAJ STUDY<small>CSE 3rd Semester · Diploma Computer Science & Engineering</small></span></a><div class="actions"><a class="btn" href="cse-3rd-semester.html">← CSE 3rd Sem</a><a class="btn primary" href="#" onclick="window.print();return false">Print / PDF</a></div></div></header>
+<main class="book">
+<section class="cover"><div class="eyebrow">PRINCE RAJ STUDY · CSE 3RD SEMESTER</div>
+<h1>Python Programming</h1><h2>Unit 4 — Python Functions, Modules and Packages</h2>
+<p><b>Course Code:</b> 2418305 (T2418305 / P2418305 / S2418305)</p>
+<p>SBTE Bihar Semester III ke exact Unit 4 order ke according detailed Hinglish theory, examples, syntax, practical programs, viva, MCQs aur exam revision.</p>
+<div class="meta"><span class="tag">Unit 4</span><span class="tag">CO-4</span><span class="tag">7 Classroom Hours</span><span class="tag">10 Marks</span><span class="tag">Theory + Practical</span></div></section>
+<section class="content">
+<div class="toc"><h2 style="margin-top:0">Table of Contents</h2><ol>
+<li><a href="#overview">Unit Overview & Syllabus Coverage</a></li><li><a href="#functions">4.1 Functions</a></li><li><a href="#types">Types of Functions</a></li><li><a href="#user">User Defined Functions</a></li><li><a href="#args">Arguments & Parameters</a></li><li><a href="#lambda">Lambda Functions</a></li><li><a href="#return">Returning Values</a></li><li><a href="#scope">Variable Scope</a></li><li><a href="#modules">4.2 Modules & Packages</a></li><li><a href="#regex">Regular Expressions</a></li><li><a href="#exceptions">Exception Handling</a></li><li><a href="#pypi">PyPI & pip</a></li><li><a href="#imports">Importing Libraries & Functions</a></li><li><a href="#practicals">Unit 4 Practical Programs</a></li><li><a href="#errors">Common Errors</a></li><li><a href="#exam">Exam Questions & Viva</a></li><li><a href="#mcq">MCQs + Answer Key</a></li><li><a href="#revision">Quick Revision</a></li>
+</ol></div>
+
+<h2 id="overview">🇮🇳 Unit 4 — Hinglish Theory Book</h2>
+<p class="lead"><b>Unit 4 ka main focus:</b> bade Python program ko chhote reusable parts mein divide karna. Iske liye <b>functions</b>, code ko files mein organize karne ke liye <b>modules/packages</b>, pattern matching ke liye <b>regular expressions</b>, aur basic error handling concepts cover kiye gaye hain. Uploaded SBTE syllabus mein Unit 4 ka title <b>Python Functions, Modules and packages</b> hai aur ye CO-4 se mapped hai. fileciteturn47file1</p>
+<div class="note"><strong>Official syllabus coverage:</strong> 4.1 mein built-in functions, module mein defined functions, user-defined functions, arguments/parameters, default parameters, positional parameters, lambda functions, return value aur global/local scope hain. 4.2 mein <code>import</code> se module import karna, Regular Expressions, Exception Handling, PyPI, pip, aur libraries/functions import karna listed hai. fileciteturn47file1</div>
+<p>SBTE ke theory specification table mein Unit 4 ke liye <b>7 classroom instruction hours</b> aur <b>10 marks</b> diye gaye hain: Remember 3, Understanding 3, Application & above 4. fileciteturn47file3</p>
+
+<h3 id="functions">4.1 Function kya hota hai?</h3>
+<p>Function code ka ek named block hota hai jo ek particular task perform karta hai. Ek baar function define karne ke baad usse baar-baar call kiya ja sakta hai.</p>
+<pre>def greet():
+    print("Hello Prince")
+
+greet()
+greet()</pre>
+<p>Yahan <code>greet()</code> function do baar call hua, isliye same task do baar perform hua.</p>
+<div class="flow"><span>Define</span><b class="arrow">→</b><span>Function name</span><b class="arrow">→</b><span>Call</span><b class="arrow">→</b><span>Execute</span><b class="arrow">→</b><span>Result</span></div>
+
+<h3>Function ki need kyun?</h3>
+<ul><li><b>Reusability:</b> same logic ko repeatedly use kar sakte ho.</li><li><b>Modularity:</b> large program ko small logical parts mein divide karte hain.</li><li><b>Readability:</b> code samajhna easy hota hai.</li><li><b>Testing:</b> individual function ko separately test kar sakte ho.</li><li><b>Maintenance:</b> ek function mein change karke related calls ko benefit mil sakta hai.</li></ul>
+
+<h3 id="types">Types of Functions</h3>
+<p>Uploaded syllabus ke according Unit 4 mein functions ke teen important categories mention hain.</p>
+<table><tr><th>Type</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>Built-in functions</td><td>Python mein already available functions.</td><td><code>len()</code>, <code>print()</code>, <code>input()</code></td></tr>
+<tr><td>Functions defined in module</td><td>Kisi module/library ke andar available functions.</td><td><code>math.sqrt()</code></td></tr>
+<tr><td>User-defined functions</td><td>Programmer khud function create karta hai.</td><td><code>def add(a,b):</code></td></tr></table>
+
+<h3 id="user">User Defined Function banana</h3>
+<p>Python mein user-defined function banane ke liye <code>def</code> keyword use hota hai.</p>
+<pre>def add(a, b):
+    result = a + b
+    return result
+
+answer = add(10, 20)
+print(answer)</pre>
+<h4>Syntax</h4>
+<pre>def function_name(parameters):
+    statements
+    return value</pre>
+<p><code>def</code> function definition start karta hai. Function name ke baad parentheses mein parameters aa sakte hain. Colon ke baad indented body hoti hai.</p>
+
+<h3 id="args">Arguments aur Parameters</h3>
+<p><b>Parameter</b> function definition mein receive hone wala variable hai. <b>Argument</b> function call ke time pass ki gayi actual value hai.</p>
+<pre>def square(n):       # n = parameter
+    return n * n
+
+print(square(5))     # 5 = argument</pre>
+<div class="note"><strong>Exam line:</strong> Parameter = function definition ka variable; Argument = function call par di gayi actual value.</div>
+
+<h3>Positional Parameters / Arguments</h3>
+<p>Positional passing mein values ka meaning unki position se decide hota hai.</p>
+<pre>def student(name, age):
+    print(name, age)
+
+student("Prince", 18)</pre>
+<p>Yahan first argument <code>name</code> aur second argument <code>age</code> ko milta hai.</p>
+
+<h3>Default Parameters</h3>
+<p>Default parameter ko pehle se ek default value di ja sakti hai. Agar call mein value pass nahi ki gayi to default value use hoti hai.</p>
+<pre>def greet(name="Student"):
+    print("Hello", name)
+
+greet("Prince")
+greet()</pre>
+<p>First call mein Prince print hoga aur second call mein Student.</p>
+<div class="warn"><strong>Important:</strong> Default parameter ko usually required non-default parameter ke baad rakhna chahiye.</div>
+
+<h3>Multiple Parameters</h3>
+<pre>def calculate(a, b, c):
+    return a + b + c
+
+print(calculate(10, 20, 30))</pre>
+
+<h3 id="lambda">Lambda Functions</h3>
+<p>Lambda ek small anonymous function hota hai. Iska use short expression-based calculation ke liye kiya ja sakta hai.</p>
+<pre>square = lambda x: x * x
+
+print(square(6))</pre>
+<p>Yahan lambda ek input <code>x</code> leta hai aur <code>x*x</code> return karta hai.</p>
+<table><tr><th>Normal function</th><th>Lambda</th></tr><tr><td><code>def</code> keyword</td><td><code>lambda</code> keyword</td></tr><tr><td>Multiple statements possible</td><td>Generally one expression</td></tr><tr><td>Named function commonly</td><td>Anonymous/short function commonly</td></tr></table>
+
+<h3 id="return">Returning a Value</h3>
+<p><code>return</code> function se result caller ko wapas bhejta hai.</p>
+<pre>def multiply(a, b):
+    return a * b
+
+result = multiply(7, 8)
+print("Result =", result)</pre>
+<p>Agar function mein explicit <code>return</code> nahi hai, to function normally <code>None</code> return karta hai.</p>
+
+<h3>Return vs print</h3>
+<table><tr><th><code>print()</code></th><th><code>return</code></th></tr><tr><td>Screen par output display karta hai.</td><td>Value caller ko wapas deta hai.</td></tr><tr><td>Result ko directly calculation mein reuse nahi karta.</td><td>Returned value ko variable mein store/reuse kar sakte hain.</td></tr></table>
+
+<h3 id="scope">Variable Scope — Local aur Global</h3>
+<p><b>Scope</b> batata hai ki variable ko program ke kis part mein access kiya ja sakta hai.</p>
+
+<h4>Local Scope</h4>
+<p>Function ke andar banaya variable generally us function ka local variable hota hai.</p>
+<pre>def show():
+    x = 10
+    print(x)
+
+show()
+# print(x)  # NameError</pre>
+
+<h4>Global Scope</h4>
+<p>Function ke bahar define variable global scope mein hota hai aur function ke andar read kiya ja sakta hai.</p>
+<pre>x = 100
+
+def show():
+    print(x)
+
+show()</pre>
+
+<h4>global keyword</h4>
+<p>Agar function ke andar global variable ko modify karna ho, to <code>global</code> keyword use kiya ja sakta hai.</p>
+<pre>x = 10
+
+def change():
+    global x
+    x = 50
+
+change()
+print(x)</pre>
+<div class="warn"><strong>Exam point:</strong> Local variable ka scope function ke andar hota hai; global variable ka scope wider hota hai. Global variable ko function ke andar modify karne ke liye <code>global</code> keyword relevant hai.</div>
+
+<h3>Scope example — same name</h3>
+<pre>x = 100
+
+def demo():
+    x = 20
+    print("Inside:", x)
+
+demo()
+print("Outside:", x)</pre>
+<p>Output mein inside 20 aur outside 100 hoga, kyunki function ke andar ka <code>x</code> local hai.</p>
+
+<h2 id="modules">4.2 Modules and Packages</h2>
+<p><b>Module</b> ek Python file hoti hai jisme functions, variables aur other Python definitions ho sakti hain. Module ka main benefit code organization aur reuse hai.</p>
+
+<h3>Simple custom module</h3>
+<p>Maan lo same folder mein <code>calc.py</code> file hai:</p>
+<pre>def add(a, b):
+    return a + b
+
+def square(x):
+    return x * x</pre>
+<p>Dusri file se ise import:</p>
+<pre>import calc
+
+print(calc.add(10, 20))
+print(calc.square(5))</pre>
+
+<h3 id="imports">Importing module using <code>import</code></h3>
+<pre>import math
+
+print(math.sqrt(25))
+print(math.pi)</pre>
+<p><code>import math</code> ke baad module ke members ko generally <code>math.member</code> format mein access karte hain.</p>
+
+<h3>Specific function import karna</h3>
+<pre>from math import sqrt
+
+print(sqrt(81))</pre>
+<p>Is form mein poora module name har call par likhna zaroori nahi hota.</p>
+
+<h3>Alias</h3>
+<pre>import math as m
+
+print(m.sqrt(49))</pre>
+<p><code>as</code> se module ka short alias bana sakte hain.</p>
+
+<h3>Module vs Package</h3>
+<table><tr><th>Module</th><th>Package</th></tr>
+<tr><td>Usually ek Python file.</td><td>Related modules/code ko organize karne ka structure.</td></tr>
+<tr><td>Example: <code>calc.py</code></td><td>Example: ek folder/package jisme related modules hon.</td></tr>
+<tr><td>Functions/classes/variables contain kar sakta hai.</td><td>Bade codebase ko logically organize karta hai.</td></tr></table>
+
+<h3>Modular Programming</h3>
+<p>Large program ko independent logical modules/functions mein divide karna modular programming approach hai. Isse code manageable aur reusable banta hai.</p>
+
+<h2 id="regex">Regular Expressions</h2>
+<p>Regular Expression, ya <b>regex</b>, text ke andar kisi pattern ko search, match ya validate karne ke liye use hota hai. Unit 4 syllabus mein Regular Expressions explicitly listed hai. fileciteturn47file1</p>
+<p>Python mein commonly <code>re</code> module use kiya jata hai.</p>
+<pre>import re
+
+text = "My number is 9876543210"
+
+result = re.search(r"\d{10}", text)
+
+if result:
+    print("10 digit number found")
+else:
+    print("Not found")</pre>
+<h4>Common regex symbols</h4>
+<table><tr><th>Pattern</th><th>Meaning</th></tr>
+<tr><td><code>\d</code></td><td>Digit</td></tr>
+<tr><td><code>\w</code></td><td>Word character</td></tr>
+<tr><td><code>\s</code></td><td>Whitespace</td></tr>
+<tr><td><code>^</code></td><td>Start of string/line</td></tr>
+<tr><td><code>$</code></td><td>End of string/line</td></tr>
+<tr><td><code>+</code></td><td>One or more repetitions</td></tr>
+<tr><td><code>*</code></td><td>Zero or more repetitions</td></tr>
+<tr><td><code>?</code></td><td>Zero or one occurrence</td></tr>
+</table>
+<h4>Useful <code>re</code> functions</h4>
+<table><tr><th>Function</th><th>Basic use</th></tr>
+<tr><td><code>re.search()</code></td><td>String mein first matching location search.</td></tr>
+<tr><td><code>re.match()</code></td><td>Beginning se match check.</td></tr>
+<tr><td><code>re.findall()</code></td><td>All matching strings ki list.</td></tr>
+<tr><td><code>re.sub()</code></td><td>Matched pattern ko replace karna.</td></tr></table>
+<div class="note"><strong>Important:</strong> Regex yahan syllabus-listed concept ke level par diya gaya hai; advanced regex techniques separate topic nahi hain.</div>
+
+<h2 id="exceptions">Exception Handling</h2>
+<p>Program execute hote waqt kuch unexpected problems aa sakti hain. Aise runtime problems ko handle karne ke liye exception handling use hoti hai. Unit 4 syllabus mein Exception Handling explicitly included hai. fileciteturn47file1</p>
+<pre>try:
+    n = int(input("Enter number: "))
+    print(10 / n)
+except ZeroDivisionError:
+    print("Cannot divide by zero")</pre>
+<p><code>try</code> mein risky code aur <code>except</code> mein error handle karne wala code likhte hain.</p>
+
+<h3>try-except-else-finally</h3>
+<pre>try:
+    x = int(input("Enter x: "))
+    result = 10 / x
+except ValueError:
+    print("Invalid integer")
+except ZeroDivisionError:
+    print("Zero is not allowed")
+else:
+    print("Result =", result)
+finally:
+    print("Program finished")</pre>
+<table><tr><th>Block</th><th>Role</th></tr>
+<tr><td><code>try</code></td><td>Risky statements.</td></tr>
+<tr><td><code>except</code></td><td>Exception handle karta hai.</td></tr>
+<tr><td><code>else</code></td><td>Exception na aaye to execute hota hai.</td></tr>
+<tr><td><code>finally</code></td><td>Generally cleanup/final code ke liye execute hota hai.</td></tr></table>
+
+<h3>Common exceptions</h3>
+<ul><li><code>ValueError</code> — value ka expected format/type conversion issue.</li><li><code>TypeError</code> — incompatible operation/type.</li><li><code>NameError</code> — undefined name.</li><li><code>IndexError</code> — invalid sequence index.</li><li><code>KeyError</code> — dictionary mein missing key.</li><li><code>ZeroDivisionError</code> — zero se division.</li></ul>
+
+<h2 id="pypi">PyPI and pip</h2>
+<p><b>PyPI (Python Package Index)</b> Python packages ko publish/share karne ka online repository/ecosystem hai. <b>pip</b> Python packages ko install/manage karne ke liye commonly used package manager command hai. Dono terms Unit 4 syllabus mein specifically listed hain. fileciteturn47file1</p>
+<pre>pip install package_name</pre>
+<p>Example ke liye NumPy install karne ke context mein:</p>
+<pre>pip install numpy</pre>
+<p>Installation ke baad Python code mein:</p>
+<pre>import numpy as np</pre>
+<div class="note"><strong>Safety tip:</strong> Package install karte waqt trusted package name/source verify karna important hai.</div>
+
+<h3>PyPI vs pip</h3>
+<table><tr><th>PyPI</th><th>pip</th></tr><tr><td>Package repository/index.</td><td>Package installation/management tool.</td></tr><tr><td>Packages available/published hote hain.</td><td>Packages install/update/remove karne mein help karta hai.</td></tr></table>
+
+<h2 id="practicals">Unit 4 Practical Programs</h2>
+<p>Uploaded SBTE practical list mein Unit 4 ke function-based practicals explicitly diye gaye hain: string reverse function, compound interest function aur factorial function ko call karke combination calculation. fileciteturn47file0turn47file2</p>
+
+<h3>Practical 1 — Function for Reversing a String</h3>
+<pre>def reverse_string(text):
+    return text[::-1]
+
+s = input("Enter string: ")
+print("Reverse =", reverse_string(s))</pre>
+<div class="example"><strong>Example:</strong> Input <code>Python</code> → Output <code>nohtyP</code></div>
+
+<h3>Practical 2 — Function for Compound Interest</h3>
+<p>Compound Interest ke common annual-compounding formula ko function mein implement kar sakte hain:</p>
+<pre>def compound_interest(p, r, t):
+    amount = p * (1 + r / 100) ** t
+    return amount - p
+
+p = float(input("Principal: "))
+r = float(input("Rate (%): "))
+t = float(input("Time (years): "))
+
+ci = compound_interest(p, r, t)
+print("Compound Interest =", ci)</pre>
+<p>Yahan <code>p</code> principal, <code>r</code> rate percentage aur <code>t</code> time in years hai.</p>
+
+<h3>Practical 3 — Function for Factorial and Combination</h3>
+<p>SBTE practical mein factorial function ko call karke <code>n!/(r!(n-r)!)</code> calculate karne ko kaha gaya hai. fileciteturn47file0</p>
+<pre>def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+n = int(input("Enter n: "))
+r = int(input("Enter r: "))
+
+if 0 &lt;= r &lt;= n:
+    combination = factorial(n) // (factorial(r) * factorial(n - r))
+    print("nCr =", combination)
+else:
+    print("Invalid values: require 0 &lt;= r &lt;= n")</pre>
+<p>Example: <code>5C2 = 5!/(2!3!) = 10</code>.</p>
+
+<h3>Extra Practice — Simple Function Programs</h3>
+<p>Ye short practice examples function concept strong karne ke liye hain; official Unit 4 practical list ke core three programs ke alawa extra practice samjho.</p>
+<pre>def is_even(n):
+    return n % 2 == 0
+
+print(is_even(20))</pre>
+<pre>def largest(a, b):
+    if a &gt; b:
+        return a
+    return b
+
+print(largest(12, 8))</pre>
+
+<h2 id="errors">Common Errors & Important Differences</h2>
+<h3>1. Function define karke call na karna</h3>
+<pre>def greet():
+    print("Hello")
+
+# greet() call karna zaroori hai
+greet()</pre>
+
+<h3>2. Parameter aur argument confuse karna</h3>
+<p>Definition mein <code>x</code> parameter hai; call mein <code>10</code> argument hai.</p>
+<pre>def square(x):
+    return x*x
+
+square(10)</pre>
+
+<h3>3. return ko print samajhna</h3>
+<p><code>return</code> value ko caller ko deta hai; output display karne ke liye zaroorat ho to <code>print()</code> karo.</p>
+
+<h3>4. Local variable outside use karna</h3>
+<pre>def demo():
+    x = 10
+
+# print(x)  # NameError</pre>
+
+<h3>5. Module import spelling mistake</h3>
+<pre>import math
+print(math.sqrt(25))</pre>
+
+<h3>6. Exception ko ignore karna</h3>
+<p>Har possible error ko blindly catch karna useful nahi hota. Specific exceptions ko samajhkar handle karna better practice hai.</p>
+
+<h2 id="exam">Exam Questions & Viva</h2>
+<h3>Very Short Questions</h3>
+<div class="qbox">1. Function kya hota hai?</div><div class="qbox">2. <code>def</code> keyword ka use kya hai?</div><div class="qbox">3. Parameter aur argument mein difference?</div><div class="qbox">4. Default parameter kya hai?</div><div class="qbox">5. Lambda function kya hai?</div><div class="qbox">6. <code>return</code> ka use kya hai?</div><div class="qbox">7. Local scope kya hai?</div><div class="qbox">8. Global scope kya hai?</div><div class="qbox">9. Module kya hai?</div><div class="qbox">10. Package kya hai?</div><div class="qbox">11. PyPI ka full form kya hai?</div><div class="qbox">12. pip ka use kya hai?</div><div class="qbox">13. Regex kya hai?</div><div class="qbox">14. <code>try</code> aur <code>except</code> ka role kya hai?</div>
+
+<h3>Short Answer Questions</h3>
+<ol><li>Function ki need aur advantages explain karo.</li><li>Built-in, module-defined aur user-defined functions differentiate karo.</li><li>User-defined function ka syntax example ke saath explain karo.</li><li>Positional aur default parameters explain karo.</li><li>Lambda function example ke saath explain karo.</li><li>Return statement aur print statement mein difference explain karo.</li><li>Local aur global scope example ke saath explain karo.</li><li>Module import karne ke different basic ways explain karo.</li><li>Regular expression aur <code>re</code> module ka basic use explain karo.</li><li>PyPI aur pip differentiate karo.</li><li>try-except-else-finally ka role explain karo.</li></ol>
+
+<h3>Long Answer Questions</h3>
+<ol><li>Python functions ko types, creation, parameters, arguments aur return value ke saath detail mein explain karo.</li><li>Default, positional aur lambda functions suitable examples ke saath explain karo.</li><li>Local aur global variable scope ko examples ke saath explain karo.</li><li>Modules aur packages kya hain? Python module import karne ke methods examples ke saath explain karo.</li><li>Regular Expressions kya hain? Common patterns aur <code>re</code> functions explain karo.</li><li>Python exception handling mein try, except, else aur finally explain karo.</li><li>PyPI aur pip ka role Python package management mein explain karo.</li></ol>
+
+<h3>Viva</h3>
+<div class="qbox"><b>Q:</b> Function ko reusable kyun kehte hain?<br><b>A:</b> Ek baar define karke multiple places par call kiya ja sakta hai.</div>
+<div class="qbox"><b>Q:</b> Lambda function ka main feature?<br><b>A:</b> Short anonymous function jo generally ek expression represent karta hai.</div>
+<div class="qbox"><b>Q:</b> Module import karne ka basic syntax?<br><b>A:</b> <code>import module_name</code>.</div>
+<div class="qbox"><b>Q:</b> pip ka use?<br><b>A:</b> Python packages ko install/manage karne ke liye commonly used package manager command.</div>
+<div class="qbox"><b>Q:</b> finally block ka use?<br><b>A:</b> Aise statements ke liye jo exception situation ke baad bhi execute karne hote hain, jaise cleanup.</div>
+
+<h2 id="mcq">MCQs</h2>
+<div class="qbox"><b>1.</b> User-defined function define karne ke liye kya use hota hai?<br>A) function &nbsp; B) def &nbsp; C) fun &nbsp; D) define</div>
+<div class="qbox"><b>2.</b> Function call mein passed actual value kya kehlati hai?<br>A) Parameter &nbsp; B) Argument &nbsp; C) Variable scope &nbsp; D) Module</div>
+<div class="qbox"><b>3.</b> Default parameter kya provide karta hai?<br>A) Default value &nbsp; B) Module &nbsp; C) Exception &nbsp; D) Package</div>
+<div class="qbox"><b>4.</b> Lambda function kis keyword se banta hai?<br>A) func &nbsp; B) lambda &nbsp; C) anonymous &nbsp; D) small</div>
+<div class="qbox"><b>5.</b> Function se value wapas bhejne ke liye?<br>A) print &nbsp; B) send &nbsp; C) return &nbsp; D) output</div>
+<div class="qbox"><b>6.</b> Function ke andar normally defined variable ka scope?<br>A) Global &nbsp; B) Local &nbsp; C) Package &nbsp; D) Module-only</div>
+<div class="qbox"><b>7.</b> Python file containing reusable definitions ko kya keh sakte hain?<br>A) Module &nbsp; B) Loop &nbsp; C) Token &nbsp; D) Operator</div>
+<div class="qbox"><b>8.</b> Math module import karne ka correct syntax?<br>A) <code>include math</code> &nbsp; B) <code>import math</code> &nbsp; C) <code>using math</code> &nbsp; D) <code>load math</code></div>
+<div class="qbox"><b>9.</b> Regex ke liye commonly kaunsa module use hota hai?<br>A) re &nbsp; B) regexlib &nbsp; C) text &nbsp; D) match</div>
+<div class="qbox"><b>10.</b> Exception handle karne ke liye kaunsa block pair common hai?<br>A) if-else &nbsp; B) try-except &nbsp; C) for-while &nbsp; D) def-return</div>
+<div class="qbox"><b>11.</b> Python Package Index ka short form?<br>A) PIP &nbsp; B) PyPI &nbsp; C) PYP &nbsp; D) PPI</div>
+<div class="qbox"><b>12.</b> Package install karne ke liye commonly kya use hota hai?<br>A) pip &nbsp; B) run &nbsp; C) import-only &nbsp; D) installpy</div>
+<div class="qbox"><b>13.</b> <code>finally</code> block kis concept se related hai?<br>A) Exception handling &nbsp; B) Loop indexing &nbsp; C) List slicing &nbsp; D) String concatenation</div>
+<div class="qbox"><b>14.</b> Global variable ko function ke andar modify karne ke liye kaunsa keyword relevant hai?<br>A) public &nbsp; B) global &nbsp; C) outer &nbsp; D) shared</div>
+<div class="qbox"><b>15.</b> <code>re.findall()</code> ka basic purpose kya hai?<br>A) All matching strings find karna &nbsp; B) Package install karna &nbsp; C) Function define karna &nbsp; D) File delete karna</div>
+<h4>Answer Key</h4><p><b>1-B, 2-B, 3-A, 4-B, 5-C, 6-B, 7-A, 8-B, 9-A, 10-B, 11-B, 12-A, 13-A, 14-B, 15-A</b></p>
+
+<h2 id="revision">Quick Revision Checklist</h2>
+<table><tr><th>Topic</th><th>Memory Point</th></tr>
+<tr><td>Function</td><td>Reusable block of code.</td></tr><tr><td>def</td><td>User-defined function define karta hai.</td></tr><tr><td>Parameter</td><td>Function definition ka receiving variable.</td></tr><tr><td>Argument</td><td>Function call par actual value.</td></tr><tr><td>Default parameter</td><td>Value omitted ho to default use.</td></tr><tr><td>Lambda</td><td>Short anonymous expression-based function.</td></tr><tr><td>return</td><td>Value caller ko wapas.</td></tr><tr><td>Local scope</td><td>Function ke andar accessible variable.</td></tr><tr><td>Global scope</td><td>Function ke bahar defined variable.</td></tr><tr><td>Module</td><td>Reusable Python file.</td></tr><tr><td>Package</td><td>Related modules/code ka organized structure.</td></tr><tr><td>Regex</td><td>Text pattern matching/search.</td></tr><tr><td>try-except</td><td>Exceptions handle karne ka basic structure.</td></tr><tr><td>PyPI</td><td>Python package index.</td></tr><tr><td>pip</td><td>Package install/manage karne ka tool.</td></tr></table>
+<ul><li>□ Function definition aur calling clear.</li><li>□ Built-in/module/user-defined functions revised.</li><li>□ Parameters vs arguments clear.</li><li>□ Positional/default parameters practiced.</li><li>□ Lambda function practiced.</li><li>□ return vs print clear.</li><li>□ Local/global scope practiced.</li><li>□ import, from-import aur alias clear.</li><li>□ Module vs package clear.</li><li>□ Basic regex symbols revised.</li><li>□ try-except-else-finally clear.</li><li>□ PyPI vs pip clear.</li><li>□ Three official Unit 4 practicals practiced.</li></ul>
+<div class="exam"><strong>🔥 High Exam Priority</strong> User-defined functions; arguments vs parameters; default and positional parameters; lambda; return; local/global scope; modules and import; regex basics; exception handling; PyPI vs pip; official function practicals.</div>
+<div class="note"><strong>Source note:</strong> Unit 4 topics and practicals are based on the uploaded SBTE Bihar Semester III Python Programming syllabus. Unit 4 is titled “Python Functions, Modules and packages”, mapped to CO-4, with 7 classroom hours and 10 ETA marks. fileciteturn47file1turn47file3turn47file0</div>
+</section>
+<footer class="footer"><span>PRINCE RAJ STUDY · CSE 3rd Semester · Python Programming · Unit 4</span><span>Course Code 2418305</span></footer>
+</main></body></html>
