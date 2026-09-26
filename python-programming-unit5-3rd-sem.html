@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PRINCE RAJ STUDY — CSE 3rd Semester Python Programming Unit 5 NumPy">
+<title>Python Programming — Unit 5 | PRINCE RAJ STUDY</title>
+<link rel="icon" href="assets/princexmahto-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172033;--muted:#5d6678;--blue:#1359b3;--blue2:#eaf2ff;--line:#dfe5ee;--paper:#fff;--bg:#f4f6f9;--green:#18794e;--greenbg:#edf9f2;--red:#b42318;--redbg:#fff0ee;--yellow:#8a5a00;--yellowbg:#fff8df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.75}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.topin{max-width:1120px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800}.brand img{width:34px;height:34px}.brand small{display:block;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em}.actions{display:flex;gap:8px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13px;background:#fff}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.book{max-width:940px;margin:28px auto 70px;background:var(--paper);box-shadow:0 12px 45px rgba(22,35,55,.08);border:1px solid #e5e9ef}
+.cover{padding:72px 70px 62px;border-bottom:5px solid var(--blue);background:linear-gradient(#fff,#f9fbff)}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--blue);text-transform:uppercase}.cover h1{font:800 43px/1.12 Manrope;margin:15px 0 12px}.cover h2{font:700 24px/1.3 Manrope;margin:0 0 22px;color:#31415d}.cover p{max-width:700px;color:var(--muted);font-size:16px}.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.tag{border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:700}
+.content{padding:48px 70px}.toc{border:1px solid var(--line);padding:24px 26px;background:#fbfcfe;margin-bottom:42px}.toc h2{margin-top:0}.toc a{color:var(--blue);text-decoration:none}.toc li{margin:6px 0}
+h2{font:800 28px/1.25 Manrope;color:#123f7d;margin:46px 0 16px;border-bottom:1px solid var(--line);padding-bottom:9px}h3{font:800 21px/1.35 Manrope;margin:34px 0 12px;color:#203657}h4{font:800 16px Manrope;margin:24px 0 8px;color:#304968}p{margin:8px 0 14px}.lead{font-size:17px;color:#46536a}
+.note,.example,.warn,.exam{margin:18px 0;padding:17px 19px;border-left:4px solid}.note{background:var(--yellowbg);border-color:#d49b16}.example{background:var(--greenbg);border-color:var(--green)}.warn{background:var(--redbg);border-color:var(--red)}.exam{background:var(--blue2);border-color:var(--blue)}.note strong,.example strong,.warn strong,.exam strong{display:block;margin-bottom:5px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top}th{background:#f1f5fa;text-align:left}
+pre{background:#111827;color:#e8edf6;border-radius:8px;padding:18px;overflow:auto;font:13px/1.65 "JetBrains Mono",monospace;margin:14px 0}code{font-family:"JetBrains Mono",monospace;background:#f1f3f6;padding:2px 5px;border-radius:4px;font-size:.9em}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:15px 0}.flow span{padding:9px 13px;border:1px solid #b9cbea;background:#f5f9ff;border-radius:6px;font-weight:700}.arrow{color:var(--blue);font-weight:900}
+ul,ol{padding-left:25px}.qbox{padding:14px 16px;border:1px solid var(--line);margin:9px 0;border-radius:7px;background:#fff}
+.footer{padding:25px 70px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+@media(max-width:700px){.topin{padding:10px 12px}.actions .btn:not(.primary){display:none}.book{margin:0;border:0;box-shadow:none}.cover,.content,.footer{padding:34px 20px}.cover h1{font-size:32px}.cover h2{font-size:20px}h2{font-size:24px}.footer{display:block}table{display:block;overflow-x:auto}}
+@media print{body{background:#fff}.top{display:none}.book{box-shadow:none;border:0;margin:0;max-width:none}.content{padding:30px 45px}.footer{padding:20px 45px}@page{size:A4 portrait;margin:12mm}}
+</style></head>
+<body>
+<header class="top"><div class="topin"><a class="brand" href="index.html"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PRINCE RAJ STUDY<small>CSE 3rd Semester · Diploma Computer Science & Engineering</small></span></a><div class="actions"><a class="btn" href="cse-3rd-semester.html">← CSE 3rd Sem</a><a class="btn primary" href="#" onclick="window.print();return false">Print / PDF</a></div></div></header>
+<main class="book">
+<section class="cover"><div class="eyebrow">PRINCE RAJ STUDY · CSE 3RD SEMESTER</div>
+<h1>Python Programming</h1><h2>Unit 5 — NumPy</h2>
+<p><b>Course Code:</b> 2418305 (T2418305 / P2418305 / S2418305)</p>
+<p>SBTE Bihar Semester III ke exact Unit 5 order ke according detailed Hinglish theory, NumPy arrays, indexing, operations, linear algebra, file I/O, broadcasting, practical programs aur exam revision.</p>
+<div class="meta"><span class="tag">Unit 5</span><span class="tag">CO-5</span><span class="tag">NumPy</span><span class="tag">Theory + Practical</span></div></section>
+<section class="content">
+<div class="toc"><h2 style="margin-top:0">Table of Contents</h2><ol>
+<li><a href="#overview">Unit Overview & Syllabus Coverage</a></li><li><a href="#intro">5.1 Introduction to NumPy</a></li><li><a href="#install">5.2 Installation of NumPy</a></li><li><a href="#arrays">5.3 NumPy Arrays</a></li><li><a href="#attributes">Array Attributes</a></li><li><a href="#indexing">5.4 Array Indexing & Slicing</a></li><li><a href="#operations">5.5 Array Operations & ufuncs</a></li><li><a href="#linear">5.6 Linear Algebra with NumPy</a></li><li><a href="#io">5.7 File Input & Output with NumPy</a></li><li><a href="#broadcast">5.8 Broadcasting in NumPy</a></li><li><a href="#practicals">Unit 5 Practical Programs</a></li><li><a href="#errors">Common Errors</a></li><li><a href="#exam">Exam Questions & Viva</a></li><li><a href="#mcq">MCQs + Answer Key</a></li><li><a href="#revision">Quick Revision</a></li>
+</ol></div>
+
+<h2 id="overview">🇮🇳 Unit 5 — Hinglish Theory Book</h2>
+<p class="lead"><b>Unit 5 ka main focus NumPy</b> hai. NumPy Python mein numerical computing ke liye use hone wali library hai. Uploaded SBTE syllabus mein Unit 5 ka title <b>NumPy</b> hai aur CO-5 ka target Python programs mein NumPy use karna, NumPy arrays use karna aur linear algebra problems solve karna hai. fileciteturn53file0</p>
+<div class="note"><strong>Official syllabus coverage:</strong> 5.1 Introduction to NumPy, 5.2 Installation, 5.3 NumPy Arrays, 5.4 Array Indexing and Slicing, 5.5 Array Operations, 5.6 Linear Algebra with NumPy, 5.7 File input/output with NumPy aur 5.8 Broadcasting in NumPy. fileciteturn53file3</div>
+<p>Is unit ka practical component bhi important hai. Official practical list mein zero-filled NumPy array, specified row check, non-numeric rows remove karna, sequence occurrences count karna, most frequent value, 1-D + 2-D array combine, matrix flatten aur axes interchange jaise programs diye gaye hain. fileciteturn53file2</p>
+
+<h3 id="intro">5.1 NumPy kya hai?</h3>
+<p><b>NumPy</b> ka full form <b>Numerical Python</b> maana jata hai. Ye Python ki ek library hai jo numerical data aur arrays ke saath efficient operations ke liye use hoti hai.</p>
+<p>Normal Python list se bhi numbers store kiye ja sakte hain, lekin NumPy ka main data structure <b>ndarray</b> hai. Iske through one-dimensional aur multi-dimensional numerical data ko structured way mein handle kiya ja sakta hai.</p>
+<div class="flow"><span>Python</span><b class="arrow">→</b><span>NumPy Library</span><b class="arrow">→</b><span>ndarray</span><b class="arrow">→</b><span>Numerical Operations</span></div>
+<h4>NumPy ke basic uses</h4>
+<ul><li>Arrays create aur manipulate karna.</li><li>Fast element-wise mathematical operations karna.</li><li>Matrix aur linear algebra operations karna.</li><li>Array indexing aur slicing karna.</li><li>Array data ko files mein save/load karna.</li><li>Broadcasting ke through compatible shapes par operations karna.</li></ul>
+
+<h3 id="install">5.2 Installation of NumPy</h3>
+<p>Python environment mein NumPy install karne ke liye generally <code>pip</code> package manager use kiya ja sakta hai.</p>
+<pre>pip install numpy</pre>
+<p>Installation ke baad NumPy ko program mein commonly <code>np</code> alias ke saath import karte hain:</p>
+<pre>import numpy as np</pre>
+<div class="example"><strong>Quick test:</strong><pre style="margin:8px 0">import numpy as np
+a = np.array([10, 20, 30])
+print(a)</pre></div>
+<p>Agar installation aur import successful hai to array print ho jayega.</p>
+
+<h3 id="arrays">5.3 NumPy Arrays</h3>
+<p>NumPy ka fundamental data structure <b>array</b> hai. Array ek structured collection hai jisme elements ko dimensions aur positions ke basis par access kiya ja sakta hai.</p>
+<h4>1-D Array</h4>
+<pre>import numpy as np
+
+a = np.array([10, 20, 30, 40])
+print(a)</pre>
+<p>Is array mein ek dimension hai, isliye ise one-dimensional array bolte hain.</p>
+<h4>2-D Array</h4>
+<pre>b = np.array([[1, 2, 3],
+              [4, 5, 6]])
+print(b)</pre>
+<p>Yahan rows aur columns dono hain, isliye ye two-dimensional array hai.</p>
+
+<h4>np.array()</h4>
+<p>Existing list ya nested list se NumPy array create karne ke liye <code>np.array()</code> use hota hai.</p>
+<pre>numbers = [1, 2, 3, 4]
+a = np.array(numbers)
+
+matrix = np.array([[1, 2], [3, 4]])</pre>
+
+<h4>np.zeros()</h4>
+<p>Sabhi elements ko zero rakhne wala array create karne ke liye <code>np.zeros()</code> use karte hain.</p>
+<pre>a = np.zeros(5)
+print(a)</pre>
+<p>2-D zero array:</p>
+<pre>b = np.zeros((2, 3))
+print(b)</pre>
+
+<h4>np.ones()</h4>
+<p>SBTE syllabus mein array creation ke examples mein <code>np.array()</code>, <code>np.zeros()</code> aur <code>ones()</code> type method mention hai. <code>np.ones()</code> specified shape ka array ones se fill karta hai.</p>
+<pre>a = np.ones((2, 3))
+print(a)</pre>
+
+<h4>Array creation ka comparison</h4>
+<table><tr><th>Method</th><th>Example</th><th>Result ka idea</th></tr>
+<tr><td><code>np.array()</code></td><td><code>np.array([1,2,3])</code></td><td>Given data se array</td></tr>
+<tr><td><code>np.zeros()</code></td><td><code>np.zeros(4)</code></td><td>All elements 0</td></tr>
+<tr><td><code>np.ones()</code></td><td><code>np.ones(4)</code></td><td>All elements 1</td></tr></table>
+
+<h3 id="attributes">Array Attributes: shape, size, dimensions</h3>
+<p>NumPy array ke important attributes array ki structure ke baare mein information dete hain.</p>
+<pre>import numpy as np
+
+a = np.array([[1, 2, 3],
+              [4, 5, 6]])
+
+print(a.shape)
+print(a.size)
+print(a.ndim)</pre>
+<table><tr><th>Attribute</th><th>Meaning</th><th>Example output</th></tr>
+<tr><td><code>shape</code></td><td>Har dimension mein kitne elements/rows-columns hain.</td><td><code>(2, 3)</code></td></tr>
+<tr><td><code>size</code></td><td>Total number of elements.</td><td><code>6</code></td></tr>
+<tr><td><code>ndim</code></td><td>Number of dimensions.</td><td><code>2</code></td></tr></table>
+<div class="exam"><strong>Exam shortcut:</strong> <code>shape</code> = structure, <code>size</code> = total elements, <code>ndim</code> = dimensions.</div>
+
+<h3 id="indexing">5.4 Array Indexing and Slicing</h3>
+<p>Array ke individual element ko position/index se access karna <b>indexing</b> hai. Python ki tarah NumPy indexing generally <b>0 se start</b> hoti hai.</p>
+<h4>1-D indexing</h4>
+<pre>a = np.array([10, 20, 30, 40])
+
+print(a[0])    # 10
+print(a[2])    # 30
+print(a[-1])   # 40</pre>
+<h4>2-D indexing</h4>
+<pre>b = np.array([[10, 20, 30],
+              [40, 50, 60]])
+
+print(b[0, 1])   # 20
+print(b[1, 2])   # 60</pre>
+<p>2-D array mein pehla index row aur doosra index column ko represent karta hai.</p>
+
+<h4>Slicing</h4>
+<p>Slicing se array ka ek portion/subarray access kiya ja sakta hai.</p>
+<pre>a = np.array([10, 20, 30, 40, 50])
+
+print(a[1:4])
+print(a[:3])
+print(a[2:])</pre>
+<p>2-D slicing example:</p>
+<pre>b = np.array([[1,2,3],
+              [4,5,6],
+              [7,8,9]])
+
+print(b[0:2, 1:3])</pre>
+<div class="note"><strong>Yaad rakho:</strong> Slice ka end index generally include nahi hota. <code>a[1:4]</code> mein indexes 1, 2, 3 milte hain.</div>
+
+<h3 id="operations">5.5 Array Operations</h3>
+<p>NumPy arrays par mathematical operations element-wise perform kiye ja sakte hain jab participating arrays compatible hon.</p>
+<pre>a = np.array([1, 2, 3])
+b = np.array([10, 20, 30])
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)</pre>
+<p>Result mein corresponding positions ke elements par operation hota hai.</p>
+<h4>Scalar operation</h4>
+<pre>a = np.array([1, 2, 3])
+print(a * 5)
+print(a + 10)</pre>
+<p>Ek scalar value array ke har compatible element par apply ho sakti hai.</p>
+
+<h4>Universal Functions — ufuncs</h4>
+<p>NumPy mein mathematical operations ke liye universal functions, yaani <b>ufuncs</b>, available hote hain. Examples mein <code>np.sqrt()</code>, <code>np.abs()</code>, <code>np.exp()</code> aur trigonometric functions jaise operations shamil hain.</p>
+<pre>a = np.array([1, 4, 9, 16])
+
+print(np.sqrt(a))
+print(np.abs(np.array([-2, 3, -5])))</pre>
+<div class="example"><strong>Concept:</strong> Ufunc ka main idea array ke elements par numerical operation ko efficiently apply karna hai.</div>
+
+<h3 id="linear">5.6 Linear Algebra with NumPy</h3>
+<p>Official syllabus mein linear algebra ke under <b>matrix multiplication, determinant, inverse aur linear equations solve karna</b> listed hai. fileciteturn53file0</p>
+
+<h4>Matrix Multiplication</h4>
+<p>Matrix multiplication ke liye <code>np.matmul()</code> ya compatible arrays ke saath <code>@</code> operator use kiya ja sakta hai.</p>
+<pre>A = np.array([[1, 2],
+              [3, 4]])
+
+B = np.array([[5, 6],
+              [7, 8]])
+
+C = np.matmul(A, B)
+print(C)</pre>
+<p>Alternative:</p>
+<pre>C = A @ B
+print(C)</pre>
+
+<h4>Determinant</h4>
+<p>Square matrix ka determinant calculate karne ke liye <code>np.linalg.det()</code> use kiya ja sakta hai.</p>
+<pre>A = np.array([[1, 2],
+              [3, 4]])
+
+det = np.linalg.det(A)
+print(det)</pre>
+
+<h4>Inverse of Matrix</h4>
+<p>Non-singular square matrix ka inverse nikalne ke liye <code>np.linalg.inv()</code> use hota hai.</p>
+<pre>A = np.array([[1, 2],
+              [3, 4]])
+
+inverse = np.linalg.inv(A)
+print(inverse)</pre>
+<div class="warn"><strong>Important:</strong> Singular matrix ka normal inverse exist nahi karta. Practical mein inverse ke liye suitable matrix use karo.</div>
+
+<h4>Linear Equations Solve Karna</h4>
+<p>Linear equations ko matrix form <b>AX = B</b> mein represent karke <code>np.linalg.solve(A, B)</code> use kiya ja sakta hai.</p>
+<pre>A = np.array([[2, 1],
+              [1, 3]])
+
+B = np.array([5, 6])
+
+X = np.linalg.solve(A, B)
+print(X)</pre>
+<p>Yahan NumPy system ka solution vector return karta hai.</p>
+
+<h3 id="io">5.7 File Input and Output with NumPy</h3>
+<p>NumPy array data ko file mein save aur baad mein load kiya ja sakta hai. Ye numerical data ko store/reuse karne mein useful hai.</p>
+<h4>Text format: savetxt / loadtxt</h4>
+<pre>a = np.array([[1, 2],
+              [3, 4]])
+
+np.savetxt("data.txt", a)
+b = np.loadtxt("data.txt")
+
+print(b)</pre>
+<h4>Binary NumPy format: save / load</h4>
+<pre>a = np.array([10, 20, 30, 40])
+
+np.save("numbers.npy", a)
+b = np.load("numbers.npy")
+
+print(b)</pre>
+<table><tr><th>Function</th><th>Use</th></tr>
+<tr><td><code>np.savetxt()</code></td><td>Array ko text file mein save karna</td></tr>
+<tr><td><code>np.loadtxt()</code></td><td>Text file se numerical data load karna</td></tr>
+<tr><td><code>np.save()</code></td><td>NumPy array ko <code>.npy</code> format mein save karna</td></tr>
+<tr><td><code>np.load()</code></td><td>Saved NumPy data load karna</td></tr></table>
+
+<h3 id="broadcast">5.8 Broadcasting in NumPy</h3>
+<p><b>Broadcasting</b> NumPy ka mechanism hai jisse compatible shapes wale arrays ya array aur scalar ke beech operation possible hota hai bina manually same size ka array banaye.</p>
+<h4>Scalar broadcasting</h4>
+<pre>a = np.array([10, 20, 30])
+print(a + 5)</pre>
+<p>Yahan <code>5</code> conceptually har element ke saath add hota hai.</p>
+<h4>2-D + 1-D example</h4>
+<pre>A = np.array([[1, 2, 3],
+               [4, 5, 6]])
+
+B = np.array([10, 20, 30])
+
+print(A + B)</pre>
+<p>Yahan B ki shape <code>(3,)</code> hai aur A ki shape <code>(2,3)</code>; compatible dimensions ke basis par B ki values rows ke across apply hoti hain.</p>
+<div class="note"><strong>Simple language:</strong> Broadcasting = chhote compatible array/value ko NumPy automatically required form mein treat karke operation kar deta hai.</div>
+
+<h3 id="practicals">Unit 5 Practical Programs</h3>
+<p>Official practical list mein NumPy ke 8 experiments diye gaye hain. fileciteturn53file2 Neeche unke exam/lab-friendly programs diye gaye hain.</p>
+
+<h4>Practical 1 — NumPy array filled with zeros</h4>
+<pre>import numpy as np
+
+a = np.zeros(5)
+print(a)</pre>
+
+<h4>Practical 2 — Check whether an array contains a specified row</h4>
+<pre>import numpy as np
+
+a = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+row = np.array([4, 5, 6])
+
+found = np.any(np.all(a == row, axis=1))
+print("Row found:", found)</pre>
+
+<h4>Practical 3 — Remove rows containing non-numeric values</h4>
+<pre>import numpy as np
+
+a = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]], dtype=float)
+
+# Example clean numeric array
+numeric_rows = a[np.all(np.isfinite(a), axis=1)]
+print(numeric_rows)</pre>
+<div class="warn"><strong>Lab note:</strong> Is problem ka exact implementation input data ke type par depend kar sakta hai. Upar wala example numeric floating-point array ke liye hai; mixed string/object data ke liye preprocessing alag ho sakti hai.</div>
+
+<h4>Practical 4 — Find number of occurrences of a sequence</h4>
+<pre>import numpy as np
+
+a = np.array([1, 2, 1, 2, 1, 3])
+sequence = np.array([1, 2])
+
+count = sum(np.array_equal(a[i:i+len(sequence)], sequence)
+            for i in range(len(a)-len(sequence)+1))
+
+print("Occurrences:", count)</pre>
+
+<h4>Practical 5 — Find most frequent value</h4>
+<pre>import numpy as np
+
+a = np.array([2, 3, 2, 5, 2, 3, 4])
+
+values, counts = np.unique(a, return_counts=True)
+most_frequent = values[np.argmax(counts)]
+
+print("Most frequent:", most_frequent)</pre>
+
+<h4>Practical 6 — Combine one-dimensional and two-dimensional NumPy array</h4>
+<pre>import numpy as np
+
+one_d = np.array([1, 2, 3])
+two_d = np.array([[4, 5, 6]])
+
+combined = np.vstack((one_d, two_d))
+print(combined)</pre>
+<p>Yahan shape compatibility ka dhyan rakhna important hai.</p>
+
+<h4>Practical 7 — Flatten a matrix</h4>
+<pre>import numpy as np
+
+matrix = np.array([[1, 2], [3, 4], [5, 6]])
+
+flat = matrix.flatten()
+print(flat)</pre>
+<p><code>flatten()</code> matrix ko one-dimensional array mein convert karta hai.</p>
+
+<h4>Practical 8 — Interchange two axes of an array</h4>
+<pre>import numpy as np
+
+a = np.arange(24).reshape(2, 3, 4)
+
+b = np.swapaxes(a, 0, 1)
+
+print("Original shape:", a.shape)
+print("New shape:", b.shape)</pre>
+<p><code>np.swapaxes()</code> specified axes ko interchange karta hai.</p>
+
+<div class="exam"><strong>Practical exam tip:</strong> Har program ke liye 4 cheezein explain kar pao — input/data, NumPy function, operation ka logic, aur output.</div>
+
+<h3 id="errors">Common Errors aur Unse Bachne ka Tarika</h3>
+<table><tr><th>Error/Problem</th><th>Reason</th><th>Fix</th></tr>
+<tr><td><code>ModuleNotFoundError: No module named 'numpy'</code></td><td>NumPy installed nahi hai ya wrong environment hai.</td><td><code>pip install numpy</code> karke correct Python environment check karo.</td></tr>
+<tr><td>IndexError</td><td>Invalid index access.</td><td>Array ka size/index range check karo.</td></tr>
+<tr><td>Shape mismatch</td><td>Operations ke liye shapes compatible nahi.</td><td><code>shape</code> check karo aur broadcasting/reshape rules samjho.</td></tr>
+<tr><td>Singular matrix inverse</td><td>Matrix ka inverse exist nahi karta.</td><td>Suitable non-singular matrix use karo.</td></tr>
+<tr><td>Wrong axis</td><td>2-D/3-D operation mein axis confusion.</td><td><code>shape</code>, <code>ndim</code> aur axis numbers verify karo.</td></tr></table>
+
+<h3 id="exam">Exam-Oriented Questions</h3>
+<div class="qbox"><b>Q1.</b> NumPy kya hai? Iske uses explain karo.</div>
+<div class="qbox"><b>Q2.</b> NumPy install aur import kaise karte hain?</div>
+<div class="qbox"><b>Q3.</b> <code>np.array()</code>, <code>np.zeros()</code> aur <code>np.ones()</code> explain karo.</div>
+<div class="qbox"><b>Q4.</b> NumPy array ke <code>shape</code>, <code>size</code> aur <code>ndim</code> explain karo.</div>
+<div class="qbox"><b>Q5.</b> 1-D aur 2-D array indexing examples ke saath explain karo.</div>
+<div class="qbox"><b>Q6.</b> NumPy mein slicing kya hai? Example do.</div>
+<div class="qbox"><b>Q7.</b> NumPy array operations aur ufuncs explain karo.</div>
+<div class="qbox"><b>Q8.</b> Matrix multiplication, determinant aur inverse NumPy se kaise nikalte hain?</div>
+<div class="qbox"><b>Q9.</b> <code>np.linalg.solve()</code> ka use kya hai?</div>
+<div class="qbox"><b>Q10.</b> NumPy mein file input/output explain karo.</div>
+<div class="qbox"><b>Q11.</b> Broadcasting kya hai? Suitable example do.</div>
+<div class="qbox"><b>Q12.</b> NumPy array flatten aur axes interchange karne ka program likho.</div>
+
+<h3>Viva Questions</h3>
+<ul>
+<li>NumPy ka full form kya hai?</li><li>NumPy ka main data structure kya hai?</li><li><code>import numpy as np</code> mein <code>np</code> kya hai?</li><li><code>shape</code> aur <code>size</code> mein difference?</li><li><code>ndim</code> kya batata hai?</li><li>Indexing kis index se start hoti hai?</li><li><code>np.zeros()</code> ka use?</li><li><code>np.ones()</code> ka use?</li><li>ufunc kya hota hai?</li><li>Matrix multiplication ke liye kaunsa NumPy function/operator use kar sakte hain?</li><li>Determinant ke liye kaunsa function?</li><li>Inverse ke liye kaunsa function?</li><li>Linear equations solve karne ke liye kaunsa function?</li><li>Broadcasting kya hai?</li><li><code>flatten()</code> kya karta hai?</li></ul>
+
+<h3 id="mcq">MCQs</h3>
+<div class="qbox"><b>1.</b> NumPy ka main purpose kya hai?<br>A) Web design &nbsp; B) Numerical computing &nbsp; C) Audio editing &nbsp; D) OS installation</div>
+<div class="qbox"><b>2.</b> NumPy ko alias ke saath import karne ka common syntax kya hai?<br>A) <code>import np</code> &nbsp; B) <code>import numpy as np</code> &nbsp; C) <code>include numpy</code> &nbsp; D) <code>using numpy</code></div>
+<div class="qbox"><b>3.</b> Zero-filled array banane ke liye kya use hota hai?<br>A) <code>np.zero()</code> &nbsp; B) <code>np.zeros()</code> &nbsp; C) <code>np.emptyzero()</code> &nbsp; D) <code>zero.array()</code></div>
+<div class="qbox"><b>4.</b> Array dimensions count karne ke liye?<br>A) <code>ndim</code> &nbsp; B) <code>shape</code> &nbsp; C) <code>size</code> &nbsp; D) <code>dim()</code></div>
+<div class="qbox"><b>5.</b> Total elements count karne ke liye?<br>A) <code>shape</code> &nbsp; B) <code>size</code> &nbsp; C) <code>ndim</code> &nbsp; D) <code>length</code></div>
+<div class="qbox"><b>6.</b> Matrix determinant ke liye?<br>A) <code>np.linalg.det()</code> &nbsp; B) <code>np.matrix.det()</code> &nbsp; C) <code>np.detector()</code> &nbsp; D) <code>det.matrix()</code></div>
+<div class="qbox"><b>7.</b> Matrix inverse ke liye?<br>A) <code>np.linalg.inverse()</code> &nbsp; B) <code>np.linalg.inv()</code> &nbsp; C) <code>np.inverse()</code> &nbsp; D) <code>inv.matrix()</code></div>
+<div class="qbox"><b>8.</b> Linear equations solve karne ke liye?<br>A) <code>np.linalg.solve()</code> &nbsp; B) <code>np.solve.linear()</code> &nbsp; C) <code>np.equation()</code> &nbsp; D) <code>np.linear()</code></div>
+<div class="qbox"><b>9.</b> Array ko one-dimensional banane ke liye kaunsa method useful hai?<br>A) <code>flatten()</code> &nbsp; B) <code>expand()</code> &nbsp; C) <code>flat2()</code> &nbsp; D) <code>single()</code></div>
+<div class="qbox"><b>10.</b> Broadcasting ka basic purpose kya hai?<br>A) Images draw karna &nbsp; B) Compatible shapes ke beech operations allow karna &nbsp; C) Python install karna &nbsp; D) Files delete karna</div>
+<div class="exam"><strong>Answer Key:</strong> 1-B, 2-B, 3-B, 4-A, 5-B, 6-A, 7-B, 8-A, 9-A, 10-B</div>
+
+<h3 id="revision">Quick Revision — 2 Minute Notes</h3>
+<table><tr><th>Topic</th><th>Yaad rakhne wali baat</th></tr>
+<tr><td>NumPy</td><td>Python numerical computing library</td></tr>
+<tr><td>Import</td><td><code>import numpy as np</code></td></tr>
+<tr><td>Array</td><td>Main NumPy data structure: ndarray</td></tr>
+<tr><td><code>np.array()</code></td><td>Given data se array</td></tr>
+<tr><td><code>np.zeros()</code></td><td>Zero-filled array</td></tr>
+<tr><td><code>np.ones()</code></td><td>One-filled array</td></tr>
+<tr><td><code>shape</code></td><td>Array structure</td></tr>
+<tr><td><code>size</code></td><td>Total elements</td></tr>
+<tr><td><code>ndim</code></td><td>Number of dimensions</td></tr>
+<tr><td>Indexing</td><td>Specific element access</td></tr>
+<tr><td>Slicing</td><td>Array ka portion access</td></tr>
+<tr><td>ufunc</td><td>Array-oriented mathematical function</td></tr>
+<tr><td><code>np.matmul()</code></td><td>Matrix multiplication</td></tr>
+<tr><td><code>np.linalg.det()</code></td><td>Determinant</td></tr>
+<tr><td><code>np.linalg.inv()</code></td><td>Inverse</td></tr>
+<tr><td><code>np.linalg.solve()</code></td><td>Linear equations solve</td></tr>
+<tr><td><code>np.savetxt()</code></td><td>Text file save</td></tr>
+<tr><td><code>np.loadtxt()</code></td><td>Text file load</td></tr>
+<tr><td><code>np.save()</code></td><td>NumPy binary save</td></tr>
+<tr><td><code>np.load()</code></td><td>Saved NumPy data load</td></tr>
+<tr><td>Broadcasting</td><td>Compatible shapes ke saath automatic expansion/treatment</td></tr>
+<tr><td><code>flatten()</code></td><td>Array ko 1-D mein convert</td></tr>
+<tr><td><code>swapaxes()</code></td><td>Do axes interchange</td></tr></table>
+
+<div class="note"><strong>SBTE Focus:</strong> Unit 5 ke theory concepts ke saath official practicals ko bhi practice karo. CO-5 specifically NumPy programs, NumPy arrays aur linear algebra problem solving par focused hai. fileciteturn53file0</div>
+</section>
+<footer class="footer"><span>PRINCE RAJ STUDY · Python Programming Unit 5</span><span>SBTE Bihar · CSE 3rd Semester</span></footer>
+</main>
+</body></html>
