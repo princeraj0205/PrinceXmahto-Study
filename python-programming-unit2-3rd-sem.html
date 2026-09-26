@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PRINCE RAJ STUDY — CSE 3rd Semester Python Programming Unit 2">
+<title>Python Programming — Unit 2 | PRINCE RAJ STUDY</title>
+<link rel="icon" href="assets/princexmahto-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172033;--muted:#5d6678;--blue:#1359b3;--blue2:#eaf2ff;--line:#dfe5ee;--paper:#fff;--bg:#f4f6f9;--green:#18794e;--greenbg:#edf9f2;--red:#b42318;--redbg:#fff0ee;--yellow:#8a5a00;--yellowbg:#fff8df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.75}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.topin{max-width:1120px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800}.brand img{width:34px;height:34px}.brand small{display:block;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em}.actions{display:flex;gap:8px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13px;background:#fff}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.book{max-width:940px;margin:28px auto 70px;background:var(--paper);box-shadow:0 12px 45px rgba(22,35,55,.08);border:1px solid #e5e9ef}
+.cover{padding:72px 70px 62px;border-bottom:5px solid var(--blue);background:linear-gradient(#fff,#f9fbff)}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--blue);text-transform:uppercase}.cover h1{font:800 43px/1.12 Manrope;margin:15px 0 12px}.cover h2{font:700 24px/1.3 Manrope;margin:0 0 22px;color:#31415d}.cover p{max-width:700px;color:var(--muted);font-size:16px}.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.tag{border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:700}
+.content{padding:48px 70px}.toc{border:1px solid var(--line);padding:24px 26px;background:#fbfcfe;margin-bottom:42px}.toc h2{margin-top:0}.toc a{color:var(--blue);text-decoration:none}.toc li{margin:6px 0}
+h2{font:800 28px/1.25 Manrope;color:#123f7d;margin:46px 0 16px;border-bottom:1px solid var(--line);padding-bottom:9px}h3{font:800 21px/1.35 Manrope;margin:34px 0 12px;color:#203657}h4{font:800 16px Manrope;margin:24px 0 8px;color:#304968}p{margin:8px 0 14px}.lead{font-size:17px;color:#46536a}
+.note,.example,.warn,.exam{margin:18px 0;padding:17px 19px;border-left:4px solid}.note{background:var(--yellowbg);border-color:#d49b16}.example{background:var(--greenbg);border-color:var(--green)}.warn{background:var(--redbg);border-color:var(--red)}.exam{background:var(--blue2);border-color:var(--blue)}.note strong,.example strong,.warn strong,.exam strong{display:block;margin-bottom:5px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top}th{background:#f1f5fa;text-align:left}
+pre{background:#111827;color:#e8edf6;border-radius:8px;padding:18px;overflow:auto;font:13px/1.65 "JetBrains Mono",monospace;margin:14px 0}code{font-family:"JetBrains Mono",monospace;background:#f1f3f6;padding:2px 5px;border-radius:4px;font-size:.9em}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:15px 0}.flow span{padding:9px 13px;border:1px solid #b9cbea;background:#f5f9ff;border-radius:6px;font-weight:700}.arrow{color:var(--blue);font-weight:900}
+ul,ol{padding-left:25px}.small{font-size:13px;color:var(--muted)}.qbox{padding:14px 16px;border:1px solid var(--line);margin:9px 0;border-radius:7px;background:#fff}
+.footer{padding:25px 70px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+@media(max-width:700px){.topin{padding:10px 12px}.actions .btn:not(.primary){display:none}.book{margin:0;border:0;box-shadow:none}.cover,.content,.footer{padding:34px 20px}.cover h1{font-size:32px}.cover h2{font-size:20px}h2{font-size:24px}.footer{display:block}.footer div{margin-top:7px}table{display:block;overflow-x:auto}}
+@media print{body{background:#fff}.top{display:none}.book{box-shadow:none;border:0;margin:0;max-width:none}.content{padding:30px 45px}.footer{padding:20px 45px}@page{size:A4 portrait;margin:12mm}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+<a class="brand" href="index.html"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PRINCE RAJ STUDY<small>CSE 3rd Semester · Diploma Computer Science & Engineering</small></span></a>
+<div class="actions"><a class="btn" href="cse-3rd-semester.html">← CSE 3rd Sem</a><a class="btn primary" href="#" onclick="window.print();return false">Print / PDF</a></div>
+</div></header>
+
+<main class="book">
+<section class="cover">
+<div class="eyebrow">PRINCE RAJ STUDY · CSE 3RD SEMESTER</div>
+<h1>Python Programming</h1>
+<h2>Unit 2 — Conditional and Iterative Statements</h2>
+<p><b>Course Code:</b> 2418305 (T2418305 / P2418305 / S2418305)</p>
+<p>This is a full theory-book style chapter for Unit 2, prepared in the same order as the uploaded SBTE Bihar Semester III syllabus, with detailed explanations, examples, algorithms, programs, viva questions and exam preparation.</p>
+<div class="meta"><span class="tag">Unit 2</span><span class="tag">CO-2</span><span class="tag">Theory + Practical</span><span class="tag">By Prince Raj</span></div>
+</section>
+
+<section class="content">
+<div class="toc">
+<h2 style="margin-top:0">Table of Contents</h2>
+<ol>
+<li><a href="#overview">Unit Overview & Syllabus Coverage</a></li>
+<li><a href="#decision">Decision Making — Basic Concept</a></li>
+<li><a href="#if">2.1 Simple if Statement</a></li>
+<li><a href="#ifelse">if-else Statement</a></li>
+<li><a href="#elif">if-elif-else Statement</a></li>
+<li><a href="#nestedif">Nested Decision Making</a></li>
+<li><a href="#iteration">2.2 Iterative Statements</a></li>
+<li><a href="#while">while Loop</a></li>
+<li><a href="#for">for Loop</a></li>
+<li><a href="#range">range() Function</a></li>
+<li><a href="#break">break and continue</a></li>
+<li><a href="#nestedloop">Nested Loops</a></li>
+<li><a href="#programs">Unit 2 Practical Programs</a></li>
+<li><a href="#debug">Common Errors & Debugging</a></li>
+<li><a href="#exam">Exam Preparation</a></li>
+<li><a href="#mcq">MCQs + Answer Key</a></li>
+<li><a href="#revision">Quick Revision & Checklist</a></li>
+</ol>
+</div>
+
+<h2 id="overview">Unit Overview & Syllabus Coverage</h2>
+<p class="lead">Unit 2 teaches how a Python program can make decisions and repeat instructions. These two ideas are the foundation of problem-solving: <b>selection</b> chooses a path, while <b>iteration</b> repeats a block of work.</p>
+<div class="note"><strong>SBTE Bihar Unit 2</strong> The uploaded syllabus names this unit <b>Conditional and Iterative Statements</b>. It includes simple <code>if</code>, <code>if-else</code>, <code>if-elif-else</code>, <code>while</code>, <code>for</code>, <code>range</code>, <code>break</code>, <code>continue</code> and nested loops. The theory outcomes are to write Python programs using decision-making statements and loop structures. fileciteturn24file0</div>
+<p>The syllabus also places Unit 2 under <b>CO-2</b>: writing and executing programs using control statements. The suggested theory assessment gives Unit 2 six classroom-instruction hours and 10 marks in the end-theory specification table. fileciteturn24file1</p>
+
+<div class="flow"><span>Input</span><b class="arrow">→</b><span>Condition</span><b class="arrow">→</b><span>Decision / Repetition</span><b class="arrow">→</b><span>Output</span></div>
+
+<h3>What you should be able to do after Unit 2</h3>
+<ul>
+<li>Write a condition using comparison and logical operators.</li>
+<li>Execute a block only when a condition is true.</li>
+<li>Choose between two alternatives using <code>if-else</code>.</li>
+<li>Choose one among several alternatives using <code>if-elif-else</code>.</li>
+<li>Repeat a task while a condition remains true.</li>
+<li>Repeat over a sequence using a <code>for</code> loop.</li>
+<li>Generate controlled number sequences with <code>range()</code>.</li>
+<li>Stop or skip loop iterations using <code>break</code> and <code>continue</code>.</li>
+<li>Build nested loops for repeated patterns and multi-level problems.</li>
+</ul>
+
+<h2 id="decision">Decision Making — Basic Concept</h2>
+<p>A normal program executes statements in sequence. But real problems often require a choice: “If marks are 40 or more, print Pass; otherwise print Fail.” Python provides conditional statements for such decisions.</p>
+<p>A condition is an expression that produces a Boolean result, normally <code>True</code> or <code>False</code>.</p>
+<pre>marks = 65
+print(marks &gt;= 40)</pre>
+<pre>True</pre>
+<p>Once a condition produces a Boolean value, a decision-making statement can use it to determine which block should execute.</p>
+
+<h3>Condition building blocks</h3>
+<table><tr><th>Type</th><th>Example</th><th>Purpose</th></tr>
+<tr><td>Comparison</td><td><code>x &gt; 10</code></td><td>Compares values.</td></tr>
+<tr><td>Equality</td><td><code>x == 10</code></td><td>Checks whether values are equal.</td></tr>
+<tr><td>Logical AND</td><td><code>x&gt;0 and x&lt;10</code></td><td>Requires both conditions to be true.</td></tr>
+<tr><td>Logical OR</td><td><code>x==0 or x==1</code></td><td>Requires at least one condition to be true.</td></tr>
+<tr><td>Logical NOT</td><td><code>not passed</code></td><td>Reverses a Boolean result.</td></tr></table>
+
+<h3>Indentation is part of the block</h3>
+<p>Python uses indentation to show which statements belong to a conditional or loop block.</p>
+<pre>marks = 75
+
+if marks &gt;= 40:
+    print("Pass")
+    print("Congratulations")
+
+print("Program continues")</pre>
+<p>The two indented <code>print()</code> statements belong to the <code>if</code> block. The last statement is outside that block.</p>
+<div class="warn"><strong>Important</strong> Do not randomly mix indentation levels. A block must have consistent indentation.</div>
+
+<h2 id="if">2.1 Simple if Statement</h2>
+<p>The simple <code>if</code> statement executes a block only when its condition is true.</p>
+<h3>Syntax</h3>
+<pre>if condition:
+    statement1
+    statement2</pre>
+<p>The colon <code>:</code> starts the block, and the indented statements form the body.</p>
+
+<h3>Flow of execution</h3>
+<div class="flow"><span>Evaluate condition</span><b class="arrow">→</b><span>True?</span><b class="arrow">→</b><span>Execute block</span><b class="arrow">→</b><span>Continue</span></div>
+<p>If the condition is false, Python skips the indented block and continues with the next statement after it.</p>
+
+<h3>Example 1 — Check positive number</h3>
+<pre>number = 10
+
+if number &gt; 0:
+    print("Positive number")</pre>
+
+<h3>Example 2 — Check eligibility</h3>
+<pre>age = 20
+
+if age &gt;= 18:
+    print("Eligible")</pre>
+
+<h3>Example 3 — Even number</h3>
+<pre>number = 24
+
+if number % 2 == 0:
+    print("Even number")</pre>
+<p>The expression <code>number % 2 == 0</code> checks whether the remainder after division by 2 is zero.</p>
+
+<h3>Algorithm for simple if</h3>
+<ol><li>Start.</li><li>Read the required input.</li><li>Evaluate the condition.</li><li>If the condition is true, execute the block.</li><li>Continue with the next statement.</li><li>Stop.</li></ol>
+
+<h3>Important point</h3>
+<p>A simple <code>if</code> does not provide an alternative block. It either executes the block or skips it.</p>
+
+<h2 id="ifelse">if-else Statement</h2>
+<p>Use <code>if-else</code> when exactly two alternatives are required: one block for a true condition and another for a false condition.</p>
+<h3>Syntax</h3>
+<pre>if condition:
+    statements_for_true
+else:
+    statements_for_false</pre>
+
+<h3>Example — Pass or Fail</h3>
+<pre>marks = int(input("Enter marks: "))
+
+if marks &gt;= 40:
+    print("Pass")
+else:
+    print("Fail")</pre>
+
+<h3>Execution logic</h3>
+<div class="flow"><span>Condition</span><b class="arrow">→</b><span>True → if block</span><b class="arrow">/</b><span>False → else block</span></div>
+<p>Only one of the two blocks executes for a particular evaluation.</p>
+
+<h3>Example — Even or Odd</h3>
+<pre>n = int(input("Enter a number: "))
+
+if n % 2 == 0:
+    print("Even")
+else:
+    print("Odd")</pre>
+
+<h3>Example — Larger of two numbers</h3>
+<pre>a = int(input("Enter a: "))
+b = int(input("Enter b: "))
+
+if a &gt; b:
+    print("A is larger")
+else:
+    print("B is larger")</pre>
+
+<div class="note"><strong>Edge case</strong> If the problem allows equal values, a plain greater-than comparison should be designed carefully. For example, when finding the larger value, an equal case may need separate handling if the question asks for it explicitly.</div>
+
+<h2 id="elif">if-elif-else Statement</h2>
+<p>When there are more than two possible conditions, Python provides <code>elif</code>, meaning “else if”.</p>
+<h3>Syntax</h3>
+<pre>if condition1:
+    block1
+elif condition2:
+    block2
+elif condition3:
+    block3
+else:
+    default_block</pre>
+
+<p>Python checks the conditions from top to bottom. When the first true condition is found, its block executes and the remaining alternatives are skipped.</p>
+
+<h3>Example — Grade</h3>
+<pre>marks = int(input("Enter marks: "))
+
+if marks &gt;= 80:
+    print("Grade A")
+elif marks &gt;= 60:
+    print("Grade B")
+elif marks &gt;= 40:
+    print("Grade C")
+else:
+    print("Fail")</pre>
+
+<h3>Why order matters</h3>
+<p>Suppose the conditions were written from low to high:</p>
+<pre>if marks &gt;= 40:
+    print("C")
+elif marks &gt;= 60:
+    print("B")
+elif marks &gt;= 80:
+    print("A")</pre>
+<p>For 85 marks, the first condition is already true, so Python would print C. Therefore, overlapping ranges should normally be arranged from the most restrictive/highest threshold to the lower thresholds when that matches the intended grading logic.</p>
+
+<div class="example"><strong>Memory rule</strong> <code>if</code> = first possibility, <code>elif</code> = additional possibilities, <code>else</code> = remaining case.</div>
+
+<h3>Example — Positive, Negative or Zero</h3>
+<p>This is one of the practical programs explicitly listed by the uploaded syllabus. fileciteturn24file2</p>
+<pre>n = float(input("Enter a number: "))
+
+if n &gt; 0:
+    print("Positive")
+elif n &lt; 0:
+    print("Negative")
+else:
+    print("Zero")</pre>
+
+<h2 id="nestedif">Nested Decision Making</h2>
+<p>A conditional statement placed inside another conditional block is called a nested conditional statement.</p>
+<pre>age = 20
+has_id = True
+
+if age &gt;= 18:
+    if has_id:
+        print("Allowed")
+    else:
+        print("ID required")
+else:
+    print("Not eligible")</pre>
+<p>Nested conditions should be used when the second decision depends on the first decision.</p>
+
+<h3>Nested vs elif</h3>
+<table><tr><th>Nested if</th><th>if-elif-else</th></tr>
+<tr><td>One decision is placed inside another.</td><td>Several alternatives are checked at the same level.</td></tr>
+<tr><td>Useful for dependent decisions.</td><td>Useful for mutually exclusive choices.</td></tr></table>
+
+<h2 id="iteration">2.2 Iterative Statements</h2>
+<p>An iterative statement repeats a set of instructions. Loops are useful when the same operation must be performed many times.</p>
+<p>For example, instead of writing:</p>
+<pre>print(1)
+print(2)
+print(3)
+print(4)
+print(5)</pre>
+<p>a loop can express the repeated pattern more compactly.</p>
+<div class="flow"><span>Start</span><b class="arrow">→</b><span>Check / get next item</span><b class="arrow">→</b><span>Execute body</span><b class="arrow">→</b><span>Repeat</span></div>
+
+<h3>Two main loops in Unit 2</h3>
+<table><tr><th>Loop</th><th>Basic idea</th><th>Common use</th></tr>
+<tr><td><code>while</code></td><td>Repeat while a condition is true.</td><td>Condition-controlled repetition.</td></tr>
+<tr><td><code>for</code></td><td>Iterate over items of an iterable/sequence or a generated range.</td><td>Known/counted repetition and sequence traversal.</td></tr></table>
+
+<h2 id="while">while Loop</h2>
+<p>The <code>while</code> loop repeatedly executes its body as long as its condition remains true.</p>
+<h3>Syntax</h3>
+<pre>while condition:
+    statements</pre>
+
+<h3>Basic example</h3>
+<pre>i = 1
+
+while i &lt;= 5:
+    print(i)
+    i += 1</pre>
+<p>Output:</p>
+<pre>1
+2
+3
+4
+5</pre>
+
+<h3>Step-by-step execution</h3>
+<ol><li><code>i</code> starts at 1.</li><li>Python checks <code>i &lt;= 5</code>.</li><li>The body prints the current value.</li><li><code>i</code> increases by 1.</li><li>The condition is checked again.</li><li>When <code>i</code> becomes 6, the condition is false and the loop ends.</li></ol>
+
+<h3>Important: update the loop variable</h3>
+<p>A condition-controlled loop must eventually become false unless an intentionally infinite loop is required. Forgetting to update the control variable can create an infinite loop.</p>
+<pre># Risk of infinite repetition
+i = 1
+while i &lt;= 5:
+    print(i)
+    # i += 1 is missing</pre>
+<div class="warn"><strong>Common mistake</strong> In a <code>while</code> loop, always check whether the condition can eventually become false.</div>
+
+<h3>while loop for sum</h3>
+<pre>n = int(input("Enter n: "))
+i = 1
+total = 0
+
+while i &lt;= n:
+    total += i
+    i += 1
+
+print("Sum =", total)</pre>
+
+<h3>while loop for countdown</h3>
+<pre>i = 5
+while i &gt;= 1:
+    print(i)
+    i -= 1
+
+print("Start!")</pre>
+
+<h3>while loop with user-controlled repetition</h3>
+<pre>choice = "y"
+
+while choice == "y":
+    print("Task executed")
+    choice = input("Continue? (y/n): ")</pre>
+<p>This illustrates a condition that depends on user input.</p>
+
+<h2 id="for">for Loop</h2>
+<p>The <code>for</code> loop is used to iterate over items produced by an iterable. In beginner programs, it is often combined with <code>range()</code> for counted repetition.</p>
+<h3>Syntax</h3>
+<pre>for variable in iterable:
+    statements</pre>
+
+<h3>Example — sequence of numbers</h3>
+<pre>for i in range(1, 6):
+    print(i)</pre>
+
+<h3>Example — string traversal</h3>
+<pre>word = "PYTHON"
+
+for ch in word:
+    print(ch)</pre>
+<p>Each iteration assigns the next character to <code>ch</code>.</p>
+
+<h3>Example — list traversal</h3>
+<pre>marks = [70, 82, 91]
+
+for mark in marks:
+    print(mark)</pre>
+
+<h3>for vs while</h3>
+<table><tr><th><code>for</code></th><th><code>while</code></th></tr>
+<tr><td>Convenient when iterating over a sequence/range.</td><td>Convenient when repetition depends on a condition.</td></tr>
+<tr><td>Loop variable is naturally advanced by iteration.</td><td>Programmer normally updates the control state.</td></tr>
+<tr><td>Often used for counted repetition.</td><td>Often used for condition-controlled repetition.</td></tr></table>
+
+<h2 id="range">range() Function</h2>
+<p><code>range()</code> produces a sequence of integers that can be iterated over. It is commonly used with <code>for</code>.</p>
+
+<h3>Forms of range()</h3>
+<table><tr><th>Form</th><th>Meaning</th><th>Example</th></tr>
+<tr><td><code>range(stop)</code></td><td>Starts at 0 and goes up to, but does not include, stop.</td><td><code>range(5)</code> → 0,1,2,3,4</td></tr>
+<tr><td><code>range(start, stop)</code></td><td>Starts at start and excludes stop.</td><td><code>range(2,6)</code> → 2,3,4,5</td></tr>
+<tr><td><code>range(start, stop, step)</code></td><td>Moves by step.</td><td><code>range(2,10,2)</code> → 2,4,6,8</td></tr></table>
+
+<h3>Very important: stop is excluded</h3>
+<pre>for i in range(1, 6):
+    print(i)</pre>
+<p>This prints 1 through 5, not 6.</p>
+
+<h3>Step value</h3>
+<pre>for i in range(2, 11, 2):
+    print(i)</pre>
+<p>Output:</p>
+<pre>2
+4
+6
+8
+10</pre>
+
+<h3>Reverse range</h3>
+<pre>for i in range(5, 0, -1):
+    print(i)</pre>
+<p>The negative step moves from larger numbers to smaller numbers.</p>
+
+<div class="note"><strong>Exam trick</strong> For <code>range(a, b)</code>, remember “start included, stop excluded.”</div>
+
+<h2 id="break">break and continue Statements</h2>
+
+<h3>break</h3>
+<p><code>break</code> immediately terminates the nearest enclosing loop. Control moves to the statement after that loop.</p>
+<pre>for i in range(1, 10):
+    if i == 5:
+        break
+    print(i)</pre>
+<p>Output:</p>
+<pre>1
+2
+3
+4</pre>
+
+<h3>continue</h3>
+<p><code>continue</code> skips the remaining statements of the current iteration and moves to the next iteration of the nearest enclosing loop.</p>
+<pre>for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)</pre>
+<p>Output:</p>
+<pre>1
+2
+4
+5</pre>
+
+<h3>break vs continue</h3>
+<table><tr><th>Statement</th><th>Effect</th></tr>
+<tr><td><code>break</code></td><td>Ends the loop completely.</td></tr>
+<tr><td><code>continue</code></td><td>Skips only the current iteration.</td></tr></table>
+
+<h3>while + break example</h3>
+<pre>while True:
+    n = int(input("Enter 0 to stop: "))
+    if n == 0:
+        break
+    print("You entered:", n)</pre>
+
+<h2 id="nestedloop">Nested Loops</h2>
+<p>A loop inside another loop is called a nested loop. For every iteration of the outer loop, the inner loop normally completes its own iterations.</p>
+
+<h3>Basic example</h3>
+<pre>for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, j)</pre>
+<p>The outer loop controls <code>i</code>. For each value of <code>i</code>, the inner loop runs through its values of <code>j</code>.</p>
+
+<h3>Pattern example</h3>
+<pre>for i in range(1, 5):
+    for j in range(i):
+        print("*", end=" ")
+    print()</pre>
+<p>Output:</p>
+<pre>* 
+* * 
+* * * 
+* * * *</pre>
+
+<h3>Multiplication table using nested thinking</h3>
+<pre>for i in range(1, 6):
+    for j in range(1, 6):
+        print(i * j, end="	")
+    print()</pre>
+
+<div class="warn"><strong>Performance note</strong> Nested loops can execute many times. If the outer loop runs n times and the inner loop also runs about n times, the body may execute roughly n×n times.</div>
+
+<h2 id="programs">Unit 2 Practical Programs</h2>
+<p>The uploaded practical syllabus explicitly lists six groups of Unit 2 programs: positive/negative/zero, leap year, prime numbers in an interval, multiplication table, Fibonacci sequence and factorial. fileciteturn24file2</p>
+
+<h3>Program 1 — Check Positive, Negative or Zero</h3>
+<h4>Problem</h4><p>Read a number and identify whether it is positive, negative or zero.</p>
+<h4>Algorithm</h4>
+<ol><li>Start.</li><li>Read the number.</li><li>If number &gt; 0, print Positive.</li><li>Else if number &lt; 0, print Negative.</li><li>Otherwise print Zero.</li><li>Stop.</li></ol>
+<pre>n = float(input("Enter a number: "))
+
+if n &gt; 0:
+    print("Positive")
+elif n &lt; 0:
+    print("Negative")
+else:
+    print("Zero")</pre>
+<h4>Sample</h4>
+<pre>Enter a number: -12
+Negative</pre>
+
+<h3>Program 2 — Check Leap Year</h3>
+<p>A year is a leap year when it is divisible by 400, or when it is divisible by 4 but not divisible by 100.</p>
+<pre>year = int(input("Enter year: "))
+
+if year % 400 == 0:
+    print("Leap Year")
+elif year % 100 == 0:
+    print("Not a Leap Year")
+elif year % 4 == 0:
+    print("Leap Year")
+else:
+    print("Not a Leap Year")</pre>
+<h4>Examples</h4>
+<table><tr><th>Year</th><th>Result</th></tr><tr><td>2000</td><td>Leap Year</td></tr><tr><td>1900</td><td>Not a Leap Year</td></tr><tr><td>2024</td><td>Leap Year</td></tr><tr><td>2023</td><td>Not a Leap Year</td></tr></table>
+<div class="exam"><strong>Exam memory rule</strong> 400 → leap; otherwise 100 → not leap; otherwise 4 → leap; otherwise not leap.</div>
+
+<h3>Program 3 — Print Prime Numbers in an Interval</h3>
+<p>A prime number greater than 1 has exactly two positive divisors: 1 and itself.</p>
+<h4>Logic</h4>
+<p>For each number in the interval, test whether it has a divisor other than 1 and itself. A simple beginner-friendly method checks divisors from 2 up to a suitable limit.</p>
+<pre>start = int(input("Enter start: "))
+end = int(input("Enter end: "))
+
+for n in range(start, end + 1):
+    if n &lt; 2:
+        continue
+
+    is_prime = True
+
+    for d in range(2, n):
+        if n % d == 0:
+            is_prime = False
+            break
+
+    if is_prime:
+        print(n, end=" ")</pre>
+<h4>Sample</h4>
+<pre>Enter start: 10
+Enter end: 20
+11 13 17 19</pre>
+<div class="note"><strong>Why break?</strong> Once a divisor is found, the number is known to be non-prime, so there is no need to test more divisors.</div>
+
+<h3>Program 4 — Multiplication Table</h3>
+<pre>n = int(input("Enter number: "))
+
+for i in range(1, 11):
+    print(n, "x", i, "=", n * i)</pre>
+<h4>Sample output</h4>
+<pre>Enter number: 7
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+7 x 7 = 49
+7 x 8 = 56
+7 x 9 = 63
+7 x 10 = 70</pre>
+
+<h3>Program 5 — Fibonacci Sequence</h3>
+<p>In the common Fibonacci sequence, each new term is obtained by adding the previous two terms. A typical starting sequence is 0, 1, 1, 2, 3, 5, ...</p>
+<pre>n = int(input("Enter number of terms: "))
+
+a = 0
+b = 1
+
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b</pre>
+<h4>Sample</h4>
+<pre>Enter number of terms: 8
+0 1 1 2 3 5 8 13</pre>
+<div class="example"><strong>Core update</strong> Before each iteration, <code>a</code> is the current term and <code>b</code> is the next term. The assignment <code>a, b = b, a+b</code> advances both values together.</div>
+
+<h3>Program 6 — Factorial of a Number</h3>
+<p>The factorial of a non-negative integer n is the product of all positive integers from 1 to n. It is written as n!.</p>
+<p>For example, <code>5! = 5×4×3×2×1 = 120</code>. Also, <code>0! = 1</code>.</p>
+<pre>n = int(input("Enter a non-negative integer: "))
+
+factorial = 1
+
+if n &lt; 0:
+    print("Factorial is not defined for negative integers")
+else:
+    for i in range(1, n + 1):
+        factorial *= i
+    print("Factorial =", factorial)</pre>
+<h4>Sample</h4>
+<pre>Enter a non-negative integer: 5
+Factorial = 120</pre>
+
+<h2 id="debug">Common Errors & Debugging</h2>
+
+<h3>1. Missing colon</h3>
+<pre># Wrong
+if x &gt; 5
+    print(x)
+
+# Correct
+if x &gt; 5:
+    print(x)</pre>
+
+<h3>2. Wrong indentation</h3>
+<pre># Correct structure
+if marks &gt;= 40:
+    print("Pass")
+    print("Result recorded")</pre>
+
+<h3>3. Infinite while loop</h3>
+<pre>i = 1
+while i &lt;= 5:
+    print(i)
+    i += 1</pre>
+<p>Always check how the loop condition changes.</p>
+
+<h3>4. Incorrect range expectation</h3>
+<pre>range(1, 5)</pre>
+<p>produces 1, 2, 3, 4 — the stop value 5 is excluded.</p>
+
+<h3>5. Using break when continue is needed</h3>
+<p>If you want to skip only one case, use <code>continue</code>. If you want to terminate the loop, use <code>break</code>.</p>
+
+<h3>6. Wrong elif ordering</h3>
+<p>When conditions overlap, place the conditions in an order that matches the intended decision logic. Test boundary values such as 0, 1, 40, 59, 60, 79 and 80 when building a grading program.</p>
+
+<h3>7. Forgetting input conversion</h3>
+<pre>age = int(input("Enter age: "))</pre>
+<p>Use a suitable conversion when arithmetic or numeric comparison is required.</p>
+
+<h2 id="exam">Examination Preparation</h2>
+
+<h3>Important definitions</h3>
+<ol>
+<li><b>Conditional statement:</b> A statement that chooses whether and/or which block of code executes based on a condition.</li>
+<li><b>Iteration:</b> Repeated execution of a block of statements.</li>
+<li><b>Loop:</b> A control structure used to repeat a block.</li>
+<li><b>while loop:</b> Repeats a block while its condition is true.</li>
+<li><b>for loop:</b> Iterates over items of an iterable.</li>
+<li><b>Nested loop:</b> A loop written inside another loop.</li>
+<li><b>break:</b> Terminates the nearest enclosing loop.</li>
+<li><b>continue:</b> Skips the current loop iteration and proceeds to the next iteration.</li>
+<li><b>range:</b> A built-in construct used to generate a sequence of integers for iteration.</li>
+</ol>
+
+<h3>Very Short Questions</h3>
+<div class="qbox">1. What is a conditional statement?</div>
+<div class="qbox">2. What is the syntax of a simple <code>if</code> statement?</div>
+<div class="qbox">3. What is the purpose of <code>else</code>?</div>
+<div class="qbox">4. What does <code>elif</code> mean?</div>
+<div class="qbox">5. What is a loop?</div>
+<div class="qbox">6. What is a <code>while</code> loop?</div>
+<div class="qbox">7. What is a <code>for</code> loop?</div>
+<div class="qbox">8. What does <code>range(5)</code> produce?</div>
+<div class="qbox">9. What is the use of <code>break</code>?</div>
+<div class="qbox">10. What is the use of <code>continue</code>?</div>
+<div class="qbox">11. What is a nested loop?</div>
+<div class="qbox">12. Why is indentation important in Python?</div>
+
+<h3>Short Answer Questions</h3>
+<ol>
+<li>Explain the simple <code>if</code> statement with syntax and example.</li>
+<li>Explain <code>if-else</code> with a suitable program.</li>
+<li>Explain <code>if-elif-else</code> and the importance of condition order.</li>
+<li>Differentiate <code>if-else</code> and <code>if-elif-else</code>.</li>
+<li>Explain the working of a <code>while</code> loop.</li>
+<li>Explain the <code>for</code> loop with an example.</li>
+<li>Explain all three common forms of <code>range()</code>.</li>
+<li>Differentiate <code>break</code> and <code>continue</code>.</li>
+<li>Explain nested loops with an example.</li>
+<li>Explain the difference between condition-controlled and counted repetition.</li>
+</ol>
+
+<h3>Long Answer Questions</h3>
+<ol>
+<li>Explain decision-making statements in Python with syntax, flow and examples.</li>
+<li>Explain simple <code>if</code>, <code>if-else</code> and <code>if-elif-else</code> statements in detail.</li>
+<li>Explain the <code>while</code> loop with algorithm, syntax and examples.</li>
+<li>Explain the <code>for</code> loop and <code>range()</code> function with suitable examples.</li>
+<li>Explain <code>break</code> and <code>continue</code> statements with programs.</li>
+<li>Explain nested loops with a suitable pattern-printing program.</li>
+<li>Write and explain a Python program to check whether a year is a leap year.</li>
+<li>Write and explain a program to print prime numbers in an interval.</li>
+<li>Write a Python program to generate the Fibonacci sequence.</li>
+<li>Write a Python program to calculate factorial using a loop.</li>
+</ol>
+
+<h3>Practical/Viva Questions</h3>
+<div class="qbox"><b>Q:</b> Why does <code>range(1, 6)</code> stop at 5?<br><b>A:</b> The stop argument is excluded.</div>
+<div class="qbox"><b>Q:</b> What happens if a while-loop condition never becomes false?<br><b>A:</b> The loop can continue indefinitely unless interrupted or terminated.</div>
+<div class="qbox"><b>Q:</b> Can a for loop iterate through a string?<br><b>A:</b> Yes. A string is iterable, so its characters can be processed one by one.</div>
+<div class="qbox"><b>Q:</b> What does break do inside a nested loop?<br><b>A:</b> It terminates the nearest enclosing loop in which it occurs.</div>
+<div class="qbox"><b>Q:</b> What does continue do?<br><b>A:</b> It skips the remaining body of the current iteration and starts the next iteration.</div>
+
+<h2 id="mcq">MCQs</h2>
+<div class="qbox"><b>1.</b> Which keyword is used for a conditional statement?<br>A) loop &nbsp; B) if &nbsp; C) check &nbsp; D) condition</div>
+<div class="qbox"><b>2.</b> Which keyword provides the alternative block?<br>A) otherwise &nbsp; B) else &nbsp; C) default &nbsp; D) then</div>
+<div class="qbox"><b>3.</b> Which keyword is used for another condition after <code>if</code>?<br>A) elif &nbsp; B) elseif &nbsp; C) nextif &nbsp; D) another</div>
+<div class="qbox"><b>4.</b> Which loop repeats while a condition is true?<br>A) for &nbsp; B) while &nbsp; C) repeat &nbsp; D) do</div>
+<div class="qbox"><b>5.</b> What is the output of <code>list(range(5))</code>?<br>A) [1,2,3,4,5] &nbsp; B) [0,1,2,3,4] &nbsp; C) [0,1,2,3,4,5] &nbsp; D) [1,2,3,4]</div>
+<div class="qbox"><b>6.</b> Which statement immediately terminates a loop?<br>A) stop &nbsp; B) exit &nbsp; C) break &nbsp; D) terminate</div>
+<div class="qbox"><b>7.</b> Which statement skips the current iteration?<br>A) skip &nbsp; B) continue &nbsp; C) next &nbsp; D) passloop</div>
+<div class="qbox"><b>8.</b> Which is a nested loop?<br>A) loop after loop &nbsp; B) loop inside loop &nbsp; C) two loops on separate lines &nbsp; D) loop without condition</div>
+<div class="qbox"><b>9.</b> What does <code>range(2, 8, 2)</code> produce?<br>A) 2,4,6 &nbsp; B) 2,4,6,8 &nbsp; C) 1,3,5,7 &nbsp; D) 2,3,4,5,6,7</div>
+<div class="qbox"><b>10.</b> Which symbol starts the body of an if statement?<br>A) ; &nbsp; B) : &nbsp; C) . &nbsp; D) ,</div>
+<div class="qbox"><b>11.</b> Which is the correct Python conditional syntax?<br>A) if x&gt;5 then &nbsp; B) if x&gt;5: &nbsp; C) if (x&gt;5) then &nbsp; D) if x&gt;5;</div>
+<div class="qbox"><b>12.</b> In a while loop, what must eventually happen for normal termination?<br>A) condition becomes true forever &nbsp; B) condition becomes false &nbsp; C) variable becomes string &nbsp; D) print executes</div>
+<div class="qbox"><b>13.</b> Which program is naturally suited to a loop?<br>A) printing one name &nbsp; B) printing a multiplication table &nbsp; C) assigning one value &nbsp; D) importing a module</div>
+<div class="qbox"><b>14.</b> Which statement skips only the current iteration?<br>A) break &nbsp; B) continue &nbsp; C) return &nbsp; D) stop</div>
+<div class="qbox"><b>15.</b> Which year is a leap year?<br>A) 1900 &nbsp; B) 2000 &nbsp; C) 2023 &nbsp; D) 2100</div>
+<h4>Answer Key</h4>
+<p><b>1-B, 2-B, 3-A, 4-B, 5-B, 6-C, 7-B, 8-B, 9-A, 10-B, 11-B, 12-B, 13-B, 14-B, 15-B</b></p>
+
+<h2 id="revision">Quick Revision & Final Checklist</h2>
+<table>
+<tr><th>Topic</th><th>One-line memory point</th></tr>
+<tr><td><code>if</code></td><td>Execute block only when condition is true.</td></tr>
+<tr><td><code>if-else</code></td><td>Choose between two alternatives.</td></tr>
+<tr><td><code>elif</code></td><td>Check additional alternatives in order.</td></tr>
+<tr><td><code>while</code></td><td>Repeat while condition remains true.</td></tr>
+<tr><td><code>for</code></td><td>Iterate over an iterable.</td></tr>
+<tr><td><code>range()</code></td><td>Generates integer sequence; stop is excluded.</td></tr>
+<tr><td><code>break</code></td><td>Terminate nearest loop.</td></tr>
+<tr><td><code>continue</code></td><td>Skip current iteration.</td></tr>
+<tr><td>Nested loop</td><td>Loop inside another loop.</td></tr>
+<tr><td>Indentation</td><td>Defines the body of control structures.</td></tr>
+</table>
+
+<h3>Final Unit 2 checklist</h3>
+<ul>
+<li>□ Simple if syntax and execution understood.</li>
+<li>□ if-else practiced.</li>
+<li>□ if-elif-else practiced.</li>
+<li>□ Nested conditions understood.</li>
+<li>□ while loop written without infinite-loop mistakes.</li>
+<li>□ for loop practiced.</li>
+<li>□ range(stop), range(start, stop), range(start, stop, step) memorized.</li>
+<li>□ break and continue difference clear.</li>
+<li>□ Nested loops practiced.</li>
+<li>□ Positive/negative/zero program written.</li>
+<li>□ Leap-year program written.</li>
+<li>□ Prime-number interval program written.</li>
+<li>□ Multiplication-table program written.</li>
+<li>□ Fibonacci program written.</li>
+<li>□ Factorial program written.</li>
+<li>□ Boundary cases tested.</li>
+<li>□ At least 10 theory questions practiced.</li>
+<li>□ MCQs revised.</li>
+</ul>
+
+<div class="exam"><strong>🔥 High Exam Priority</strong> Conditional statements; if-elif-else logic; while vs for; range() forms; break vs continue; nested loops; leap year; prime numbers; Fibonacci; factorial; multiplication table; positive/negative/zero program.</div>
+
+</section>
+<footer class="footer"><span>PRINCE RAJ STUDY · CSE 3rd Semester · Python Programming · Unit 2</span><span>Course Code 2418305</span></footer>
+</main>
+</body>
+</html>
