@@ -311,6 +311,330 @@ else:
     print("No real roots")</pre>
 <div class="exam"><strong>Exam Tip</strong> Always check the discriminant before taking its square root when the question asks specifically for real roots.</div>
 
+
+<h2 id="deep-theory">Detailed Theory Notes — Book Level Explanation</h2>
+<p class="lead">This section expands the same Unit 1 syllabus into classroom-style theory. The purpose is not to replace the syllabus, but to explain each listed concept from the ground up with definitions, reasoning, examples, common mistakes and exam-ready points.</p>
+
+<h3>1. Why Python is used</h3>
+<p>Python is a high-level, general-purpose programming language. A high-level language lets the programmer express a solution using concepts that are easier for humans to read than machine-level instructions. Python is also designed with a concise syntax, so a beginner can concentrate on problem-solving instead of writing a large amount of boilerplate code.</p>
+<p>Python is used in many areas such as scripting, web development, automation, data processing, scientific computing and machine learning. The SBTE syllabus introduces Python 3 as the foundation for later topics such as control statements, sequence operations, functions, NumPy, exceptions and file handling. The uploaded course rationale describes Python as a high-level general-purpose language and notes its use across a wide range of application areas. fileciteturn24file3</p>
+
+<h3>2. Source code, interpretation and execution — basic idea</h3>
+<p>A Python program is first written as source code. When the program is executed, Python processes that source and performs the instructions. For a beginner, the important point is that the text written in the editor must follow Python's syntax rules.</p>
+<div class="flow"><span>Write source code</span><b class="arrow">→</b><span>Python processes code</span><b class="arrow">→</b><span>Expressions are evaluated</span><b class="arrow">→</b><span>Output / result</span></div>
+<p>For example:</p>
+<pre>length = 10
+width = 5
+area = length * width
+print(area)</pre>
+<p>The names <code>length</code> and <code>width</code> refer to values, <code>length * width</code> is an expression, the assignment updates <code>area</code>, and <code>print()</code> displays the result.</p>
+
+<h3>3. Syntax, semantics and errors</h3>
+<p><b>Syntax</b> means the grammatical rules of the language. A syntax error occurs when code does not follow those rules. <b>Semantics</b> is the meaning of a valid statement. A program may be syntactically valid but still produce an unwanted result because its logic or data is incorrect.</p>
+<table><tr><th>Type</th><th>Simple meaning</th><th>Example</th></tr>
+<tr><td>Syntax error</td><td>Code violates Python grammar.</td><td>Missing closing parenthesis.</td></tr>
+<tr><td>Runtime error</td><td>Problem occurs while execution is taking place.</td><td>Dividing by zero.</td></tr>
+<tr><td>Logical error</td><td>Program runs but gives an incorrect result.</td><td>Using addition where multiplication was required.</td></tr></table>
+<div class="note"><strong>Exam point</strong> Unit 1 mainly builds the syntax foundation. Understanding syntax helps you write valid expressions and statements before moving to conditional and iterative statements in Unit 2.</div>
+
+<h3>4. Keywords and identifiers — detailed understanding</h3>
+<p><b>Keywords</b> are reserved words that already have a special meaning in Python. They are not intended to be used as ordinary variable names. Examples include <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>True</code>, <code>False</code>, <code>None</code>, <code>and</code>, <code>or</code> and <code>not</code>.</p>
+<p><b>Identifiers</b> are names created by the programmer for variables and other program entities. Good identifiers communicate purpose.</p>
+<pre># Good names
+student_name = "Prince"
+total_marks = 450
+average_marks = total_marks / 5
+
+# Legal but less descriptive
+x = 450</pre>
+<p>A good naming style makes a program easier to read, debug and maintain. The name should indicate what the value represents.</p>
+
+<h3>5. Literals</h3>
+<p>A literal is a value written directly in source code. Common Unit 1 examples include integer literals, floating-point literals, complex literals, Boolean literals and string literals.</p>
+<table><tr><th>Literal</th><th>Example</th></tr>
+<tr><td>Integer</td><td><code>100</code></td></tr>
+<tr><td>Floating point</td><td><code>12.50</code></td></tr>
+<tr><td>Complex</td><td><code>2+5j</code></td></tr>
+<tr><td>Boolean</td><td><code>True</code></td></tr>
+<tr><td>String</td><td><code>"Python"</code></td></tr>
+<tr><td>None</td><td><code>None</code></td></tr></table>
+
+<h3>6. Whitespace and indentation</h3>
+<p>Whitespace can separate tokens, and indentation is especially important in Python because indentation is used to show the structure of blocks. Although detailed decision and loop blocks belong to Unit 2, students should understand the principle from Unit 1.</p>
+<pre>marks = 75
+if marks &gt;= 40:
+    print("Pass")</pre>
+<p>The indented line belongs to the <code>if</code> block. Consistent indentation is therefore part of writing correct Python programs.</p>
+
+<h3>7. Assignment is not mathematical equality</h3>
+<p>In Python, <code>=</code> is the assignment operator. It means that the result of the right-hand expression is assigned to the name on the left. It is different from <code>==</code>, which compares two values.</p>
+<pre>x = 10       # assignment
+print(x == 10) # comparison → True</pre>
+<div class="warn"><strong>Very common exam mistake</strong> Do not write <code>x == 10</code> when you mean to assign 10 to x. Use <code>x = 10</code>.</div>
+
+<h3>8. Dynamic typing — basic concept</h3>
+<p>Python variable names are not permanently declared with a single data type in the way beginners may have seen in some statically typed languages. A name can refer to a value of one type and later be rebound to a value of another type.</p>
+<pre>x = 10
+print(type(x))
+
+x = "Python"
+print(type(x))</pre>
+<p>The variable name remains <code>x</code>, but the value it refers to has changed from an integer to a string. This is one reason Python code can be concise, but it also means the programmer must pay attention to the type of the current value.</p>
+
+<h3>9. The <code>type()</code> function</h3>
+<p><code>type()</code> is useful for examining the type of a value while learning and debugging.</p>
+<pre>a = 25
+b = 4.5
+c = "CSE"
+d = True
+e = [1, 2, 3]
+
+print(type(a))
+print(type(b))
+print(type(c))
+print(type(d))
+print(type(e))</pre>
+<p>Using <code>type()</code> is especially helpful when an expression is not behaving as expected because the input may have a different type from what you assumed.</p>
+
+<h3>10. Integer, float and complex — deeper comparison</h3>
+<p>An integer represents whole-number values. A floating-point value represents a number with a fractional component. A complex number has a real part and an imaginary part and uses <code>j</code> for the imaginary component.</p>
+<pre>i = 10
+f = 10.0
+z = 10 + 2j
+
+print(i)
+print(f)
+print(z)
+print(z.real)
+print(z.imag)</pre>
+<p>Notice that <code>10</code> and <code>10.0</code> are numerically similar in ordinary arithmetic but belong to different types.</p>
+
+<h3>11. Boolean values in expressions</h3>
+<p>Boolean values are essential because comparisons produce them and logical operators combine them.</p>
+<pre>age = 18
+print(age &gt;= 18)
+print(age &lt; 18)</pre>
+<p>The results are <code>True</code> and <code>False</code>. These Boolean results later become the basis for decision making in Unit 2.</p>
+
+<h3>12. String as a sequence type — foundation</h3>
+<p>A string is an ordered sequence of characters. Because characters have positions, an individual character can be accessed by an index.</p>
+<pre>word = "PYTHON"
+print(word[0])
+print(word[1])
+print(word[-1])</pre>
+<p>The detailed operations on strings, including concatenation, repetition, membership, slicing and traversal, are explicitly covered in Unit 3 of the uploaded syllabus. Therefore, for Unit 1, remember the definition and basic nature of string as a sequence type. fileciteturn24file0</p>
+
+<h3>13. List as a sequence type</h3>
+<p>A list is an ordered collection. Lists are mutable, which means their contents can be changed after the list is created.</p>
+<pre>subjects = ["Python", "OS", "DSA"]
+subjects[0] = "Python Programming"
+print(subjects)</pre>
+<p>The ability to modify list contents is the key Unit 1 connection with the concept of mutability.</p>
+
+<h3>14. Tuple as a sequence type</h3>
+<p>A tuple is also ordered, but it is immutable. A tuple is suitable for representing a fixed group of values.</p>
+<pre>coordinates = (25.5, 85.1)
+print(coordinates[0])</pre>
+<p>The tuple can be read, but an element cannot be replaced in place using ordinary item assignment.</p>
+
+<h3>15. Dictionary — key-value model</h3>
+<p>A dictionary represents information through keys and associated values. Instead of accessing a value by a numeric position like a list, a program normally accesses a dictionary value through its key.</p>
+<pre>student = {
+    "name": "Prince",
+    "branch": "CSE",
+    "semester": 3
+}
+
+print(student["branch"])</pre>
+<p>Here, <code>"branch"</code> is a key and <code>"CSE"</code> is its associated value.</p>
+
+<h3>16. None is not zero</h3>
+<p><code>None</code> is a special value used to indicate that there is no meaningful value at that point. It should not be treated as the number zero.</p>
+<table><tr><th>Value</th><th>Basic idea</th></tr>
+<tr><td><code>0</code></td><td>Integer value zero.</td></tr>
+<tr><td><code>False</code></td><td>Boolean false value.</td></tr>
+<tr><td><code>""</code></td><td>Empty string.</td></tr>
+<tr><td><code>[]</code></td><td>Empty list.</td></tr>
+<tr><td><code>None</code></td><td>No value / absence of a value.</td></tr></table>
+
+<h3>17. Mutability — what actually changes?</h3>
+<p>When we say an object is mutable, we mean the object itself can be modified without replacing it with a different object value. For example, a list can have one of its elements changed.</p>
+<pre>numbers = [10, 20, 30]
+numbers[1] = 99
+print(numbers)</pre>
+<p>The list now contains <code>99</code> at the second position. Strings, in contrast, are immutable:</p>
+<pre>word = "cat"
+# word[0] = "b"   # invalid: string cannot be changed this way
+word = "bat"      # a new string value is assigned to the name</pre>
+<div class="note"><strong>Easy memory trick</strong> Mutable means “can be modified”; immutable means “cannot be modified in place.”</div>
+
+<h3>18. Arithmetic operators — practical interpretation</h3>
+<p>Arithmetic operators form numerical expressions. The result type can depend on the operation and operand values.</p>
+<pre>a = 10
+b = 3
+
+print(a + b)   # 13
+print(a - b)   # 7
+print(a * b)   # 30
+print(a / b)   # 3.333...
+print(a // b)  # 3
+print(a % b)   # 1
+print(a ** b)  # 1000</pre>
+<p><code>/</code> is ordinary division, while <code>//</code> performs floor division. <code>%</code> gives the remainder, which is particularly useful in problems involving divisibility.</p>
+
+<h3>19. Relational operators — comparison produces Boolean</h3>
+<pre>a = 10
+b = 20
+
+print(a == b)
+print(a != b)
+print(a &lt; b)
+print(a &gt; b)
+print(a &lt;= b)
+print(a &gt;= b)</pre>
+<p>Every comparison should be understood as a question whose answer is a Boolean value. This idea becomes important when writing conditions.</p>
+
+<h3>20. Logical operators — combining conditions</h3>
+<pre>age = 20
+has_id = True
+
+print(age &gt;= 18 and has_id)
+print(age &lt; 18 or has_id)
+print(not has_id)</pre>
+<p><code>and</code> combines conditions so that both conditions must be true for the combined logical condition to be true. <code>or</code> requires at least one true condition. <code>not</code> reverses the Boolean result.</p>
+
+<h3>21. Assignment operators — step by step</h3>
+<pre>x = 10
+x += 5   # equivalent in value effect to x = x + 5
+x -= 3   # x = x - 3
+x *= 2   # x = x * 2
+x /= 2   # x = x / 2</pre>
+<p>Augmented assignment is convenient when a variable is repeatedly updated. Similar operators include <code>//=</code>, <code>%=</code> and <code>**=</code>.</p>
+
+<h3>22. Expression and statement — detailed difference</h3>
+<p>Consider:</p>
+<pre>a = 5
+b = 10
+c = a + b</pre>
+<p>The expression <code>a + b</code> produces the value <code>15</code>. The complete line <code>c = a + b</code> is an assignment statement that tells Python to bind that result to <code>c</code>.</p>
+<table><tr><th>Expression</th><th>Statement</th></tr>
+<tr><td>Produces/evaluates a value.</td><td>Represents a complete instruction.</td></tr>
+<tr><td>Can be a part of a statement.</td><td>May contain one or more expressions.</td></tr>
+<tr><td>Example: <code>a+b</code></td><td>Example: <code>c=a+b</code></td></tr></table>
+
+<h3>23. Explicit and implicit type conversion</h3>
+<p><b>Explicit conversion</b> is performed deliberately using conversion functions such as <code>int()</code>, <code>float()</code> and <code>str()</code>. Some operations also involve automatic numeric type handling.</p>
+<pre>x = "25"
+n = int(x)
+
+a = 5
+b = 2.5
+result = a + b
+print(result)</pre>
+<p>In the second example, the arithmetic involves an integer and a floating-point value and the result is suitable for the combined numeric operation.</p>
+
+<h3>24. Input → Convert → Process → Output</h3>
+<p>A very common beginner program follows this four-stage pattern:</p>
+<div class="flow"><span>Input</span><b class="arrow">→</b><span>Conversion</span><b class="arrow">→</b><span>Processing</span><b class="arrow">→</b><span>Output</span></div>
+<pre>length = float(input("Enter length: "))
+width = float(input("Enter width: "))
+
+area = length * width
+
+print("Area =", area)</pre>
+<p>This pattern is extremely useful for practical examinations because many programs are simply variations of input, conversion, calculation and display.</p>
+
+<h3>25. <code>print()</code> — output basics</h3>
+<p>The <code>print()</code> function displays values.</p>
+<pre>name = "Prince"
+age = 18
+
+print(name)
+print(age)
+print("Name:", name, "Age:", age)</pre>
+<p>Multiple values can be supplied to <code>print()</code>. Keeping output labels clear makes practical programs easier to understand.</p>
+
+<h3>26. Operator precedence — how to solve questions</h3>
+<p>When an exam asks you to evaluate an expression, do not calculate from left to right blindly. First identify parentheses, then higher-precedence operations, and then lower-precedence operations.</p>
+<pre>value = 5 + 2 * 3 ** 2</pre>
+<ol><li>Power: <code>3 ** 2 = 9</code></li><li>Multiplication: <code>2 * 9 = 18</code></li><li>Addition: <code>5 + 18 = 23</code></li></ol>
+<p>Therefore the final value is <code>23</code>.</p>
+
+<h3>27. Parentheses improve clarity</h3>
+<p>Even when Python's precedence rules are known, parentheses are useful because they make the intended logic obvious to a reader.</p>
+<pre>average = total / count
+percentage = (obtained / maximum) * 100</pre>
+<p>In educational programs, clear parentheses can make your answer easier to inspect and reduce mistakes.</p>
+
+<h3>28. Common mistakes in Unit 1</h3>
+<table><tr><th>Mistake</th><th>Correct idea</th></tr>
+<tr><td>Using <code>=</code> for comparison</td><td>Use <code>==</code> for equality comparison.</td></tr>
+<tr><td>Forgetting that <code>input()</code> gives text</td><td>Convert numeric input using <code>int()</code> or <code>float()</code>.</td></tr>
+<tr><td>Confusing <code>/</code> and <code>//</code></td><td><code>/</code> is division; <code>//</code> is floor division.</td></tr>
+<tr><td>Thinking <code>^</code> is Python power</td><td>Use <code>**</code> for exponentiation.</td></tr>
+<tr><td>Trying to modify a string character</td><td>Strings are immutable.</td></tr>
+<tr><td>Using a keyword as a variable name</td><td>Choose a different identifier.</td></tr>
+<tr><td>Ignoring case</td><td>Python identifiers are case-sensitive.</td></tr>
+<tr><td>Evaluating an expression left-to-right only</td><td>Apply precedence or use parentheses.</td></tr></table>
+
+<h3>29. Procedure-oriented and object-oriented approach — exam answer format</h3>
+<p><b>Procedure-Oriented Programming (POP):</b> A programming approach that emphasizes procedures or functions and the sequence of operations used to solve a problem.</p>
+<p><b>Object-Oriented Programming (OOP):</b> A programming approach that organizes software around objects and classes, combining related data and operations.</p>
+<h4>Short comparison</h4>
+<table><tr><th>Basis</th><th>POP</th><th>OOP</th></tr>
+<tr><td>Main focus</td><td>Functions/procedures</td><td>Objects/classes</td></tr>
+<tr><td>Data and operations</td><td>Often treated separately</td><td>Can be encapsulated together</td></tr>
+<tr><td>Problem view</td><td>Sequence of tasks</td><td>Entities and their behaviour</td></tr>
+<tr><td>Example idea</td><td><code>calculate_area()</code></td><td><code>Rectangle.area()</code></td></tr></table>
+
+<h3>30. Unit 1 practical strategy</h3>
+<p>The first practical group in the uploaded syllabus asks students to install/use IDLE and write programs for triangle area, swapping two variables and solving a quadratic equation for real numbers. fileciteturn24file2</p>
+<ol><li>Write the algorithm in 3–6 clear steps.</li><li>Identify input variables and their types.</li><li>Write the formula or operation separately.</li><li>Convert input where required.</li><li>Write the Python code.</li><li>Test using simple values.</li><li>Check the output and explain the important lines during viva.</li></ol>
+
+<h3>31. Viva questions from Unit 1</h3>
+<div class="qbox"><b>Q:</b> Why is Python called a high-level language?<br><b>A:</b> Because its syntax is designed to be relatively close to human-readable problem-solving notation rather than machine instructions.</div>
+<div class="qbox"><b>Q:</b> What is the difference between <code>=</code> and <code>==</code>?<br><b>A:</b> <code>=</code> assigns a value; <code>==</code> compares values.</div>
+<div class="qbox"><b>Q:</b> Why do we use <code>int(input())</code>?<br><b>A:</b> Because <code>input()</code> normally returns text and <code>int()</code> converts valid numeric text to an integer.</div>
+<div class="qbox"><b>Q:</b> Give one mutable and one immutable example.<br><b>A:</b> List is mutable; tuple is immutable.</div>
+<div class="qbox"><b>Q:</b> What does <code>None</code> mean?<br><b>A:</b> It represents the absence of a value.</div>
+<div class="qbox"><b>Q:</b> What is the result of <code>10 // 3</code>?<br><b>A:</b> 3.</div>
+<div class="qbox"><b>Q:</b> What is the result of <code>10 % 3</code>?<br><b>A:</b> 1.</div>
+<div class="qbox"><b>Q:</b> Which operator is used for exponentiation?<br><b>A:</b> <code>**</code>.</div>
+
+<h3>32. Model long-answer: Explain Python data types</h3>
+<p><b>Answer:</b> A data type specifies the kind of value represented by an object. In Unit 1, the syllabus covers number types, Boolean, sequence types, None and dictionary. Number types include integer, floating point and complex. Boolean represents True or False. String, list and tuple are sequence types. None represents absence of a value. Dictionary represents key-value data. The syllabus also asks students to distinguish mutable and immutable data types. Lists and dictionaries are commonly used as mutable structures, while strings, tuples and numeric values are treated as immutable. fileciteturn24file0</p>
+
+<h3>33. Model long-answer: Explain operators</h3>
+<p><b>Answer:</b> Operators are symbols or keywords used to perform operations or express relationships. Arithmetic operators perform numerical calculations; relational operators compare values; logical operators combine logical conditions; assignment operators assign values; and augmented assignment operators combine an operation with assignment. Expressions are formed by combining values, variables and operators. Python evaluates expressions according to operator precedence, while parentheses can be used to specify the desired grouping.</p>
+
+<h3>34. Model long-answer: Explain L-value and R-value</h3>
+<p><b>Answer:</b> In an assignment such as <code>total = price * quantity</code>, the left side identifies the target that receives the result, while the right side contains the expression whose value is calculated. Thus, <code>total</code> is the L-value position and <code>price * quantity</code> is the R-value expression. Understanding this distinction helps students read assignment statements correctly.</p>
+
+<h3>35. Final Unit 1 checklist</h3>
+<ul>
+<li>□ Python character set understood.</li>
+<li>□ Token categories remembered.</li>
+<li>□ Identifier rules practiced.</li>
+<li>□ Variables and assignment understood.</li>
+<li>□ L-value and R-value clear.</li>
+<li>□ Comments understood.</li>
+<li>□ int, float and complex practiced.</li>
+<li>□ Boolean understood.</li>
+<li>□ String, list and tuple identified as sequence types.</li>
+<li>□ None and dictionary understood.</li>
+<li>□ Mutable vs immutable clear.</li>
+<li>□ Arithmetic operators practiced.</li>
+<li>□ Relational operators practiced.</li>
+<li>□ Logical operators practiced.</li>
+<li>□ Assignment and augmented assignment practiced.</li>
+<li>□ Expressions and statements distinguished.</li>
+<li>□ Type conversion practiced.</li>
+<li>□ input() and print() practiced.</li>
+<li>□ Precedence questions solved.</li>
+<li>□ All three Unit 1 practical programs written without copying.</li>
+</ul>
+
+
 <h2 id="exam">Examination Preparation</h2>
 <h3>⭐ Important Definitions</h3>
 <ol><li>Python token</li><li>Variable</li><li>L-value</li><li>R-value</li><li>Data type</li><li>Mutable data type</li><li>Immutable data type</li><li>Expression</li><li>Statement</li><li>Operator</li></ol>
