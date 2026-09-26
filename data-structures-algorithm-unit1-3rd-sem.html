@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PRINCE RAJ STUDY — CSE 3rd Semester Data Structures and Algorithm Unit 1">
+<title>Data Structures & Algorithm — Unit 1 | PRINCE RAJ STUDY</title>
+<link rel="icon" href="assets/princexmahto-logo.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172033;--muted:#5d6678;--blue:#1359b3;--blue2:#eaf2ff;--line:#dfe5ee;--paper:#fff;--bg:#f4f6f9;--green:#18794e;--greenbg:#edf9f2;--red:#b42318;--redbg:#fff0ee;--yellowbg:#fff8df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.75}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.topin{max-width:1120px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800}.brand img{width:34px;height:34px}.brand small{display:block;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em}.actions{display:flex;gap:8px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13px;background:#fff}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.book{max-width:940px;margin:28px auto 70px;background:var(--paper);box-shadow:0 12px 45px rgba(22,35,55,.08);border:1px solid #e5e9ef}.cover{padding:72px 70px 62px;border-bottom:5px solid var(--blue);background:linear-gradient(#fff,#f9fbff)}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--blue);text-transform:uppercase}.cover h1{font:800 43px/1.12 Manrope;margin:15px 0 12px}.cover h2{font:700 24px/1.3 Manrope;margin:0 0 22px;color:#31415d}.cover p{max-width:720px;color:var(--muted);font-size:16px}.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.tag{border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:700}
+.content{padding:48px 70px}.toc{border:1px solid var(--line);padding:24px 26px;background:#fbfcfe;margin-bottom:42px}.toc h2{margin-top:0}.toc a{color:var(--blue);text-decoration:none}.toc li{margin:6px 0}
+h2{font:800 28px/1.25 Manrope;color:#123f7d;margin:46px 0 16px;border-bottom:1px solid var(--line);padding-bottom:9px}h3{font:800 21px/1.35 Manrope;margin:34px 0 12px;color:#203657}h4{font:800 16px Manrope;margin:24px 0 8px;color:#304968}p{margin:8px 0 14px}.lead{font-size:17px;color:#46536a}
+.note,.example,.warn,.exam{margin:18px 0;padding:17px 19px;border-left:4px solid}.note{background:var(--yellowbg);border-color:#d49b16}.example{background:var(--greenbg);border-color:var(--green)}.warn{background:var(--redbg);border-color:var(--red)}.exam{background:var(--blue2);border-color:var(--blue)}.note strong,.example strong,.warn strong,.exam strong{display:block;margin-bottom:5px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top}th{background:#f1f5fa;text-align:left}
+pre{background:#111827;color:#e8edf6;border-radius:8px;padding:18px;overflow:auto;font:13px/1.65 "JetBrains Mono",monospace;margin:14px 0}code{font-family:"JetBrains Mono",monospace;background:#f1f3f6;padding:2px 5px;border-radius:4px;font-size:.9em}.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:15px 0}.flow span{padding:9px 13px;border:1px solid #b9cbea;background:#f5f9ff;border-radius:6px;font-weight:700}.arrow{color:var(--blue);font-weight:900}
+ul,ol{padding-left:25px}.qbox{padding:14px 16px;border:1px solid var(--line);margin:9px 0;border-radius:7px;background:#fff}.footer{padding:25px 70px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+@media(max-width:700px){.topin{padding:10px 12px}.actions .btn:not(.primary){display:none}.book{margin:0;border:0;box-shadow:none}.cover,.content,.footer{padding:34px 20px}.cover h1{font-size:32px}.cover h2{font-size:20px}h2{font-size:24px}.footer{display:block}table{display:block;overflow-x:auto}}@media print{body{background:#fff}.top{display:none}.book{box-shadow:none;border:0;margin:0;max-width:none}.content{padding:30px 45px}.footer{padding:20px 45px}@page{size:A4 portrait;margin:12mm}}
+</style></head>
+<body><header class="top"><div class="topin"><a class="brand" href="index.html"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PRINCE RAJ STUDY<small>CSE 3rd Semester · Data Structures & Algorithm</small></span></a><div class="actions"><a class="btn" href="cse-3rd-semester.html">← CSE 3rd Sem</a><a class="btn primary" href="#" onclick="window.print();return false">Print / PDF</a></div></div></header>
+<main class="book"><section class="cover"><div class="eyebrow">PRINCE RAJ STUDY · CSE 3RD SEMESTER</div>
+<h1>Data Structures & Algorithm</h1><h2>Unit 1 — Fundamentals of Algorithms and its Analysis</h2>
+<p><b>Course Code:</b> 2418301 (T2418301 / P2418301 / S2418301)</p>
+<p>SBTE Bihar Semester III ke exact Unit 1 order ke according detailed Hinglish theory, examples, complexity analysis, asymptotic notation, recursion, Master Theorem, practical, viva aur exam revision.</p>
+<div class="meta"><span class="tag">Unit 1</span><span class="tag">CO-1</span><span class="tag">8 Classroom Hours</span><span class="tag">10 ETA Marks</span><span class="tag">Theory + Practical</span></div></section>
+<section class="content">
+<div class="toc"><h2 style="margin-top:0">Table of Contents</h2><ol>
+<li><a href="#overview">Unit Overview & Syllabus Coverage</a></li><li><a href="#types">1.1 Data Types</a></li><li><a href="#ds">1.2 Basic Concept of Data Structure</a></li><li><a href="#algorithm">1.3 Algorithm and its Analysis</a></li><li><a href="#complexity">Time & Space Complexity</a></li><li><a href="#cases">Best, Worst & Average Case</a></li><li><a href="#asymptotic">1.4 Asymptotic Notation</a></li><li><a href="#recursion">1.5 Recursive Algorithm</a></li><li><a href="#master">Master Theorem</a></li><li><a href="#practical">Unit 1 Practical</a></li><li><a href="#exam">Exam Questions & Viva</a></li><li><a href="#mcq">MCQs + Answer Key</a></li><li><a href="#revision">Quick Revision</a></li>
+</ol></div>
+
+<h2 id="overview">🇮🇳 Unit 1 — Hinglish Theory Book</h2>
+<p class="lead"><b>Unit 1 ka main focus:</b> data types, data structures ki basic classification, algorithm kya hota hai, algorithm ki efficiency ko time aur space complexity se kaise analyse karte hain, Big-O/Ω/Theta notation, aur recursive algorithm ki complexity. Uploaded SBTE syllabus mein Unit 1 ka official title <b>Fundamentals of Algorithms and its Analysis</b> hai aur ye <b>CO-1</b> se mapped hai. fileciteturn61file0</p>
+<div class="note"><strong>Official syllabus:</strong> 1.1 Data Types — system defined aur user defined; 1.2 Basic concept of data structure — linear, non-linear, abstract data types; 1.3 Algorithm and analysis — time, space, best/worst/average case; 1.4 Asymptotic Notation — Big-O, Omega-Ω, Theta; 1.5 recursive algorithm — recursion aur Master theorem. fileciteturn61file1</div>
+<p>Course ka official outcome CO-1 hai: <b>Analyze the efficiency of algorithm</b>. Course code 2418301 Data Structures and Algorithm hai aur CSE/AIML ke liye prescribed hai. fileciteturn61file3</p>
+
+<h3 id="types">1.1 Data Types</h3>
+<p><b>Data type</b> batata hai ki data kis nature ka hai aur us data par kis type ke operations perform kiye ja sakte hain. Data structures padhte waqt data types ko samajhna important hai kyunki structure ke andar hum kisi type ka data store karte hain.</p>
+<h4>System-defined data types</h4>
+<p>System-defined ya built-in data types programming language/system ke dwara provide kiye jaate hain. C jaise language mein common examples <code>int</code>, <code>char</code>, <code>float</code>, <code>double</code> hain.</p>
+<table><tr><th>Data Type</th><th>Typical use</th></tr><tr><td>Integer</td><td>Whole numbers</td></tr><tr><td>Character</td><td>Single character</td></tr><tr><td>Float</td><td>Decimal/real values</td></tr><tr><td>Double</td><td>Higher-precision real values</td></tr></table>
+<h4>User-defined data types</h4>
+<p>User-defined data type programmer apni requirement ke according create karta hai. Data Structures ke context mein <b>structure/record</b>, <b>class</b> jaise constructs ka use related data ko organize karne ke liye kiya ja sakta hai.</p>
+<div class="example"><strong>Simple idea:</strong> Agar student ke paas roll number, name aur marks jaise related fields hain, to unhe ek user-defined record/structure ke andar organize kiya ja sakta hai.</div>
+
+<h3 id="ds">1.2 Basic Concept of Data Structure</h3>
+<p><b>Data Structure</b> data ko organize aur store karne ka ek systematic way hai, jisse data ko efficiently access aur manipulate kiya ja sake.</p>
+<div class="flow"><span>Data</span><b class="arrow">→</b><span>Organize</span><b class="arrow">→</b><span>Store</span><b class="arrow">→</b><span>Access / Manipulate</span></div>
+<p>Official course rationale bhi data structures ko data ko efficiently organize/store karne ke ways ke roop mein describe karta hai, aur suitable data structure choose karne se algorithm ki performance optimize ho sakti hai. fileciteturn61file3</p>
+
+<h4>Linear Data Structure</h4>
+<p>Linear data structure mein elements ek logical sequence/line mein arranged hote hain. Ek element ke baad next element ka relation clear hota hai.</p>
+<p><b>Examples:</b> Array, Linked List, Stack, Queue.</p>
+
+<h4>Non-linear Data Structure</h4>
+<p>Non-linear structure mein data simple single sequence mein arrange nahi hota. Elements ke beech hierarchical ya network-type relationships ho sakte hain.</p>
+<p><b>Examples:</b> Tree aur Graph.</p>
+
+<table><tr><th>Linear</th><th>Non-linear</th></tr><tr><td>Sequential organization</td><td>Hierarchical/network organization</td></tr><tr><td>Array, Linked List, Stack, Queue</td><td>Tree, Graph</td></tr></table>
+
+<h4>Abstract Data Type (ADT)</h4>
+<p><b>ADT</b> data aur uske allowed operations ka logical specification hai. ADT ye batata hai ki data structure <i>kya operations support karega</i>; implementation ka exact internal method alag ho sakta hai.</p>
+<div class="example"><strong>Example — Stack ADT:</strong> Stack mein <code>push</code>, <code>pop</code> aur <code>peek</code> jaise operations define kiye ja sakte hain. Stack ko array ya linked list se implement kiya ja sakta hai.</div>
+<div class="exam"><strong>Exam line:</strong> ADT implementation details hide karke data aur operations ka logical view provide karta hai.</div>
+
+<h3 id="algorithm">1.3 Algorithm and its Analysis</h3>
+<p><b>Algorithm</b> kisi problem ko solve karne ke liye finite, ordered aur clear steps ka sequence hota hai.</p>
+<h4>Good algorithm ki basic characteristics</h4>
+<ul><li><b>Input:</b> zero ya more inputs ho sakte hain.</li><li><b>Output:</b> kam se kam ek meaningful result expected hota hai.</li><li><b>Definiteness:</b> har step clear aur unambiguous hona chahiye.</li><li><b>Finiteness:</b> algorithm finite steps ke baad terminate hona chahiye.</li><li><b>Effectiveness:</b> steps practically executable hone chahiye.</li></ul>
+
+<h4>Example: Array mein maximum element</h4>
+<pre>Algorithm:
+1. First element ko maximum maan lo.
+2. Har next element ko maximum se compare karo.
+3. Agar current element bada hai, maximum update karo.
+4. End mein maximum return/print karo.</pre>
+<p>Algorithm analysis ka purpose ye samajhna hai ki input size badhne par algorithm ke resources ka behaviour kaisa hoga.</p>
+
+<h3 id="complexity">Time Complexity aur Space Complexity</h3>
+<h4>Time Complexity</h4>
+<p><b>Time complexity</b> batati hai ki input size <code>n</code> ke badhne par algorithm ka running work kaise grow karta hai. Ye normally exact seconds nahi batati; hum operations ki growth ko analyse karte hain.</p>
+<table><tr><th>Pattern</th><th>Typical complexity</th><th>Idea</th></tr>
+<tr><td>Single loop</td><td>O(n)</td><td>n times work</td></tr>
+<tr><td>Two nested loops</td><td>O(n²)</td><td>n × n work</td></tr>
+<tr><td>Three nested loops</td><td>O(n³)</td><td>n × n × n work</td></tr>
+<tr><td>Halving search space</td><td>O(log n)</td><td>Problem repeatedly half hota hai</td></tr></table>
+
+<h4>Example — O(n)</h4>
+<pre>for i in range(n):
+    print(i)</pre>
+<p>Loop approximately <code>n</code> times execute hota hai, isliye growth <b>O(n)</b> hai.</p>
+
+<h4>Example — O(n²)</h4>
+<pre>for i in range(n):
+    for j in range(n):
+        print(i, j)</pre>
+<p>Outer loop n times aur inner loop har baar n times, total approximately n² operations.</p>
+
+<h4>Space Complexity</h4>
+<p><b>Space complexity</b> algorithm ko execution ke time required memory/resources ki growth ko describe karti hai. Ismein input storage aur algorithm ke extra memory usage ka context consider kiya ja sakta hai; syllabus ka focus algorithm analysis mein space complexity par hai.</p>
+<div class="example"><strong>Simple example:</strong> Agar algorithm input ke alawa sirf kuch fixed variables use karta hai, auxiliary space constant ho sakta hai. Agar n elements ka extra array banata hai, extra space O(n) ho sakti hai.</div>
+
+<h3 id="cases">Best Case, Worst Case aur Average Case</h3>
+<p>Same algorithm ke running work ka behaviour different inputs par different ho sakta hai. Isliye three common cases analyse kiye jaate hain.</p>
+<table><tr><th>Case</th><th>Meaning</th><th>Example idea: Linear Search</th></tr>
+<tr><td>Best case</td><td>Sabse favourable input.</td><td>Element first position par mil jaye.</td></tr>
+<tr><td>Worst case</td><td>Sabse unfavourable input.</td><td>Element last mein ho ya absent ho.</td></tr>
+<tr><td>Average case</td><td>Typical/expected inputs ke according running work.</td><td>Element generally middle/various positions par mil sakta hai.</td></tr></table>
+<div class="exam"><strong>Remember:</strong> Best = favourable situation, Worst = maximum work situation, Average = expected/typical behaviour.</div>
+
+<h3 id="asymptotic">1.4 Asymptotic Notation</h3>
+<p>Asymptotic notation ka use algorithm ki growth ko input size ke respect mein describe karne ke liye kiya jata hai. SBTE Unit 1 mein specifically <b>Big-O, Omega (Ω) aur Theta</b> listed hain. fileciteturn61file0</p>
+
+<h4>Big-O — O()</h4>
+<p>Big-O commonly algorithm ki <b>upper-bound / growth limit</b> describe karne ke liye use hota hai.</p>
+<pre>f(n) = 3n + 5
+
+Growth ke liye dominant term n hai
+⇒ O(n)</pre>
+<p>Constants aur lower-order terms ko asymptotic growth mein ignore kiya jata hai.</p>
+
+<h4>Omega — Ω()</h4>
+<p>Omega notation algorithm ki <b>lower-bound</b> growth ko describe karti hai.</p>
+<pre>f(n) = 3n + 5
+⇒ Ω(n)</pre>
+
+<h4>Theta — Θ()</h4>
+<p>Theta notation tight asymptotic bound describe karti hai jab function ki growth same order ki upper aur lower bound dono se represent ho.</p>
+<pre>f(n) = 3n + 5
+⇒ Θ(n)</pre>
+
+<table><tr><th>Notation</th><th>Basic idea</th></tr><tr><td><b>O(g(n))</b></td><td>Upper bound / growth ceiling</td></tr><tr><td><b>Ω(g(n))</b></td><td>Lower bound / growth floor</td></tr><tr><td><b>Θ(g(n))</b></td><td>Tight bound / same asymptotic order</td></tr></table>
+
+<h4>Common growth order</h4>
+<p>Generally small growth faster hoti hai as input becomes large:</p>
+<pre>O(1)  &lt;  O(log n)  &lt;  O(n)  &lt;  O(n log n)  &lt;  O(n²)  &lt;  O(n³)  &lt;  O(2ⁿ)</pre>
+<div class="warn"><strong>Exam caution:</strong> Is list ko exact performance seconds ki list mat samjho. Ye asymptotic growth rates ko compare karne ka simplified order hai.</div>
+
+<h3 id="recursion">1.5 Time Complexity of Recursive Algorithm</h3>
+<p><b>Recursion</b> mein ek function/algorithm apne aap ko smaller input/problem ke saath call karta hai.</p>
+<h4>Recursion ke two important parts</h4>
+<ul><li><b>Base case:</b> condition jahan recursion stop hoti hai.</li><li><b>Recursive case:</b> function smaller/subproblem ke liye khud ko call karta hai.</li></ul>
+<pre>def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)</pre>
+<p>Yahan <code>n == 0</code> base case hai aur <code>factorial(n - 1)</code> recursive call hai.</p>
+
+<h4>Recursive algorithm ki complexity kaise sochte hain?</h4>
+<p>Recursive code ko analyse karte waqt dekho: ek call kitne recursive calls generate karta hai, problem size kitna reduce hota hai, aur har call ka extra work kitna hai.</p>
+<table><tr><th>Pattern</th><th>Typical recurrence/idea</th><th>Common growth</th></tr>
+<tr><td>One call, n → n-1</td><td>T(n)=T(n-1)+O(1)</td><td>O(n)</td></tr>
+<tr><td>Two calls, n → n-1</td><td>T(n)=2T(n-1)+O(1)</td><td>O(2ⁿ)</td></tr>
+<tr><td>One call, n → n/2</td><td>T(n)=T(n/2)+O(1)</td><td>O(log n)</td></tr></table>
+
+<h3 id="master">Master Theorem</h3>
+<p><b>Master Theorem</b> divide-and-conquer type recursive recurrences ko analyse karne ke liye use hota hai. General form ko commonly:</p>
+<pre>T(n) = aT(n/b) + f(n)</pre>
+<p>ke form mein represent kiya jata hai, jahan <code>a</code> recursive subproblems ki count, <code>n/b</code> har subproblem ka size aur <code>f(n)</code> recursion ke bahar ka work represent karta hai.</p>
+<h4>Exam-level approach</h4>
+<ol><li><code>a</code>, <code>b</code> aur <code>f(n)</code> identify karo.</li><li><code>n^(log_b a)</code> calculate/compare karo.</li><li><code>f(n)</code> ki growth se comparison karo.</li><li>Applicable Master Theorem case se final asymptotic complexity obtain karo.</li></ol>
+<div class="example"><strong>Example:</strong> T(n)=2T(n/2)+n mein a=2, b=2 aur f(n)=n. Yahan n^(log₂2)=n, so recursive-tree contribution aur f(n) same order ke hain; resulting complexity Θ(n log n) hoti hai.</div>
+<div class="note"><strong>Important:</strong> SBTE syllabus mein Master theorem explicitly Unit 1.5 ka part hai, isliye recurrence identify karna aur standard cases ka application exam ke liye practice karo. fileciteturn61file1</div>
+
+<h3 id="practical">Unit 1 Practical</h3>
+<p>Official P2418301 practical list mein Unit 1 ke liye <b>different data types ka size find karne</b> ka program diya gaya hai. fileciteturn62file0</p>
+<h4>Practical 1 — Find size of different data types</h4>
+<pre># C example
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("int = %zu bytes\n", sizeof(int));
+    printf("char = %zu bytes\n", sizeof(char));
+    printf("float = %zu bytes\n", sizeof(float));
+    printf("double = %zu bytes\n", sizeof(double));
+    return 0;
+}</pre>
+<p>Is practical ka purpose different system-defined data types ka memory size observe karna hai. Exact byte size compiler/system par depend kar sakta hai.</p>
+
+<div class="exam"><strong>Lab focus:</strong> Program ke saath <code>sizeof()</code> operator ka purpose, data types aur output interpretation explain kar pao.</div>
+
+<h3 id="exam">Exam-Oriented Questions</h3>
+<div class="qbox"><b>Q1.</b> Data type kya hai? System-defined aur user-defined data types explain karo.</div>
+<div class="qbox"><b>Q2.</b> Data structure kya hai? Linear aur non-linear data structure mein difference batao.</div>
+<div class="qbox"><b>Q3.</b> Abstract Data Type (ADT) kya hai? Example do.</div>
+<div class="qbox"><b>Q4.</b> Algorithm define karo aur uski important characteristics explain karo.</div>
+<div class="qbox"><b>Q5.</b> Time complexity aur space complexity explain karo.</div>
+<div class="qbox"><b>Q6.</b> Best case, worst case aur average case kya hote hain?</div>
+<div class="qbox"><b>Q7.</b> Big-O, Omega aur Theta notation explain karo.</div>
+<div class="qbox"><b>Q8.</b> O(1), O(log n), O(n), O(n²) ko examples ke saath explain karo.</div>
+<div class="qbox"><b>Q9.</b> Recursion kya hai? Base case aur recursive case explain karo.</div>
+<div class="qbox"><b>Q10.</b> Recursive algorithm ki time complexity kaise analyse karte hain?</div>
+<div class="qbox"><b>Q11.</b> Master Theorem kya hai? General recurrence form likho.</div>
+<div class="qbox"><b>Q12.</b> T(n)=2T(n/2)+n ki asymptotic complexity determine karo.</div>
+
+<h3>Viva Questions</h3>
+<ul><li>Data structure kya hai?</li><li>Linear data structure ke examples?</li><li>Non-linear data structure ke examples?</li><li>ADT ka full form kya hai?</li><li>Algorithm kya hota hai?</li><li>Time complexity kya batati hai?</li><li>Space complexity kya batati hai?</li><li>Best case aur worst case mein difference?</li><li>Big-O kya represent karta hai?</li><li>Ω notation kya represent karti hai?</li><li>Θ notation kya represent karti hai?</li><li>Recursion kya hai?</li><li>Base case kyun required hai?</li><li>Master Theorem kis type ke recurrence ke analysis mein useful hai?</li><li>Course ka CO-1 kya hai?</li></ul>
+
+<h3 id="mcq">MCQs</h3>
+<div class="qbox"><b>1.</b> Data ko organize aur efficiently access karne ke liye kya use hota hai?<br>A) Compiler B) Data Structure C) Browser D) Editor</div>
+<div class="qbox"><b>2.</b> Inmein se linear data structure ka example kaunsa hai?<br>A) Tree B) Graph C) Stack D) Graphical model</div>
+<div class="qbox"><b>3.</b> ADT ka full form kya hai?<br>A) Advanced Data Table B) Abstract Data Type C) Array Data Tool D) Algorithm Data Type</div>
+<div class="qbox"><b>4.</b> Algorithm ki running work growth ko analyse karne ke liye kya use hota hai?<br>A) Time Complexity B) Font Size C) File Type D) IP Address</div>
+<div class="qbox"><b>5.</b> Big-O generally kis bound ko describe karta hai?<br>A) Upper B) Lower C) Exact memory D) Input type</div>
+<div class="qbox"><b>6.</b> Ω notation generally kya represent karti hai?<br>A) Upper bound B) Lower bound C) Syntax D) Variable</div>
+<div class="qbox"><b>7.</b> Θ notation ka basic meaning kya hai?<br>A) Tight bound B) File size C) Random value D) Error</div>
+<div class="qbox"><b>8.</b> Recursion mein function kya karta hai?<br>A) Khud ko call kar sakta hai B) Computer shut down karta hai C) File delete karta hai D) Compiler install karta hai</div>
+<div class="qbox"><b>9.</b> Recursive function ko stop karne ke liye kya important hai?<br>A) Base case B) Header file C) Pointer only D) Database</div>
+<div class="qbox"><b>10.</b> Master Theorem ka general recurrence form kaunsa hai?<br>A) T(n)=aT(n/b)+f(n) B) T(n)=n+a C) T(n)=ab D) T(n)=f/a</div>
+<div class="exam"><strong>Answer Key:</strong> 1-B, 2-C, 3-B, 4-A, 5-A, 6-B, 7-A, 8-A, 9-A, 10-A</div>
+
+<h3 id="revision">Quick Revision — 2 Minute Notes</h3>
+<table><tr><th>Topic</th><th>One-line revision</th></tr>
+<tr><td>Data Type</td><td>Data ki nature/type define karta hai.</td></tr>
+<tr><td>Data Structure</td><td>Data ko organize/store/access karne ka systematic way.</td></tr>
+<tr><td>Linear</td><td>Sequential organization — Array, Linked List, Stack, Queue.</td></tr>
+<tr><td>Non-linear</td><td>Hierarchical/network — Tree, Graph.</td></tr>
+<tr><td>ADT</td><td>Data + operations ka logical specification.</td></tr>
+<tr><td>Algorithm</td><td>Problem solve karne ke finite, clear steps.</td></tr>
+<tr><td>Time Complexity</td><td>Running work ki input-size growth.</td></tr>
+<tr><td>Space Complexity</td><td>Required memory/resources ki growth.</td></tr>
+<tr><td>Best Case</td><td>Most favourable input behaviour.</td></tr>
+<tr><td>Worst Case</td><td>Maximum/unfavourable work behaviour.</td></tr>
+<tr><td>Average Case</td><td>Expected/typical behaviour.</td></tr>
+<tr><td>Big-O</td><td>Upper-bound growth.</td></tr>
+<tr><td>Ω</td><td>Lower-bound growth.</td></tr>
+<tr><td>Θ</td><td>Tight asymptotic bound.</td></tr>
+<tr><td>Recursion</td><td>Function ka smaller problem ke liye self-call.</td></tr>
+<tr><td>Master Theorem</td><td>Divide-and-conquer recurrence analysis ka standard method.</td></tr></table>
+
+<div class="note"><strong>SBTE Focus:</strong> Official Unit 1 mein five sections hain aur CO-1 algorithm efficiency analysis par focused hai. Unit 1 ke official ETA specification mein 8 classroom hours aur 10 marks diye gaye hain, with 3 Remember, 3 Understanding aur 4 Application & above marks. fileciteturn63file4</div>
+</section>
+<footer class="footer"><span>PRINCE RAJ STUDY · Data Structures & Algorithm Unit 1</span><span>SBTE Bihar · CSE 3rd Semester</span></footer>
+</main></body></html>
