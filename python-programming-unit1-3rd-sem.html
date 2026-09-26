@@ -59,7 +59,116 @@ ul,ol{padding-left:25px}.small{font-size:13px;color:var(--muted)}.vvi{font-weigh
 </ol>
 </div>
 
-<h2 id="overview">Unit Overview</h2>
+
+<h2 id="hinglish-unit1">🇮🇳 Unit 1 — Hinglish Theory Book</h2>
+<p class="lead"><b>Simple rule:</b> Yahan Python ko bilkul beginner level se samjho. Technical keywords English mein hi rahenge, lekin explanation Hinglish mein hai taaki exam aur practical dono ke liye easily yaad rahe.</p>
+
+<h3>1. Python kya hai?</h3>
+<p>Python ek <b>high-level, general-purpose programming language</b> hai. Simple words mein, Python ki help se hum computer ko instructions dete hain. Iski syntax comparatively easy aur readable hoti hai, isliye beginners ke liye Python seekhna convenient hai.</p>
+<p>Python ka use web development, automation, data processing, scientific computing, machine learning aur bahut saare applications mein hota hai. SBTE syllabus bhi Python ko basic programming features seekhne ke foundation ke roop mein use karta hai. fileciteturn36file4</p>
+
+<h3>2. Character Set</h3>
+<p>Character set ka matlab hai woh characters jo Python program likhne ke liye use hote hain. Jaise <b>A-Z, a-z, 0-9, spaces, operators aur special symbols</b>.</p>
+<table><tr><th>Category</th><th>Example</th><th>Simple meaning</th></tr>
+<tr><td>Letters</td><td>A-Z, a-z</td><td>Names, keywords aur text ke liye.</td></tr>
+<tr><td>Digits</td><td>0-9</td><td>Numbers ke liye.</td></tr>
+<tr><td>Whitespace</td><td>space, tab, newline</td><td>Code ko separate/structure karne ke liye.</td></tr>
+<tr><td>Special symbols</td><td>+ - * / = ( ) [ ] { }</td><td>Operators aur syntax ke liye.</td></tr></table>
+
+<h3>3. Tokens</h3>
+<p>Token program ka ek <b>smallest meaningful part</b> hota hai. Jaise sentence words se milkar banta hai, waise Python statement tokens se milkar banta hai.</p>
+<table><tr><th>Token</th><th>Example</th><th>Hinglish mein</th></tr>
+<tr><td>Keyword</td><td><code>if</code>, <code>else</code></td><td>Python ke reserved/special words.</td></tr>
+<tr><td>Identifier</td><td><code>marks</code></td><td>Programmer dwara diya gaya naam.</td></tr>
+<tr><td>Literal</td><td><code>25</code>, <code>"CSE"</code></td><td>Code mein directly likhi value.</td></tr>
+<tr><td>Operator</td><td><code>+</code>, <code>==</code></td><td>Operation ya comparison karne wala symbol/keyword.</td></tr>
+<tr><td>Delimiter</td><td><code>( ) , : [ ]</code></td><td>Code ki structure define karne mein help karta hai.</td></tr></table>
+
+<h3>4. Variables</h3>
+<p>Variable ko simple language mein <b>value rakhne ke liye naam</b> samjho. Python mein assignment karne par variable name kisi value ko refer karta hai.</p>
+<pre>name = "Prince"
+age = 18
+marks = 82.5</pre>
+<p>Yahan <code>name</code>, <code>age</code> aur <code>marks</code> variables hain. Python value ke according type handle karta hai.</p>
+
+<h3>5. L-value aur R-value</h3>
+<p>Assignment statement mein <b>left side</b> target hoti hai aur <b>right side</b> se value/expression ka result milta hai.</p>
+<pre>total = marks + bonus</pre>
+<p>Yahan <code>total</code> L-value position hai, kyunki result yahan assign hoga. <code>marks + bonus</code> R-value expression hai, kyunki isse value calculate hoti hai.</p>
+<div class="note"><strong>Exam trick:</strong> <b>L = Left side target</b> aur <b>R = Right side result/value</b> yaad rakho.</div>
+
+<h3>6. Comments</h3>
+<p>Comment programmer ke liye note hota hai. Python comment ko execute nahi karta. Single-line comment ke liye <code>#</code> use hota hai.</p>
+<pre># Student marks store kar rahe hain
+marks = 85</pre>
+
+<h3>7. Data Types — easy understanding</h3>
+<p>Data type batata hai ki kisi value ka nature/type kya hai. Unit 1 mein <b>Integer, Float, Complex, Boolean, String, List, Tuple, None aur Dictionary</b> cover kiye gaye hain. fileciteturn36file0</p>
+<table><tr><th>Type</th><th>Example</th><th>Hinglish meaning</th></tr>
+<tr><td>Integer</td><td><code>10</code></td><td>Whole number.</td></tr>
+<tr><td>Float</td><td><code>10.5</code></td><td>Decimal number.</td></tr>
+<tr><td>Complex</td><td><code>2+3j</code></td><td>Real + imaginary part.</td></tr>
+<tr><td>Boolean</td><td><code>True</code></td><td>True/False logical value.</td></tr>
+<tr><td>String</td><td><code>"Python"</code></td><td>Text/characters.</td></tr>
+<tr><td>List</td><td><code>[10,20,30]</code></td><td>Ordered aur mutable collection.</td></tr>
+<tr><td>Tuple</td><td><code>(10,20)</code></td><td>Ordered aur immutable collection.</td></tr>
+<tr><td>None</td><td><code>None</code></td><td>Value absent hai.</td></tr>
+<tr><td>Dictionary</td><td><code>{"name":"Prince"}</code></td><td>Key-value pair data.</td></tr></table>
+
+<h3>8. Mutable vs Immutable</h3>
+<p><b>Mutable</b> ka matlab object ko create hone ke baad modify kar sakte hain. Example: list aur dictionary.</p>
+<p><b>Immutable</b> ka matlab object ki existing value ko in-place change nahi kar sakte. Example: string, tuple, integer.</p>
+<pre>marks = [70, 80, 90]
+marks[0] = 95
+print(marks)</pre>
+<p>List modify ho gayi. Lekin string mein direct character change karna allowed nahi hota.</p>
+
+<h3>9. Operators — simple language</h3>
+<p>Operator woh symbol/keyword hai jo koi operation perform karta hai.</p>
+<table><tr><th>Operator type</th><th>Example</th><th>Kaam</th></tr>
+<tr><td>Arithmetic</td><td><code>+ - * / // % **</code></td><td>Calculation.</td></tr>
+<tr><td>Relational</td><td><code>== != &gt; &lt; &gt;= &lt;=</code></td><td>Comparison.</td></tr>
+<tr><td>Logical</td><td><code>and or not</code></td><td>Conditions combine karna.</td></tr>
+<tr><td>Assignment</td><td><code>=</code></td><td>Value assign karna.</td></tr>
+<tr><td>Augmented assignment</td><td><code>+= -= *=</code></td><td>Operation + assignment ek saath.</td></tr></table>
+
+<h3>10. Expressions aur Statements</h3>
+<p><b>Expression</b> woh combination hai jo ek value produce karta hai. <b>Statement</b> ek complete instruction hai.</p>
+<pre>a = 10
+b = 20
+c = a + b</pre>
+<p>Yahan <code>a + b</code> expression hai aur <code>c = a + b</code> assignment statement hai.</p>
+
+<h3>11. Type Conversion</h3>
+<p>Jab ek type ki value ko doosre suitable type mein convert karte hain, use type conversion bolte hain.</p>
+<pre>age = int("18")
+price = float("99.50")
+number = str(25)</pre>
+<p>Common functions: <code>int()</code>, <code>float()</code>, <code>str()</code>, <code>bool()</code>.</p>
+
+<h3>12. Input aur Output</h3>
+<p><code>input()</code> user se data leta hai aur normally <b>string/text</b> return karta hai. Agar number chahiye, conversion karna padega.</p>
+<pre>age = int(input("Enter age: "))
+print("Age =", age)</pre>
+
+<h3>13. Operator Precedence</h3>
+<p>Ek expression mein multiple operators hon to Python ek fixed order follow karta hai. Jaise multiplication, addition se pehle hota hai.</p>
+<pre>result = 2 + 3 * 4</pre>
+<p>Pehle <code>3*4 = 12</code>, phir <code>2+12 = 14</code>. Agar pehle addition karwana ho to parentheses use karo:</p>
+<pre>result = (2 + 3) * 4</pre>
+<p>Result <code>20</code> hoga.</p>
+
+<h3>14. POP vs OOP</h3>
+<p><b>Procedure Oriented Programming:</b> Program mainly functions/procedures ke around organize hota hai.</p>
+<p><b>Object Oriented Programming:</b> Program objects aur classes ke around organize hota hai, jahan data aur related methods ko together represent kiya ja sakta hai.</p>
+<div class="example"><strong>Easy example:</strong> Sirf <code>calculate_area()</code> function banana procedural style hai. <code>Rectangle</code> class ke andar dimensions aur <code>area()</code> method rakhna object-oriented style ka example hai.</div>
+
+<h3>15. Unit 1 ka practical approach</h3>
+<p>Practical mein sabse pehle <b>input → conversion → calculation → output</b> ka flow samjho. Syllabus mein triangle area, variable swapping aur quadratic equation ke programs diye gaye hain. fileciteturn36file1</p>
+<div class="flow"><span>Input lo</span><b class="arrow">→</b><span>Type convert karo</span><b class="arrow">→</b><span>Formula/logic lagao</span><b class="arrow">→</b><span>Output do</span></div>
+
+<div class="exam"><strong>🔥 Unit 1 Exam Focus</strong> Tokens, variables, L/R value, data types, mutable/immutable, operators, expressions/statements, type conversion, input/output aur precedence ko examples ke saath prepare karo.</div>
+<h2 id="overview">Unit Overview — Syllabus Map</h2>
 <p class="lead">Unit 1 builds the syntax and expression foundation required for writing Python programs. The uploaded syllabus places this unit under <b>CO-1: Use various data types and operators in formation of expressions.</b></p>
 <div class="note"><strong>According to the uploaded syllabus</strong> Unit 1 is <b>Fundamentals of Python Programming Syntax</b>. Its listed sections are 1.1 Introduction to Python Character Set, Python Tokens, Variables, L value and R value Concepts, and Comments; 1.2 Overview of Data Types; and 1.3 Understanding Operators. fileciteturn6file0</div>
 <h3>Learning focus</h3>
