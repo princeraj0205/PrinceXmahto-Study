@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PRINCE RAJ STUDY — CSE 3rd Semester Python Programming Unit 3">
+<title>Python Programming — Unit 3 | PRINCE RAJ STUDY</title>
+<link rel="icon" href="assets/princexmahto-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172033;--muted:#5d6678;--blue:#1359b3;--blue2:#eaf2ff;--line:#dfe5ee;--paper:#fff;--bg:#f4f6f9;--green:#18794e;--greenbg:#edf9f2;--red:#b42318;--redbg:#fff0ee;--yellow:#8a5a00;--yellowbg:#fff8df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.75}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.topin{max-width:1120px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800}.brand img{width:34px;height:34px}.brand small{display:block;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em}.actions{display:flex;gap:8px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:13px;background:#fff}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.book{max-width:940px;margin:28px auto 70px;background:var(--paper);box-shadow:0 12px 45px rgba(22,35,55,.08);border:1px solid #e5e9ef}
+.cover{padding:72px 70px 62px;border-bottom:5px solid var(--blue);background:linear-gradient(#fff,#f9fbff)}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:800;color:var(--blue);text-transform:uppercase}.cover h1{font:800 43px/1.12 Manrope;margin:15px 0 12px}.cover h2{font:700 24px/1.3 Manrope;margin:0 0 22px;color:#31415d}.cover p{max-width:700px;color:var(--muted);font-size:16px}.meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.tag{border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:700}
+.content{padding:48px 70px}.toc{border:1px solid var(--line);padding:24px 26px;background:#fbfcfe;margin-bottom:42px}.toc h2{margin-top:0}.toc a{color:var(--blue);text-decoration:none}.toc li{margin:6px 0}
+h2{font:800 28px/1.25 Manrope;color:#123f7d;margin:46px 0 16px;border-bottom:1px solid var(--line);padding-bottom:9px}h3{font:800 21px/1.35 Manrope;margin:34px 0 12px;color:#203657}h4{font:800 16px Manrope;margin:24px 0 8px;color:#304968}p{margin:8px 0 14px}.lead{font-size:17px;color:#46536a}
+.note,.example,.warn,.exam{margin:18px 0;padding:17px 19px;border-left:4px solid}.note{background:var(--yellowbg);border-color:#d49b16}.example{background:var(--greenbg);border-color:var(--green)}.warn{background:var(--redbg);border-color:var(--red)}.exam{background:var(--blue2);border-color:var(--blue)}.note strong,.example strong,.warn strong,.exam strong{display:block;margin-bottom:5px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}th,td{border:1px solid var(--line);padding:10px 11px;vertical-align:top}th{background:#f1f5fa;text-align:left}
+pre{background:#111827;color:#e8edf6;border-radius:8px;padding:18px;overflow:auto;font:13px/1.65 "JetBrains Mono",monospace;margin:14px 0}code{font-family:"JetBrains Mono",monospace;background:#f1f3f6;padding:2px 5px;border-radius:4px;font-size:.9em}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:15px 0}.flow span{padding:9px 13px;border:1px solid #b9cbea;background:#f5f9ff;border-radius:6px;font-weight:700}.arrow{color:var(--blue);font-weight:900}
+ul,ol{padding-left:25px}.small{font-size:13px;color:var(--muted)}.qbox{padding:14px 16px;border:1px solid var(--line);margin:9px 0;border-radius:7px;background:#fff}
+.footer{padding:25px 70px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+@media(max-width:700px){.topin{padding:10px 12px}.actions .btn:not(.primary){display:none}.book{margin:0;border:0;box-shadow:none}.cover,.content,.footer{padding:34px 20px}.cover h1{font-size:32px}.cover h2{font-size:20px}h2{font-size:24px}.footer{display:block}.footer div{margin-top:7px}table{display:block;overflow-x:auto}}
+@media print{body{background:#fff}.top{display:none}.book{box-shadow:none;border:0;margin:0;max-width:none}.content{padding:30px 45px}.footer{padding:20px 45px}@page{size:A4 portrait;margin:12mm}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+<a class="brand" href="index.html"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PRINCE RAJ STUDY<small>CSE 3rd Semester · Diploma Computer Science & Engineering</small></span></a>
+<div class="actions"><a class="btn" href="cse-3rd-semester.html">← CSE 3rd Sem</a><a class="btn primary" href="#" onclick="window.print();return false">Print / PDF</a></div>
+</div></header>
+<main class="book">
+<section class="cover">
+<div class="eyebrow">PRINCE RAJ STUDY · CSE 3RD SEMESTER</div>
+<h1>Python Programming</h1>
+<h2>Unit 3 — String, List, Tuples, Set and Dictionary</h2>
+<p><b>Course Code:</b> 2418305 (T2418305 / P2418305 / S2418305)</p>
+<p>SBTE Bihar Semester III syllabus ke according complete Hinglish theory chapter — concepts, operators, methods, examples, practical programs, viva, MCQs aur quick revision ke saath.</p>
+<div class="meta"><span class="tag">Unit 3</span><span class="tag">CO-3</span><span class="tag">12 Classroom Hours</span><span class="tag">18 Marks</span><span class="tag">Theory + Practical</span></div>
+</section>
+
+<section class="content">
+<div class="toc">
+<h2 style="margin-top:0">Table of Contents</h2>
+<ol>
+<li><a href="#overview">Unit Overview & Syllabus Coverage</a></li>
+<li><a href="#sequence">Sequence Data Types ka Basic Idea</a></li>
+<li><a href="#string">3.1 String</a></li>
+<li><a href="#string-index">String Indexing</a></li>
+<li><a href="#string-ops">String Operations</a></li>
+<li><a href="#string-traverse">String Traversing & Built-in Functions</a></li>
+<li><a href="#lists">3.2 Lists</a></li>
+<li><a href="#list-ops">List Operations & Traversal</a></li>
+<li><a href="#list-functions">Built-in List Functions</a></li>
+<li><a href="#search-frequency">Linear Search & Frequency Counting</a></li>
+<li><a href="#tuples">3.3 Tuples</a></li>
+<li><a href="#sets">3.4 Set</a></li>
+<li><a href="#dictionary">3.5 Dictionary</a></li>
+<li><a href="#practicals">Unit 3 Practical Programs</a></li>
+<li><a href="#errors">Common Errors & Important Differences</a></li>
+<li><a href="#exam">Exam Questions & Viva</a></li>
+<li><a href="#mcq">MCQs + Answer Key</a></li>
+<li><a href="#revision">Quick Revision Checklist</a></li>
+</ol>
+</div>
+
+<h2 id="overview">🇮🇳 Unit 3 — Hinglish Theory Book</h2>
+<p class="lead"><b>Unit 3 ka main focus:</b> Python ke collection/sequence data types ko samajhna aur un par operations perform karna. Is unit mein <b>String, List, Tuple, Set aur Dictionary</b> cover hote hain. Uploaded SBTE syllabus mein Unit 3 ko CO-3 ke saath map kiya gaya hai. fileciteturn39file0</p>
+<div class="note"><strong>SBTE syllabus coverage</strong> Unit 3 mein String indexing, concatenation, repetition, membership, slicing, loop se traversal aur built-in functions; Lists ke operations, traversal, built-in functions, linear search aur frequency counting; Tuples; Sets; aur Dictionaries ke specified operations/methods included hain. fileciteturn39file0turn39file1</div>
+<p>Suggested theory assessment table mein Unit 3 ke liye <b>12 classroom instruction hours</b> aur <b>18 marks</b> diye gaye hain. fileciteturn39file2</p>
+
+<h3>Unit 3 ke baad kya aana chahiye?</h3>
+<ul>
+<li>String ko index aur slice karna.</li>
+<li>String ko concatenate, repeat aur membership check karna.</li>
+<li>Loop se string ke characters traverse karna.</li>
+<li>List create, access, update aur traverse karna.</li>
+<li>List par concatenation, repetition, membership aur slicing karna.</li>
+<li>List ke built-in methods/functions use karna.</li>
+<li>List mein linear search aur frequency counting karna.</li>
+<li>Tuple create, access, assign aur nested tuple samajhna.</li>
+<li>Set create aur traverse karna; add/remove aur union/intersection/difference karna.</li>
+<li>Dictionary mein keys se values access, add aur modify karna.</li>
+</ul>
+
+<h2 id="sequence">Sequence Data Types ka Basic Idea</h2>
+<p>Python mein kuch data types multiple values ko ek saath store karne dete hain. <b>String, List aur Tuple</b> sequence types hain. Inmein elements ko position/index ke through access kiya ja sakta hai.</p>
+<table>
+<tr><th>Type</th><th>Example</th><th>Basic nature</th></tr>
+<tr><td>String</td><td><code>"Python"</code></td><td>Characters ka sequence; immutable</td></tr>
+<tr><td>List</td><td><code>[10,20,30]</code></td><td>Ordered collection; mutable</td></tr>
+<tr><td>Tuple</td><td><code>(10,20,30)</code></td><td>Ordered collection; immutable</td></tr>
+<tr><td>Set</td><td><code>{10,20,30}</code></td><td>Unique elements ka collection</td></tr>
+<tr><td>Dictionary</td><td><code>{"name":"Prince"}</code></td><td>Key-value mapping</td></tr>
+</table>
+<div class="exam"><strong>Memory Trick:</strong> String = text, List = changeable collection, Tuple = fixed collection, Set = unique values, Dictionary = key → value.</div>
+
+<h2 id="string">3.1 String</h2>
+<p><b>String</b> characters ka sequence hota hai. Python mein string ko single quotes, double quotes ya triple quotes mein likh sakte hain.</p>
+<pre>s1 = 'Python'
+s2 = "Programming"
+s3 = """This is
+a multiline string"""</pre>
+<p>String ke characters ordered hote hain, isliye indexing aur slicing possible hai. String <b>immutable</b> hoti hai, yani existing string ke individual character ko directly change nahi kar sakte.</p>
+
+<h3 id="string-index">String Indexing</h3>
+<p>Index ka use string ke kisi particular character ko access karne ke liye hota hai. Python mein indexing <b>0 se start</b> hoti hai.</p>
+<pre>word = "PYTHON"
+
+print(word[0])   # P
+print(word[1])   # Y
+print(word[5])   # N
+print(word[-1])  # N
+print(word[-2])  # O</pre>
+<table><tr><th>Character</th><th>Positive Index</th><th>Negative Index</th></tr>
+<tr><td>P</td><td>0</td><td>-6</td></tr><tr><td>Y</td><td>1</td><td>-5</td></tr><tr><td>T</td><td>2</td><td>-4</td></tr><tr><td>H</td><td>3</td><td>-3</td></tr><tr><td>O</td><td>4</td><td>-2</td></tr><tr><td>N</td><td>5</td><td>-1</td></tr>
+</table>
+<div class="warn"><strong>Important:</strong> <code>word[6]</code> jaise invalid index par <code>IndexError</code> aa sakta hai.</div>
+
+<h3 id="string-ops">String Operations</h3>
+<h4>1. Concatenation</h4>
+<p>Do strings ko <code>+</code> operator se join karna concatenation hai.</p>
+<pre>first = "Prince"
+last = "Raj"
+name = first + " " + last
+print(name)</pre>
+<p>Output: <code>Prince Raj</code></p>
+
+<h4>2. Repetition</h4>
+<p><code>*</code> operator se string ko multiple times repeat kar sakte hain.</p>
+<pre>print("Hi " * 3)</pre>
+<p>Output: <code>Hi Hi Hi </code></p>
+
+<h4>3. Membership</h4>
+<p><code>in</code> aur <code>not in</code> check karte hain ki koi character/substring present hai ya nahi.</p>
+<pre>text = "Python Programming"
+
+print("Python" in text)       # True
+print("Java" in text)         # False
+print("Java" not in text)     # True</pre>
+
+<h4>4. Slicing</h4>
+<p>Slicing se string ka ek portion nikalte hain.</p>
+<pre>word = "PYTHON"
+
+print(word[0:3])   # PYT
+print(word[2:6])   # THON
+print(word[:4])    # PYTH
+print(word[3:])    # HON
+print(word[::2])   # PTO
+print(word[::-1])  # NOHTYP</pre>
+<div class="note"><strong>Slicing rule:</strong> <code>string[start:stop:step]</code> mein start generally included aur stop excluded hota hai.</div>
+
+<h3 id="string-traverse">String Traversing using Loops</h3>
+<p>Traversal ka matlab string ke characters ko ek-ek karke process karna.</p>
+<pre>word = "PYTHON"
+
+for ch in word:
+    print(ch)</pre>
+<p>Har iteration mein <code>ch</code> ko ek character milega.</p>
+
+<h3>String built-in functions / methods</h3>
+<table><tr><th>Function/Method</th><th>Use</th><th>Example</th></tr>
+<tr><td><code>len()</code></td><td>Length find karta hai</td><td><code>len("Python")</code> → 6</td></tr>
+<tr><td><code>lower()</code></td><td>Lowercase</td><td><code>"PYTHON".lower()</code></td></tr>
+<tr><td><code>upper()</code></td><td>Uppercase</td><td><code>"python".upper()</code></td></tr>
+<tr><td><code>strip()</code></td><td>Outer spaces remove</td><td><code>" hi ".strip()</code></td></tr>
+<tr><td><code>replace()</code></td><td>Text replace</td><td><code>"cat".replace("c","b")</code></td></tr>
+<tr><td><code>find()</code></td><td>Substring ka position find</td><td><code>"python".find("th")</code></td></tr>
+<tr><td><code>count()</code></td><td>Occurrences count</td><td><code>"banana".count("a")</code></td></tr>
+<tr><td><code>startswith()</code></td><td>Start check</td><td><code>"Python".startswith("Py")</code></td></tr>
+<tr><td><code>endswith()</code></td><td>End check</td><td><code>"Python".endswith("on")</code></td></tr>
+</table>
+
+<h3>String immutable kyun important hai?</h3>
+<pre>word = "Python"
+
+# word[0] = "J"   # Error: string immutable</pre>
+<p>Character ko direct replace karne ke bajay new string create karni hoti hai.</p>
+<pre>word = "Python"
+word = "J" + word[1:]
+print(word)   # Jython</pre>
+
+<h2 id="lists">3.2 Lists</h2>
+<p>List ek ordered collection hai jisme multiple items store kiye ja sakte hain. List square brackets <code>[]</code> mein likhi jati hai.</p>
+<pre>marks = [70, 82, 91, 65]
+names = ["Aman", "Riya", "Prince"]
+mixed = [10, "Python", 3.5, True]</pre>
+<p>List mein different types ke values bhi store ho sakte hain.</p>
+
+<h3>List indexing</h3>
+<pre>numbers = [10, 20, 30, 40]
+
+print(numbers[0])    # 10
+print(numbers[-1])   # 40</pre>
+
+<h3>List mutable hoti hai</h3>
+<p>List ke existing elements ko change kar sakte hain.</p>
+<pre>numbers = [10, 20, 30]
+numbers[1] = 99
+print(numbers)</pre>
+<p>Output: <code>[10, 99, 30]</code></p>
+
+<h3 id="list-ops">List Operations</h3>
+<h4>Concatenation</h4>
+<pre>a = [1, 2]
+b = [3, 4]
+print(a + b)   # [1, 2, 3, 4]</pre>
+
+<h4>Repetition</h4>
+<pre>a = [1, 2]
+print(a * 3)   # [1, 2, 1, 2, 1, 2]</pre>
+
+<h4>Membership</h4>
+<pre>numbers = [10, 20, 30]
+print(20 in numbers)       # True
+print(50 not in numbers)   # True</pre>
+
+<h4>Slicing</h4>
+<pre>numbers = [10, 20, 30, 40, 50]
+
+print(numbers[1:4])  # [20,30,40]
+print(numbers[:3])   # [10,20,30]
+print(numbers[::2])  # [10,30,50]</pre>
+
+<h3>List Traversal</h3>
+<pre>marks = [70, 82, 91]
+
+for mark in marks:
+    print(mark)</pre>
+<p>Index ke saath traversal:</p>
+<pre>marks = [70, 82, 91]
+
+for i in range(len(marks)):
+    print(i, marks[i])</pre>
+
+<h3 id="list-functions">Built-in List Functions & Methods</h3>
+<table><tr><th>Method/Function</th><th>Use</th><th>Example</th></tr>
+<tr><td><code>len()</code></td><td>Number of items</td><td><code>len(a)</code></td></tr>
+<tr><td><code>append()</code></td><td>End mein one item add</td><td><code>a.append(50)</code></td></tr>
+<tr><td><code>insert()</code></td><td>Specific position par add</td><td><code>a.insert(1,99)</code></td></tr>
+<tr><td><code>extend()</code></td><td>Multiple items add</td><td><code>a.extend([4,5])</code></td></tr>
+<tr><td><code>remove()</code></td><td>Specified value remove</td><td><code>a.remove(20)</code></td></tr>
+<tr><td><code>pop()</code></td><td>Index ka item remove/return</td><td><code>a.pop()</code></td></tr>
+<tr><td><code>clear()</code></td><td>All items remove</td><td><code>a.clear()</code></td></tr>
+<tr><td><code>index()</code></td><td>Item ka first index</td><td><code>a.index(20)</code></td></tr>
+<tr><td><code>count()</code></td><td>Occurrences count</td><td><code>a.count(20)</code></td></tr>
+<tr><td><code>sort()</code></td><td>List sort</td><td><code>a.sort()</code></td></tr>
+<tr><td><code>reverse()</code></td><td>Order reverse</td><td><code>a.reverse()</code></td></tr>
+</table>
+<div class="warn"><strong>Difference:</strong> <code>remove(x)</code> value ko remove karta hai, jabki <code>pop(i)</code> index ke basis par item remove karta hai.</div>
+
+<h3>List copy ka basic point</h3>
+<pre>a = [1, 2, 3]
+b = a.copy()
+b.append(4)
+
+print(a)  # [1, 2, 3]
+print(b)  # [1, 2, 3, 4]</pre>
+
+<h3 id="search-frequency">Linear Search on List</h3>
+<p>Linear search mein list ko beginning se end tak sequentially check kiya jata hai. Target milte hi search stop ki ja sakti hai.</p>
+<pre>numbers = [12, 45, 18, 27, 33]
+target = 27
+found = False
+
+for i in range(len(numbers)):
+    if numbers[i] == target:
+        print("Found at index", i)
+        found = True
+        break
+
+if not found:
+    print("Not Found")</pre>
+<div class="flow"><span>First item</span><b class="arrow">→</b><span>Compare target</span><b class="arrow">→</b><span>Match?</span><b class="arrow">→</b><span>Found / Next item</span></div>
+
+<h3>Frequency Counting</h3>
+<p>Frequency ka matlab kisi element ke kitni baar appear hone ki counting.</p>
+<pre>numbers = [2, 3, 2, 5, 2, 3]
+target = 2
+count = 0
+
+for x in numbers:
+    if x == target:
+        count += 1
+
+print("Frequency =", count)</pre>
+<p>Output: <code>Frequency = 3</code></p>
+
+<h2 id="tuples">3.3 Tuples</h2>
+<p>Tuple bhi ordered collection hai, lekin tuple <b>immutable</b> hota hai. Tuple generally parentheses <code>()</code> mein likha jata hai.</p>
+<pre>t = (10, 20, 30)
+print(t[0])
+print(t[-1])</pre>
+
+<h3>Creating and Initializing Tuple</h3>
+<pre>t1 = ()
+t2 = (10, 20, 30)
+t3 = ("Python", 3, True)
+
+# Single-item tuple ke liye comma important hai
+t4 = (10,)
+</pre>
+<div class="note"><strong>Important:</strong> <code>(10)</code> normal integer expression hai; <code>(10,)</code> one-element tuple hai.</div>
+
+<h3>Tuple Assignment</h3>
+<p>Python mein multiple values ko ek saath assign/unpack kar sakte hain.</p>
+<pre>a, b, c = (10, 20, 30)
+
+print(a)
+print(b)
+print(c)</pre>
+
+<h3>Tuple operations</h3>
+<pre>a = (1, 2)
+b = (3, 4)
+
+print(a + b)   # (1,2,3,4)
+print(a * 2)   # (1,2,1,2)
+print(2 in a)  # True</pre>
+<p>Slicing bhi possible hai:</p>
+<pre>t = (10, 20, 30, 40, 50)
+print(t[1:4])</pre>
+
+<h3>Tuple methods and built-in functions</h3>
+<table><tr><th>Method/Function</th><th>Use</th></tr>
+<tr><td><code>len()</code></td><td>Tuple length</td></tr>
+<tr><td><code>count()</code></td><td>Value ki occurrences</td></tr>
+<tr><td><code>index()</code></td><td>First matching value ka index</td></tr>
+<tr><td><code>min()</code></td><td>Minimum value</td></tr>
+<tr><td><code>max()</code></td><td>Maximum value</td></tr>
+<tr><td><code>sum()</code></td><td>Numeric values ka sum</td></tr>
+</table>
+
+<h3>Nested Tuples</h3>
+<p>Jab tuple ke andar ek aur tuple ho, use nested tuple bolte hain.</p>
+<pre>t = ((1, 2), (3, 4), (5, 6))
+
+print(t[0])
+print(t[1][0])</pre>
+<p>Yahan <code>t[1][0]</code> ka matlab second inner tuple ka first element hai.</p>
+
+<h2 id="sets">3.4 Set</h2>
+<p>Set unique elements ka collection hai. Duplicate values automatically eliminate ho jati hain.</p>
+<pre>s = {10, 20, 20, 30}
+print(s)</pre>
+<p>Result mein 20 ek hi baar rahega. Set create karne ke liye curly braces <code>{}</code> use kiye ja sakte hain. Empty set ke liye <code>set()</code> use karna chahiye.</p>
+<pre>empty_set = set()</pre>
+
+<h3>Set Traversing</h3>
+<pre>s = {10, 20, 30}
+
+for x in s:
+    print(x)</pre>
+<p>Set ka main purpose unique values aur set operations hai; sequence-style positional indexing par depend nahi karna chahiye.</p>
+
+<h3>Adding and Removing Data</h3>
+<pre>s = {10, 20}
+
+s.add(30)
+print(s)
+
+s.remove(20)
+print(s)</pre>
+<p><code>remove()</code> specified element absent hone par error de sakta hai. <code>discard()</code> absent element par error nahi deta.</p>
+<pre>s = {10, 20}
+s.discard(50)   # no error</pre>
+
+<h3>Set Operations</h3>
+<p>SBTE syllabus mein join, union, intersection aur difference jaise set operations included hain. fileciteturn39file1</p>
+<h4>Union</h4>
+<p>Union dono sets ke unique elements ko combine karta hai.</p>
+<pre>A = {1, 2, 3}
+B = {3, 4, 5}
+
+print(A | B)
+# {1,2,3,4,5}</pre>
+
+<h4>Intersection</h4>
+<p>Intersection sirf common elements deta hai.</p>
+<pre>A = {1, 2, 3}
+B = {3, 4, 5}
+
+print(A & B)
+# {3}</pre>
+
+<h4>Difference</h4>
+<p><code>A - B</code> mein woh elements milte hain jo A mein hain but B mein nahi.</p>
+<pre>A = {1, 2, 3}
+B = {3, 4, 5}
+
+print(A - B)
+# {1,2}</pre>
+
+<h4>Join</h4>
+<p>Do sets ko combine karne ke context mein union operation use kiya ja sakta hai.</p>
+
+<table><tr><th>Operation</th><th>Operator</th><th>Meaning</th></tr>
+<tr><td>Union</td><td><code>|</code></td><td>Dono sets ke unique elements</td></tr>
+<tr><td>Intersection</td><td><code>&</code></td><td>Common elements</td></tr>
+<tr><td>Difference</td><td><code>-</code></td><td>First set ke non-common elements</td></tr>
+</table>
+
+<h2 id="dictionary">3.5 Dictionary</h2>
+<p>Dictionary data ko <b>key-value pair</b> mein store karta hai. Curly braces ke andar entries likhi jati hain.</p>
+<pre>student = {
+    "name": "Prince",
+    "branch": "CSE",
+    "semester": 3
+}</pre>
+<p>Yahan <code>name</code>, <code>branch</code> aur <code>semester</code> keys hain, aur unke corresponding values stored hain.</p>
+
+<h3>Accessing items using keys</h3>
+<pre>student = {"name": "Prince", "semester": 3}
+
+print(student["name"])
+print(student["semester"])</pre>
+<p>Key ke through value access hoti hai. Dictionary ko sequence ki tarah numeric index se access nahi karna chahiye.</p>
+
+<h3>Dictionary is mutable</h3>
+<p>Dictionary mein existing value modify aur new item add kar sakte hain.</p>
+<pre>student = {"name": "Prince", "semester": 3}
+
+student["semester"] = 4       # modify
+student["college"] = "GP Gaya" # add
+
+print(student)</pre>
+
+<h3>Dictionary built-in methods/functions</h3>
+<table><tr><th>Method</th><th>Use</th><th>Example</th></tr>
+<tr><td><code>keys()</code></td><td>All keys</td><td><code>d.keys()</code></td></tr>
+<tr><td><code>values()</code></td><td>All values</td><td><code>d.values()</code></td></tr>
+<tr><td><code>items()</code></td><td>Key-value pairs</td><td><code>d.items()</code></td></tr>
+<tr><td><code>get()</code></td><td>Key se value safely access</td><td><code>d.get("name")</code></td></tr>
+<tr><td><code>update()</code></td><td>Items add/modify</td><td><code>d.update({"age":18})</code></td></tr>
+<tr><td><code>pop()</code></td><td>Specified key remove</td><td><code>d.pop("age")</code></td></tr>
+<tr><td><code>clear()</code></td><td>All entries remove</td><td><code>d.clear()</code></td></tr>
+<tr><td><code>len()</code></td><td>Number of key-value pairs</td><td><code>len(d)</code></td></tr>
+</table>
+
+<h3>Dictionary traversal</h3>
+<pre>student = {"name": "Prince", "branch": "CSE"}
+
+for key in student:
+    print(key, student[key])</pre>
+<p>Key aur value dono ke liye:</p>
+<pre>for key, value in student.items():
+    print(key, ":", value)</pre>
+
+<h3>Dictionary vs List</h3>
+<table><tr><th>List</th><th>Dictionary</th></tr>
+<tr><td>Items position/index se access.</td><td>Items key se access.</td></tr>
+<tr><td><code>a[0]</code></td><td><code>d["name"]</code></td></tr>
+<tr><td>Ordered collection.</td><td>Key-value mapping.</td></tr>
+</table>
+
+<h2 id="practicals">Unit 3 Practical Programs</h2>
+<p>Uploaded SBTE practical list mein Unit 3 ke liye string, list, tuple, set aur dictionary based programs explicitly diye gaye hain. fileciteturn39file5</p>
+
+<h3>Practical 1 — String Palindrome Check</h3>
+<p>Palindrome string ko reverse karne par bhi same read kiya jata hai.</p>
+<pre>text = input("Enter a string: ")
+
+if text == text[::-1]:
+    print("Palindrome")
+else:
+    print("Not Palindrome")</pre>
+
+<h3>Practical 2 — Reverse Words in a String</h3>
+<pre>text = input("Enter a string: ")
+words = text.split()
+
+reversed_words = words[::-1]
+
+print(" ".join(reversed_words))</pre>
+<div class="example"><strong>Example:</strong> Input <code>I love Python</code> → Output <code>Python love I</code></div>
+
+<h3>Practical 3 — Name, Position and Counting of Vowels</h3>
+<pre>text = input("Enter a string: ")
+vowels = "aeiouAEIOU"
+count = 0
+
+for i, ch in enumerate(text):
+    if ch in vowels:
+        print("Vowel:", ch, "Position:", i)
+        count += 1
+
+print("Total vowels =", count)</pre>
+
+<h3>Practical 4 — Matching Characters in a Pair of Strings</h3>
+<p>Syllabus mein matching characters ko set ke context mein count karne ka practical diya gaya hai. fileciteturn39file5</p>
+<pre>s1 = input("Enter first string: ")
+s2 = input("Enter second string: ")
+
+common = set(s1) & set(s2)
+
+print("Matching characters:", common)
+print("Count =", len(common))</pre>
+
+<h3>Practical 5 — Remove i-th Character from String</h3>
+<pre>text = input("Enter string: ")
+i = int(input("Enter index to remove: "))
+
+if 0 &lt;= i &lt; len(text):
+    result = text[:i] + text[i+1:]
+    print(result)
+else:
+    print("Invalid index")</pre>
+
+<h3>Practical 6 — Largest Number in List without max()</h3>
+<pre>numbers = [12, 45, 7, 89, 34]
+
+largest = numbers[0]
+
+for x in numbers[1:]:
+    if x &gt; largest:
+        largest = x
+
+print("Largest =", largest)</pre>
+
+<h3>Practical 7 — Common Numbers from Two Lists</h3>
+<pre>a = [1, 2, 3, 4, 5]
+b = [4, 5, 6, 7]
+
+common = []
+
+for x in a:
+    if x in b and x not in common:
+        common.append(x)
+
+print(common)</pre>
+
+<h3>Practical 8 — Separate Even and Odd Numbers</h3>
+<pre>numbers = [1, 2, 3, 4, 5, 6]
+
+even = []
+odd = []
+
+for x in numbers:
+    if x % 2 == 0:
+        even.append(x)
+    else:
+        odd.append(x)
+
+print("Even:", even)
+print("Odd:", odd)</pre>
+
+<h3>Practical 9 — Count Occurrences without Built-in Methods</h3>
+<pre>numbers = [2, 4, 2, 5, 2, 7]
+target = int(input("Enter number: "))
+
+count = 0
+
+for x in numbers:
+    if x == target:
+        count += 1
+
+print("Occurrences =", count)</pre>
+
+<h3>Practical 10 — Tuple Index</h3>
+<pre>t = (10, 20, 30, 40)
+
+item = 30
+
+for i in range(len(t)):
+    if t[i] == item:
+        print("Index =", i)
+        break</pre>
+
+<h3>Practical 11 — Tuple Length and Reverse</h3>
+<pre>t = (10, 20, 30, 40)
+
+print("Length =", len(t))
+print("Reverse =", t[::-1])</pre>
+
+<h3>Practical 12 — Sort List of Tuples by Float Element</h3>
+<p>Syllabus sample data: <code>[('item1','12.20'), ('item2','15.10'), ('item3','24.5')]</code> aur expected descending order diya gaya hai. fileciteturn39file5</p>
+<pre>data = [
+    ("item1", "12.20"),
+    ("item2", "15.10"),
+    ("item3", "24.5")
+]
+
+result = sorted(data, key=lambda x: float(x[1]), reverse=True)
+
+print(result)</pre>
+<p>Expected order: item3, item2, item1.</p>
+
+<h3>Practical 13 — Set Intersection</h3>
+<pre>A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+print("Intersection =", A & B)</pre>
+
+<h3>Practical 14 — Set Union</h3>
+<pre>A = {1, 2, 3}
+B = {3, 4, 5}
+
+print("Union =", A | B)</pre>
+
+<h3>Practical 15 — Set Difference</h3>
+<pre>A = {1, 2, 3, 4}
+B = {3, 4, 5}
+
+print("Difference =", A - B)</pre>
+
+<h3>Practical 16 — Check if Two Sets Have No Common Elements</h3>
+<pre>A = {1, 2}
+B = {3, 4}
+
+if A.isdisjoint(B):
+    print("No common elements")
+else:
+    print("Common elements exist")</pre>
+
+<h3>Practical 17 — Concatenate / Merge Dictionaries</h3>
+<pre>d1 = {"a": 100, "b": 200}
+d2 = {"c": 300, "d": 400}
+
+d = d1.copy()
+d.update(d2)
+
+print(d)</pre>
+
+<h3>Practical 18 — Add Values for Common Dictionary Keys</h3>
+<p>Syllabus mein sample dictionaries ko combine karke common keys ki values add karne ka practical diya gaya hai. fileciteturn39file5</p>
+<pre>d1 = {"a": 100, "b": 200, "c": 300}
+d2 = {"a": 300, "b": 200, "d": 400}
+
+d = {}
+
+for key in d1:
+    d[key] = d1[key]
+
+for key in d2:
+    if key in d:
+        d[key] += d2[key]
+    else:
+        d[key] = d2[key]
+
+print(d)</pre>
+<p>Sample result: <code>{'a': 400, 'b': 400, 'c': 300, 'd': 400}</code> (dictionary display order version/environment ke according differ ho sakta hai).</p>
+
+<h2 id="errors">Common Errors & Important Differences</h2>
+<h3>1. String ko direct modify karna</h3>
+<pre>s = "Python"
+# s[0] = "J"   # Error</pre>
+<p>String immutable hai.</p>
+
+<h3>2. List aur Tuple confuse karna</h3>
+<table><tr><th>List</th><th>Tuple</th></tr>
+<tr><td><code>[]</code></td><td><code>()</code></td></tr>
+<tr><td>Mutable</td><td>Immutable</td></tr>
+<tr><td>Elements change kar sakte hain</td><td>Elements direct change nahi kar sakte</td></tr>
+</table>
+
+<h3>3. Empty set ki mistake</h3>
+<pre>a = {}        # empty dictionary
+b = set()      # empty set</pre>
+
+<h3>4. Dictionary mein wrong key</h3>
+<pre>d = {"name": "Prince"}
+
+print(d["age"])   # KeyError</pre>
+<p>Safe access ke liye <code>d.get("age")</code> use kar sakte hain.</p>
+
+<h3>5. List index out of range</h3>
+<pre>a = [10, 20, 30]
+# print(a[3])  # IndexError</pre>
+
+<h3>6. remove() vs pop()</h3>
+<table><tr><th>Method</th><th>Basis</th></tr>
+<tr><td><code>remove(value)</code></td><td>Value ke basis par remove</td></tr>
+<tr><td><code>pop(index)</code></td><td>Index ke basis par remove</td></tr>
+</table>
+
+<h3>7. Set indexing</h3>
+<p>Set ko positional list ki tarah treat nahi karna chahiye. Set ka focus unique elements aur set operations par hai.</p>
+
+<h2 id="exam">Exam Questions & Viva</h2>
+<h3>Very Short Questions</h3>
+<div class="qbox">1. String kya hai?</div>
+<div class="qbox">2. Python string indexing kis number se start hoti hai?</div>
+<div class="qbox">3. String mutable hai ya immutable?</div>
+<div class="qbox">4. List kya hai?</div>
+<div class="qbox">5. List aur tuple mein ek main difference batao.</div>
+<div class="qbox">6. Set ka main feature kya hai?</div>
+<div class="qbox">7. Dictionary kis form mein data store karta hai?</div>
+<div class="qbox">8. <code>in</code> operator ka use kya hai?</div>
+<div class="qbox">9. Linear search kya hai?</div>
+<div class="qbox">10. Frequency counting kya hota hai?</div>
+
+<h3>Short Answer Questions</h3>
+<ol>
+<li>String indexing aur negative indexing example ke saath explain karo.</li>
+<li>String concatenation, repetition, membership aur slicing explain karo.</li>
+<li>String ko loop se traverse kaise karte hain?</li>
+<li>List indexing aur slicing explain karo.</li>
+<li>List ke common methods <code>append()</code>, <code>insert()</code>, <code>remove()</code>, <code>pop()</code> aur <code>sort()</code> explain karo.</li>
+<li>Linear search ka algorithm explain karo.</li>
+<li>List mein frequency counting ka program explain karo.</li>
+<li>Tuple creation, assignment aur operations explain karo.</li>
+<li>Set union, intersection aur difference explain karo.</li>
+<li>Dictionary mein item add aur modify kaise karte hain?</li>
+</ol>
+
+<h3>Long Answer Questions</h3>
+<ol>
+<li>Python strings ko indexing, slicing, operators aur built-in methods ke saath detail mein explain karo.</li>
+<li>Python list ke operations, traversal aur built-in functions/methods suitable programs ke saath explain karo.</li>
+<li>Linear search aur frequency counting ko list ke example ke saath explain karo.</li>
+<li>Tuple creation, accessing, assignment, operations, methods aur nested tuples explain karo.</li>
+<li>Set create, traverse, add/remove aur union/intersection/difference operations explain karo.</li>
+<li>Dictionary ko key-value mapping ke roop mein explain karo aur adding, modifying aur built-in methods ke examples do.</li>
+<li>String, List, Tuple, Set aur Dictionary ka comparison karo.</li>
+</ol>
+
+<h3>Practical / Viva</h3>
+<div class="qbox"><b>Q:</b> List mutable kyun kehte hain?<br><b>A:</b> Kyunki list ke existing elements ko change, add ya remove kar sakte hain.</div>
+<div class="qbox"><b>Q:</b> Tuple immutable ka matlab?<br><b>A:</b> Tuple create hone ke baad uske existing elements ko direct modify nahi kar sakte.</div>
+<div class="qbox"><b>Q:</b> Empty set kaise banega?<br><b>A:</b> <code>set()</code> se. <code>{}</code> empty dictionary banata hai.</div>
+<div class="qbox"><b>Q:</b> Dictionary mein value kaise access karte hain?<br><b>A:</b> Corresponding key ke through, jaise <code>d["name"]</code>.</div>
+<div class="qbox"><b>Q:</b> Set intersection kya deta hai?<br><b>A:</b> Dono sets mein common elements.</div>
+
+<h2 id="mcq">MCQs</h2>
+<div class="qbox"><b>1.</b> Python string indexing generally kis index se start hoti hai?<br>A) 1 &nbsp; B) 0 &nbsp; C) -1 &nbsp; D) 2</div>
+<div class="qbox"><b>2.</b> Kaunsa data type mutable hai?<br>A) String &nbsp; B) Tuple &nbsp; C) List &nbsp; D) Integer</div>
+<div class="qbox"><b>3.</b> String concatenate karne ke liye kaunsa operator use hota hai?<br>A) + &nbsp; B) * &nbsp; C) % &nbsp; D) //</div>
+<div class="qbox"><b>4.</b> String repeat karne ke liye kaunsa operator use hota hai?<br>A) + &nbsp; B) * &nbsp; C) & &nbsp; D) /</div>
+<div class="qbox"><b>5.</b> List kis brackets mein likhi jati hai?<br>A) () &nbsp; B) {} &nbsp; C) [] &nbsp; D) &lt;&gt;</div>
+<div class="qbox"><b>6.</b> Tuple generally kis brackets mein likha jata hai?<br>A) [] &nbsp; B) () &nbsp; C) {} &nbsp; D) //</div>
+<div class="qbox"><b>7.</b> Unique elements store karne ke liye kaunsa type useful hai?<br>A) Set &nbsp; B) String &nbsp; C) Float &nbsp; D) Tuple</div>
+<div class="qbox"><b>8.</b> Dictionary data ko kis form mein store karta hai?<br>A) Only indexes &nbsp; B) Key-value pairs &nbsp; C) Characters only &nbsp; D) Sorted numbers only</div>
+<div class="qbox"><b>9.</b> <code>A & B</code> sets mein kya karta hai?<br>A) Union &nbsp; B) Intersection &nbsp; C) Difference &nbsp; D) Concatenation</div>
+<div class="qbox"><b>10.</b> <code>A | B</code> kya represent karta hai?<br>A) Union &nbsp; B) Intersection &nbsp; C) Difference &nbsp; D) Search</div>
+<div class="qbox"><b>11.</b> List ke end mein item add karne ke liye kaunsa method common hai?<br>A) add() &nbsp; B) append() &nbsp; C) insertEnd() &nbsp; D) push()</div>
+<div class="qbox"><b>12.</b> List mein value ki occurrence count karne ke liye kaunsa method hai?<br>A) total() &nbsp; B) count() &nbsp; C) frequency() &nbsp; D) repeat()</div>
+<div class="qbox"><b>13.</b> Dictionary ke key-value pairs ke liye kaunsa method use hota hai?<br>A) pairs() &nbsp; B) items() &nbsp; C) values() &nbsp; D) entries()</div>
+<div class="qbox"><b>14.</b> String ki length find karne ke liye kya use karte hain?<br>A) size() &nbsp; B) countall() &nbsp; C) len() &nbsp; D) length()</div>
+<div class="qbox"><b>15.</b> Empty set create karne ka correct way kya hai?<br>A) {} &nbsp; B) [] &nbsp; C) set() &nbsp; D) ()</div>
+<h4>Answer Key</h4>
+<p><b>1-B, 2-C, 3-A, 4-B, 5-C, 6-B, 7-A, 8-B, 9-B, 10-A, 11-B, 12-B, 13-B, 14-C, 15-C</b></p>
+
+<h2 id="revision">Quick Revision & Final Checklist</h2>
+<table>
+<tr><th>Topic</th><th>One-line memory point</th></tr>
+<tr><td>String</td><td>Character sequence; immutable.</td></tr>
+<tr><td>Indexing</td><td>Positive index 0 se; negative index -1 se end.</td></tr>
+<tr><td>Concatenation</td><td><code>+</code> se strings/list/tuple join.</td></tr>
+<tr><td>Repetition</td><td><code>*</code> se repeat.</td></tr>
+<tr><td>Membership</td><td><code>in</code> / <code>not in</code>.</td></tr>
+<tr><td>Slicing</td><td><code>[start:stop:step]</code>; stop excluded.</td></tr>
+<tr><td>List</td><td>Ordered and mutable collection.</td></tr>
+<tr><td>Linear Search</td><td>Items ko sequentially check karna.</td></tr>
+<tr><td>Frequency</td><td>Kisi item ki occurrences count karna.</td></tr>
+<tr><td>Tuple</td><td>Ordered and immutable collection.</td></tr>
+<tr><td>Set</td><td>Unique elements; union/intersection/difference.</td></tr>
+<tr><td>Dictionary</td><td>Key-value mapping; mutable.</td></tr>
+</table>
+<ul>
+<li>□ String indexing aur negative indexing clear.</li>
+<li>□ Concatenation, repetition, membership aur slicing practiced.</li>
+<li>□ String traversal aur common methods revised.</li>
+<li>□ List create/access/update/traverse practiced.</li>
+<li>□ List methods revised.</li>
+<li>□ Linear search aur frequency counting practiced.</li>
+<li>□ Tuple assignment aur nested tuple clear.</li>
+<li>□ Set add/remove aur three main operations practiced.</li>
+<li>□ Dictionary key access, add aur modify practiced.</li>
+<li>□ String palindrome practical done.</li>
+<li>□ Reverse words aur vowel counting practical done.</li>
+<li>□ List largest/common/even-odd/occurrence programs done.</li>
+<li>□ Tuple, set aur dictionary practicals revised.</li>
+<li>□ MCQs aur viva questions revised.</li>
+</ul>
+
+<div class="exam"><strong>🔥 High Exam Priority</strong> String indexing + slicing; string operators; list operations and methods; linear search; frequency counting; tuple vs list; set union/intersection/difference; dictionary key-value access, adding and modifying items; practical programs.</div>
+<div class="note"><strong>Source note:</strong> Is chapter ka syllabus coverage uploaded SBTE Bihar Semester III Python Programming document ke Unit 3 se liya gaya hai. Practical section mein wahi Unit 3 practical themes rakhe gaye hain jo source document mein listed hain. fileciteturn39file0turn39file1turn39file5</div>
+
+</section>
+<footer class="footer"><span>PRINCE RAJ STUDY · CSE 3rd Semester · Python Programming · Unit 3</span><span>Course Code 2418305</span></footer>
+</main>
+</body>
+</html>
