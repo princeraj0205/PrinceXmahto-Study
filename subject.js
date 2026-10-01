@@ -8,7 +8,7 @@ else{
   const physicsSpecial=code==='2600102B'&&(i===0||i===1||i===2||i===3||i===4);
   const mechanicsSpecial=code==='2625104'&&(b.id==='elx'||b.id==='electronics');
   const mathSpecial=code==='2600101'&&(b.id==='elx'||b.id==='electronics');
-  const href=chemSpecial?'./chemistry-unit'+(i+1)+'.html?v=20260920.15':physicsSpecial?'./physics-unit'+(i+1)+'.html?v=20260922.26':mechanicsSpecial&&i===0?'./engineering-mechanics-unit1-book.html?v=20261002.01':mathSpecial&&i===0?'./basic-engineering-mathematics-unit1-book.html?v=20261002.03':'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u);
+  const href=chemSpecial?'./chemistry-unit'+(i+1)+'.html?v=20260920.15':physicsSpecial?'./physics-unit'+(i+1)+'.html?v=20260922.26':mechanicsSpecial&&i===0?'./engineering-mechanics-unit1-book.html?v=20261002.01':mechanicsSpecial&&i===1?'./engineering-mechanics-unit2-book.html?v=20261002.01':mathSpecial&&i===0?'./basic-engineering-mathematics-unit1-book.html?v=20261002.03':'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u);
   const label=chemSpecial||physicsSpecial||mechanicsSpecial&&i===0||mathSpecial&&i===0?'Open complete Unit '+(i+1)+' deep notes →':'Open topic notes →';
   return '<a class="topic-card" href="'+href+'"><span>UNIT '+String(i+1).padStart(2,'0')+'</span><h2>'+esc(u)+'</h2><p>'+label+'</p></a>';
  }).join('');
