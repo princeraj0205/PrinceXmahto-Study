@@ -1,0 +1,4299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1f3a">
+<meta name="description" content="PrinceXmahto Study - Engineering Mechanics Semester I Unit 2 Static Equilibrium. Complete SBTE Bihar Diploma study material in easy Hinglish.">
+<meta name="keywords" content="PrinceXmahto Study, SBTE Bihar, Engineering Mechanics, Static Equilibrium, Lami's Theorem, Beam Reaction, Free Body Diagram, Diploma">
+<meta name="author" content="PrinceXmahto Study">
+<title>PrinceXmahto Study | Engineering Mechanics | Unit 2 - Static Equilibrium</title>
+
+<style>
+:root{
+    --primary:#0b1f3a;
+    --primary-2:#123b69;
+    --accent:#d9a441;
+    --accent-soft:#fff5dc;
+    --bg:#f4f7fb;
+    --surface:#ffffff;
+    --surface-2:#f8fafc;
+    --text:#182230;
+    --muted:#667085;
+    --border:#dfe5ec;
+    --success:#16794b;
+    --success-bg:#eaf8f0;
+    --danger:#b42318;
+    --danger-bg:#fff0ee;
+    --info:#175cd3;
+    --info-bg:#eff6ff;
+    --shadow:0 10px 30px rgba(15,32,56,.07);
+    --shadow-soft:0 4px 16px rgba(15,32,56,.05);
+    --radius:16px;
+    --radius-sm:10px;
+    --max:1220px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:85px;
+}
+
+body{
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+img,
+svg{
+    max-width:100%;
+}
+
+.container{
+    width:min(var(--max),calc(100% - 32px));
+    margin:auto;
+}
+
+/* =========================
+   READING PROGRESS
+========================= */
+
+.progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:4px;
+    background:linear-gradient(90deg,var(--accent),#f0c96a);
+    z-index:9999;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(11,31,58,.96);
+    backdrop-filter:blur(14px);
+    color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.header-inner{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+}
+
+.brand-mark{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(145deg,#f4cc72,#c99632);
+    color:#0b1f3a;
+    font-weight:900;
+    font-size:18px;
+    box-shadow:0 5px 18px rgba(217,164,65,.25);
+}
+
+.brand-text{
+    min-width:0;
+}
+
+.brand-name{
+    font-weight:800;
+    letter-spacing:.2px;
+    white-space:nowrap;
+}
+
+.brand-sub{
+    font-size:11px;
+    opacity:.68;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-btn{
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.06);
+    color:#fff;
+    padding:8px 12px;
+    border-radius:9px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.nav-btn:hover{
+    background:rgba(255,255,255,.13);
+}
+
+.mobile-menu-btn{
+    display:none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:
+        radial-gradient(circle at 85% 20%,rgba(217,164,65,.16),transparent 30%),
+        linear-gradient(135deg,#08192f,#123b69);
+    color:#fff;
+    padding:64px 0 58px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:42px;
+    align-items:center;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 11px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:999px;
+    background:rgba(255,255,255,.06);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#e9edf5;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(32px,5vw,58px);
+    line-height:1.08;
+    letter-spacing:-1.5px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:#f2c766;
+}
+
+.hero-description{
+    color:#d7e0ec;
+    max-width:760px;
+    font-size:17px;
+}
+
+.hero-info{
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.info-pill{
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06);
+    padding:12px 14px;
+    border-radius:12px;
+}
+
+.info-pill small{
+    display:block;
+    color:#aebdce;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+}
+
+.info-pill strong{
+    display:block;
+    margin-top:2px;
+    font-size:13px;
+}
+
+.hero-card{
+    background:#fff;
+    color:var(--text);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 22px 55px rgba(0,0,0,.22);
+}
+
+.hero-card-title{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--muted);
+    margin-bottom:12px;
+}
+
+.hero-card h2{
+    font-size:25px;
+    line-height:1.25;
+    margin-bottom:14px;
+}
+
+.hero-card-list{
+    list-style:none;
+}
+
+.hero-card-list li{
+    padding:8px 0;
+    border-bottom:1px solid var(--border);
+    font-size:13px;
+}
+
+.hero-card-list li:last-child{
+    border-bottom:0;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.main-layout{
+    display:grid;
+    grid-template-columns:270px minmax(0,1fr);
+    gap:28px;
+    align-items:start;
+    padding:35px 0 70px;
+}
+
+.sidebar{
+    position:sticky;
+    top:92px;
+    max-height:calc(100vh - 110px);
+    overflow:auto;
+}
+
+.sidebar-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);
+    padding:17px;
+}
+
+.sidebar-title{
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--muted);
+    margin-bottom:10px;
+}
+
+.toc{
+    list-style:none;
+}
+
+.toc li{
+    margin:2px 0;
+}
+
+.toc a{
+    display:block;
+    padding:7px 9px;
+    border-radius:8px;
+    color:#475467;
+    font-size:13px;
+    transition:.2s ease;
+}
+
+.toc a:hover,
+.toc a.active{
+    background:#eef3f8;
+    color:var(--primary);
+    font-weight:700;
+}
+
+.search-box{
+    margin-top:14px;
+}
+
+.search-box input{
+    width:100%;
+    border:1px solid var(--border);
+    background:#fff;
+    border-radius:10px;
+    padding:10px 12px;
+    outline:none;
+    font-size:13px;
+}
+
+.search-box input:focus{
+    border-color:#9db5cf;
+    box-shadow:0 0 0 3px rgba(23,92,211,.08);
+}
+
+/* =========================
+   CONTENT CARDS
+========================= */
+
+.chapter{
+    min-width:0;
+}
+
+.section{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);
+    padding:30px;
+    margin-bottom:24px;
+}
+
+.section-heading{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    margin-bottom:22px;
+}
+
+.section-number{
+    flex:0 0 auto;
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    background:var(--primary);
+    color:#fff;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.section-heading h2{
+    font-size:28px;
+    line-height:1.25;
+    color:var(--primary);
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:14px;
+    margin-top:4px;
+}
+
+h3{
+    color:var(--primary);
+    font-size:21px;
+    margin:28px 0 10px;
+}
+
+h4{
+    color:#243b53;
+    font-size:16px;
+    margin:21px 0 8px;
+}
+
+p{
+    margin:8px 0 14px;
+}
+
+ul,
+ol{
+    padding-left:22px;
+    margin:10px 0 17px;
+}
+
+li{
+    margin:5px 0;
+}
+
+strong{
+    color:#152238;
+}
+
+.muted{
+    color:var(--muted);
+}
+
+/* =========================
+   OBJECTIVES
+========================= */
+
+.objectives{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.objective{
+    padding:17px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:12px;
+}
+
+.objective-number{
+    font-size:11px;
+    font-weight:800;
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:.7px;
+}
+
+.objective p{
+    margin:5px 0 0;
+    font-size:14px;
+}
+
+/* =========================
+   CALLOUTS
+========================= */
+
+.callout{
+    border-radius:12px;
+    padding:16px 18px;
+    margin:18px 0;
+    border:1px solid;
+}
+
+.callout.info{
+    background:var(--info-bg);
+    border-color:#c7d9f8;
+}
+
+.callout.success{
+    background:var(--success-bg);
+    border-color:#bce7cf;
+}
+
+.callout.warning{
+    background:var(--accent-soft);
+    border-color:#ecd79f;
+}
+
+.callout.danger{
+    background:var(--danger-bg);
+    border-color:#f2c4bf;
+}
+
+.callout-title{
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    margin-bottom:4px;
+}
+
+/* =========================
+   FORMULAS
+========================= */
+
+.formula-card{
+    background:#f9fbfd;
+    border:1px solid #d9e2ec;
+    border-left:4px solid var(--accent);
+    border-radius:12px;
+    padding:18px;
+    margin:17px 0;
+    position:relative;
+}
+
+.formula-label{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--muted);
+    font-weight:800;
+}
+
+.formula{
+    font-family:"Times New Roman",Georgia,serif;
+    font-size:24px;
+    color:var(--primary);
+    text-align:center;
+    padding:12px 40px;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+.formula-copy{
+    position:absolute;
+    top:12px;
+    right:12px;
+    border:1px solid var(--border);
+    background:#fff;
+    border-radius:7px;
+    padding:5px 8px;
+    cursor:pointer;
+    font-size:11px;
+}
+
+.where{
+    background:#fff;
+    border-top:1px solid var(--border);
+    padding-top:11px;
+    font-size:13px;
+}
+
+/* =========================
+   EXAMPLES
+========================= */
+
+.example{
+    border:1px solid var(--border);
+    border-radius:14px;
+    margin:22px 0;
+    overflow:hidden;
+}
+
+.example-header{
+    background:var(--primary);
+    color:#fff;
+    padding:12px 17px;
+    font-weight:800;
+    font-size:14px;
+}
+
+.example-body{
+    padding:19px;
+}
+
+.step{
+    padding:11px 14px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:9px;
+    margin:9px 0;
+}
+
+.step b{
+    color:var(--primary);
+}
+
+.answer{
+    background:var(--success-bg);
+    border:1px solid #b9e5cd;
+    color:#12633e;
+    border-radius:10px;
+    padding:13px 15px;
+    margin-top:12px;
+    font-weight:700;
+}
+
+/* =========================
+   DIAGRAMS
+========================= */
+
+.diagram{
+    background:#fbfcfe;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px;
+    margin:20px 0;
+    overflow:hidden;
+}
+
+.diagram-title{
+    text-align:center;
+    font-size:12px;
+    font-weight:800;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.7px;
+    margin-bottom:10px;
+}
+
+.diagram svg{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:400px;
+}
+
+.diagram-note{
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+/* =========================
+   TABLES
+========================= */
+
+.table-wrap{
+    width:100%;
+    overflow-x:auto;
+    margin:17px 0;
+    border:1px solid var(--border);
+    border-radius:12px;
+}
+
+table{
+    width:100%;
+    min-width:620px;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+th,
+td{
+    padding:12px 13px;
+    text-align:left;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+    font-size:13px;
+}
+
+th{
+    background:#f1f5f9;
+    color:var(--primary);
+    font-weight:800;
+}
+
+tr:last-child td{
+    border-bottom:0;
+}
+
+tr:nth-child(even) td{
+    background:#fcfdff;
+}
+
+/* =========================
+   TOPIC TAGS
+========================= */
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:12px 0;
+}
+
+.tag{
+    font-size:11px;
+    padding:4px 8px;
+    border-radius:999px;
+    background:#edf2f7;
+    color:#344054;
+    border:1px solid #dfe6ee;
+}
+
+/* =========================
+   COLLAPSIBLE
+========================= */
+
+details{
+    border:1px solid var(--border);
+    border-radius:11px;
+    margin:12px 0;
+    background:#fff;
+    overflow:hidden;
+}
+
+summary{
+    cursor:pointer;
+    padding:13px 15px;
+    font-weight:800;
+    color:var(--primary);
+    background:#f8fafc;
+}
+
+details > div{
+    padding:14px 16px;
+}
+
+/* =========================
+   MCQ
+========================= */
+
+.mcq{
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:17px;
+    margin:14px 0;
+}
+
+.mcq-q{
+    font-weight:800;
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+}
+
+.option{
+    background:#f8fafc;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:8px 10px;
+    font-size:13px;
+}
+
+.mcq-answer{
+    margin-top:10px;
+    color:var(--success);
+    font-size:13px;
+}
+
+/* =========================
+   REVISION
+========================= */
+
+.revision-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.revision-card{
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:18px;
+    background:linear-gradient(180deg,#fff,#f9fbfd);
+}
+
+.revision-card h3{
+    margin-top:0;
+    font-size:18px;
+}
+
+.revision-card ul{
+    margin-bottom:0;
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+.back-top{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:45px;
+    height:45px;
+    border:0;
+    border-radius:50%;
+    background:var(--primary);
+    color:#fff;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(11,31,58,.22);
+    display:none;
+    z-index:900;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#08192f;
+    color:#fff;
+    padding:40px 0 28px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:30px;
+}
+
+footer h3{
+    color:#fff;
+    margin:0 0 10px;
+}
+
+footer p,
+footer li{
+    color:#b9c6d6;
+    font-size:13px;
+}
+
+footer ul{
+    list-style:none;
+    padding:0;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:28px;
+    padding-top:18px;
+    color:#91a1b4;
+    font-size:12px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+/* =========================
+   PRINT
+========================= */
+
+@media print{
+    .site-header,
+    .sidebar,
+    .nav-actions,
+    .back-top,
+    .progress-bar,
+    .search-box,
+    .formula-copy{
+        display:none!important;
+    }
+
+    body{
+        background:#fff;
+        color:#000;
+        font-size:11pt;
+    }
+
+    .main-layout{
+        display:block;
+        padding:0;
+    }
+
+    .container{
+        width:100%;
+    }
+
+    .section{
+        box-shadow:none;
+        border:1px solid #bbb;
+        page-break-inside:auto;
+    }
+
+    .hero{
+        background:#fff;
+        color:#000;
+        padding:25px 0;
+        border-bottom:2px solid #000;
+    }
+
+    .hero-description,
+    .info-pill small{
+        color:#333;
+    }
+
+    .hero-card{
+        box-shadow:none;
+        border:1px solid #aaa;
+    }
+
+    footer{
+        background:#fff;
+        color:#000;
+        border-top:1px solid #000;
+    }
+
+    footer p,
+    footer li,
+    .footer-bottom{
+        color:#222;
+    }
+
+    h2,h3,h4{
+        color:#000;
+    }
+
+    .diagram{
+        break-inside:avoid;
+    }
+
+    .example{
+        break-inside:avoid;
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1050px){
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-card{
+        max-width:700px;
+    }
+
+    .main-layout{
+        grid-template-columns:220px minmax(0,1fr);
+    }
+}
+
+@media(max-width:800px){
+    .header-inner{
+        min-height:64px;
+    }
+
+    .nav-actions .nav-btn:nth-child(1),
+    .nav-actions .nav-btn:nth-child(2){
+        display:none;
+    }
+
+    .mobile-menu-btn{
+        display:block;
+    }
+
+    .main-layout{
+        display:block;
+    }
+
+    .sidebar{
+        position:fixed;
+        left:0;
+        top:64px;
+        width:290px;
+        height:calc(100vh - 64px);
+        max-height:none;
+        transform:translateX(-105%);
+        transition:.25s ease;
+        z-index:950;
+        padding:15px;
+        background:var(--bg);
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .hero-info{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .objectives,
+    .revision-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:23px 18px;
+    }
+
+    .section-heading h2{
+        font-size:24px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:560px){
+    .container{
+        width:min(100% - 22px,var(--max));
+    }
+
+    .brand-sub{
+        display:none;
+    }
+
+    .hero{
+        padding:40px 0;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .hero-info{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .info-pill{
+        padding:9px;
+    }
+
+    .info-pill strong{
+        font-size:12px;
+    }
+
+    .section{
+        border-radius:12px;
+        padding:20px 15px;
+    }
+
+    .section-heading{
+        gap:10px;
+    }
+
+    .section-number{
+        width:36px;
+        height:36px;
+        border-radius:9px;
+    }
+
+    .section-heading h2{
+        font-size:21px;
+    }
+
+    h3{
+        font-size:19px;
+    }
+
+    .formula{
+        font-size:20px;
+        padding:12px 5px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .table-wrap{
+        margin-left:0;
+        margin-right:0;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="site-header">
+    <div class="container header-inner">
+
+        <a class="brand" href="#top">
+            <div class="brand-mark">PX</div>
+            <div class="brand-text">
+                <div class="brand-name">PrinceXmahto Study</div>
+                <div class="brand-sub">Premium Diploma Study Portal</div>
+            </div>
+        </a>
+
+        <div class="nav-actions">
+            <button class="nav-btn" onclick="window.print()">Print</button>
+            <button class="nav-btn" onclick="scrollToTop()">Top</button>
+            <button class="nav-btn mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+        </div>
+
+    </div>
+</header>
+
+<main id="top">
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+    <div class="container hero-grid">
+
+        <div>
+            <div class="eyebrow">SBTE Bihar • Semester I • Engineering Mechanics</div>
+
+            <h1>
+                Unit 2:
+                <span>Static Equilibrium</span>
+            </h1>
+
+            <p class="hero-description">
+                Engineering Mechanics ka complete Unit 2 — equilibrium, equilibrant,
+                free body diagram, analytical conditions, Lami's Theorem, beams,
+                supports, loads aur beam reactions ko step-by-step easy Hinglish mein
+                samjhaya gaya hai.
+            </p>
+
+            <div class="hero-info">
+                <div class="info-pill">
+                    <small>Course</small>
+                    <strong>Engineering Mechanics</strong>
+                </div>
+
+                <div class="info-pill">
+                    <small>Course Code</small>
+                    <strong>2625104</strong>
+                </div>
+
+                <div class="info-pill">
+                    <small>Semester</small>
+                    <strong>Semester I</strong>
+                </div>
+
+                <div class="info-pill">
+                    <small>Unit</small>
+                    <strong>Unit 2.0</strong>
+                </div>
+            </div>
+        </div>
+
+        <aside class="hero-card">
+            <div class="hero-card-title">Chapter Coverage</div>
+            <h2>Static Equilibrium</h2>
+
+            <ul class="hero-card-list">
+                <li>2.1 Equilibrium, Equilibrant & Free Body Diagram</li>
+                <li>2.2 Equilibrium of Force Systems Analytically</li>
+                <li>2.3 Lami's Theorem</li>
+                <li>2.4 Types of Beams, Supports & Loads</li>
+                <li>2.5 Beam Reactions — Cantilever & Overhang</li>
+                <li>2.6 Simply Supported Beam — Vertical Loads</li>
+            </ul>
+        </aside>
+
+    </div>
+</section>
+
+<div class="container main-layout">
+
+<!-- =========================
+     SIDEBAR / TOC
+========================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-card">
+
+        <div class="sidebar-title">Table of Contents</div>
+
+        <nav>
+            <ul class="toc">
+                <li><a href="#objectives">Learning Objectives</a></li>
+                <li><a href="#unit-overview">Unit Overview</a></li>
+                <li><a href="#topic21">2.1 Equilibrium & FBD</a></li>
+                <li><a href="#topic22">2.2 Analytical Equilibrium</a></li>
+                <li><a href="#topic23">2.3 Lami's Theorem</a></li>
+                <li><a href="#topic24">2.4 Beams, Supports & Loads</a></li>
+                <li><a href="#topic25">2.5 Beam Reactions</a></li>
+                <li><a href="#topic26">2.6 Simply Supported Beam</a></li>
+                <li><a href="#definitions">Important Definitions</a></li>
+                <li><a href="#formulas">Important Formulae</a></li>
+                <li><a href="#shortquestions">Short Questions</a></li>
+                <li><a href="#longquestions">Long Questions</a></li>
+                <li><a href="#numericals">Numerical Questions</a></li>
+                <li><a href="#mcqs">MCQs</a></li>
+                <li><a href="#mistakes">Common Mistakes</a></li>
+                <li><a href="#revision">One-Shot Revision</a></li>
+                <li><a href="#formulasheet">Formula Sheet</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-box">
+            <input id="searchInput" type="search" placeholder="Search in this chapter...">
+        </div>
+
+    </div>
+
+</aside>
+
+<!-- =========================
+     MAIN CHAPTER
+========================= -->
+
+<article class="chapter" id="chapterContent">
+
+<!-- =========================
+     LEARNING OBJECTIVES
+========================= -->
+
+<section class="section" id="objectives">
+
+    <div class="section-heading">
+        <div class="section-number">01</div>
+        <div>
+            <h2>Learning Objectives</h2>
+            <p>Unit complete karne ke baad student ko kya aana chahiye.</p>
+        </div>
+    </div>
+
+    <div class="objectives">
+
+        <div class="objective">
+            <div class="objective-number">TSO 2a</div>
+            <p>Given condition ke liye Free Body Diagram draw karna.</p>
+        </div>
+
+        <div class="objective">
+            <div class="objective-number">TSO 2b</div>
+            <p>Lami's Theorem ka use karke unknown force determine karna.</p>
+        </div>
+
+        <div class="objective">
+            <div class="objective-number">TSO 2c</div>
+            <p>Given situation ke according suitable beam identify karna.</p>
+        </div>
+
+        <div class="objective">
+            <div class="objective-number">TSO 2d</div>
+            <p>Beam reactions ko analytically determine karna.</p>
+        </div>
+
+        <div class="objective">
+            <div class="objective-number">TSO 2e</div>
+            <p>Free Body Diagram aur Lami's Theorem based problems solve karna.</p>
+        </div>
+
+    </div>
+
+    <div class="callout info">
+        <div class="callout-title">Exam Focus</div>
+        Is unit mein diagram + equilibrium equations + Lami's theorem + beam reaction
+        numericals ko properly practice karna important hai. Sirf formula yaad karne
+        ke bajay force diagram banana seekhna zaroori hai.
+    </div>
+
+</section>
+
+<!-- =========================
+     UNIT OVERVIEW
+========================= -->
+
+<section class="section" id="unit-overview">
+
+    <div class="section-heading">
+        <div class="section-number">02</div>
+        <div>
+            <h2>Unit 2.0 — Static Equilibrium</h2>
+            <p>Complete chapter overview</p>
+        </div>
+    </div>
+
+    <p>
+        Engineering Mechanics mein kisi body ya engineering system ka behaviour samajhne
+        ke liye sabse basic concept <strong>equilibrium</strong> hai. Agar kisi body par
+        forces aur moments is tarah balance ho jayein ki body ka acceleration na ho,
+        to body equilibrium condition mein hoti hai.
+    </p>
+
+    <p>
+        Static equilibrium specifically un situations ko study karta hai jahan body
+        rest mein hoti hai. Building beams, bridges, brackets, supports, machines,
+        frames aur many engineering structures ko analyse karne ke liye equilibrium
+        principles ka use kiya jata hai.
+    </p>
+
+    <div class="tags">
+        <span class="tag">Equilibrium</span>
+        <span class="tag">Equilibrant</span>
+        <span class="tag">FBD</span>
+        <span class="tag">Lami's Theorem</span>
+        <span class="tag">Beam</span>
+        <span class="tag">Support</span>
+        <span class="tag">Load</span>
+        <span class="tag">Reaction</span>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Main Concept</th>
+                    <th>Exam Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2.1</td>
+                    <td>Equilibrium, equilibrant, FBD</td>
+                    <td>Concept + diagrams + conditions</td>
+                </tr>
+                <tr>
+                    <td>2.2</td>
+                    <td>Analytical equilibrium</td>
+                    <td>Numerical problems</td>
+                </tr>
+                <tr>
+                    <td>2.3</td>
+                    <td>Lami's Theorem</td>
+                    <td>Unknown force numerical</td>
+                </tr>
+                <tr>
+                    <td>2.4</td>
+                    <td>Beam, support and load types</td>
+                    <td>Identification + theory</td>
+                </tr>
+                <tr>
+                    <td>2.5</td>
+                    <td>Beam reactions</td>
+                    <td>Analytical numerical</td>
+                </tr>
+                <tr>
+                    <td>2.6</td>
+                    <td>Simply supported beam with vertical loads</td>
+                    <td>Reaction calculation</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<!-- =====================================================
+     TOPIC 2.1
+===================================================== -->
+
+<section class="section" id="topic21">
+
+    <div class="section-heading">
+        <div class="section-number">2.1</div>
+        <div>
+            <h2>Equilibrium, Equilibrant, Free Body & Free Body Diagram</h2>
+            <p>Analytical and graphical conditions of equilibrium</p>
+        </div>
+    </div>
+
+    <h3>2.1.1 Equilibrium — Introduction</h3>
+
+    <p>
+        <strong>Equilibrium</strong> ka simple meaning hai — forces aur moments ka
+        balance. Jab kisi body par acting forces ka net effect zero hota hai aur
+        body translational ya rotational acceleration experience nahi karti,
+        tab body equilibrium mein hoti hai.
+    </p>
+
+    <p>
+        Static equilibrium mein body rest position mein hoti hai. Engineering
+        structures jaise beam, bracket, roof truss ke members aur support systems
+        ko design/analyse karte time equilibrium conditions bahut important hoti hain.
+    </p>
+
+    <div class="callout success">
+        <div class="callout-title">Simple Meaning</div>
+        Agar ek body ko kisi direction mein dhakelne wali total tendency aur opposite
+        direction ki total tendency balance ho jaye, body equilibrium mein ho sakti hai.
+    </div>
+
+    <h3>2.1.2 Definition of Equilibrium</h3>
+
+    <p>
+        <strong>Equilibrium:</strong> A body is said to be in equilibrium when the
+        resultant of all forces and the resultant moment acting on it are zero.
+    </p>
+
+    <p>
+        Hinglish mein: body par acting forces aur moments ek doosre ko completely
+        balance karte hain.
+    </p>
+
+    <h3>2.1.3 Types of Equilibrium</h3>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                    <th>Engineering Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Static Equilibrium</td>
+                    <td>Body rest mein hai aur forces/moments balanced hain.</td>
+                    <td>Supported beam carrying load</td>
+                </tr>
+                <tr>
+                    <td>Dynamic Equilibrium</td>
+                    <td>Body motion mein ho sakti hai, lekin acceleration conditions equilibrium ke concept ke according balanced hoti hain.</td>
+                    <td>Special mechanical systems</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>2.1.4 Conditions of Equilibrium</h3>
+
+    <p>
+        Coplanar force system ke liye equilibrium establish karne ke liye force
+        components aur moment ko balance karna hota hai.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula-label">Force equilibrium — x direction</div>
+        <div class="formula">ΣF<sub>x</sub> = 0</div>
+        <button class="formula-copy" onclick="copyFormula('ΣFx = 0')">Copy</button>
+        <div class="where">
+            <strong>Meaning:</strong> Horizontal direction mein total positive aur
+            negative forces equal honge.
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-label">Force equilibrium — y direction</div>
+        <div class="formula">ΣF<sub>y</sub> = 0</div>
+        <button class="formula-copy" onclick="copyFormula('ΣFy = 0')">Copy</button>
+        <div class="where">
+            <strong>Meaning:</strong> Vertical direction mein total upward aur
+            downward forces balance honge.
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-label">Moment equilibrium</div>
+        <div class="formula">ΣM = 0</div>
+        <button class="formula-copy" onclick="copyFormula('ΣM = 0')">Copy</button>
+        <div class="where">
+            <strong>Meaning:</strong> Kisi selected point ke about clockwise aur
+            anticlockwise moments balance honge.
+        </div>
+    </div>
+
+    <div class="callout warning">
+        <div class="callout-title">Important</div>
+        Sign convention pehle decide karo. Example:
+        anticlockwise moment = positive aur clockwise moment = negative.
+        Calculation ke beech sign convention change nahi karna chahiye.
+    </div>
+
+    <!-- FBD DIAGRAM -->
+
+    <div class="diagram">
+        <div class="diagram-title">Free Body Diagram — Basic Example</div>
+
+        <svg viewBox="0 0 760 300" role="img" aria-label="Free body diagram of block">
+
+            <defs>
+                <marker id="arrowBlue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#175cd3"/>
+                </marker>
+                <marker id="arrowRed" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#b42318"/>
+                </marker>
+            </defs>
+
+            <rect x="270" y="105" width="220" height="90" rx="8"
+                  fill="#eef3f8" stroke="#0b1f3a" stroke-width="3"/>
+
+            <line x1="380" y1="105" x2="380" y2="42"
+                  stroke="#175cd3" stroke-width="4" marker-end="url(#arrowBlue)"/>
+            <text x="394" y="55" font-size="18" fill="#175cd3">N</text>
+
+            <line x1="380" y1="195" x2="380" y2="265"
+                  stroke="#b42318" stroke-width="4" marker-end="url(#arrowRed)"/>
+            <text x="394" y="250" font-size="18" fill="#b42318">W</text>
+
+            <line x1="270" y1="150" x2="195" y2="150"
+                  stroke="#175cd3" stroke-width="4" marker-end="url(#arrowBlue)"/>
+            <text x="202" y="137" font-size="18" fill="#175cd3">P</text>
+
+            <line x1="490" y1="150" x2="565" y2="150"
+                  stroke="#b42318" stroke-width="4" marker-end="url(#arrowRed)"/>
+            <text x="515" y="137" font-size="18" fill="#b42318">F</text>
+
+            <text x="323" y="158" font-size="19" fill="#0b1f3a">BODY</text>
+
+            <line x1="210" y1="225" x2="550" y2="225"
+                  stroke="#667085" stroke-width="2" stroke-dasharray="6 5"/>
+            <text x="300" y="250" font-size="15" fill="#667085">Reference / ground line</text>
+
+        </svg>
+
+        <div class="diagram-note">
+            FBD mein body ko isolate karke us par acting external forces/reactions show kiye jaate hain.
+        </div>
+    </div>
+
+    <h3>2.1.5 Equilibrant</h3>
+
+    <p>
+        Kisi force system ka resultant agar <strong>R</strong> hai, to aisi force
+        jo resultant ke equal magnitude ki ho aur exactly opposite direction mein
+        act kare, usse <strong>equilibrant</strong> kehte hain.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula-label">Equilibrant relation</div>
+        <div class="formula">E = −R</div>
+        <button class="formula-copy" onclick="copyFormula('E = -R')">Copy</button>
+        <div class="where">
+            <strong>E</strong> = equilibrant vector,
+            <strong>R</strong> = resultant vector.
+            Magnitude same hoti hai, direction opposite hoti hai.
+        </div>
+    </div>
+
+    <div class="diagram">
+        <div class="diagram-title">Resultant and Equilibrant</div>
+
+        <svg viewBox="0 0 760 260">
+
+            <defs>
+                <marker id="a1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#175cd3"/>
+                </marker>
+                <marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#b42318"/>
+                </marker>
+            </defs>
+
+            <circle cx="380" cy="135" r="6" fill="#0b1f3a"/>
+
+            <line x1="380" y1="135" x2="570" y2="70"
+                  stroke="#175cd3" stroke-width="5" marker-end="url(#a1)"/>
+            <text x="575" y="68" font-size="18" fill="#175cd3">R</text>
+
+            <line x1="380" y1="135" x2="190" y2="200"
+                  stroke="#b42318" stroke-width="5" marker-end="url(#a2)"/>
+            <text x="158" y="207" font-size="18" fill="#b42318">E</text>
+
+            <text x="300" y="180" font-size="15" fill="#667085">same magnitude</text>
+            <text x="300" y="103" font-size="15" fill="#667085">opposite direction</text>
+
+        </svg>
+    </div>
+
+    <h3>2.1.6 Free Body Diagram (FBD)</h3>
+
+    <p>
+        <strong>Free Body Diagram</strong> ek simplified engineering diagram hai
+        jisme selected body ko surrounding system se isolate karke us par acting
+        external forces, applied loads, weight aur support reactions ko clearly
+        represent kiya jata hai.
+    </p>
+
+    <h4>FBD banane ka step-by-step method</h4>
+
+    <ol>
+        <li>Sabse pehle jis body ka analysis karna hai usko identify karo.</li>
+        <li>Body ko surrounding structure se conceptually isolate karo.</li>
+        <li>Body ka simple shape draw karo.</li>
+        <li>Applied loads ko arrows se show karo.</li>
+        <li>Weight ko normally downward direction mein show karo.</li>
+        <li>Supports ko remove karke unki reactions show karo.</li>
+        <li>Force directions aur angles clearly label karo.</li>
+        <li>Required dimensions aur distances mark karo.</li>
+        <li>Sign convention decide karo.</li>
+        <li>Uske baad equilibrium equations apply karo.</li>
+    </ol>
+
+    <div class="callout danger">
+        <div class="callout-title">Common FBD Error</div>
+        Support ko diagram mein same form mein chhod dena aur reaction force draw
+        na karna ek common mistake hai. Analytical calculation ke liye support
+        reactions ko explicitly show karna zaroori hai.
+    </div>
+
+    <h3>2.1.7 Analytical vs Graphical Equilibrium</h3>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Basis</th>
+                    <th>Analytical Method</th>
+                    <th>Graphical Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Approach</td>
+                    <td>Equations and mathematical calculations</td>
+                    <td>Scale drawing and vector geometry</td>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td>Generally higher if calculations are correct</td>
+                    <td>Drawing scale and measurement par depend karti hai</td>
+                </tr>
+                <tr>
+                    <td>Tools</td>
+                    <td>Equations/calculator</td>
+                    <td>Scale, ruler, protractor etc.</td>
+                </tr>
+                <tr>
+                    <td>Use</td>
+                    <td>Numerical analysis</td>
+                    <td>Visual/graphical force analysis</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>2.1.8 Worked Example — Basic Equilibrium</h3>
+
+    <div class="example">
+
+        <div class="example-header">
+            Example 1 — Two Opposite Forces
+        </div>
+
+        <div class="example-body">
+
+            <div class="step">
+                <b>GIVEN:</b><br>
+                Ek body par 500 N ka force right side mein aur 500 N ka force left
+                side mein act kar raha hai.
+            </div>
+
+            <div class="step">
+                <b>FIND:</b><br>
+                Resultant force.
+            </div>
+
+            <div class="step">
+                <b>FORMULA:</b><br>
+                ΣF<sub>x</sub> = 0
+            </div>
+
+            <div class="step">
+                <b>WHY THIS FORMULA:</b><br>
+                Body ke horizontal direction mein equilibrium check karna hai.
+                Isliye algebraic sum of horizontal forces use karenge.
+            </div>
+
+            <div class="step">
+                <b>SUBSTITUTION:</b><br>
+                ΣF<sub>x</sub> = +500 − 500
+            </div>
+
+            <div class="step">
+                <b>CALCULATION:</b><br>
+                ΣF<sub>x</sub> = 0 N
+            </div>
+
+            <div class="answer">
+                ANSWER: Horizontal resultant force = 0 N. Therefore the horizontal
+                forces are balanced.
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- =====================================================
+     TOPIC 2.2
+===================================================== -->
+
+<section class="section" id="topic22">
+
+    <div class="section-heading">
+        <div class="section-number">2.2</div>
+        <div>
+            <h2>Equilibrium of Force Systems Analytically</h2>
+            <p>Force components, moments and equilibrium equations</p>
+        </div>
+    </div>
+
+    <h3>2.2.1 Analytical Equilibrium ka Basic Idea</h3>
+
+    <p>
+        Analytical method mein equilibrium ko mathematical equations ke through
+        establish kiya jata hai. Coplanar force system ke liye force ko convenient
+        x aur y components mein resolve karna useful hota hai.
+    </p>
+
+    <p>
+        Agar kisi inclined force <strong>F</strong> ka angle horizontal ke saath
+        θ hai, to:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula-label">Horizontal component</div>
+        <div class="formula">F<sub>x</sub> = F cos θ</div>
+        <button class="formula-copy" onclick="copyFormula('Fx = F cos θ')">Copy</button>
+        <div class="where">
+            <strong>F</strong> = original force, <strong>θ</strong> = force ka
+            horizontal axis ke saath angle.
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-label">Vertical component</div>
+        <div class="formula">F<sub>y</sub> = F sin θ</div>
+        <button class="formula-copy" onclick="copyFormula('Fy = F sin θ')">Copy</button>
+        <div class="where">
+            Horizontal ke saath angle given ho to adjacent component = cos aur
+            opposite component = sin.
+        </div>
+    </div>
+
+    <h3>2.2.2 General Equilibrium Conditions</h3>
+
+    <p>
+        Ek planar rigid body ke static equilibrium ke liye three independent
+        equilibrium equations commonly use kiye jaate hain:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">ΣF<sub>x</sub> = 0</div>
+        <div class="formula">ΣF<sub>y</sub> = 0</div>
+        <div class="formula">ΣM<sub>O</sub> = 0</div>
+    </div>
+
+    <p>
+        Yahan <strong>O</strong> koi selected reference point hai. Moment equation
+        aise point par lena convenient hota hai jahan unknown reaction pass ho,
+        kyunki us reaction ka moment zero ho sakta hai.
+    </p>
+
+    <h3>2.2.3 Moment of a Force</h3>
+
+    <p>
+        Kisi point ke about force ka turning effect <strong>moment</strong> kehlata hai.
+        Moment ka magnitude force aur perpendicular distance ke product ke equal hota hai.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula-label">Moment of force</div>
+        <div class="formula">M = F × d</div>
+        <button class="formula-copy" onclick="copyFormula('M = F × d')">Copy</button>
+        <div class="where">
+            <strong>M</strong> = moment in N·m,
+            <strong>F</strong> = force in N,
+            <strong>d</strong> = perpendicular distance in m.
+        </div>
+    </div>
+
+    <div class="callout info">
+        <div class="callout-title">Remember</div>
+        Moment ke formula mein distance hamesha force ki line of action se
+        <strong>perpendicular distance</strong> hona chahiye.
+    </div>
+
+    <div class="diagram">
+        <div class="diagram-title">Moment of Force</div>
+
+        <svg viewBox="0 0 760 300">
+
+            <defs>
+                <marker id="momentArrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#b42318"/>
+                </marker>
+            </defs>
+
+            <line x1="150" y1="220" x2="620" y2="220"
+                  stroke="#0b1f3a" stroke-width="5"/>
+
+            <circle cx="190" cy="220" r="7" fill="#0b1f3a"/>
+            <text x="178" y="250" font-size="16" fill="#0b1f3a">O</text>
+
+            <line x1="500" y1="220" x2="500" y2="75"
+                  stroke="#b42318" stroke-width="5"
+                  marker-end="url(#momentArrow)"/>
+
+            <text x="515" y="90" font-size="18" fill="#b42318">F</text>
+
+            <line x1="190" y1="265" x2="500" y2="265"
+                  stroke="#667085" stroke-width="2"/>
+            <line x1="190" y1="258" x2="190" y2="272"
+                  stroke="#667085" stroke-width="2"/>
+            <line x1="500" y1="258" x2="500" y2="272"
+                  stroke="#667085" stroke-width="2"/>
+
+            <text x="310" y="290" font-size="16" fill="#667085">d</text>
+
+            <path d="M235 195 A55 55 0 1 1 235 245"
+                  fill="none" stroke="#175cd3" stroke-width="3"
+                  marker-end="url(#momentArrow)"/>
+
+            <text x="230" y="125" font-size="16" fill="#175cd3">Turning effect</text>
+
+        </svg>
+
+        <div class="diagram-note">
+            Moment = force × perpendicular distance from reference point.
+        </div>
+    </div>
+
+    <h3>2.2.4 Sign Convention for Moment</h3>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Moment Direction</th>
+                    <th>Common Sign Convention</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Anticlockwise</td>
+                    <td>+</td>
+                    <td>Counter-clockwise turning tendency</td>
+                </tr>
+                <tr>
+                    <td>Clockwise</td>
+                    <td>−</td>
+                    <td>Clockwise turning tendency</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="muted">
+        Note: Sign convention ko consistently use karna important hai. Agar problem
+        mein opposite convention choose kiya hai to complete calculation mein wahi
+        convention follow karo.
+    </p>
+
+    <h3>2.2.5 Analytical Procedure</h3>
+
+    <ol>
+        <li>System ka accurate FBD banao.</li>
+        <li>Unknown support reactions ko appropriate directions mein assume karo.</li>
+        <li>Inclined forces ko x-y components mein resolve karo.</li>
+        <li>Ek suitable point ke about moment equation likho.</li>
+        <li>ΣM = 0 se convenient unknown reaction find karo.</li>
+        <li>ΣF<sub>y</sub> = 0 apply karo.</li>
+        <li>ΣF<sub>x</sub> = 0 apply karo.</li>
+        <li>Answer ke sign aur units check karo.</li>
+    </ol>
+
+    <h3>2.2.6 Solved Numerical — Inclined Force Equilibrium</h3>
+
+    <div class="example">
+
+        <div class="example-header">
+            Example 2 — Resolving an Inclined Force
+        </div>
+
+        <div class="example-body">
+
+            <div class="step">
+                <b>GIVEN:</b><br>
+                Ek 100 N force horizontal ke saath 30° angle par act karta hai.
+            </div>
+
+            <div class="step">
+                <b>FIND:</b><br>
+                Horizontal aur vertical components.
+            </div>
+
+            <div class="step">
+                <b>FORMULA:</b><br>
+                F<sub>x</sub> = F cos θ<br>
+                F<sub>y</sub> = F sin θ
+            </div>
+
+            <div class="step">
+                <b>WHY THIS FORMULA:</b><br>
+                Inclined force ko mutually perpendicular horizontal aur vertical
+                components mein resolve karna hai.
+            </div>
+
+            <div class="step">
+                <b>SUBSTITUTION:</b><br>
+                F<sub>x</sub> = 100 cos 30°<br>
+                F<sub>y</sub> = 100 sin 30°
+            </div>
+
+            <div class="step">
+                <b>CALCULATION:</b><br>
+                cos 30° ≈ 0.866<br>
+                sin 30° = 0.5<br><br>
+                F<sub>x</sub> = 100 × 0.866 = 86.6 N<br>
+                F<sub>y</sub> = 100 × 0.5 = 50 N
+            </div>
+
+            <div class="answer">
+                ANSWER: Horizontal component = 86.6 N; Vertical component = 50 N.
+            </div>
+
+        </div>
+    </div>
+
+    <h3>2.2.7 Analytical Equilibrium of Concurrent Forces</h3>
+
+    <p>
+        Jab multiple forces ki lines of action ek common point se pass karti hain,
+        force system ko <strong>concurrent force system</strong> kaha jata hai.
+        Aise system mein equilibrium ke liye components ka algebraic sum zero hona chahiye.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">ΣF<sub>x</sub> = 0</div>
+        <div class="formula">ΣF<sub>y</sub> = 0</div>
+    </div>
+
+    <p>
+        Concurrent force system mein selected common point ke about moments ka
+        analysis generally simpler hota hai because forces ki lines of action
+        common point se pass karti hain.
+    </p>
+
+</section>
+
+<!-- =====================================================
+     TOPIC 2.3
+===================================================== -->
+
+<section class="section" id="topic23">
+
+    <div class="section-heading">
+        <div class="section-number">2.3</div>
+        <div>
+            <h2>Lami's Theorem</h2>
+            <p>Three concurrent forces in equilibrium</p>
+        </div>
+    </div>
+
+    <h3>2.3.1 Introduction</h3>
+
+    <p>
+        <strong>Lami's Theorem</strong> ek important theorem hai jo teen concurrent
+        forces ke equilibrium problems ko solve karne ke liye use hota hai.
+        Agar three forces ek point par act kar rahe hain aur body equilibrium mein hai,
+        to har force ka ratio opposite angle ke sine ke ratio ke equal hota hai.
+    </p>
+
+    <h3>2.3.2 Statement of Lami's Theorem</h3>
+
+    <p>
+        If a body is in equilibrium under the action of three concurrent forces,
+        then each force is proportional to the sine of the angle between the other
+        two forces.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula-label">Lami's Theorem</div>
+        <div class="formula">
+            F<sub>1</sub>/sin α =
+            F<sub>2</sub>/sin β =
+            F<sub>3</sub>/sin γ
+        </div>
+        <button class="formula-copy" onclick="copyFormula('F1/sin α = F2/sin β = F3/sin γ')">Copy</button>
+
+        <div class="where">
+            <strong>α</strong> = angle between F<sub>2</sub> and F<sub>3</sub><br>
+            <strong>β</strong> = angle between F<sub>1</sub> and F<sub>3</sub><br>
+            <strong>γ</strong> = angle between F<sub>1</sub> and F<sub>2</sub>
+        </div>
+    </div>
+
+    <div class="diagram">
+        <div class="diagram-title">Lami's Theorem — Three Concurrent Forces</div>
+
+        <svg viewBox="0 0 760 390">
+
+            <defs>
+                <marker id="lami1" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#175cd3"/>
+                </marker>
+                <marker id="lami2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#b42318"/>
+                </marker>
+                <marker id="lami3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#16794b"/>
+                </marker>
+            </defs>
+
+            <circle cx="380" cy="205" r="7" fill="#0b1f3a"/>
+
+            <line x1="380" y1="205" x2="380" y2="65"
+                  stroke="#175cd3" stroke-width="5" marker-end="url(#lami1)"/>
+            <text x="394" y="75" font-size="18" fill="#175cd3">F₁</text>
+
+            <line x1="380" y1="205" x2="600" y2="300"
+                  stroke="#b42318" stroke-width="5" marker-end="url(#lami2)"/>
+            <text x="602" y="316" font-size="18" fill="#b42318">F₂</text>
+
+            <line x1="380" y1="205" x2="160" y2="300"
+                  stroke="#16794b" stroke-width="5" marker-end="url(#lami3)"/>
+            <text x="125" y="316" font-size="18" fill="#16794b">F₃</text>
+
+            <path d="M380 125 A80 80 0 0 1 435 228"
+                  fill="none" stroke="#667085" stroke-width="2"/>
+            <text x="423" y="154" font-size="16" fill="#667085">α</text>
+
+            <path d="M326 230 A80 80 0 0 1 380 125"
+                  fill="none" stroke="#667085" stroke-width="2"/>
+            <text x="320" y="157" font-size="16" fill="#667085">β</text>
+
+            <path d="M305 245 A90 90 0 0 1 455 245"
+                  fill="none" stroke="#667085" stroke-width="2"/>
+            <text x="372" y="295" font-size="16" fill="#667085">γ</text>
+
+        </svg>
+
+        <div class="diagram-note">
+            The angle associated with a force is the angle between the other two forces.
+        </div>
+    </div>
+
+    <h3>2.3.3 Conditions for Applying Lami's Theorem</h3>
+
+    <ul>
+        <li>Exactly three forces consider karna convenient/necessary hai.</li>
+        <li>Teeno forces concurrent honi chahiye.</li>
+        <li>Body equilibrium mein honi chahiye.</li>
+        <li>Forces coplanar problem mein represented honi chahiye.</li>
+        <li>Angles correctly identify karne chahiye.</li>
+    </ul>
+
+    <div class="callout warning">
+        <div class="callout-title">Most Important Rule</div>
+        Lami's Theorem mein kisi force ke denominator mein us force ke opposite
+        angle nahi, balki <strong>remaining two forces ke beech ka angle</strong>
+        aata hai.
+    </div>
+
+    <h3>2.3.4 When NOT to Use Lami's Theorem</h3>
+
+    <ul>
+        <li>Jab force system mein three se zyada forces directly involved hon.</li>
+        <li>Jab forces concurrent na hon.</li>
+        <li>Jab body equilibrium condition satisfy na karti ho.</li>
+        <li>Jab problem ko direct ΣF<sub>x</sub>, ΣF<sub>y</sub>, ΣM equations se solve karna more appropriate ho.</li>
+    </ul>
+
+    <h3>2.3.5 Solved Numerical — Lami's Theorem</h3>
+
+    <div class="example">
+
+        <div class="example-header">
+            Example 3 — Finding Unknown Force using Lami's Theorem
+        </div>
+
+        <div class="example-body">
+
+            <div class="step">
+                <b>GIVEN:</b><br>
+                Ek concurrent equilibrium system mein three forces act kar rahi hain:
+                F₁ = 100 N, F₂ = 150 N aur F₃ unknown hai.
+                F₃ ke opposite angle 30° aur F₁ ke opposite angle 45° diya gaya hai.
+            </div>
+
+            <div class="step">
+                <b>FIND:</b><br>
+                F₃.
+            </div>
+
+            <div class="step">
+                <b>FORMULA:</b><br>
+                F₁ / sin α = F₃ / sin γ
+            </div>
+
+            <div class="step">
+                <b>WHY THIS FORMULA:</b><br>
+                Lami's Theorem ke according har force proportional hoti hai
+                angle between the other two forces ke sine ke.
+            </div>
+
+            <div class="step">
+                <b>SUBSTITUTION:</b><br>
+                100 / sin 30° = F₃ / sin 45°
+            </div>
+
+            <div class="step">
+                <b>CALCULATION:</b><br>
+                sin 30° = 0.5<br>
+                sin 45° ≈ 0.7071<br><br>
+                100 / 0.5 = F₃ / 0.7071<br>
+                200 = F₃ / 0.7071<br>
+                F₃ = 200 × 0.7071<br>
+                F₃ ≈ 141.42 N
+            </div>
+
+            <div class="answer">
+                ANSWER: F₃ ≈ 141.42 N.
+            </div>
+
+        </div>
+    </div>
+
+    <h3>2.3.6 Practical Applications</h3>
+
+    <ul>
+        <li>Three-force equilibrium at joints.</li>
+        <li>Suspended loads.</li>
+        <li>Cable and string systems.</li>
+        <li>Jib crane type arrangements.</li>
+        <li>Bracket and link mechanisms.</li>
+    </ul>
+
+</section>
+
+<!-- =====================================================
+     TOPIC 2.4
+===================================================== -->
+
+<section class="section" id="topic24">
+
+    <div class="section-heading">
+        <div class="section-number">2.4</div>
+        <div>
+            <h2>Types of Beam, Supports and Loads</h2>
+            <p>Determinate/indeterminate beams, supports, loads and span</p>
+        </div>
+    </div>
+
+    <h3>2.4.1 Beam — Introduction</h3>
+
+    <p>
+        <strong>Beam</strong> ek structural member hota hai jo primarily transverse
+        loads ko carry karta hai. Beam mein load ke effect se reactions develop
+        hoti hain aur internal forces/moments arise hote hain.
+    </p>
+
+    <p>
+        Buildings, bridges, platforms, machine structures aur many engineering
+        systems mein beams commonly use hote hain.
+    </p>
+
+    <h3>2.4.2 Beam Classification in this Unit</h3>
+
+    <p>
+        Syllabus ke according is unit mein <strong>determinate and indeterminate</strong>
+        beams ke concept ke saath different support arrangements aur beam reactions
+        study kiye jaate hain.
+    </p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Beam Type</th>
+                    <th>Basic Description</th>
+                    <th>Typical Support Arrangement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cantilever Beam</td>
+                    <td>One end fixed, other end free.</td>
+                    <td>Fixed support + free end</td>
+                </tr>
+                <tr>
+                    <td>Simply Supported Beam</td>
+                    <td>Beam supported at two points.</td>
+                    <td>Commonly hinged/pin + roller</td>
+                </tr>
+                <tr>
+                    <td>Simply Supported Beam with Overhang</td>
+                    <td>Beam support ke beyond one side extend karta hai.</td>
+                    <td>Two supports + overhanging portion</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>2.4.3 Determinate Beam</h3>
+
+    <p>
+        A beam/system jiske unknown support reactions ko available independent
+        equilibrium equations se determine kiya ja sakta hai, statically determinate
+        system kehlata hai.
+    </p>
+
+    <div class="callout success">
+        <div class="callout-title">Easy Meaning</div>
+        Agar required unknown reactions ko equilibrium equations se directly find
+        kar sakte ho, system ko determinate kehte hain.
+    </div>
+
+    <h3>2.4.4 Indeterminate Beam</h3>
+
+    <p>
+        Jahan unknown reactions ki number available independent equilibrium equations
+        se greater ho, system statically indeterminate ho sakta hai. Aise cases mein
+        additional compatibility/deformation relations ki requirement ho sakti hai.
+    </p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Determinate</th>
+                    <th>Indeterminate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Unknown reactions</td>
+                    <td>Equilibrium equations se determine ho sakti hain</td>
+                    <td>Equilibrium equations alone sufficient nahi ho sakti</td>
+                </tr>
+                <tr>
+                    <td>Basic analysis</td>
+                    <td>Relatively direct</td>
+                    <td>Additional structural relations required ho sakti hain</td>
+                </tr>
+                <tr>
+                    <td>Unit focus</td>
+                    <td>Reaction calculation</td>
+                    <td>Classification/concept</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>2.4.5 Types of Supports</h3>
+
+    <p>
+        Support ka main purpose body/beam ko required directions mein constrain
+        karna aur load ko structure tak transfer karna hota hai.
+    </p>
+
+    <h4>A. Simple Support</h4>
+
+    <p>
+        Simple support beam ko support provide karta hai aur idealized situation
+        mein primarily reaction force provide karta hai.
+    </p>
+
+    <h4>B. Hinged / Pin Support</h4>
+
+    <p>
+        Hinged support generally horizontal aur vertical translation ko restrain
+        karta hai, jabki ideal pin support ke around rotation allow ho sakti hai.
+        Isliye analytical beam problems mein do reaction components consider kiye
+        ja sakte hain:
+    </p>
+
+    <ul>
+        <li>Horizontal reaction: A<sub>x</sub></li>
+        <li>Vertical reaction: A<sub>y</sub></li>
+    </ul>
+
+    <h4>C. Roller Support</h4>
+
+    <p>
+        Roller support idealized condition mein support surface ke perpendicular
+        direction mein reaction deta hai aur beam ko compatible direction mein
+        movement allow kar sakta hai.
+    </p>
+
+    <h4>D. Fixed Support</h4>
+
+    <p>
+        Fixed support translation aur rotation dono ko resist karne ke liye idealized
+        reaction force components aur reaction moment provide kar sakta hai.
+    </p>
+
+    <div class="diagram">
+        <div class="diagram-title">Common Beam Supports — Schematic</div>
+
+        <svg viewBox="0 0 900 340">
+
+            <!-- beam -->
+            <line x1="70" y1="100" x2="830" y2="100"
+                  stroke="#0b1f3a" stroke-width="8"/>
+
+            <!-- hinge -->
+            <polygon points="170,100 130,155 210,155"
+                     fill="#eef3f8" stroke="#0b1f3a" stroke-width="3"/>
+            <line x1="120" y1="160" x2="220" y2="160"
+                  stroke="#667085" stroke-width="3"/>
+            <text x="140" y="190" font-size="17" fill="#0b1f3a">Hinged / Pin</text>
+
+            <!-- roller -->
+            <polygon points="440,100 405,150 475,150"
+                     fill="#eef3f8" stroke="#0b1f3a" stroke-width="3"/>
+            <circle cx="420" cy="165" r="10" fill="#fff" stroke="#0b1f3a" stroke-width="3"/>
+            <circle cx="460" cy="165" r="10" fill="#fff" stroke="#0b1f3a" stroke-width="3"/>
+            <line x1="395" y1="180" x2="485" y2="180"
+                  stroke="#667085" stroke-width="3"/>
+            <text x="410" y="215" font-size="17" fill="#0b1f3a">Roller</text>
+
+            <!-- fixed -->
+            <line x1="720" y1="55" x2="720" y2="150"
+                  stroke="#0b1f3a" stroke-width="14"/>
+            <line x1="720" y1="75" x2="680" y2="60"
+                  stroke="#667085" stroke-width="3"/>
+            <line x1="720" y1="95" x2="680" y2="80"
+                  stroke="#667085" stroke-width="3"/>
+            <line x1="720" y1="115" x2="680" y2="100"
+                  stroke="#667085" stroke-width="3"/>
+            <line x1="720" y1="135" x2="680" y2="120"
+                  stroke="#667085" stroke-width="3"/>
+            <text x="680" y="190" font-size="17" fill="#0b1f3a">Fixed</text>
+
+            <text x="50" y="270" font-size="15" fill="#667085">
+                Support symbols are schematic representations for analysis.
+            </text>
+
+        </svg>
+    </div>
+
+    <h3>2.4.6 Loads Acting on Beam</h3>
+
+    <p>
+        Beam par different forms mein loads act kar sakte hain. Is unit ke syllabus
+        mein vertical point load, inclined point load, distributed load, LTD load
+        terminology aur couple relevant hain.
+    </p>
+
+    <h4>Point Load</h4>
+
+    <p>
+        Idealized point load ek concentrated force hota hai jo beam ke ek particular
+        location par act karta hai.
+    </p>
+
+    <h4>Vertical Point Load</h4>
+
+    <p>
+        Vertical point load beam par vertically upward ya downward direction mein
+        act kar sakta hai.
+    </p>
+
+    <h4>Inclined Point Load</h4>
+
+    <p>
+        Inclined point load horizontal aur vertical dono components create kar sakta hai.
+        Isliye reaction calculation se pehle force resolution required ho sakti hai.
+    </p>
+
+    <h4>Distributed Load</h4>
+
+    <p>
+        Distributed load beam ki length ke along spread hota hai. Uniform distribution
+        ke case mein load intensity constant ho sakti hai.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula-label">Uniform distributed load — equivalent resultant</div>
+        <div class="formula">W = wL</div>
+        <button class="formula-copy" onclick="copyFormula('W = wL')">Copy</button>
+        <div class="where">
+            <strong>w</strong> = load intensity (force/length),
+            <strong>L</strong> = loaded length,
+            <strong>W</strong> = total equivalent load.
+        </div>
+    </div>
+
+    <p>
+        Uniform distributed load ka equivalent resultant loaded length ke midpoint
+        par act karta hai.
+    </p>
+
+    <div class="diagram">
+        <div class="diagram-title">Uniformly Distributed Load on Beam</div>
+
+        <svg viewBox="0 0 820 320">
+
+            <defs>
+                <marker id="udlArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L7,3 z" fill="#b42318"/>
+                </marker>
+            </defs>
+
+            <line x1="100" y1="210" x2="720" y2="210"
+                  stroke="#0b1f3a" stroke-width="7"/>
+
+            <g stroke="#b42318" stroke-width="3" marker-end="url(#udlArrow)">
+                <line x1="150" y1="80" x2="150" y2="190"/>
+                <line x1="210" y1="80" x2="210" y2="190"/>
+                <line x1="270" y1="80" x2="270" y2="190"/>
+                <line x1="330" y1="80" x2="330" y2="190"/>
+                <line x1="390" y1="80" x2="390" y2="190"/>
+                <line x1="450" y1="80" x2="450" y2="190"/>
+                <line x1="510" y1="80" x2="510" y2="190"/>
+                <line x1="570" y1="80" x2="570" y2="190"/>
+                <line x1="630" y1="80" x2="630" y2="190"/>
+            </g>
+
+            <line x1="140" y1="60" x2="650" y2="60"
+                  stroke="#667085" stroke-width="2"/>
+            <text x="375" y="45" font-size="18" fill="#667085">Distributed load w</text>
+
+            <line x1="395" y1="210" x2="395" y2="125"
+                  stroke="#175cd3" stroke-width="4" marker-end="url(#udlArrow)"/>
+            <text x="410" y="145" font-size="17" fill="#175cd3">Equivalent W</text>
+
+            <line x1="145" y1="250" x2="645" y2="250"
+                  stroke="#667085" stroke-width="2"/>
+            <text x="370" y="275" font-size="17" fill="#667085">L</text>
+
+        </svg>
+    </div>
+
+    <h4>Couple</h4>
+
+    <p>
+        A couple consists of two equal and opposite parallel forces separated by
+        a perpendicular distance. Its net force is zero, but it produces a turning
+        effect.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula-label">Moment of a couple</div>
+        <div class="formula">M = F × d</div>
+        <button class="formula-copy" onclick="copyFormula('M = F × d')">Copy</button>
+        <div class="where">
+            <strong>F</strong> = magnitude of one force,
+            <strong>d</strong> = perpendicular separation between the forces.
+        </div>
+    </div>
+
+    <h3>2.4.7 Span of Beam</h3>
+
+    <p>
+        Beam ke supports ke beech ka effective distance generally beam ka
+        <strong>span</strong> kehlata hai. Reaction calculations mein span distances
+        important hote hain because moments force × perpendicular distance par depend
+        karte hain.
+    </p>
+
+</section>
+
+<!-- =====================================================
+     TOPIC 2.5
+===================================================== -->
+
+<section class="section" id="topic25">
+
+    <div class="section-heading">
+        <div class="section-number">2.5</div>
+        <div>
+            <h2>Beam Reaction for Cantilever and Simply Supported Beam with or without Overhang</h2>
+            <p>Point load, LTD load, vertical load and couple cases</p>
+        </div>
+    </div>
+
+    <h3>2.5.1 Beam Reaction — Basic Concept</h3>
+
+    <p>
+        Jab beam par external load apply hota hai, support us load ko balance karne
+        ke liye reaction develop karta hai. Static equilibrium mein reaction values
+        aise hoti hain ki complete beam system equilibrium conditions satisfy kare.
+    </p>
+
+    <p>
+        Beam reaction calculate karne ka fundamental process:
+    </p>
+
+    <ol>
+        <li>Beam ka FBD banao.</li>
+        <li>All external loads identify karo.</li>
+        <li>Unknown reactions show karo.</li>
+        <li>Distances/span clearly mark karo.</li>
+        <li>Suitable support point ke about moment equation banao.</li>
+        <li>Remaining force equilibrium equations apply karo.</li>
+        <li>Reaction values verify karo.</li>
+    </ol>
+
+    <h3>2.5.2 Cantilever Beam</h3>
+
+    <p>
+        Cantilever beam ka ek end fixed hota hai aur doosra end free hota hai.
+        Fixed end load ke against force reactions aur reaction moment develop kar sakta hai.
+    </p>
+
+    <div class="diagram">
+        <div class="diagram-title">Cantilever Beam with Point Load</div>
+
+        <svg viewBox="0 0 820 340">
+
+            <defs>
+                <marker id="cantLoad" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#b42318"/>
+                </marker>
+                <marker id="cantReact" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#175cd3"/>
+                </marker>
+            </defs>
+
+            <rect x="120" y="75" width="16" height="170"
+                  fill="#0b1f3a"/>
+
+            <line x1="136" y1="155" x2="690" y2="155"
+                  stroke="#0b1f3a" stroke-width="8"/>
+
+            <line x1="600" y1="155" x2="600" y2="55"
+                  stroke="#b42318" stroke-width="5"
+                  marker-end="url(#cantLoad)"/>
+            <text x="613" y="75" font-size="18" fill="#b42318">P</text>
+
+            <line x1="180" y1="155" x2="180" y2="65"
+                  stroke="#175cd3" stroke-width="4"
+                  marker-end="url(#cantReact)"/>
+            <text x="195" y="78" font-size="17" fill="#175cd3">Vₐ</text>
+
+            <line x1="95" y1="200" x2="95" y2="110"
+                  stroke="#175cd3" stroke-width="4"
+                  marker-end="url(#cantReact)"/>
+            <text x="42" y="125" font-size="17" fill="#175cd3">Hₐ</text>
+
+            <path d="M165 215 A50 50 0 1 0 165 95"
+                  fill="none" stroke="#16794b" stroke-width="4"/>
+            <text x="175" y="255" font-size="17" fill="#16794b">Mₐ</text>
+
+            <line x1="140" y1="280" x2="600" y2="280"
+                  stroke="#667085" stroke-width="2"/>
+            <text x="360" y="305" font-size="17" fill="#667085">L</text>
+
+        </svg>
+
+        <div class="diagram-note">
+            Fixed support reactions may include horizontal reaction, vertical reaction and reaction moment.
+        </div>
+    </div>
+
+    <h3>2.5.3 Cantilever with Point Load — Derivation</h3>
+
+    <p>
+        Consider a cantilever beam of length <strong>L</strong> with a downward
+        point load <strong>P</strong> at free end.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">ΣF<sub>y</sub> = 0</div>
+        <div class="formula">R<sub>A</sub> − P = 0</div>
+    </div>
+
+    <p>Therefore:</p>
+
+    <div class="formula-card">
+        <div class="formula">R<sub>A</sub> = P</div>
+    </div>
+
+    <p>
+        Fixed end ke about moment:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">M<sub>A</sub> = P × L</div>
+    </div>
+
+    <p>
+        Direction sign convention par depend karega; magnitude <strong>PL</strong>
+        hogi.
+    </p>
+
+    <h3>2.5.4 Solved Numerical — Cantilever</h3>
+
+    <div class="example">
+
+        <div class="example-header">
+            Example 4 — Cantilever Beam Reaction
+        </div>
+
+        <div class="example-body">
+
+            <div class="step">
+                <b>GIVEN:</b><br>
+                Ek cantilever beam ki length L = 4 m hai. Free end par
+                P = 500 N downward point load act kar raha hai.
+            </div>
+
+            <div class="step">
+                <b>FIND:</b><br>
+                Fixed end vertical reaction aur reaction moment.
+            </div>
+
+            <div class="step">
+                <b>FORMULA:</b><br>
+                R<sub>A</sub> = P<br>
+                M<sub>A</sub> = P × L
+            </div>
+
+            <div class="step">
+                <b>WHY THIS FORMULA:</b><br>
+                Vertical equilibrium se reaction milta hai aur fixed end ke about
+                moment equilibrium se reaction moment milta hai.
+            </div>
+
+            <div class="step">
+                <b>SUBSTITUTION:</b><br>
+                R<sub>A</sub> = 500 N<br>
+                M<sub>A</sub> = 500 × 4
+            </div>
+
+            <div class="step">
+                <b>CALCULATION:</b><br>
+                M<sub>A</sub> = 2000 N·m
+            </div>
+
+            <div class="answer">
+                ANSWER: Vertical reaction = 500 N upward; reaction moment magnitude
+                = 2000 N·m.
+            </div>
+
+        </div>
+    </div>
+
+    <h3>2.5.5 Simply Supported Beam</h3>
+
+    <p>
+        Simply supported beam generally two support locations par supported hota hai.
+        Idealized common arrangement mein ek hinged/pin support aur ek roller support
+        use kiya jata hai.
+    </p>
+
+    <div class="diagram">
+        <div class="diagram-title">Simply Supported Beam with Point Load</div>
+
+        <svg viewBox="0 0 850 350">
+
+            <defs>
+                <marker id="beamLoad" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#b42318"/>
+                </marker>
+                <marker id="beamReaction" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#175cd3"/>
+                </marker>
+            </defs>
+
+            <line x1="120" y1="130" x2="730" y2="130"
+                  stroke="#0b1f3a" stroke-width="8"/>
+
+            <!-- pin -->
+            <polygon points="180,130 145,180 215,180"
+                     fill="#eef3f8" stroke="#0b1f3a" stroke-width="3"/>
+            <line x1="135" y1="185" x2="225" y2="185"
+                  stroke="#667085" stroke-width="3"/>
+
+            <!-- roller -->
+            <polygon points="650,130 615,180 685,180"
+                     fill="#eef3f8" stroke="#0b1f3a" stroke-width="3"/>
+            <circle cx="630" cy="195" r="9" fill="#fff" stroke="#0b1f3a" stroke-width="3"/>
+            <circle cx="670" cy="195" r="9" fill="#fff" stroke="#0b1f3a" stroke-width="3"/>
+            <line x1="605" y1="210" x2="695" y2="210"
+                  stroke="#667085" stroke-width="3"/>
+
+            <!-- load -->
+            <line x1="430" y1="130" x2="430" y2="45"
+                  stroke="#b42318" stroke-width="5"
+                  marker-end="url(#beamLoad)"/>
+            <text x="444" y="63" font-size="18" fill="#b42318">P</text>
+
+            <!-- reactions -->
+            <line x1="180" y1="175" x2="180" y2="235"
+                  stroke="#175cd3" stroke-width="4"
+                  marker-end="url(#beamReaction)"/>
+            <text x="195" y="230" font-size="17" fill="#175cd3">Rₐ</text>
+
+            <line x1="650" y1="175" x2="650" y2="235"
+                  stroke="#175cd3" stroke-width="4"
+                  marker-end="url(#beamReaction)"/>
+            <text x="665" y="230" font-size="17" fill="#175cd3">Rᵦ</text>
+
+            <!-- distances -->
+            <line x1="180" y1="260" x2="430" y2="260"
+                  stroke="#667085" stroke-width="2"/>
+            <text x="300" y="283" font-size="17" fill="#667085">a</text>
+
+            <line x1="430" y1="260" x2="650" y2="260"
+                  stroke="#667085" stroke-width="2"/>
+            <text x="535" y="283" font-size="17" fill="#667085">b</text>
+
+            <line x1="180" y1="310" x2="650" y2="310"
+                  stroke="#667085" stroke-width="2"/>
+            <text x="405" y="333" font-size="17" fill="#667085">L = a + b</text>
+
+        </svg>
+    </div>
+
+    <h3>2.5.6 General Reaction Equations</h3>
+
+    <p>
+        Simply supported beam with vertical loads only ke case mein horizontal
+        reaction generally zero ho sakta hai if no horizontal external load is present.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">ΣF<sub>y</sub> = 0</div>
+        <div class="formula">R<sub>A</sub> + R<sub>B</sub> = ΣP</div>
+    </div>
+
+    <p>
+        Beam ke kisi support ke about moment lene se opposite support reaction
+        directly calculate ki ja sakti hai.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">ΣM<sub>A</sub> = 0</div>
+    </div>
+
+    <h3>2.5.7 Simply Supported Beam with Overhang</h3>
+
+    <p>
+        Jab beam support ke ek side beyond support extend karti hai, us extended
+        portion ko <strong>overhang</strong> kehte hain.
+    </p>
+
+    <div class="diagram">
+        <div class="diagram-title">Simply Supported Beam with Overhang</div>
+
+        <svg viewBox="0 0 900 330">
+
+            <defs>
+                <marker id="ohload" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#b42318"/>
+                </marker>
+                <marker id="ohreact" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#175cd3"/>
+                </marker>
+            </defs>
+
+            <line x1="90" y1="125" x2="790" y2="125"
+                  stroke="#0b1f3a" stroke-width="8"/>
+
+            <!-- pin -->
+            <polygon points="250,125 215,175 285,175"
+                     fill="#eef3f8" stroke="#0b1f3a" stroke-width="3"/>
+            <line x1="205" y1="180" x2="295" y2="180"
+                  stroke="#667085" stroke-width="3"/>
+
+            <!-- roller -->
+            <polygon points="620,125 585,175 655,175"
+                     fill="#eef3f8" stroke="#0b1f3a" stroke-width="3"/>
+            <circle cx="600" cy="190" r="9" fill="#fff" stroke="#0b1f3a" stroke-width="3"/>
+            <circle cx="640" cy="190" r="9" fill="#fff" stroke="#0b1f3a" stroke-width="3"/>
+            <line x1="575" y1="205" x2="665" y2="205"
+                  stroke="#667085" stroke-width="3"/>
+
+            <!-- overhang load -->
+            <line x1="740" y1="125" x2="740" y2="45"
+                  stroke="#b42318" stroke-width="5"
+                  marker-end="url(#ohload)"/>
+            <text x="755" y="65" font-size="18" fill="#b42318">P</text>
+
+            <!-- reactions -->
+            <line x1="250" y1="175" x2="250" y2="235"
+                  stroke="#175cd3" stroke-width="4"
+                  marker-end="url(#ohreact)"/>
+            <text x="265" y="230" font-size="17" fill="#175cd3">Rₐ</text>
+
+            <line x1="620" y1="175" x2="620" y2="235"
+                  stroke="#175cd3" stroke-width="4"
+                  marker-end="url(#ohreact)"/>
+            <text x="635" y="230" font-size="17" fill="#175cd3">Rᵦ</text>
+
+            <line x1="250" y1="265" x2="620" y2="265"
+                  stroke="#667085" stroke-width="2"/>
+            <text x="425" y="288" font-size="17" fill="#667085">support span</text>
+
+            <line x1="620" y1="305" x2="740" y2="305"
+                  stroke="#667085" stroke-width="2"/>
+            <text x="672" y="326" font-size="17" fill="#667085">overhang</text>
+
+        </svg>
+    </div>
+
+    <h3>2.5.8 Combination of Point Load and LTD Load</h3>
+
+    <p>
+        Syllabus mein beam reaction problems mein <strong>combination of Point load
+        and LTD load</strong> mention kiya gaya hai. Aise problem mein point load
+        ko separately consider karna aur distributed load ko suitable equivalent
+        resultant mein convert karna useful hota hai.
+    </p>
+
+    <p>
+        Distributed load ka resultant load magnitude aur location accurately
+        determine karke FBD mein equivalent point load represent kiya ja sakta hai.
+    </p>
+
+    <div class="callout warning">
+        <div class="callout-title">Important</div>
+        Distributed load ko sirf magnitude mein convert karna enough nahi hai.
+        Uske resultant ki <strong>line of action</strong> bhi correctly identify
+        karni hoti hai because moment calculation location par depend karta hai.
+    </div>
+
+    <h3>2.5.9 Combination of Vertical Point Load and Couple</h3>
+
+    <p>
+        Agar beam par vertical point load ke saath external couple act kar raha hai,
+        to vertical force equilibrium aur moment equilibrium dono apply karne honge.
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">ΣF<sub>y</sub> = 0</div>
+        <div class="formula">ΣM = 0</div>
+    </div>
+
+    <p>
+        Couple ka moment directly moment equation mein include hota hai. Couple ka
+        moment reference point ke selection se ordinary force moment ki tarah
+        distance-dependent nahi hota; uska prescribed sense/sign use kiya jata hai.
+    </p>
+
+</section>
+
+<!-- =====================================================
+     TOPIC 2.6
+===================================================== -->
+
+<section class="section" id="topic26">
+
+    <div class="section-heading">
+        <div class="section-number">2.6</div>
+        <div>
+            <h2>Beam Reaction for Simply Supported Beam Subjected to Vertical Loads Only</h2>
+            <p>Reaction calculation using equilibrium equations</p>
+        </div>
+    </div>
+
+    <h3>2.6.1 Concept</h3>
+
+    <p>
+        Jab simply supported beam par sirf vertical loads act karte hain, tab
+        support reactions ko static equilibrium equations se calculate kiya ja
+        sakta hai.
+    </p>
+
+    <p>
+        Common arrangement mein support A hinged/pin aur support B roller ho sakta hai.
+        Unknown vertical reactions ko R<sub>A</sub> aur R<sub>B</sub> represent karte hain.
+    </p>
+
+    <h3>2.6.2 Fundamental Equations</h3>
+
+    <div class="formula-card">
+        <div class="formula">ΣF<sub>y</sub> = 0</div>
+        <div class="formula">R<sub>A</sub> + R<sub>B</sub> = P<sub>1</sub> + P<sub>2</sub> + ...</div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula">ΣM<sub>A</sub> = 0</div>
+        <div class="formula">R<sub>B</sub>L = Σ(P × distance)</div>
+    </div>
+
+    <p>
+        Uske baad:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">R<sub>A</sub> = ΣP − R<sub>B</sub></div>
+    </div>
+
+    <h3>2.6.3 Solved Numerical — One Point Load</h3>
+
+    <div class="example">
+
+        <div class="example-header">
+            Example 5 — Simply Supported Beam with Central Load
+        </div>
+
+        <div class="example-body">
+
+            <div class="step">
+                <b>GIVEN:</b><br>
+                Simply supported beam AB ki total length L = 6 m hai.
+                Centre par 600 N ka vertical point load act karta hai.
+            </div>
+
+            <div class="step">
+                <b>FIND:</b><br>
+                Support reactions R<sub>A</sub> and R<sub>B</sub>.
+            </div>
+
+            <div class="step">
+                <b>FORMULA:</b><br>
+                ΣM<sub>A</sub> = 0<br>
+                ΣF<sub>y</sub> = 0
+            </div>
+
+            <div class="step">
+                <b>WHY THIS FORMULA:</b><br>
+                Beam static equilibrium mein hai. Isliye moments aur vertical forces
+                ka algebraic sum zero hona chahiye.
+            </div>
+
+            <div class="step">
+                <b>SUBSTITUTION:</b><br>
+                Load centre par hai, so A se load distance = 3 m.<br>
+                R<sub>B</sub> × 6 = 600 × 3
+            </div>
+
+            <div class="step">
+                <b>CALCULATION:</b><br>
+                6R<sub>B</sub> = 1800<br>
+                R<sub>B</sub> = 300 N<br><br>
+                ΣF<sub>y</sub> = 0<br>
+                R<sub>A</sub> + 300 − 600 = 0<br>
+                R<sub>A</sub> = 300 N
+            </div>
+
+            <div class="answer">
+                ANSWER: R<sub>A</sub> = 300 N upward and R<sub>B</sub> = 300 N upward.
+            </div>
+
+        </div>
+    </div>
+
+    <h3>2.6.4 Solved Numerical — Eccentric Point Load</h3>
+
+    <div class="example">
+
+        <div class="example-header">
+            Example 6 — Load Away from Centre
+        </div>
+
+        <div class="example-body">
+
+            <div class="step">
+                <b>GIVEN:</b><br>
+                Beam AB length = 8 m. A se 2 m distance par 1000 N ka vertical
+                downward point load act karta hai.
+            </div>
+
+            <div class="step">
+                <b>FIND:</b><br>
+                R<sub>A</sub> and R<sub>B</sub>.
+            </div>
+
+            <div class="step">
+                <b>FORMULA:</b><br>
+                Taking moment about A:<br>
+                ΣM<sub>A</sub> = 0
+            </div>
+
+            <div class="step">
+                <b>WHY THIS FORMULA:</b><br>
+                A ke about moment lene se A reaction ka moment zero ho jata hai,
+                isliye R<sub>B</sub> directly determine kiya ja sakta hai.
+            </div>
+
+            <div class="step">
+                <b>SUBSTITUTION:</b><br>
+                R<sub>B</sub> × 8 = 1000 × 2
+            </div>
+
+            <div class="step">
+                <b>CALCULATION:</b><br>
+                8R<sub>B</sub> = 2000<br>
+                R<sub>B</sub> = 250 N<br><br>
+                ΣF<sub>y</sub> = 0<br>
+                R<sub>A</sub> + 250 − 1000 = 0<br>
+                R<sub>A</sub> = 750 N
+            </div>
+
+            <div class="answer">
+                ANSWER: R<sub>A</sub> = 750 N upward and R<sub>B</sub> = 250 N upward.
+            </div>
+
+        </div>
+    </div>
+
+    <h3>2.6.5 Solved Numerical — Two Point Loads</h3>
+
+    <div class="example">
+
+        <div class="example-header">
+            Example 7 — Two Vertical Point Loads
+        </div>
+
+        <div class="example-body">
+
+            <div class="step">
+                <b>GIVEN:</b><br>
+                Beam AB length = 10 m. A se 2 m distance par P₁ = 500 N
+                aur A se 7 m distance par P₂ = 800 N downward act karte hain.
+            </div>
+
+            <div class="step">
+                <b>FIND:</b><br>
+                R<sub>A</sub> and R<sub>B</sub>.
+            </div>
+
+            <div class="step">
+                <b>FORMULA:</b><br>
+                ΣM<sub>A</sub> = 0<br>
+                R<sub>B</sub>(10) = P₁(2) + P₂(7)
+            </div>
+
+            <div class="step">
+                <b>WHY THIS FORMULA:</b><br>
+                Support A ke about moments lene par R<sub>A</sub> ka moment zero
+                ho jata hai. Isliye only R<sub>B</sub> unknown reaction equation
+                mein remain karta hai.
+            </div>
+
+            <div class="step">
+                <b>SUBSTITUTION:</b><br>
+                10R<sub>B</sub> = (500 × 2) + (800 × 7)
+            </div>
+
+            <div class="step">
+                <b>CALCULATION:</b><br>
+                10R<sub>B</sub> = 1000 + 5600<br>
+                10R<sub>B</sub> = 6600<br>
+                R<sub>B</sub> = 660 N<br><br>
+                ΣF<sub>y</sub> = 0<br>
+                R<sub>A</sub> + 660 − 500 − 800 = 0<br>
+                R<sub>A</sub> = 640 N
+            </div>
+
+            <div class="answer">
+                ANSWER: R<sub>A</sub> = 640 N upward and R<sub>B</sub> = 660 N upward.
+            </div>
+
+        </div>
+    </div>
+
+    <h3>2.6.6 Reaction Verification</h3>
+
+    <p>
+        Numerical answer calculate karne ke baad verification zaroor karo:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">R<sub>A</sub> + R<sub>B</sub> = Total downward load</div>
+    </div>
+
+    <p>
+        Example 7 ke liye:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">640 + 660 = 1300 N</div>
+    </div>
+
+    <p>
+        Total downward load bhi:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">500 + 800 = 1300 N</div>
+    </div>
+
+    <div class="callout success">
+        <div class="callout-title">Check Passed</div>
+        Upward reactions = downward loads. Isliye vertical equilibrium condition satisfy hoti hai.
+    </div>
+
+    <h3>2.6.7 General Strategy for Beam Reaction Problems</h3>
+
+    <ol>
+        <li>Beam ko clearly draw karo.</li>
+        <li>Support type identify karo.</li>
+        <li>Unknown reactions label karo.</li>
+        <li>All loads and distances note karo.</li>
+        <li>Distributed load ko required equivalent resultant mein convert karo.</li>
+        <li>Convenient support ke about moment equation lo.</li>
+        <li>First unknown reaction calculate karo.</li>
+        <li>ΣF<sub>y</sub> = 0 se second reaction calculate karo.</li>
+        <li>Agar horizontal load hai to ΣF<sub>x</sub> = 0 apply karo.</li>
+        <li>Final values ko load balance se verify karo.</li>
+    </ol>
+
+</section>
+
+<!-- =====================================================
+     IMPORTANT DEFINITIONS
+===================================================== -->
+
+<section class="section" id="definitions">
+
+    <div class="section-heading">
+        <div class="section-number">03</div>
+        <div>
+            <h2>Important Definitions</h2>
+            <p>Exam mein direct definition questions ke liye</p>
+        </div>
+    </div>
+
+    <details open>
+        <summary>1. Equilibrium</summary>
+        <div>
+            A body is in equilibrium when the resultant force and resultant moment
+            acting on it are zero.
+        </div>
+    </details>
+
+    <details>
+        <summary>2. Equilibrant</summary>
+        <div>
+            A force equal in magnitude and opposite in direction to the resultant
+            of a force system is called equilibrant.
+        </div>
+    </details>
+
+    <details>
+        <summary>3. Free Body Diagram</summary>
+        <div>
+            A diagram showing an isolated body together with all relevant external
+            forces, loads and support reactions acting on it.
+        </div>
+    </details>
+
+    <details>
+        <summary>4. Beam</summary>
+        <div>
+            A structural member designed to carry loads acting transverse to its
+            longitudinal axis.
+        </div>
+    </details>
+
+    <details>
+        <summary>5. Cantilever Beam</summary>
+        <div>
+            A beam fixed at one end and free at the other end.
+        </div>
+    </details>
+
+    <details>
+        <summary>6. Simply Supported Beam</summary>
+        <div>
+            A beam supported at two points, commonly idealized using a hinged/pin
+            support and a roller support.
+        </div>
+    </details>
+
+    <details>
+        <summary>7. Overhang</summary>
+        <div>
+            The portion of a beam extending beyond one of its supports.
+        </div>
+    </details>
+
+    <details>
+        <summary>8. Lami's Theorem</summary>
+        <div>
+            For three concurrent forces in equilibrium, each force is proportional
+            to the sine of the angle between the other two forces.
+        </div>
+    </details>
+
+    <details>
+        <summary>9. Moment of Force</summary>
+        <div>
+            The turning effect of a force about a point, equal in magnitude to the
+            force multiplied by its perpendicular distance from that point.
+        </div>
+    </details>
+
+    <details>
+        <summary>10. Span</summary>
+        <div>
+            The distance between the supports of a beam.
+        </div>
+    </details>
+
+    <details>
+        <summary>11. Point Load</summary>
+        <div>
+            A concentrated load idealized as acting at a particular point on a beam.
+        </div>
+    </details>
+
+    <details>
+        <summary>12. Distributed Load</summary>
+        <div>
+            A load spread over a specified length of a beam.
+        </div>
+    </details>
+
+</section>
+
+<!-- =====================================================
+     IMPORTANT FORMULAE
+===================================================== -->
+
+<section class="section" id="formulas">
+
+    <div class="section-heading">
+        <div class="section-number">04</div>
+        <div>
+            <h2>Important Formulae</h2>
+            <p>Unit 2 ke high-use formulas</p>
+        </div>
+    </div>
+
+    <div class="revision-grid">
+
+        <div class="revision-card">
+            <h3>Equilibrium</h3>
+            <ul>
+                <li>ΣF<sub>x</sub> = 0</li>
+                <li>ΣF<sub>y</sub> = 0</li>
+                <li>ΣM = 0</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Moment</h3>
+            <ul>
+                <li>M = F × d</li>
+                <li>Unit = N·m</li>
+                <li>d = perpendicular distance</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Force Resolution</h3>
+            <ul>
+                <li>F<sub>x</sub> = F cos θ</li>
+                <li>F<sub>y</sub> = F sin θ</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Lami's Theorem</h3>
+            <ul>
+                <li>F₁/sin α = F₂/sin β = F₃/sin γ</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Equilibrant</h3>
+            <ul>
+                <li>E = −R</li>
+                <li>|E| = |R|</li>
+                <li>Direction opposite to R</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Uniform Distributed Load</h3>
+            <ul>
+                <li>W = wL</li>
+                <li>Equivalent resultant at midpoint for uniform distribution</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     SHORT QUESTIONS
+===================================================== -->
+
+<section class="section" id="shortquestions">
+
+    <div class="section-heading">
+        <div class="section-number">05</div>
+        <div>
+            <h2>Important Short Questions</h2>
+            <p>2–4 marks type preparation</p>
+        </div>
+    </div>
+
+    <ol>
+        <li>Define equilibrium.</li>
+        <li>What is an equilibrant?</li>
+        <li>Define Free Body Diagram.</li>
+        <li>Write the conditions of equilibrium for a coplanar system.</li>
+        <li>What is the significance of ΣF<sub>x</sub> = 0?</li>
+        <li>What is the significance of ΣF<sub>y</sub> = 0?</li>
+        <li>What is moment of force?</li>
+        <li>Write the formula for moment of force.</li>
+        <li>What is perpendicular distance?</li>
+        <li>State Lami's Theorem.</li>
+        <li>Write the mathematical equation of Lami's Theorem.</li>
+        <li>What are the conditions for applying Lami's Theorem?</li>
+        <li>What is a beam?</li>
+        <li>Define cantilever beam.</li>
+        <li>What is a simply supported beam?</li>
+        <li>What is an overhang?</li>
+        <li>Differentiate between determinate and indeterminate beam.</li>
+        <li>What is a hinged support?</li>
+        <li>What is a roller support?</li>
+        <li>What is a fixed support?</li>
+        <li>What is point load?</li>
+        <li>What is distributed load?</li>
+        <li>What is span of beam?</li>
+        <li>Why is FBD used in engineering mechanics?</li>
+        <li>Write the reaction equations for a simply supported beam.</li>
+    </ol>
+
+</section>
+
+<!-- =====================================================
+     LONG QUESTIONS
+===================================================== -->
+
+<section class="section" id="longquestions">
+
+    <div class="section-heading">
+        <div class="section-number">06</div>
+        <div>
+            <h2>Important Long Questions</h2>
+            <p>Descriptive + derivation + numerical preparation</p>
+        </div>
+    </div>
+
+    <ol>
+        <li>
+            Explain equilibrium and equilibrant with suitable diagrams.
+        </li>
+
+        <li>
+            Explain Free Body Diagram and describe the step-by-step procedure
+            for drawing an FBD.
+        </li>
+
+        <li>
+            Explain analytical conditions of equilibrium for a coplanar force system.
+        </li>
+
+        <li>
+            Explain moment of a force and derive the relation M = F × d.
+        </li>
+
+        <li>
+            State and explain Lami's Theorem with a suitable force diagram.
+        </li>
+
+        <li>
+            Explain the conditions under which Lami's Theorem can be applied.
+        </li>
+
+        <li>
+            Explain different types of beams included in the syllabus.
+        </li>
+
+        <li>
+            Explain simple, hinged, roller and fixed supports with diagrams.
+        </li>
+
+        <li>
+            Explain different loads acting on beams.
+        </li>
+
+        <li>
+            Explain cantilever beam reaction calculation for a point load.
+        </li>
+
+        <li>
+            Explain reaction calculation for a simply supported beam.
+        </li>
+
+        <li>
+            Explain the procedure for finding reactions of a simply supported beam
+            with overhang.
+        </li>
+
+        <li>
+            Solve a beam problem subjected to combination of point load and
+            distributed/LTD load using equilibrium equations.
+        </li>
+
+        <li>
+            Solve a simply supported beam problem subjected to vertical point loads only.
+        </li>
+    </ol>
+
+</section>
+
+<!-- =====================================================
+     NUMERICAL QUESTIONS
+===================================================== -->
+
+<section class="section" id="numericals">
+
+    <div class="section-heading">
+        <div class="section-number">07</div>
+        <div>
+            <h2>Important Numerical Questions</h2>
+            <p>Practice set for examination</p>
+        </div>
+    </div>
+
+    <div class="callout info">
+        <div class="callout-title">Numerical Strategy</div>
+        Har numerical mein pehle <strong>GIVEN → FIND → FBD → FORMULA →
+        WHY FORMULA → SUBSTITUTION → CALCULATION → ANSWER</strong> sequence follow karo.
+    </div>
+
+    <h3>Practice Numerical 1</h3>
+    <p>
+        A body is subjected to two horizontal opposite forces of 750 N and 750 N.
+        Determine the resultant and state whether the horizontal force system is in equilibrium.
+    </p>
+
+    <h3>Practice Numerical 2</h3>
+    <p>
+        A force of 250 N acts at 40° to the horizontal. Determine its horizontal
+        and vertical components.
+    </p>
+
+    <h3>Practice Numerical 3</h3>
+    <p>
+        A 500 N force acts at an angle of 35° to the horizontal. Find its components
+        and explain the direction of each component.
+    </p>
+
+    <h3>Practice Numerical 4</h3>
+    <p>
+        Three concurrent forces maintain equilibrium. Two forces are 100 N and
+        150 N. The relevant angles are 30°, 45° and 105°. Determine the unknown
+        force using Lami's Theorem.
+    </p>
+
+    <h3>Practice Numerical 5</h3>
+    <p>
+        A cantilever beam of length 5 m carries a 400 N point load at its free end.
+        Determine the fixed-end vertical reaction and reaction moment.
+    </p>
+
+    <h3>Practice Numerical 6</h3>
+    <p>
+        A simply supported beam of span 8 m carries a 1000 N load at a point
+        3 m from the left support. Determine both support reactions.
+    </p>
+
+    <h3>Practice Numerical 7</h3>
+    <p>
+        A simply supported beam of span 10 m carries two vertical loads of 600 N
+        and 900 N at distances 2 m and 7 m respectively from the left support.
+        Find both support reactions.
+    </p>
+
+    <h3>Practice Numerical 8</h3>
+    <p>
+        A simply supported beam is subjected to a uniformly distributed load over
+        its full span. Explain how the distributed load can be replaced by an
+        equivalent resultant for reaction calculation.
+    </p>
+
+    <h3>Practice Numerical 9</h3>
+    <p>
+        A simply supported beam with an overhang carries a vertical point load
+        on the overhanging portion. Draw the FBD and explain the reaction calculation.
+    </p>
+
+    <h3>Practice Numerical 10</h3>
+    <p>
+        A beam is subjected to a vertical point load and an external couple.
+        Develop the equilibrium equations required to determine support reactions.
+    </p>
+
+</section>
+
+<!-- =====================================================
+     MCQS
+===================================================== -->
+
+<section class="section" id="mcqs">
+
+    <div class="section-heading">
+        <div class="section-number">08</div>
+        <div>
+            <h2>Exam-Oriented MCQs</h2>
+            <p>Concept checking + numerical understanding</p>
+        </div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">1. A body is said to be in static equilibrium when:</div>
+        <div class="options">
+            <div class="option">A. Resultant force is maximum</div>
+            <div class="option">B. Resultant force and moment are zero</div>
+            <div class="option">C. Only vertical force is zero</div>
+            <div class="option">D. Only horizontal force is zero</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — Static equilibrium requires force and moment balance.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">2. The equilibrant of a resultant force is:</div>
+        <div class="options">
+            <div class="option">A. Same direction and same magnitude</div>
+            <div class="option">B. Opposite direction and same magnitude</div>
+            <div class="option">C. Perpendicular to resultant</div>
+            <div class="option">D. Half of resultant</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — Equilibrant balances the resultant.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">3. Which equation represents horizontal equilibrium?</div>
+        <div class="options">
+            <div class="option">A. ΣF<sub>x</sub> = 0</div>
+            <div class="option">B. ΣF<sub>y</sub> = 1</div>
+            <div class="option">C. ΣM = 1</div>
+            <div class="option">D. F = ma²</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: A</strong> — Horizontal force components must balance.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">4. Moment of a force is equal to:</div>
+        <div class="options">
+            <div class="option">A. F/d</div>
+            <div class="option">B. F × d</div>
+            <div class="option">C. F + d</div>
+            <div class="option">D. d/F</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — Moment magnitude is force multiplied by perpendicular distance.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">5. Lami's Theorem applies to:</div>
+        <div class="options">
+            <div class="option">A. Three concurrent forces in equilibrium</div>
+            <div class="option">B. Any number of non-concurrent forces</div>
+            <div class="option">C. Two parallel forces only</div>
+            <div class="option">D. Three random forces</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: A</strong> — The theorem is specifically used for three concurrent equilibrium forces.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">6. In Lami's Theorem, the angle associated with a force is:</div>
+        <div class="options">
+            <div class="option">A. Angle made by the same force with x-axis</div>
+            <div class="option">B. Angle between the other two forces</div>
+            <div class="option">C. Always 90°</div>
+            <div class="option">D. Angle between force and beam</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — This is the key rule while applying Lami's theorem.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">7. A cantilever beam has:</div>
+        <div class="options">
+            <div class="option">A. Both ends free</div>
+            <div class="option">B. One end fixed and one end free</div>
+            <div class="option">C. Both ends fixed only</div>
+            <div class="option">D. One roller only</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — Cantilever is fixed at one end and free at the other.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">8. The portion of a beam extending beyond a support is called:</div>
+        <div class="options">
+            <div class="option">A. Span</div>
+            <div class="option">B. Overhang</div>
+            <div class="option">C. Joint</div>
+            <div class="option">D. Chord</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — The extended portion beyond a support is the overhang.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">9. For a simply supported beam with vertical loads only, vertical equilibrium gives:</div>
+        <div class="options">
+            <div class="option">A. R<sub>A</sub> − R<sub>B</sub> = 0 always</div>
+            <div class="option">B. R<sub>A</sub> + R<sub>B</sub> = total downward load</div>
+            <div class="option">C. R<sub>A</sub>R<sub>B</sub> = 0</div>
+            <div class="option">D. R<sub>A</sub> = 0 always</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — Upward reactions must balance total downward loading.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">10. The SI unit of moment is:</div>
+        <div class="options">
+            <div class="option">A. N</div>
+            <div class="option">B. N/m</div>
+            <div class="option">C. N·m</div>
+            <div class="option">D. m/N</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: C</strong> — Moment = force × distance, hence N·m.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">11. A fixed support can provide:</div>
+        <div class="options">
+            <div class="option">A. Only vertical reaction</div>
+            <div class="option">B. Only horizontal reaction</div>
+            <div class="option">C. Force reactions and a reaction moment</div>
+            <div class="option">D. No reaction</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: C</strong> — Ideal fixed support restrains translation and rotation.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">12. For a uniform distributed load w over length L, equivalent total load is:</div>
+        <div class="options">
+            <div class="option">A. w/L</div>
+            <div class="option">B. w + L</div>
+            <div class="option">C. wL</div>
+            <div class="option">D. L/w</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: C</strong> — Total load is load intensity multiplied by loaded length.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">13. In a simply supported beam, taking moment about one support helps because:</div>
+        <div class="options">
+            <div class="option">A. The other support disappears</div>
+            <div class="option">B. Reaction at the selected support has zero moment about that point</div>
+            <div class="option">C. All forces become zero</div>
+            <div class="option">D. Beam becomes weightless</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — The selected support reaction passes through the moment centre.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">14. Which diagram isolates a body and shows external forces?</div>
+        <div class="options">
+            <div class="option">A. SFD</div>
+            <div class="option">B. FBD</div>
+            <div class="option">C. CAD</div>
+            <div class="option">D. Flow chart</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — FBD stands for Free Body Diagram.</div>
+    </div>
+
+    <div class="mcq">
+        <div class="mcq-q">15. If R is resultant, equilibrant E is:</div>
+        <div class="options">
+            <div class="option">A. E = R</div>
+            <div class="option">B. E = −R</div>
+            <div class="option">C. E = 2R</div>
+            <div class="option">D. E = R/2</div>
+        </div>
+        <div class="mcq-answer"><strong>Correct Answer: B</strong> — Equilibrant has equal magnitude and opposite direction.</div>
+    </div>
+
+</section>
+
+<!-- =====================================================
+     COMMON MISTAKES
+===================================================== -->
+
+<section class="section" id="mistakes">
+
+    <div class="section-heading">
+        <div class="section-number">09</div>
+        <div>
+            <h2>Common Mistakes</h2>
+            <p>Numerical aur theory mein frequently hone wali errors</p>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mistake</th>
+                    <th>Problem</th>
+                    <th>Correct Approach</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FBD nahi banana</td>
+                    <td>Reaction directions confusing ho jaati hain.</td>
+                    <td>Calculation se pehle FBD banao.</td>
+                </tr>
+                <tr>
+                    <td>Distance galat lena</td>
+                    <td>Moment value wrong ho jata hai.</td>
+                    <td>Perpendicular distance identify karo.</td>
+                </tr>
+                <tr>
+                    <td>Lami angle wrong choose karna</td>
+                    <td>Unknown force ka result wrong aata hai.</td>
+                    <td>Force ke denominator mein remaining two forces ke beech ka angle lo.</td>
+                </tr>
+                <tr>
+                    <td>Units omit karna</td>
+                    <td>Final answer incomplete lagta hai.</td>
+                    <td>Force = N, moment = N·m etc. clearly likho.</td>
+                </tr>
+                <tr>
+                    <td>Sign convention change karna</td>
+                    <td>Equation inconsistent ho sakti hai.</td>
+                    <td>Beginning mein convention decide karke same rakho.</td>
+                </tr>
+                <tr>
+                    <td>Distributed load ka location ignore karna</td>
+                    <td>Moment calculation wrong ho sakta hai.</td>
+                    <td>Equivalent resultant ki line of action determine karo.</td>
+                </tr>
+                <tr>
+                    <td>Reaction check nahi karna</td>
+                    <td>Calculation error detect nahi hota.</td>
+                    <td>Final reaction sum ko total vertical load se verify karo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<!-- =====================================================
+     ONE SHOT REVISION
+===================================================== -->
+
+<section class="section" id="revision">
+
+    <div class="section-heading">
+        <div class="section-number">10</div>
+        <div>
+            <h2>One-Shot Revision</h2>
+            <p>Exam se pehle complete unit ka rapid revision</p>
+        </div>
+    </div>
+
+    <div class="revision-grid">
+
+        <div class="revision-card">
+            <h3>Equilibrium</h3>
+            <ul>
+                <li>Equilibrium = balanced force and moment condition.</li>
+                <li>ΣF<sub>x</sub> = 0.</li>
+                <li>ΣF<sub>y</sub> = 0.</li>
+                <li>ΣM = 0.</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Equilibrant</h3>
+            <ul>
+                <li>Resultant ke opposite direction mein.</li>
+                <li>Magnitude same.</li>
+                <li>E = −R.</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>FBD</h3>
+            <ul>
+                <li>Body isolate karo.</li>
+                <li>All external forces show karo.</li>
+                <li>Support reactions show karo.</li>
+                <li>Distances and angles mark karo.</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Lami's Theorem</h3>
+            <ul>
+                <li>Three concurrent equilibrium forces.</li>
+                <li>F₁/sin α = F₂/sin β = F₃/sin γ.</li>
+                <li>Angle = other two forces ke beech ka angle.</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Beam Types</h3>
+            <ul>
+                <li>Cantilever.</li>
+                <li>Simply supported.</li>
+                <li>Simply supported with overhang.</li>
+                <li>Determinate/indeterminate concept.</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Supports</h3>
+            <ul>
+                <li>Simple support.</li>
+                <li>Hinged/pin support.</li>
+                <li>Roller support.</li>
+                <li>Fixed support.</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Loads</h3>
+            <ul>
+                <li>Vertical point load.</li>
+                <li>Inclined point load.</li>
+                <li>Distributed load.</li>
+                <li>LTD load as specified in syllabus.</li>
+                <li>Couple.</li>
+            </ul>
+        </div>
+
+        <div class="revision-card">
+            <h3>Beam Reaction</h3>
+            <ul>
+                <li>Draw FBD.</li>
+                <li>Take suitable moment.</li>
+                <li>Apply ΣF<sub>y</sub> = 0.</li>
+                <li>Apply ΣF<sub>x</sub> = 0 if required.</li>
+                <li>Verify final reactions.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FORMULA SHEET
+===================================================== -->
+
+<section class="section" id="formulasheet">
+
+    <div class="section-heading">
+        <div class="section-number">11</div>
+        <div>
+            <h2>Final Formula Sheet</h2>
+            <p>Unit 2 — last-minute exam sheet</p>
+        </div>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Concept</th>
+                    <th>Formula</th>
+                    <th>Meaning / Unit</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Horizontal Equilibrium</td>
+                    <td>ΣF<sub>x</sub> = 0</td>
+                    <td>Horizontal force balance</td>
+                </tr>
+
+                <tr>
+                    <td>Vertical Equilibrium</td>
+                    <td>ΣF<sub>y</sub> = 0</td>
+                    <td>Vertical force balance</td>
+                </tr>
+
+                <tr>
+                    <td>Moment Equilibrium</td>
+                    <td>ΣM = 0</td>
+                    <td>Rotational balance</td>
+                </tr>
+
+                <tr>
+                    <td>Moment</td>
+                    <td>M = F × d</td>
+                    <td>N·m</td>
+                </tr>
+
+                <tr>
+                    <td>Horizontal Force Component</td>
+                    <td>F<sub>x</sub> = F cos θ</td>
+                    <td>N</td>
+                </tr>
+
+                <tr>
+                    <td>Vertical Force Component</td>
+                    <td>F<sub>y</sub> = F sin θ</td>
+                    <td>N</td>
+                </tr>
+
+                <tr>
+                    <td>Equilibrant</td>
+                    <td>E = −R</td>
+                    <td>Equal magnitude, opposite direction</td>
+                </tr>
+
+                <tr>
+                    <td>Lami's Theorem</td>
+                    <td>F₁/sin α = F₂/sin β = F₃/sin γ</td>
+                    <td>Three concurrent forces in equilibrium</td>
+                </tr>
+
+                <tr>
+                    <td>Uniform Distributed Load</td>
+                    <td>W = wL</td>
+                    <td>W in N, w in N/m, L in m</td>
+                </tr>
+
+                <tr>
+                    <td>Cantilever Point Load Moment</td>
+                    <td>M = P × L</td>
+                    <td>Fixed-end moment magnitude</td>
+                </tr>
+
+                <tr>
+                    <td>Simply Supported Vertical Loads</td>
+                    <td>R<sub>A</sub> + R<sub>B</sub> = ΣP</td>
+                    <td>Vertical reaction balance</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout success">
+        <div class="callout-title">Final Exam Checklist</div>
+
+        <ul>
+            <li>Equilibrium ki definition yaad hai?</li>
+            <li>Equilibrant ka meaning aur E = −R yaad hai?</li>
+            <li>FBD correctly draw kar sakte ho?</li>
+            <li>ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0, ΣM = 0 apply kar sakte ho?</li>
+            <li>Lami's Theorem ka correct angle identify kar sakte ho?</li>
+            <li>Cantilever aur simply supported beam identify kar sakte ho?</li>
+            <li>Hinged, roller aur fixed support ka difference yaad hai?</li>
+            <li>Point load aur distributed load ka difference clear hai?</li>
+            <li>Overhang identify kar sakte ho?</li>
+            <li>Beam reaction numerical step-by-step solve kar sakte ho?</li>
+            <li>Final answer ke units likhte ho?</li>
+            <li>Reaction calculation ko verify karte ho?</li>
+        </ul>
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FINAL QUICK REVISION
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+        <div class="section-number">12</div>
+        <div>
+            <h2>Final Quick Revision</h2>
+            <p>Unit 2 ko ek page mein mentally revise karo</p>
+        </div>
+    </div>
+
+    <p>
+        <strong>Static Equilibrium</strong> ka core idea balance hai. Agar body
+        equilibrium mein hai to forces aur moments ka net effect zero hona chahiye.
+    </p>
+
+    <p>
+        Sabse pehle <strong>FBD</strong> banao. FBD mein body ko isolate karke
+        applied forces aur support reactions show karo. Uske baad force components
+        ko resolve karo aur equilibrium equations apply karo.
+    </p>
+
+    <p>
+        Three concurrent forces ke equilibrium problem mein <strong>Lami's Theorem</strong>
+        useful hai:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">
+            F₁/sin α = F₂/sin β = F₃/sin γ
+        </div>
+    </div>
+
+    <p>
+        Beam problems mein pehle beam ka type aur support arrangement identify karo.
+        Cantilever mein fixed support reaction aur reaction moment important hain.
+        Simply supported beam mein support reactions calculate karne ke liye
+        moment equation aur vertical force equilibrium use karo.
+    </p>
+
+    <p>
+        Vertical-load-only simply supported beam ke liye basic relation:
+    </p>
+
+    <div class="formula-card">
+        <div class="formula">
+            R<sub>A</sub> + R<sub>B</sub> = Total downward load
+        </div>
+    </div>
+
+    <p>
+        Numerical solve karte waqt answer directly likhne ki jagah complete sequence
+        follow karo:
+    </p>
+
+    <div class="callout info">
+        <div class="callout-title">Golden Sequence</div>
+        GIVEN → FIND → FBD → FORMULA → WHY THIS FORMULA →
+        SUBSTITUTION → CALCULATION → ANSWER → VERIFICATION
+    </div>
+
+    <p>
+        Isi sequence ko follow karne se calculation organized rahegi aur
+        examination mein method marks obtain karne mein help milegi.
+    </p>
+
+</section>
+
+</article>
+</div>
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <h3>PrinceXmahto Study</h3>
+                <p>
+                    SBTE Bihar Diploma Study Materials — simple, structured and
+                    exam-focused learning resources for diploma students.
+                </p>
+            </div>
+
+            <div>
+                <h3>Course</h3>
+                <ul>
+                    <li>Engineering Mechanics</li>
+                    <li>Course Code: 2625104</li>
+                    <li>Semester: I</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Chapter</h3>
+                <ul>
+                    <li>Unit 2.0</li>
+                    <li>Static Equilibrium</li>
+                    <li>Made for Diploma Students</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> PrinceXmahto Study. All rights reserved.</span>
+            <span>Made for Diploma Students</span>
+        </div>
+
+    </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
+<script>
+/* =========================
+   YEAR
+========================= */
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* =========================
+   READING PROGRESS
+========================= */
+
+function updateProgress(){
+    const scrollTop = window.scrollY;
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    if(documentHeight <= 0){
+        document.getElementById("progressBar").style.width = "0%";
+        return;
+    }
+
+    const progress = (scrollTop / documentHeight) * 100;
+    document.getElementById("progressBar").style.width =
+        Math.min(100, Math.max(0, progress)) + "%";
+}
+
+window.addEventListener("scroll", updateProgress);
+updateProgress();
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+const backTop = document.getElementById("backTop");
+
+window.addEventListener("scroll",function(){
+    backTop.style.display = window.scrollY > 500 ? "grid" : "none";
+});
+
+function scrollToTop(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+/* =========================
+   MOBILE SIDEBAR
+========================= */
+
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("open");
+}
+
+/* Close sidebar after clicking TOC link */
+
+document.querySelectorAll(".toc a").forEach(function(link){
+    link.addEventListener("click",function(){
+        if(window.innerWidth <= 800){
+            document.getElementById("sidebar").classList.remove("open");
+        }
+    });
+});
+
+/* =========================
+   TOC ACTIVE STATE
+========================= */
+
+const sections = document.querySelectorAll(
+    "#objectives,#unit-overview,#topic21,#topic22,#topic23,#topic24,#topic25,#topic26,#definitions,#formulas,#shortquestions,#longquestions,#numericals,#mcqs,#mistakes,#revision,#formulasheet"
+);
+
+const tocLinks = document.querySelectorAll(".toc a");
+
+function updateActiveTOC(){
+
+    let current = "";
+
+    sections.forEach(function(section){
+        const rect = section.getBoundingClientRect();
+
+        if(rect.top <= 130){
+            current = section.id;
+        }
+    });
+
+    tocLinks.forEach(function(link){
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + current){
+            link.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll",updateActiveTOC);
+updateActiveTOC();
+
+/* =========================
+   SEARCH WITHIN PAGE
+========================= */
+
+const searchInput = document.getElementById("searchInput");
+const chapterContent = document.getElementById("chapterContent");
+
+searchInput.addEventListener("input",function(){
+
+    const query = this.value.trim().toLowerCase();
+
+    document.querySelectorAll("#chapterContent .section").forEach(function(section){
+
+        if(!query){
+            section.style.display = "";
+            return;
+        }
+
+        const text = section.innerText.toLowerCase();
+
+        section.style.display = text.includes(query) ? "" : "none";
+    });
+});
+
+/* =========================
+   FORMULA COPY
+========================= */
+
+function copyFormula(text){
+
+    if(navigator.clipboard && navigator.clipboard.writeText){
+
+        navigator.clipboard.writeText(text)
+            .then(function(){
+                showCopyMessage("Formula copied");
+            })
+            .catch(function(){
+                fallbackCopy(text);
+            });
+
+    }else{
+        fallbackCopy(text);
+    }
+}
+
+function fallbackCopy(text){
+
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try{
+        document.execCommand("copy");
+        showCopyMessage("Formula copied");
+    }catch(error){
+        showCopyMessage("Copy not supported");
+    }
+
+    textarea.remove();
+}
+
+function showCopyMessage(message){
+
+    const old = document.getElementById("copyToast");
+
+    if(old){
+        old.remove();
+    }
+
+    const toast = document.createElement("div");
+
+    toast.id = "copyToast";
+    toast.textContent = message;
+
+    toast.style.position = "fixed";
+    toast.style.bottom = "78px";
+    toast.style.left = "50%";
+    toast.style.transform = "translateX(-50%)";
+    toast.style.background = "#0b1f3a";
+    toast.style.color = "#fff";
+    toast.style.padding = "9px 15px";
+    toast.style.borderRadius = "8px";
+    toast.style.fontSize = "13px";
+    toast.style.zIndex = "9999";
+    toast.style.boxShadow = "0 8px 25px rgba(0,0,0,.18)";
+
+    document.body.appendChild(toast);
+
+    setTimeout(function(){
+        toast.remove();
+    },1800);
+}
+
+/* =========================
+   ESCAPE KEY
+========================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        document.getElementById("sidebar").classList.remove("open");
+    }
+
+});
+
+/* =========================
+   SEARCH SHORTCUT
+========================= */
+
+document.addEventListener("keydown",function(event){
+
+    if((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k"){
+
+        event.preventDefault();
+
+        searchInput.focus();
+        searchInput.select();
+
+    }
+
+});
+</script>
+
+</body>
+</html>
