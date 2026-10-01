@@ -6,7 +6,7 @@ else{
  const cards=units.map((u,i)=>{
   const chemSpecial=code==='2600103B'&&(b.id==='elx'||b.id==='electronics')&&(i===0||i===1||i===2||i===3||i===4);
   const physicsSpecial=code==='2600102B'&&(i===0||i===1||i===2||i===3||i===4);
-  const mechanicsSpecial=code==='2625104'&&b.id==='elx'&&i===1;const href=chemSpecial?'./chemistry-unit'+(i+1)+'.html?v=20260920.15':physicsSpecial?'./physics-unit'+(i+1)+'.html?v=20260922.26':mechanicsSpecial?'./engineering-mechanics-unit3-friction-hinglish.html':'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u);
+  const mechanicsSpecial=code==='2625104'&&b.id==='elx'&&i===1;const href=chemSpecial?'./chemistry-unit'+(i+1)+'.html?v=20260920.15':physicsSpecial?'./physics-unit'+(i+1)+'.html?v=20260922.26':mechanicsSpecial?'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u):'topic.html?branch='+b.id+'&subject='+encodeURIComponent(code)+'&topic='+encodeURIComponent(u);
   const label=chemSpecial?'Open complete Unit '+(i+1)+' deep notes →':physicsSpecial?'Open complete Unit '+(i+1)+' deep notes →':mechanicsSpecial?'Open Friction Hinglish notes →':'Open topic notes →';
   return '<a class="topic-card" href="'+href+'"><span>UNIT '+String(i+1).padStart(2,'0')+'</span><h2>'+esc(u)+'</h2><p>'+label+'</p></a>';
  }).join('');
