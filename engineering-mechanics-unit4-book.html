@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PrinceXmahto Study - Engineering Mechanics Unit 4 Centroid, Centre of Gravity and Moment of Inertia, SBTE Bihar Diploma Semester I">
+<meta name="author" content="PrinceXmahto">
+<title>PrinceXmahto Study | Engineering Mechanics | Unit 4 - Centroid, Centre of Gravity & Moment of Inertia</title>
+<style>
+:root{--bg:#eef2f7;--paper:#fff;--ink:#182230;--muted:#657386;--primary:#173b67;--accent:#d59b2a;--line:#dce3ec;--soft:#f6f8fb;--shadow:0 18px 50px rgba(20,35,55,.10);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 0%,rgba(37,99,166,.08),transparent 30%),radial-gradient(circle at 90% 10%,rgba(213,155,42,.08),transparent 25%),var(--bg);color:var(--ink);font:16px/1.75 Inter,Segoe UI,Roboto,Arial,sans-serif}
+body.dark{--bg:#09111d;--paper:#101b29;--ink:#edf4fc;--muted:#a7b5c5;--primary:#75b5f5;--accent:#e5b54e;--line:#26384d;--soft:#152334;--shadow:0 18px 50px rgba(0,0,0,.3)}
+a{color:#2563a6;text-decoration:none}.topbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:rgba(255,255,255,.9);border-bottom:1px solid var(--line)}body.dark .topbar{background:rgba(9,17,29,.9)}
+.topbar-inner{max-width:1400px;margin:auto;min-height:64px;padding:10px 24px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;color:var(--ink);letter-spacing:.04em}.brand-mark{display:inline-grid;place-items:center;width:36px;height:36px;margin-right:8px;border-radius:10px;background:var(--primary);color:white}.tools button{margin-left:7px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);cursor:pointer}
+.hero,.layout,.footer{max-width:1400px;margin:auto;padding:24px}.hero-card{padding:42px;border-radius:26px;background:linear-gradient(135deg,#173b67,#2563a6);color:#fff;box-shadow:var(--shadow)}.eyebrow{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.85}.hero h1{font-size:clamp(34px,5vw,62px);line-height:1.08;margin:15px 0}.hero h1 span{color:#f2cf76}.lead{color:var(--muted);font-size:17px}.hero .lead{color:#e9f2fb;max-width:900px}.meta-grid,.grid-2,.grid-3,.formula-grid,.revision-grid{display:grid;gap:14px}.meta-grid{grid-template-columns:repeat(4,1fr);margin-top:25px}.meta,.mini-card,.formula-card,.revision-card,.definition,.note,.warning,.example,.numerical{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}.meta{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}.meta small{display:block;opacity:.75}.meta strong{display:block;margin-top:3px}.layout{display:grid;grid-template-columns:270px 1fr;gap:22px}.sidebar{position:relative}.sidebar-card{position:sticky;top:85px;padding:18px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.sidebar-title{font-weight:800;margin-bottom:10px}.toc{display:grid;gap:7px}.toc a{padding:7px 8px;border-radius:8px}.toc a:hover{background:var(--soft)}.main{min-width:0}.section{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:30px;margin-bottom:22px;box-shadow:var(--shadow)}.section-number{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--primary)}h2{font-size:32px;line-height:1.2;margin:8px 0 15px}h3{font-size:22px;margin-top:28px}.grid-2{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.formula-grid{grid-template-columns:repeat(2,1fr)}.revision-grid{grid-template-columns:repeat(3,1fr)}.definition{border-left:5px solid var(--primary)}.note{border-left:5px solid #4d88c7;background:var(--soft)}.warning{border-left:5px solid var(--accent);background:#fff9eb}.example{border-left:5px solid #157347}.numerical{border-left:5px solid #8a4fb3}.formula-card code,.formula{display:block;padding:14px;border-radius:10px;background:#0d1724;color:#e9f2fb;font:600 15px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap}table{width:100%;border-collapse:collapse;margin:16px 0}th,td{border:1px solid var(--line);padding:11px;text-align:left;vertical-align:top}th{background:var(--soft)}.diagram{padding:15px;border:1px dashed var(--line);border-radius:14px;background:var(--soft);overflow:auto}.diagram svg{max-width:100%;height:auto}.q{padding:14px;border-bottom:1px solid var(--line)}.q:last-child{border-bottom:0}.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--soft);border:1px solid var(--line);font-size:12px}.footer-card{padding:30px;background:var(--paper);border:1px solid var(--line);border-radius:20px}.back{position:fixed;right:20px;bottom:20px;border:0;border-radius:50%;width:46px;height:46px;background:var(--primary);color:#fff;cursor:pointer}@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{display:none}.meta-grid,.grid-3,.revision-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.hero,.layout,.footer{padding:12px}.hero-card,.section{padding:20px}.meta-grid,.grid-2,.grid-3,.formula-grid,.revision-grid{grid-template-columns:1fr}.hero h1{font-size:38px}.topbar-inner{padding:9px 12px}.tools button{padding:6px 8px}}
+@media print{.topbar,.sidebar,.back{display:none!important}body{background:#fff}.hero,.layout,.footer{max-width:none;padding:0}.hero-card,.section{box-shadow:none;border:1px solid #aaa;border-radius:0}.section{break-inside:auto}.formula-card,.example,.numerical,.definition,.note,.warning{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="#top"><span class="brand-mark">PX</span>PRINCEXMAHTO STUDY</a><div class="tools"><button onclick="window.print()">Print</button><button onclick="toggleDark()">Theme</button></div></div></header>
+
+<header class="hero" id="top"><div class="hero-card">
+<div class="eyebrow">SBTE Bihar • Diploma Engineering • Semester I</div>
+<h1>Engineering Mechanics<br><span>Unit 4 — Centroid, Centre of Gravity & Moment of Inertia</span></h1>
+<p class="lead">Complete textbook-style Hinglish study material aligned with the uploaded SBTE Bihar Electronics Engineering syllabus. Topics 4.1 to 4.6 are covered with concepts, formulae, worked methods, diagrams, applications, mistakes, questions, MCQs and revision.</p>
+<div class="meta-grid"><div class="meta"><small>Course</small><strong>Engineering Mechanics</strong></div><div class="meta"><small>Code</small><strong>2625104</strong></div><div class="meta"><small>Unit</small><strong>4.0</strong></div><div class="meta"><small>Focus</small><strong>Centroid • CG • MOI</strong></div></div>
+</div></header>
+
+<div class="layout"><aside class="sidebar"><div class="sidebar-card"><div class="sidebar-title">Unit Navigation</div><nav class="toc">
+<a href="#map">Syllabus Map</a><a href="#41">4.1 Centroid, CG & Areas</a><a href="#42">4.2 Plane Figures</a><a href="#43">4.3 Composite & Perforated Sections</a><a href="#44">4.4 CG of Simple Solids</a><a href="#45">4.5 Composite Solids</a><a href="#46">4.6 Moment of Inertia</a><a href="#numericals">Solved Numericals</a><a href="#mistakes">Common Mistakes</a><a href="#questions">Important Questions</a><a href="#mcq">MCQs</a><a href="#revision">Quick Revision</a>
+</nav></div></aside>
+
+<main class="main">
+<section class="section" id="map"><div class="section-number">Official Syllabus Map</div><h2>Unit 4 — What You Have to Study</h2>
+<p class="lead">The uploaded syllabus is the controlling source for this unit.</p>
+<table><tr><th>Section</th><th>Exact coverage</th></tr>
+<tr><td>4.1</td><td>Introduction to Centroid, Centre of Gravity and Areas</td></tr>
+<tr><td>4.2</td><td>Centroid of geometrical plane figures — square, rectangle, triangle, circle, semi-circle, quarter circle.</td></tr>
+<tr><td>4.3</td><td>Centroid of composite figures composed of not more than three geometrical figures; centroid of perforated section; axis of symmetry.</td></tr>
+<tr><td>4.4</td><td>Centre of Gravity of simple solids — cube, cuboid, cone, cylinder, sphere, hemisphere.</td></tr>
+<tr><td>4.5</td><td>Centre of Gravity of composite solids composed of not more than two simple solids.</td></tr>
+<tr><td>4.6</td><td>Moment of inertia: introduction; integration method; perpendicular-axis theorem; parallel-axis theorem; rectangular, hollow rectangular, circular, hollow circular and triangular sections.</td></tr>
+</table>
+<div class="note"><strong>Exam approach:</strong> Figure ko pehle identify karo → reference axes/dimensions mark karo → standard centroid/CG data choose karo → composite ho to area/volume method lagao → MOI mein correct axis clearly identify karo.</div>
+</section>
+
+<section class="section" id="41"><div class="section-number">4.1</div><h2>Centroid, Centre of Gravity and Area — Foundation</h2>
+<div class="definition"><strong>Centroid:</strong> A plane area ka geometrical centre, jahan poore area ko concentrated maan kar first moment calculations kiye ja sakte hain.</div>
+<div class="definition"><strong>Centre of Gravity (CG):</strong> A body ka woh point jahan body ka total weight effectively concentrated maana ja sakta hai.</div>
+<div class="definition"><strong>Area:</strong> Plane surface ka two-dimensional measure. SI unit m².</div>
+<h3>Centroid vs Centre of Gravity</h3><table><tr><th>Point</th><th>Centroid</th><th>Centre of Gravity</th></tr><tr><td>Meaning</td><td>Geometrical centre of area</td><td>Effective point of total weight</td></tr><tr><td>Used for</td><td>Plane lamina/areas</td><td>Solid bodies/masses</td></tr><tr><td>Depends on</td><td>Geometry</td><td>Mass distribution and gravity</td></tr><tr><td>Uniform lamina</td><td>Geometrical position</td><td>Usually coincides with centroid</td></tr></table>
+<h3>First Moment of Area</h3><div class="formula">Q<sub>x</sub> = A ȳ &nbsp;&nbsp;&nbsp; Q<sub>y</sub> = A x̄
+x̄ = Σ(Ax)/ΣA
+ȳ = Σ(Ay)/ΣA</div>
+<p>Yahan A area hai, x aur y reference axes se component centroid ki distances hain, aur x̄, ȳ composite figure ka centroid hai. Signed-area method mein holes/cut-outs ko negative area liya jata hai.</p>
+<h3>Axis of Symmetry</h3><p>Agar figure kisi axis ke about symmetric hai, centroid us axis par zaroor lie karega. Ye calculation ko bahut simplify karta hai. Example: rectangle ka centroid dono symmetry axes ke intersection par hota hai.</p>
+<div class="diagram"><svg viewBox="0 0 760 300" aria-label="Centroid axes diagram"><rect x="170" y="50" width="420" height="190" fill="none" stroke="currentColor" stroke-width="4"/><line x1="380" y1="25" x2="380" y2="270" stroke="currentColor" stroke-dasharray="10 8" stroke-width="3"/><line x1="140" y1="145" x2="620" y2="145" stroke="currentColor" stroke-dasharray="10 8" stroke-width="3"/><circle cx="380" cy="145" r="8" fill="currentColor"/><text x="395" y="137" font-size="20">Centroid (x̄,ȳ)</text><text x="385" y="285" font-size="18">x-axis</text><text x="390" y="35" font-size="18">y-axis</text></svg></div>
+</section>
+
+<section class="section" id="42"><div class="section-number">4.2</div><h2>Centroid of Standard Plane Figures</h2>
+<p>Standard shapes ko yaad karne ka best way formula ratna nahi, symmetry samajhna hai. Neeche syllabus mein diye gaye six figures cover hain.</p>
+<table><tr><th>Figure</th><th>Centroid location</th></tr>
+<tr><td>Square, side a</td><td>At intersection of diagonals: x̄ = a/2, ȳ = a/2.</td></tr>
+<tr><td>Rectangle, b × h</td><td>x̄ = b/2, ȳ = h/2 from adjacent sides.</td></tr>
+<tr><td>Triangle</td><td>Centroid lies at intersection of medians; distance from base = h/3 and from opposite vertex = 2h/3.</td></tr>
+<tr><td>Circle, radius r</td><td>At centre of circle.</td></tr>
+<tr><td>Semicircle, radius r</td><td>On symmetry axis; distance from diameter = 4r/(3π).</td></tr>
+<tr><td>Quarter circle, radius r</td><td>x̄ = ȳ = 4r/(3π) from the two straight bounding radii.</td></tr>
+</table>
+<h3>Triangle — Why h/3?</h3><p>Triangle mein three medians ek point par intersect karti hain. Ye point base se h/3 distance par hota hai. Isliye symmetric ya non-symmetric triangle dono ke liye centroid medians ka intersection hota hai.</p>
+<div class="formula">Rectangle: x̄ = b/2, ȳ = h/2
+Triangle: distance from base = h/3
+Semicircle: ȳ = 4r/(3π)
+Quarter circle: x̄ = ȳ = 4r/(3π)</div>
+<div class="example"><strong>Example:</strong> 60 mm × 40 mm rectangle ke centroid ko bottom-left corner se measure karo. x̄ = 60/2 = 30 mm; ȳ = 40/2 = 20 mm. Therefore centroid = (30,20) mm.</div>
+<div class="example"><strong>Exam tip:</strong> Circular shapes mein centre aur centroid ko confuse mat karo. Full circle ka centroid centre par hai; semicircle/quarter circle mein centroid geometric centre par nahi hota.</div>
+</section>
+
+<section class="section" id="43"><div class="section-number">4.3</div><h2>Composite Figures, Perforated Sections & Axis of Symmetry</h2>
+<p>Composite figure multiple simple areas se bani hoti hai. Syllabus mein maximum three geometrical figures tak ka composite calculation aur perforated section included hai.</p>
+<h3>General Method</h3><ol><li>Figure ko simple shapes mein divide karo.</li><li>Reference x-y axes choose karo.</li><li>Har component ka area A<sub>i</sub> calculate karo.</li><li>Us component ke centroid coordinates x<sub>i</sub>, y<sub>i</sub> find karo.</li><li>A<sub>i</sub>x<sub>i</sub> aur A<sub>i</sub>y<sub>i</sub> calculate karo.</li><li>Use x̄ = ΣAx/ΣA and ȳ = ΣAy/ΣA.</li><li>Hole ho to uska area negative lo.</li></ol>
+<table><tr><th>Part</th><th>A</th><th>x</th><th>y</th><th>Ax</th><th>Ay</th></tr><tr><td>1</td><td>A₁</td><td>x₁</td><td>y₁</td><td>A₁x₁</td><td>A₁y₁</td></tr><tr><td>2</td><td>A₂</td><td>x₂</td><td>y₂</td><td>A₂x₂</td><td>A₂y₂</td></tr><tr><td>3</td><td>A₃</td><td>x₃</td><td>y₃</td><td>A₃x₃</td><td>A₃y₃</td></tr></table>
+<div class="formula">x̄ = (A₁x₁ + A₂x₂ + A₃x₃)/(A₁ + A₂ + A₃)
+ȳ = (A₁y₁ + A₂y₂ + A₃y₃)/(A₁ + A₂ + A₃)</div>
+<h3>Perforated Section</h3><p>Perforation means material remove kiya gaya hai. Isliye hole ko negative area treat karo. Agar outer area A aur circular hole a hai, total area A<sub>net</sub> = A − a. First moments bhi subtraction se calculate honge.</p>
+<div class="warning"><strong>Most common mistake:</strong> Hole ka area positive lena. Ye centroid ko wrong direction mein shift kar dega.</div>
+<h3>Symmetry shortcut</h3><p>Agar composite section vertical axis ke about symmetric hai, x̄ directly symmetry axis par milega. Horizontal symmetry ho to ȳ directly known hoga. Sirf remaining coordinate calculate karna padega.</p>
+<div class="numerical"><strong>Worked method — T-section:</strong><br>Flange aur web ko two rectangles maan lo. Dono areas aur unke centroids reference axis se measure karo. Table banao: A, x, y, Ax, Ay. Totals nikaal kar x̄ aur ȳ calculate karo. Isi systematic table method se L, T aur stepped sections solve kiye ja sakte hain.</div>
+</section>
+
+<section class="section" id="44"><div class="section-number">4.4</div><h2>Centre of Gravity of Simple Solids</h2>
+<p>Uniform-density simple solids ke liye CG usually symmetry-based location par hota hai. Syllabus mein cube, cuboid, cone, cylinder, sphere aur hemisphere included hain.</p>
+<table><tr><th>Solid</th><th>Centre of Gravity</th></tr>
+<tr><td>Cube, side a</td><td>Geometrical centre; a/2 from each adjacent face.</td></tr>
+<tr><td>Cuboid, l × b × h</td><td>Geometrical centre; (l/2,b/2,h/2).</td></tr>
+<tr><td>Solid cylinder, height h</td><td>On central axis at h/2 from either plane face.</td></tr>
+<tr><td>Solid sphere, radius r</td><td>At sphere centre.</td></tr>
+<tr><td>Solid cone, height h</td><td>On symmetry axis at h/4 from the base (solid uniform cone).</td></tr>
+<tr><td>Solid hemisphere, radius r</td><td>On symmetry axis at 3r/8 from its flat circular face.</td></tr>
+</table>
+<div class="diagram"><svg viewBox="0 0 760 310" aria-label="Solid CG diagrams"><ellipse cx="130" cy="70" rx="75" ry="25" fill="none" stroke="currentColor" stroke-width="3"/><line x1="55" y1="70" x2="55" y2="225" stroke="currentColor" stroke-width="3"/><line x1="205" y1="70" x2="205" y2="225" stroke="currentColor" stroke-width="3"/><ellipse cx="130" cy="225" rx="75" ry="25" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="130" cy="148" r="7" fill="currentColor"/><text x="95" y="270" font-size="18">Cylinder CG</text><path d="M350 225 L470 60 L590 225 Z" fill="none" stroke="currentColor" stroke-width="3"/><line x1="470" y1="60" x2="470" y2="225" stroke="currentColor" stroke-width="3"/><circle cx="470" cy="184" r="7" fill="currentColor"/><text x="400" y="270" font-size="18">Cone CG = h/4 from base</text></svg></div>
+<div class="note"><strong>Important:</strong> Ye locations uniform solid ke standard textbook cases ke liye hain. Non-uniform density ho to simple geometric shortcut automatically apply nahi hota.</div>
+</section>
+
+<section class="section" id="45"><div class="section-number">4.5</div><h2>Centre of Gravity of Composite Solids</h2>
+<p>Composite solid maximum two simple solids se composed ho sakta hai according to the uploaded syllabus. Volume method use karo when density same ho.</p>
+<div class="formula">x̄ = Σ(Vx)/ΣV
+ȳ = Σ(Vy)/ΣV
+z̄ = Σ(Vz)/ΣV</div>
+<h3>Step-by-step</h3><ol><li>Composite solid ko two standard solids mein break karo.</li><li>Har solid ka volume find karo.</li><li>Har solid ka CG locate karo.</li><li>Same reference plane/axis se CG distance measure karo.</li><li>V × distance products calculate karo.</li><li>Weighted-average formula se combined CG find karo.</li></ol>
+<div class="example"><strong>Example structure:</strong> Cylinder + hemisphere ko ek common axis par combine kiya gaya ho. Cylinder ka V₁ = πr²h aur hemisphere ka V₂ = 2πr³/3. Dono individual CG positions ko same base reference se measure karke z̄ = (V₁z₁ + V₂z₂)/(V₁+V₂) use karo.</div>
+<div class="warning"><strong>Check:</strong> Final CG composite body ke physical boundaries ke andar expected region mein hona chahiye. Agar answer outside aa raha hai, reference distances aur volume signs check karo.</div>
+</section>
+
+<section class="section" id="46"><div class="section-number">4.6</div><h2>Moment of Inertia</h2>
+<div class="definition"><strong>Meaning:</strong> Area moment of inertia kisi area ka given axis ke about distribution measure karta hai. Engineering mechanics mein section ki bending-related geometric property ke roop mein use hota hai.</div>
+<h3>Definition by integration</h3><div class="formula">I<sub>x</sub> = ∫ y² dA
+I<sub>y</sub> = ∫ x² dA
+I<sub>z</sub> = ∫ r² dA = I<sub>x</sub> + I<sub>y</sub> (plane area)</div>
+<p>y² ya x² ki wajah se axis se door area ka contribution bahut zyada hota hai. Isliye material ko axis se door shift karne se MOI increase hota hai.</p>
+<h3>Perpendicular Axis Theorem</h3><div class="formula">I<sub>z</sub> = I<sub>x</sub> + I<sub>y</sub></div><p>Ye theorem plane lamina/area ke liye mutually perpendicular axes x and y aur unke intersection se perpendicular z-axis ke case mein use hota hai.</p>
+<h3>Parallel Axis Theorem</h3><div class="formula">I = I<sub>G</sub> + A d²</div><p>Yahan I<sub>G</sub> centroidal parallel axis ke about MOI, A area aur d dono parallel axes ke beech perpendicular distance hai.</p>
+<h3>Standard Sections</h3><table><tr><th>Section</th><th>Common centroidal MOI</th></tr>
+<tr><td>Rectangle b × h</td><td>I<sub>x</sub> = bh³/12; I<sub>y</sub> = hb³/12</td></tr>
+<tr><td>Hollow rectangle</td><td>Outer rectangle MOI − inner rectangle MOI, about the same reference axis.</td></tr>
+<tr><td>Circle radius r</td><td>I about any centroidal diameter = πr⁴/4</td></tr>
+<tr><td>Hollow circle, outer R, inner r</td><td>I = π(R⁴ − r⁴)/4 about centroidal diameter</td></tr>
+<tr><td>Triangle, base b and height h</td><td>About centroidal axis parallel to base: I<sub>G</sub> = bh³/36.</td></tr>
+</table>
+<h3>Integration Method — Basic Derivation Idea</h3><p>Rectangle ko very thin horizontal strips mein imagine karo. Strip ka area dA = b dy. Har strip x-axis se y distance par hai. Therefore dI = y²dA = by³dy. Integrating from y=0 to h gives I<sub>x</sub> about the base = bh³/3. Parallel-axis theorem then gives centroidal I<sub>x</sub> = bh³/12.</p>
+<div class="formula">Rectangle about base: I = bh³/3
+Rectangle about centroid: I<sub>G</sub> = bh³/12</div>
+<div class="example"><strong>Quick numerical:</strong> Rectangle b=100 mm, h=60 mm. Centroidal x-axis MOI = bh³/12 = 100×60³/12 = 1,800,000 mm⁴ = 1.8×10⁶ mm⁴.</div>
+<div class="note"><strong>Units:</strong> Area moment of inertia ka SI unit m⁴ hota hai; engineering calculations mein mm⁴ commonly use hota hai. Area A ko mm² aur distance d ko mm mein rakhoge to I mm⁴ mein milega.</div>
+</section>
+
+<section class="section" id="numericals"><div class="section-number">Solved Numericals</div><h2>Step-by-Step Practice</h2>
+<div class="numerical"><h3>Numerical 1 — Rectangle Centroid</h3><p><strong>Given:</strong> b=80 mm, h=50 mm.</p><p><strong>Find:</strong> centroid from lower-left corner.</p><p><strong>Formula:</strong> x̄=b/2, ȳ=h/2.</p><p><strong>Calculation:</strong> x̄=80/2=40 mm; ȳ=50/2=25 mm.</p><p><strong>Answer:</strong> G=(40,25) mm.</p><p><strong>Why:</strong> Rectangle has two symmetry axes, so centroid is at their intersection.</p></div>
+<div class="numerical"><h3>Numerical 2 — Semicircle</h3><p><strong>Given:</strong> radius r=30 mm.</p><p><strong>Find:</strong> centroid distance from diameter.</p><p><strong>Formula:</strong> ȳ=4r/(3π).</p><p><strong>Substitution:</strong> ȳ=4×30/(3π)=40/π≈12.73 mm.</p><p><strong>Answer:</strong> 12.73 mm from the diameter along the symmetry axis.</p></div>
+<div class="numerical"><h3>Numerical 3 — Parallel Axis Theorem</h3><p><strong>Given:</strong> A=2000 mm², I<sub>G</sub>=1.5×10⁶ mm⁴, d=20 mm.</p><p><strong>Find:</strong> I about parallel axis.</p><p><strong>Formula:</strong> I=I<sub>G</sub>+Ad².</p><p><strong>Substitution:</strong> I=1.5×10⁶ + 2000×20² = 1.5×10⁶+0.8×10⁶.</p><p><strong>Answer:</strong> I=2.3×10⁶ mm⁴.</p></div>
+<div class="numerical"><h3>Numerical 4 — Composite Area Method</h3><p><strong>Given:</strong> A composite section consists of two rectangles. A₁=3000 mm² at y₁=20 mm and A₂=2000 mm² at y₂=70 mm from the chosen x-axis.</p><p><strong>Find:</strong> ȳ.</p><p><strong>Formula:</strong> ȳ=ΣAy/ΣA.</p><p><strong>Calculation:</strong> ȳ=(3000×20+2000×70)/(3000+2000)=(60000+140000)/5000=40 mm.</p><p><strong>Answer:</strong> ȳ=40 mm.</p></div>
+</section>
+
+<section class="section" id="mistakes"><div class="section-number">Exam Safety</div><h2>Common Mistakes</h2><div class="grid-2">
+<div class="mini-card"><strong>1. Reference axis change</strong><br>x and y distances ko different reference axes se mix mat karo.</div>
+<div class="mini-card"><strong>2. Hole sign</strong><br>Perforation ko negative area treat karo.</div>
+<div class="mini-card"><strong>3. Diameter vs radius</strong><br>Circle formula mein r aur d ko confuse mat karo.</div>
+<div class="mini-card"><strong>4. MOI axis</strong><br>I<sub>x</sub> aur I<sub>y</sub> depend on the axis. Axis clearly draw karo.</div>
+<div class="mini-card"><strong>5. Units</strong><br>MOI is length⁴: mm⁴, cm⁴ or m⁴.</div>
+<div class="mini-card"><strong>6. Parallel-axis distance</strong><br>d must be perpendicular distance between parallel axes.</div>
+<div class="mini-card"><strong>7. Cone CG</strong><br>Solid cone ka standard CG h/4 from base hota hai; vertex se h/4 nahi.</div>
+<div class="mini-card"><strong>8. Composite solids</strong><br>Area formula aur volume formula mix mat karo.</div>
+</div></section>
+
+<section class="section" id="questions"><div class="section-number">Exam Practice</div><h2>Important Questions</h2>
+<div class="q"><strong>Q1.</strong> Define centroid and centre of gravity. Distinguish between them.</div>
+<div class="q"><strong>Q2.</strong> Find centroid of rectangle, triangle, circle, semicircle and quarter circle.</div>
+<div class="q"><strong>Q3.</strong> Explain the method for centroid of a composite plane figure containing not more than three component figures.</div>
+<div class="q"><strong>Q4.</strong> Explain how a perforated section is treated in centroid calculation.</div>
+<div class="q"><strong>Q5.</strong> Determine CG of cube, cuboid, cone, cylinder, sphere and hemisphere.</div>
+<div class="q"><strong>Q6.</strong> Find CG of a composite solid made of two simple solids.</div>
+<div class="q"><strong>Q7.</strong> Define area moment of inertia and derive a basic rectangular-section result by integration.</div>
+<div class="q"><strong>Q8.</strong> State and explain perpendicular-axis theorem.</div>
+<div class="q"><strong>Q9.</strong> State and explain parallel-axis theorem.</div>
+<div class="q"><strong>Q10.</strong> Calculate MOI of rectangular, hollow rectangular, circular, hollow circular and triangular sections.</div>
+</section>
+
+<section class="section" id="mcq"><div class="section-number">MCQs</div><h2>Quick Test</h2>
+<div class="q"><strong>1.</strong> Centroid of a rectangle lies at: <br>A) one corner &nbsp; B) intersection of diagonals &nbsp; C) midpoint of one side &nbsp; D) outside the rectangle<br><span class="tag">Answer: B</span></div>
+<div class="q"><strong>2.</strong> Centroid of a full circle is at: <br>A) circumference &nbsp; B) centre &nbsp; C) diameter end &nbsp; D) quarter point<br><span class="tag">Answer: B</span></div>
+<div class="q"><strong>3.</strong> Semicircle centroid distance from diameter is: <br>A) r/2 &nbsp; B) 2r/3 &nbsp; C) 4r/(3π) &nbsp; D) r/4<br><span class="tag">Answer: C</span></div>
+<div class="q"><strong>4.</strong> Parallel-axis theorem is: <br>A) I=IG−Ad² &nbsp; B) I=IG+Ad² &nbsp; C) I=Ad &nbsp; D) I=A/d<br><span class="tag">Answer: B</span></div>
+<div class="q"><strong>5.</strong> SI unit of area moment of inertia is: <br>A) m² &nbsp; B) m³ &nbsp; C) m⁴ &nbsp; D) N·m<br><span class="tag">Answer: C</span></div>
+<div class="q"><strong>6.</strong> For a solid cone, CG is located on its axis at: <br>A) h/2 from base &nbsp; B) h/4 from base &nbsp; C) h from base &nbsp; D) 3h/4 from base<br><span class="tag">Answer: B</span></div>
+</section>
+
+<section class="section" id="revision"><div class="section-number">One-Shot Revision</div><h2>Formula Sheet</h2><div class="formula-grid">
+<div class="formula-card"><strong>Composite centroid</strong><code>x̄=ΣAx/ΣA
+ȳ=ΣAy/ΣA</code></div>
+<div class="formula-card"><strong>Semicircle</strong><code>ȳ=4r/(3π)</code></div>
+<div class="formula-card"><strong>Quarter circle</strong><code>x̄=ȳ=4r/(3π)</code></div>
+<div class="formula-card"><strong>MOI integration</strong><code>Ix=∫y²dA
+Iy=∫x²dA</code></div>
+<div class="formula-card"><strong>Perpendicular axis</strong><code>Iz=Ix+Iy</code></div>
+<div class="formula-card"><strong>Parallel axis</strong><code>I=IG+Ad²</code></div>
+<div class="formula-card"><strong>Rectangle</strong><code>Ix=bh³/12
+Iy=hb³/12</code></div>
+<div class="formula-card"><strong>Circle</strong><code>I=πr⁴/4</code></div>
+<div class="formula-card"><strong>Hollow circle</strong><code>I=π(R⁴−r⁴)/4</code></div>
+<div class="formula-card"><strong>Triangle</strong><code>IG=bh³/36
+(parallel to base)</code></div>
+<div class="formula-card"><strong>Composite solid</strong><code>z̄=ΣVz/ΣV</code></div>
+<div class="formula-card"><strong>Solid hemisphere</strong><code>CG=3r/8 from flat face</code></div>
+</div>
+<div class="note"><strong>Final sequence:</strong> Draw the figure → select axes → exploit symmetry → split into standard shapes → make A/x/y table → calculate centroid. For MOI: identify axis → use standard formula or integration → use parallel/perpendicular axis theorem only when its conditions are satisfied → check units as length⁴.</div>
+</section>
+</main></div>
+
+<footer class="footer"><div class="footer-card"><strong>PRINCEXMAHTO STUDY</strong><p>Engineering Mechanics • Semester I • Course Code 2625104<br>Unit 4 — Centroid, Centre of Gravity and Moment of Inertia</p><small>Study material aligned to the uploaded SBTE Bihar syllabus.</small></div></footer>
+<button class="back" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+function toggleDark(){document.body.classList.toggle('dark');localStorage.setItem('px-theme',document.body.classList.contains('dark')?'dark':'light')}
+if(localStorage.getItem('px-theme')==='dark')document.body.classList.add('dark');
+</script>
+</body></html>
