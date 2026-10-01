@@ -1,0 +1,3378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PrinceXmahto Study - Engineering Mechanics Unit 3 Friction, SBTE Bihar Diploma Electronics Engineering Semester I">
+<meta name="keywords" content="Engineering Mechanics, Unit 3, Friction, SBTE Bihar, Diploma, Electronics Engineering, PrinceXmahto">
+<meta name="author" content="PrinceXmahto">
+<meta name="theme-color" content="#0b1220">
+
+<title>PrinceXmahto Study | Engineering Mechanics | Unit 3 - Friction</title>
+
+<style>
+:root{
+    --bg:#eef2f7;
+    --paper:#ffffff;
+    --ink:#182230;
+    --muted:#657386;
+    --primary:#173b67;
+    --primary2:#2563a6;
+    --accent:#d59b2a;
+    --line:#dce3ec;
+    --soft:#f6f8fb;
+    --soft2:#edf4fb;
+    --success:#157347;
+    --danger:#b42318;
+    --shadow:0 18px 50px rgba(20,35,55,.10);
+    --radius:18px;
+}
+
+*{box-sizing:border-box}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(circle at 10% 0%,rgba(37,99,166,.08),transparent 30%),
+        radial-gradient(circle at 90% 10%,rgba(213,155,42,.08),transparent 25%),
+        var(--bg);
+    color:var(--ink);
+    font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+    line-height:1.75;
+}
+
+body.dark{
+    --bg:#09111d;
+    --paper:#101b29;
+    --ink:#edf4fc;
+    --muted:#a7b5c5;
+    --primary:#75b5f5;
+    --primary2:#82c0ff;
+    --accent:#e5b54e;
+    --line:#26384d;
+    --soft:#152334;
+    --soft2:#102b44;
+    --shadow:0 18px 50px rgba(0,0,0,.30);
+}
+
+::selection{
+    background:#c9ddf3;
+    color:#10253e;
+}
+
+a{
+    color:var(--primary2);
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:4px;
+    background:linear-gradient(90deg,var(--primary2),var(--accent));
+    z-index:9999;
+}
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(14px);
+    background:rgba(255,255,255,.90);
+    border-bottom:1px solid var(--line);
+}
+
+body.dark .topbar{
+    background:rgba(9,17,29,.90);
+}
+
+.topbar-inner{
+    max-width:1400px;
+    margin:auto;
+    min-height:66px;
+    padding:10px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-weight:900;
+    letter-spacing:.5px;
+    color:var(--ink);
+}
+
+.brand-mark{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    display:grid;
+    place-items:center;
+    color:#fff;
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    box-shadow:0 8px 20px rgba(23,59,103,.25);
+}
+
+.toolbar{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.tool-btn{
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:10px;
+    padding:8px 12px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.tool-btn:hover{
+    transform:translateY(-1px);
+    border-color:var(--primary2);
+}
+
+.hero{
+    max-width:1400px;
+    margin:28px auto 0;
+    padding:0 24px;
+}
+
+.hero-card{
+    overflow:hidden;
+    position:relative;
+    border-radius:28px;
+    color:#fff;
+    background:
+        linear-gradient(135deg,rgba(13,36,63,.98),rgba(25,72,117,.96)),
+        radial-gradient(circle at 85% 15%,rgba(255,255,255,.16),transparent 28%);
+    box-shadow:var(--shadow);
+}
+
+.hero-card::after{
+    content:"";
+    position:absolute;
+    width:330px;
+    height:330px;
+    right:-90px;
+    top:-130px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+    box-shadow:0 0 0 50px rgba(255,255,255,.03),
+               0 0 0 100px rgba(255,255,255,.025);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:54px 54px 45px;
+}
+
+.eyebrow{
+    display:inline-flex;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.18);
+    font-size:13px;
+    letter-spacing:.7px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    margin:17px 0 8px;
+    font-size:clamp(34px,5vw,64px);
+    line-height:1.05;
+    letter-spacing:-1.8px;
+}
+
+.hero h1 span{
+    color:#f1c45f;
+}
+
+.hero-subtitle{
+    max-width:850px;
+    color:#dbe9f8;
+    font-size:17px;
+}
+
+.meta-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:30px;
+}
+
+.meta{
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.07);
+    border-radius:14px;
+    padding:14px 16px;
+}
+
+.meta small{
+    display:block;
+    color:#a9c1d9;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.meta strong{
+    display:block;
+    margin-top:3px;
+    font-size:14px;
+}
+
+.layout{
+    max-width:1400px;
+    margin:24px auto 70px;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:285px minmax(0,1fr);
+    gap:22px;
+    align-items:start;
+}
+
+.sidebar{
+    position:sticky;
+    top:88px;
+}
+
+.sidebar-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:0 10px 30px rgba(20,35,55,.06);
+}
+
+.sidebar-title{
+    font-size:14px;
+    font-weight:900;
+    margin-bottom:10px;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    color:var(--primary);
+}
+
+.toc{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.toc li{
+    margin:4px 0;
+}
+
+.toc a{
+    display:block;
+    color:var(--muted);
+    padding:8px 10px;
+    border-radius:9px;
+    font-size:13px;
+    line-height:1.4;
+}
+
+.toc a:hover,
+.toc a.active{
+    background:var(--soft2);
+    color:var(--primary2);
+    font-weight:700;
+}
+
+.main{
+    min-width:0;
+}
+
+.section{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 10px 30px rgba(20,35,55,.05);
+    padding:34px;
+    margin-bottom:22px;
+}
+
+.section-header{
+    margin-bottom:24px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+}
+
+.section-number{
+    color:var(--accent);
+    font-weight:900;
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+h2{
+    font-size:30px;
+    line-height:1.2;
+    margin:5px 0 8px;
+    letter-spacing:-.5px;
+}
+
+h3{
+    font-size:21px;
+    margin:28px 0 10px;
+    color:var(--primary);
+}
+
+h4{
+    font-size:17px;
+    margin:20px 0 8px;
+}
+
+p{
+    margin:9px 0 15px;
+}
+
+.lead{
+    font-size:17px;
+    color:var(--muted);
+}
+
+.definition,
+.note,
+.warning,
+.exam,
+.formula-card,
+.example,
+.tip{
+    border-radius:14px;
+    padding:17px 18px;
+    margin:17px 0;
+    border:1px solid var(--line);
+}
+
+.definition{
+    background:var(--soft2);
+    border-left:5px solid var(--primary2);
+}
+
+.note{
+    background:var(--soft);
+}
+
+.warning{
+    background:#fff8eb;
+    border-left:5px solid var(--accent);
+}
+
+body.dark .warning{
+    background:#2b2415;
+}
+
+.exam{
+    background:#f0f8f3;
+    border-left:5px solid var(--success);
+}
+
+body.dark .exam{
+    background:#12251c;
+}
+
+.tip{
+    background:#f4f0ff;
+    border-left:5px solid #7950d8;
+}
+
+body.dark .tip{
+    background:#1c1830;
+}
+
+.example{
+    background:var(--soft);
+}
+
+.formula-card{
+    position:relative;
+    background:linear-gradient(135deg,var(--soft2),var(--soft));
+    border-color:#cbd9e9;
+}
+
+.formula-title{
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    color:var(--primary2);
+    letter-spacing:.8px;
+    margin-bottom:7px;
+}
+
+.formula{
+    font-family:"Cambria Math",Georgia,serif;
+    font-size:21px;
+    font-weight:700;
+    color:var(--ink);
+    padding:10px 0;
+}
+
+.formula small{
+    font-family:Inter,Segoe UI,sans-serif;
+    font-size:12px;
+    color:var(--muted);
+    font-weight:500;
+}
+
+.copy-formula{
+    position:absolute;
+    right:12px;
+    top:12px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--muted);
+    border-radius:8px;
+    padding:5px 9px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+ul,ol{
+    padding-left:25px;
+}
+
+li{
+    margin:5px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0;
+    overflow:hidden;
+}
+
+th,td{
+    border:1px solid var(--line);
+    padding:11px 12px;
+    text-align:left;
+    vertical-align:top;
+}
+
+th{
+    background:var(--soft2);
+    color:var(--primary);
+    font-weight:800;
+}
+
+tr:nth-child(even) td{
+    background:rgba(127,150,175,.035);
+}
+
+.symbol{
+    display:inline-block;
+    min-width:28px;
+    padding:2px 6px;
+    border-radius:6px;
+    background:var(--soft2);
+    font-family:"Cambria Math",Georgia,serif;
+    font-weight:800;
+}
+
+.numerical{
+    margin:22px 0;
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+}
+
+.numerical-head{
+    padding:14px 17px;
+    background:linear-gradient(90deg,var(--primary),var(--primary2));
+    color:#fff;
+    font-weight:900;
+}
+
+.numerical-body{
+    padding:20px;
+}
+
+.step{
+    margin:13px 0;
+    padding:12px 14px;
+    border-radius:10px;
+    background:var(--soft);
+    border-left:3px solid var(--line);
+}
+
+.step strong{
+    color:var(--primary);
+    display:block;
+    margin-bottom:3px;
+}
+
+.answer{
+    background:#edf8f1;
+    border:1px solid #b8dfc6;
+    color:#145b31;
+    padding:13px 15px;
+    border-radius:11px;
+    font-weight:800;
+}
+
+body.dark .answer{
+    background:#11271b;
+    color:#9be0b0;
+    border-color:#275f3b;
+}
+
+.diagram{
+    border:1px solid var(--line);
+    background:var(--soft);
+    border-radius:16px;
+    padding:15px;
+    margin:20px 0;
+    overflow:auto;
+}
+
+.diagram-title{
+    text-align:center;
+    font-weight:800;
+    color:var(--muted);
+    margin-bottom:10px;
+    font-size:13px;
+}
+
+svg{
+    display:block;
+    max-width:100%;
+    height:auto;
+    margin:auto;
+}
+
+.kbd{
+    font-family:monospace;
+    background:var(--soft);
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:2px 6px;
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.mini-card{
+    border:1px solid var(--line);
+    background:var(--soft);
+    padding:16px;
+    border-radius:13px;
+}
+
+.mini-card strong{
+    display:block;
+    color:var(--primary);
+    margin-bottom:5px;
+}
+
+.tag{
+    display:inline-block;
+    background:var(--soft2);
+    color:var(--primary2);
+    padding:4px 8px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:800;
+    margin:2px;
+}
+
+details{
+    border:1px solid var(--line);
+    border-radius:12px;
+    margin:11px 0;
+    background:var(--soft);
+    overflow:hidden;
+}
+
+summary{
+    cursor:pointer;
+    padding:13px 15px;
+    font-weight:800;
+    color:var(--primary);
+}
+
+details .detail-content{
+    padding:0 15px 15px;
+}
+
+.search-wrap{
+    position:relative;
+    margin:0 0 20px;
+}
+
+.search{
+    width:100%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:12px;
+    padding:12px 14px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:var(--primary2);
+    box-shadow:0 0 0 3px rgba(37,99,166,.10);
+}
+
+.highlight{
+    background:#fff0a8;
+    color:#111;
+}
+
+.quiz-question{
+    padding:16px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    margin:13px 0;
+    background:var(--soft);
+}
+
+.option{
+    margin:6px 0;
+    padding:8px 10px;
+    border:1px solid var(--line);
+    border-radius:8px;
+}
+
+.answer-toggle{
+    margin-top:8px;
+    cursor:pointer;
+    color:var(--primary2);
+    font-weight:800;
+}
+
+.revision-box{
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    color:#fff;
+    border-radius:18px;
+    padding:24px;
+    margin-top:20px;
+}
+
+.revision-box h3{
+    color:#fff;
+    margin-top:0;
+}
+
+.footer{
+    max-width:1400px;
+    margin:0 auto;
+    padding:25px 24px 55px;
+}
+
+.footer-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    color:var(--muted);
+}
+
+.back-top{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--primary);
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s ease;
+    z-index:900;
+}
+
+.back-top.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.mobile-toc{
+    display:none;
+}
+
+@media(max-width:1050px){
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .mobile-toc{
+        display:block;
+    }
+
+    .meta-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid-3{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+    .hero,
+    .layout,
+    .footer{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .hero-content{
+        padding:34px 23px;
+    }
+
+    .section{
+        padding:22px 17px;
+        border-radius:14px;
+    }
+
+    h2{
+        font-size:25px;
+    }
+
+    h3{
+        font-size:19px;
+    }
+
+    .meta-grid,
+    .grid-2,
+    .grid-3{
+        grid-template-columns:1fr;
+    }
+
+    .topbar-inner{
+        padding:8px 12px;
+    }
+
+    .brand span:last-child{
+        display:none;
+    }
+
+    .tool-btn{
+        padding:7px 9px;
+    }
+
+    table{
+        font-size:13px;
+        display:block;
+        overflow-x:auto;
+    }
+
+    .formula{
+        font-size:18px;
+    }
+}
+
+@media print{
+    body{
+        background:#fff;
+        color:#000;
+    }
+
+    .topbar,
+    .progress,
+    .toolbar,
+    .sidebar,
+    .mobile-toc,
+    .back-top,
+    .search-wrap{
+        display:none!important;
+    }
+
+    .hero,
+    .layout,
+    .footer{
+        max-width:none;
+        padding:0;
+        margin:0;
+    }
+
+    .hero-card{
+        box-shadow:none;
+        border-radius:0;
+        color:#000;
+        background:#fff;
+        border:2px solid #222;
+    }
+
+    .hero-card::after{
+        display:none;
+    }
+
+    .hero-content{
+        padding:30px;
+    }
+
+    .eyebrow,
+    .meta{
+        color:#000;
+        border-color:#aaa;
+        background:#fff;
+    }
+
+    .hero h1 span{
+        color:#000;
+    }
+
+    .section{
+        box-shadow:none;
+        border:1px solid #aaa;
+        break-inside:auto;
+        margin-bottom:15px;
+    }
+
+    .definition,
+    .note,
+    .warning,
+    .exam,
+    .formula-card,
+    .example,
+    .tip,
+    .numerical,
+    .diagram{
+        break-inside:avoid;
+    }
+
+    a{
+        color:inherit;
+        text-decoration:none;
+    }
+
+    .footer{
+        padding-top:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+    <div class="topbar-inner">
+        <a href="#top" class="brand">
+            <span class="brand-mark">PX</span>
+            <span>PRINCEXMAHTO STUDY</span>
+        </a>
+
+        <div class="toolbar">
+            <button class="tool-btn" onclick="window.print()">Print</button>
+            <button class="tool-btn" onclick="toggleDark()">Theme</button>
+            <button class="tool-btn" onclick="scrollToTop()">Top</button>
+        </div>
+    </div>
+</header>
+
+<header class="hero" id="top">
+    <div class="hero-card">
+        <div class="hero-content">
+            <div class="eyebrow">SBTE Bihar • Semester I • Diploma Engineering</div>
+
+            <h1>
+                Engineering Mechanics<br>
+                <span>Unit 3 — Friction</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Complete textbook-style study material in easy Hinglish covering friction,
+                limiting equilibrium, coefficient of friction, angle of friction, angle of repose,
+                level-surface equilibrium, inclined-plane equilibrium and FBD of ladder in friction.
+            </p>
+
+            <div class="meta-grid">
+                <div class="meta">
+                    <small>Course</small>
+                    <strong>Engineering Mechanics</strong>
+                </div>
+                <div class="meta">
+                    <small>Course Code</small>
+                    <strong>2625104</strong>
+                </div>
+                <div class="meta">
+                    <small>Branch</small>
+                    <strong>Electronics Engineering</strong>
+                </div>
+                <div class="meta">
+                    <small>Unit</small>
+                    <strong>Unit 3.0 — Friction</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-card">
+            <div class="sidebar-title">Unit Navigation</div>
+
+            <nav class="toc">
+                <li><a href="#objectives">Learning Objectives</a></li>
+                <li><a href="#syllabus">Official Syllabus Map</a></li>
+                <li><a href="#topic31">3.1 Friction Fundamentals</a></li>
+                <li><a href="#topic32">3.2 Level Surface — Parallel Force</a></li>
+                <li><a href="#topic33">3.3 Level Surface — Inclined Force</a></li>
+                <li><a href="#topic34">3.4 Inclined Plane & Ladder FBD</a></li>
+                <li><a href="#numericals">Solved Numericals</a></li>
+                <li><a href="#definitions">Definitions</a></li>
+                <li><a href="#formula-sheet">Formula Sheet</a></li>
+                <li><a href="#mistakes">Common Mistakes</a></li>
+                <li><a href="#questions">Important Questions</a></li>
+                <li><a href="#mcq">MCQs</a></li>
+                <li><a href="#revision">One-Shot Revision</a></li>
+            </nav>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <div class="mobile-toc section">
+            <div class="section-number">Quick Navigation</div>
+            <h2>Unit 3 Contents</h2>
+            <select class="search" onchange="if(this.value) location.hash=this.value">
+                <option value="">Select topic</option>
+                <option value="objectives">Learning Objectives</option>
+                <option value="syllabus">Official Syllabus Map</option>
+                <option value="topic31">3.1 Friction Fundamentals</option>
+                <option value="topic32">3.2 Level Surface — Parallel Force</option>
+                <option value="topic33">3.3 Level Surface — Inclined Force</option>
+                <option value="topic34">3.4 Inclined Plane & Ladder FBD</option>
+                <option value="numericals">Solved Numericals</option>
+                <option value="formula-sheet">Formula Sheet</option>
+                <option value="questions">Important Questions</option>
+                <option value="mcq">MCQs</option>
+                <option value="revision">One-Shot Revision</option>
+            </select>
+        </div>
+
+        <section class="section" id="objectives">
+            <div class="section-header">
+                <div class="section-number">Unit 3 • Learning Objectives</div>
+                <h2>What You Should Be Able to Do</h2>
+                <p class="lead">
+                    Unit 3 ka main focus friction ko understand karna aur real engineering
+                    situations mein friction-based equilibrium problems solve karna hai.
+                </p>
+            </div>
+
+            <div class="grid-2">
+                <div class="mini-card">
+                    <strong>TSO 3a</strong>
+                    Given condition ya situation ke liye force of friction aur coefficient
+                    of friction calculate karna.
+                </div>
+
+                <div class="mini-card">
+                    <strong>TSO 3b</strong>
+                    Given situation ke liye friction ki conditions describe karna.
+                </div>
+
+                <div class="mini-card">
+                    <strong>TSO 3c</strong>
+                    Ladder par acting forces ko given condition ke according
+                    Free Body Diagram se identify karna.
+                </div>
+
+                <div class="mini-card">
+                    <strong>TSO 3d</strong>
+                    Different surfaces ke coefficient of friction ke values ko compare karna.
+                </div>
+
+                <div class="mini-card">
+                    <strong>TSO 3e</strong>
+                    Mass, angle of inclination ya dono change hone par effect interpret karna.
+                </div>
+
+                <div class="mini-card">
+                    <strong>TSO 3f</strong>
+                    Horizontal rough surface par moving body par acting forces calculate karna.
+                </div>
+
+                <div class="mini-card">
+                    <strong>TSO 3g</strong>
+                    Inclined plane par body par acting forces determine karna.
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="syllabus">
+            <div class="section-header">
+                <div class="section-number">Official Syllabus Map</div>
+                <h2>Unit 3 — Friction</h2>
+                <p class="lead">
+                    Neeche uploaded SBTE Bihar Electronics Engineering curriculum ke Unit 3
+                    ke topics ko same order aur terminology mein rakha gaya hai.
+                </p>
+            </div>
+
+            <div class="definition">
+                <strong>Unit 3.0 — Friction</strong>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Syllabus Coverage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>3.1</strong></td>
+                        <td>
+                            Friction and its relevance in engineering, types and laws of friction,
+                            limiting equilibrium, limiting friction, co-efficient of friction,
+                            angle of friction, angle of repose, relation between co-efficient
+                            of friction and angle of friction.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3.2</strong></td>
+                        <td>
+                            Equilibrium of bodies on level surface subjected to force parallel
+                            to plane.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3.3</strong></td>
+                        <td>
+                            Equilibrium of bodies on level surface subjected to force inclined
+                            to plane.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3.4</strong></td>
+                        <td>
+                            Equilibrium of bodies on inclined plane subjected to force parallel
+                            to the plane only; FBD of ladder in friction.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <strong>Study sequence:</strong>
+                Friction basics → types and laws → limiting equilibrium →
+                coefficient of friction → angle of friction → angle of repose →
+                level surface → inclined force → inclined plane → ladder FBD.
+            </div>
+        </section>
+
+        <!-- 3.1 -->
+
+        <section class="section" id="topic31">
+            <div class="section-header">
+                <div class="section-number">3.1</div>
+                <h2>Friction and Its Relevance in Engineering</h2>
+                <p class="lead">
+                    Friction ko samajhna Unit 3 ka foundation hai. Har numerical se pehle
+                    friction ki direction aur condition correctly identify karna zaroori hai.
+                </p>
+            </div>
+
+            <div class="definition">
+                <strong>Definition:</strong>
+                Friction is the resisting force developed at the contact between two surfaces
+                when there is relative motion or a tendency for relative motion.
+            </div>
+
+            <h3>Simple Meaning</h3>
+
+            <p>
+                Jab do surfaces contact mein hoti hain aur ek surface doosri surface ke
+                respect mein move karna chahti hai, to contact par ek resisting force develop
+                hota hai. Isi resisting force ko <strong>friction</strong> kehte hain.
+            </p>
+
+            <div class="warning">
+                <strong>Golden Rule:</strong>
+                Friction hamesha simply applied force ke opposite nahi maana jaata.
+                Friction <strong>actual ya impending relative motion</strong> ke opposite act karta hai.
+            </div>
+
+            <h3>Engineering mein Friction ki Relevance</h3>
+
+            <div class="grid-3">
+                <div class="mini-card">
+                    <strong>Walking</strong>
+                    Shoes aur ground ke beech friction ke bina walking possible nahi hoti.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Vehicle Braking</strong>
+                    Tyre-road interaction braking mein important role play karta hai.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Belt Drive</strong>
+                    Belt aur pulley ke beech friction power transmission mein help karta hai.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Brakes</strong>
+                    Friction mechanical energy ko heat mein convert karta hai.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Screws & Clamps</strong>
+                    Friction grip maintain karne mein useful hai.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Machine Elements</strong>
+                    Unwanted friction energy loss aur heating cause kar sakta hai.
+                </div>
+            </div>
+
+            <h3>Basic Friction Diagram</h3>
+
+            <div class="diagram">
+                <div class="diagram-title">Block on Rough Horizontal Surface</div>
+
+                <svg viewBox="0 0 800 330" width="800" aria-label="Friction block diagram">
+                    <defs>
+                        <marker id="arrow31" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
+                        </marker>
+                    </defs>
+
+                    <line x1="100" y1="255" x2="700" y2="255"
+                          stroke="currentColor" stroke-width="5"/>
+
+                    <rect x="315" y="150" width="170" height="105"
+                          rx="8" fill="none" stroke="currentColor" stroke-width="4"/>
+
+                    <line x1="400" y1="150" x2="400" y2="75"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arrow31)"/>
+                    <text x="414" y="82" font-size="24">N</text>
+
+                    <line x1="400" y1="255" x2="400" y2="315"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arrow31)"/>
+                    <text x="415" y="312" font-size="24">W</text>
+
+                    <line x1="315" y1="202" x2="190" y2="202"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arrow31)"/>
+                    <text x="205" y="190" font-size="24">F</text>
+
+                    <line x1="485" y1="202" x2="620" y2="202"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arrow31)"/>
+                    <text x="550" y="190" font-size="24">P</text>
+
+                    <text x="333" y="208" font-size="22">BLOCK</text>
+                    <text x="270" y="290" font-size="21">ROUGH HORIZONTAL SURFACE</text>
+                </svg>
+            </div>
+
+            <p>
+                Diagram mein <span class="symbol">P</span> applied force hai,
+                <span class="symbol">F</span> friction hai,
+                <span class="symbol">N</span> normal reaction hai aur
+                <span class="symbol">W</span> weight hai.
+            </p>
+
+            <h3>Friction ki Direction</h3>
+
+            <p>
+                Friction contact surface ke along/tangential direction mein act karta hai.
+                Normal reaction contact surface ke perpendicular direction mein act karta hai.
+            </p>
+
+            <div class="tip">
+                <strong>Direction Method:</strong>
+                Pehle imagine karo body kis direction mein slide karegi ya slide karne ki
+                tendency rakhti hai. Uske opposite direction mein friction lagao.
+            </div>
+
+            <h3>Types of Friction</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Condition</th>
+                        <th>Main Point</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Static Friction</td>
+                        <td>Surfaces slide nahi kar rahi hoti.</td>
+                        <td>Self-adjusting hota hai.</td>
+                    </tr>
+                    <tr>
+                        <td>Limiting Friction</td>
+                        <td>Body just move karne wali hoti hai.</td>
+                        <td>Maximum static friction.</td>
+                    </tr>
+                    <tr>
+                        <td>Sliding Friction</td>
+                        <td>Surfaces actually slide kar rahi hoti hain.</td>
+                        <td>Motion ke against resistance.</td>
+                    </tr>
+                    <tr>
+                        <td>Rolling Friction</td>
+                        <td>Rolling contact.</td>
+                        <td>Rolling motion ka resistance.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Static Friction</h3>
+
+            <p>
+                Static friction tab act karta hai jab contact surfaces ke beech relative
+                sliding nahi ho rahi hoti. Iska value fixed nahi hota. Applied force ki
+                tendency ke according friction adjust karta hai.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula-title">Static friction condition</div>
+                <div class="formula">0 ≤ F ≤ F<sub>l</sub></div>
+                <button class="copy-formula" onclick="copyFormula(this,'0 ≤ F ≤ Fl')">Copy</button>
+                <small>Actual static friction limiting friction se chhota ya equal ho sakta hai.</small>
+            </div>
+
+            <h3>Limiting Friction</h3>
+
+            <p>
+                Jab body just motion start karne wali hoti hai, static friction apni maximum
+                value tak pahunch jata hai. Is maximum value ko <strong>limiting friction</strong>
+                kehte hain.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula-title">Limiting friction</div>
+                <div class="formula">F<sub>l</sub> = μN</div>
+                <button class="copy-formula" onclick="copyFormula(this,'Fl = μN')">Copy</button>
+                <small>F<sub>l</sub> = limiting friction, μ = coefficient of friction, N = normal reaction.</small>
+            </div>
+
+            <div class="warning">
+                <strong>Important:</strong>
+                Har static problem mein directly <strong>F = μN</strong> mat likho.
+                Ye equality limiting equilibrium ke condition par use hoti hai.
+            </div>
+
+            <h3>Laws of Friction</h3>
+
+            <ol>
+                <li>Friction contact surface ke tangential direction mein act karta hai.</li>
+                <li>Friction relative ya impending relative motion ko oppose karta hai.</li>
+                <li>Static friction applied tendency ke according adjust karta hai.</li>
+                <li>Limiting friction maximum static friction hota hai.</li>
+                <li>Given pair of surfaces ke liye limiting friction normal reaction ke proportional hota hai.</li>
+                <li>Limiting friction ka relation <strong>F<sub>l</sub> = μN</strong> se diya jata hai.</li>
+                <li>Coefficient of friction surfaces ki nature aur condition par depend karta hai.</li>
+            </ol>
+
+            <h3>Limiting Equilibrium</h3>
+
+            <p>
+                Limiting equilibrium wo condition hai jahan body equilibrium mein hai lekin
+                motion start karne ke bilkul threshold par hai.
+            </p>
+
+            <div class="definition">
+                <strong>Limiting equilibrium:</strong>
+                Body rest mein hoti hai but just about to move. Is condition mein
+                actual static friction maximum value par hota hai.
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-title">At limiting equilibrium</div>
+                <div class="formula">
+                    F = F<sub>l</sub> = μN
+                </div>
+            </div>
+
+            <h3>Coefficient of Friction</h3>
+
+            <p>
+                Coefficient of friction ko <strong>μ</strong> se represent kiya jata hai.
+                Ye limiting friction aur normal reaction ka ratio hota hai.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula-title">Coefficient of friction</div>
+                <div class="formula">
+                    μ = F<sub>l</sub> / N
+                </div>
+                <button class="copy-formula" onclick="copyFormula(this,'μ = Fl / N')">Copy</button>
+            </div>
+
+            <p>
+                μ ek ratio hai, isliye iska koi SI unit nahi hota.
+            </p>
+
+            <div class="example">
+                <strong>Simple Example:</strong>
+                Agar limiting friction 40 N aur normal reaction 100 N hai:
+                <br><br>
+                μ = 40 / 100 = <strong>0.40</strong>
+            </div>
+
+            <h3>Angle of Friction</h3>
+
+            <p>
+                Limiting condition mein normal reaction <strong>N</strong> aur limiting friction
+                <strong>F<sub>l</sub></strong> ke resultant ka normal ke saath banne wala angle
+                <strong>angle of friction</strong> kehlata hai.
+            </p>
+
+            <div class="diagram">
+                <div class="diagram-title">Angle of Friction</div>
+
+                <svg viewBox="0 0 700 400" width="700">
+                    <defs>
+                        <marker id="arrowphi" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
+                        </marker>
+                    </defs>
+
+                    <line x1="350" y1="300" x2="350" y2="70"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arrowphi)"/>
+
+                    <line x1="350" y1="300" x2="175" y2="300"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arrowphi)"/>
+
+                    <line x1="350" y1="300" x2="505" y2="105"
+                          stroke="currentColor" stroke-width="5"
+                          marker-end="url(#arrowphi)"/>
+
+                    <path d="M350 240 A60 60 0 0 1 390 255"
+                          fill="none" stroke="currentColor" stroke-width="3"/>
+
+                    <text x="362" y="95" font-size="23">N</text>
+                    <text x="190" y="288" font-size="23">Fₗ</text>
+                    <text x="450" y="135" font-size="23">R</text>
+                    <text x="395" y="250" font-size="23">φ</text>
+                    <text x="285" y="345" font-size="20">At limiting condition</text>
+                </svg>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-title">Relation between coefficient and angle of friction</div>
+                <div class="formula">
+                    tan φ = F<sub>l</sub>/N = μ
+                    <br>
+                    <strong>μ = tan φ</strong>
+                </div>
+                <button class="copy-formula" onclick="copyFormula(this,'μ = tan φ')">Copy</button>
+            </div>
+
+            <h3>Angle of Repose</h3>
+
+            <p>
+                Inclined plane ko gradually increase karte hue jis angle par body
+                just slide karne wali hoti hai, us angle ko <strong>angle of repose</strong>
+                kehte hain.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula-title">Angle of repose condition</div>
+                <div class="formula">
+                    μ = tan θ
+                </div>
+                <small>
+                    Yahan θ angle of repose ko represent karta hai.
+                </small>
+            </div>
+
+            <h3>Angle of Friction vs Angle of Repose</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Angle of Friction</th>
+                        <th>Angle of Repose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Resultant reaction aur normal ke beech angle.</td>
+                        <td>Inclined plane ka wo angle jahan body just slide karne wali hoti hai.</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol φ.</td>
+                        <td>Symbol θ.</td>
+                    </tr>
+                    <tr>
+                        <td>Relation: μ = tanφ.</td>
+                        <td>At repose: μ = tanθ.</td>
+                    </tr>
+                    <tr>
+                        <td>Limiting contact forces se related.</td>
+                        <td>Inclined-plane limiting condition se related.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Effect of Mass</h3>
+
+            <p>
+                Simple horizontal limiting-friction model mein agar body ka mass increase
+                hota hai to weight aur normal reaction increase hota hai. Agar μ same rahe,
+                to limiting friction bhi increase hota hai.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    W = mg
+                    <br>
+                    F<sub>l</sub> = μN
+                </div>
+            </div>
+
+            <h3>Effect of Inclination</h3>
+
+            <p>
+                Inclined plane par body ka weight do components mein resolve kiya ja sakta hai:
+                ek plane ke along aur doosra plane ke perpendicular.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    Along plane = W sin θ
+                    <br>
+                    Normal to plane = W cos θ
+                </div>
+            </div>
+
+            <p>
+                θ increase hone par <strong>W sinθ</strong> increase hota hai aur
+                <strong>W cosθ</strong> decrease hota hai. Isliye body ke downward sliding
+                tendency ka effect increase hota hai.
+            </p>
+        </section>
+
+        <!-- 3.2 -->
+
+        <section class="section" id="topic32">
+            <div class="section-header">
+                <div class="section-number">3.2</div>
+                <h2>Equilibrium of Bodies on Level Surface — Force Parallel to Plane</h2>
+                <p class="lead">
+                    Is case mein applied force horizontal/level surface ke parallel hota hai.
+                </p>
+            </div>
+
+            <h3>Basic Situation</h3>
+
+            <div class="diagram">
+                <div class="diagram-title">Horizontal Rough Surface — Horizontal Applied Force</div>
+
+                <svg viewBox="0 0 800 350" width="800">
+                    <defs>
+                        <marker id="arr32" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
+                        </marker>
+                    </defs>
+
+                    <line x1="90" y1="260" x2="710" y2="260"
+                          stroke="currentColor" stroke-width="5"/>
+
+                    <rect x="315" y="155" width="170" height="105"
+                          fill="none" stroke="currentColor" stroke-width="4"/>
+
+                    <line x1="400" y1="155" x2="400" y2="70"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr32)"/>
+
+                    <line x1="400" y1="260" x2="400" y2="325"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr32)"/>
+
+                    <line x1="315" y1="207" x2="160" y2="207"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr32)"/>
+
+                    <line x1="485" y1="207" x2="640" y2="207"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr32)"/>
+
+                    <text x="413" y="88" font-size="23">N</text>
+                    <text x="414" y="323" font-size="23">W</text>
+                    <text x="170" y="194" font-size="23">F</text>
+                    <text x="580" y="194" font-size="23">P</text>
+                    <text x="350" y="215" font-size="21">BODY</text>
+                </svg>
+            </div>
+
+            <h3>Equilibrium Conditions</h3>
+
+            <p>
+                Static equilibrium ke liye horizontal aur vertical directions mein
+                resultant force zero hona chahiye.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    ΣF<sub>x</sub> = 0
+                    <br>
+                    ΣF<sub>y</sub> = 0
+                </div>
+            </div>
+
+            <p>
+                Horizontal surface par, jab sirf vertical weight aur normal reaction act karte
+                hain:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    N = W
+                </div>
+            </div>
+
+            <h3>Case 1 — Applied Force Less Than Limiting Friction</h3>
+
+            <p>
+                Agar applied force P limiting friction se chhota hai, body move nahi karegi.
+                Actual static friction applied force ke equal ho jayega.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    P &lt; μN
+                    <br>
+                    F = P
+                </div>
+            </div>
+
+            <div class="note">
+                Yahan <strong>F = μN</strong> nahi likhna chahiye, because body limiting
+                condition mein nahi hai.
+            </div>
+
+            <h3>Case 2 — Impending Motion</h3>
+
+            <p>
+                Agar body just move karne wali hai:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    P = F<sub>l</sub> = μN
+                    <br>
+                    N = W
+                    <br>
+                    Therefore, P = μW
+                </div>
+            </div>
+
+            <h3>Horizontal Surface Numerical Method</h3>
+
+            <ol>
+                <li>Given weight/mass aur μ identify karo.</li>
+                <li>FBD draw karo.</li>
+                <li>Vertical equilibrium se N determine karo.</li>
+                <li>Motion tendency identify karo.</li>
+                <li>Limiting condition ho to F<sub>l</sub> = μN use karo.</li>
+                <li>Horizontal equilibrium se unknown force calculate karo.</li>
+                <li>Final answer ka unit check karo.</li>
+            </ol>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 1 — Horizontal Rough Surface
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        W = 500 N<br>
+                        μ = 0.30
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Body ko just start motion karane ke liye horizontal force P.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        F<sub>l</sub> = μN
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Body just motion start karne wali hai, therefore limiting equilibrium
+                        condition apply hogi.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        Horizontal surface ke liye N = W.
+                        <br>
+                        N = 500 N
+                        <br>
+                        F<sub>l</sub> = 0.30 × 500
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        F<sub>l</sub> = 150 N
+                        <br>
+                        At impending motion, P = F<sub>l</sub>.
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">P = 150 N</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 2 — Actual Static Friction
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        W = 500 N<br>
+                        μ = 0.30<br>
+                        Applied horizontal force P = 100 N
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Actual friction.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        F<sub>l</sub> = μN
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Pehle maximum available static friction calculate karenge.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        N = W = 500 N
+                        <br>
+                        F<sub>l</sub> = 0.30 × 500 = 150 N
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        Applied force 100 N hai aur limiting friction 150 N hai.
+                        Since 100 N &lt; 150 N, body move nahi karegi.
+                        Actual static friction applied force ko balance karega.
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">Actual friction = 100 N, opposite to applied force.</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.3 -->
+
+        <section class="section" id="topic33">
+            <div class="section-header">
+                <div class="section-number">3.3</div>
+                <h2>Equilibrium of Bodies on Level Surface — Force Inclined to Plane</h2>
+                <p class="lead">
+                    Jab applied force horizontal surface ke saath angle banata hai,
+                    force ko horizontal aur vertical components mein resolve karna padta hai.
+                </p>
+            </div>
+
+            <div class="diagram">
+                <div class="diagram-title">Inclined Applied Force on Horizontal Rough Surface</div>
+
+                <svg viewBox="0 0 850 390" width="850">
+                    <defs>
+                        <marker id="arr33" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
+                        </marker>
+                    </defs>
+
+                    <line x1="90" y1="300" x2="760" y2="300"
+                          stroke="currentColor" stroke-width="5"/>
+
+                    <rect x="320" y="190" width="180" height="110"
+                          fill="none" stroke="currentColor" stroke-width="4"/>
+
+                    <line x1="410" y1="190" x2="410" y2="90"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr33)"/>
+
+                    <line x1="410" y1="300" x2="410" y2="365"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr33)"/>
+
+                    <line x1="320" y1="245" x2="165" y2="245"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr33)"/>
+
+                    <line x1="500" y1="215" x2="650" y2="125"
+                          stroke="currentColor" stroke-width="5"
+                          marker-end="url(#arr33)"/>
+
+                    <path d="M555 245 A70 70 0 0 0 600 215"
+                          fill="none" stroke="currentColor" stroke-width="3"/>
+
+                    <text x="423" y="105" font-size="23">N</text>
+                    <text x="423" y="365" font-size="23">W</text>
+                    <text x="178" y="232" font-size="23">F</text>
+                    <text x="620" y="120" font-size="23">P</text>
+                    <text x="600" y="225" font-size="22">α</text>
+
+                    <text x="360" y="250" font-size="21">BODY</text>
+                </svg>
+            </div>
+
+            <h3>Upward Inclined Pull</h3>
+
+            <p>
+                Suppose force P surface se upward angle α par apply kiya gaya hai.
+                P ko components mein resolve karo:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    Horizontal component = P cos α
+                    <br>
+                    Vertical component = P sin α
+                </div>
+            </div>
+
+            <p>
+                Upward component body ko thoda lift karne ki tendency deta hai, isliye
+                normal reaction reduce hota hai.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    N = W − P sin α
+                </div>
+            </div>
+
+            <p>
+                Limiting condition mein:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    P cos α = μN
+                    <br>
+                    P cos α = μ(W − P sin α)
+                </div>
+            </div>
+
+            <p>Rearrange karne par:</p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    <strong>
+                        P = μW / (cos α + μ sin α)
+                    </strong>
+                </div>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 3 — Upward Inclined Pull
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        W = 600 N<br>
+                        μ = 0.25<br>
+                        α = 30°
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Impending motion ke liye upward inclined force P.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        P = μW / (cos α + μ sin α)
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Applied force upward angle par hai, isliye vertical component normal
+                        reaction ko reduce karta hai.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        P = (0.25 × 600) /
+                        (cos30° + 0.25 sin30°)
+                        <br>
+                        cos30° ≈ 0.8660
+                        <br>
+                        sin30° = 0.5
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        P = 150 / (0.8660 + 0.125)
+                        <br>
+                        P ≈ 150 / 0.9910
+                        <br>
+                        P ≈ 151.4 N
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">P ≈ 151.4 N</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h3>Downward Inclined Push</h3>
+
+            <p>
+                Agar force P surface ki taraf downward angle par apply hota hai, to
+                vertical component normal reaction ko increase karta hai.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    N = W + P sin α
+                </div>
+            </div>
+
+            <p>
+                Limiting condition:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    P cos α = μ(W + P sin α)
+                </div>
+            </div>
+
+            <p>Rearrangement:</p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    <strong>
+                        P = μW / (cos α − μ sin α)
+                    </strong>
+                </div>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 4 — Downward Inclined Push
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        W = 600 N<br>
+                        μ = 0.25<br>
+                        α = 30°
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Impending motion ke liye downward inclined force P.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        P = μW / (cos α − μ sin α)
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Downward component normal reaction ko increase karta hai.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        P = (0.25 × 600) /
+                        (0.8660 − 0.25 × 0.5)
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        P = 150 / (0.8660 − 0.125)
+                        <br>
+                        P = 150 / 0.7410
+                        <br>
+                        P ≈ 202.4 N
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">P ≈ 202.4 N</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h3>Upward Pull vs Downward Push</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Upward Pull</th>
+                        <th>Downward Push</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Vertical component upward.</td>
+                        <td>Vertical component downward.</td>
+                    </tr>
+                    <tr>
+                        <td>N = W − Psinα</td>
+                        <td>N = W + Psinα</td>
+                    </tr>
+                    <tr>
+                        <td>Normal reaction decreases.</td>
+                        <td>Normal reaction increases.</td>
+                    </tr>
+                    <tr>
+                        <td>Limiting friction generally decreases.</td>
+                        <td>Limiting friction generally increases.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 3.4 -->
+
+        <section class="section" id="topic34">
+            <div class="section-header">
+                <div class="section-number">3.4</div>
+                <h2>Inclined Plane and FBD of Ladder in Friction</h2>
+                <p class="lead">
+                    Is section mein inclined plane par force parallel to plane aur friction
+                    ke equilibrium ko samjha gaya hai. Syllabus mein ladder ka FBD bhi
+                    specifically included hai.
+                </p>
+            </div>
+
+            <h3>Body on an Inclined Plane</h3>
+
+            <div class="diagram">
+                <div class="diagram-title">Body on Rough Inclined Plane</div>
+
+                <svg viewBox="0 0 850 480" width="850">
+                    <defs>
+                        <marker id="arr34" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
+                        </marker>
+                    </defs>
+
+                    <polygon points="120,360 700,360 700,120"
+                             fill="none" stroke="currentColor" stroke-width="5"/>
+
+                    <g transform="rotate(-22 450 270)">
+                        <rect x="370" y="220" width="150" height="100"
+                              fill="none" stroke="currentColor" stroke-width="4"/>
+                    </g>
+
+                    <line x1="445" y1="250" x2="445" y2="405"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr34)"/>
+
+                    <line x1="445" y1="250" x2="350" y2="325"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr34)"/>
+
+                    <line x1="445" y1="250" x2="520" y2="160"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr34)"/>
+
+                    <line x1="445" y1="250" x2="595" y2="190"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#arr34)"/>
+
+                    <text x="458" y="405" font-size="23">W</text>
+                    <text x="335" y="328" font-size="23">W sinθ</text>
+                    <text x="515" y="158" font-size="23">N</text>
+                    <text x="570" y="180" font-size="23">F / P</text>
+
+                    <text x="605" y="345" font-size="23">θ</text>
+                </svg>
+            </div>
+
+            <h3>Weight Resolution on Inclined Plane</h3>
+
+            <div class="formula-card">
+                <div class="formula">
+                    Component along plane = W sin θ
+                    <br>
+                    Component normal to plane = W cos θ
+                </div>
+            </div>
+
+            <p>
+                Simple inclined plane par agar koi additional force normal direction mein
+                act nahi kar raha ho, to normal reaction:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    N = W cos θ
+                </div>
+            </div>
+
+            <p>
+                Agar body downward slide karne ki tendency rakhti hai, friction plane ke
+                upward direction mein act karega.
+            </p>
+
+            <h3>Force Parallel to Plane</h3>
+
+            <p>
+                Syllabus ke according yahan force plane ke parallel consider kiya jata hai.
+                Agar body ko upward move karne ki tendency hai, friction downward plane ki
+                direction mein hoga.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    F<sub>l</sub> = μN
+                    <br>
+                    N = W cos θ
+                </div>
+            </div>
+
+            <p>
+                Upward impending motion ke liye applied force P ko downward weight component
+                aur friction dono overcome karne hote hain:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    P = W sin θ + μW cos θ
+                </div>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 5 — Force Parallel to Inclined Plane
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        W = 600 N<br>
+                        μ = 0.20<br>
+                        θ = 30°
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Body ko plane ke upward direction mein just move karane ke liye
+                        force P.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        P = Wsinθ + μWcosθ
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Upward motion ke against do resisting components hain:
+                        weight ka down-plane component Wsinθ aur limiting friction μWcosθ.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        P = 600 sin30° + 0.20 × 600 cos30°
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        P = 600 × 0.5 + 120 × 0.8660
+                        <br>
+                        P = 300 + 103.92
+                        <br>
+                        P ≈ 403.92 N
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">P ≈ 403.9 N</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h3>FBD of Ladder in Friction</h3>
+
+            <p>
+                Ladder problem mein sabse important step correct Free Body Diagram banana hai.
+                Ladder ko isolate karke us par acting sabhi external forces show kiye jate hain.
+            </p>
+
+            <div class="diagram">
+                <div class="diagram-title">Typical Ladder Free Body Diagram</div>
+
+                <svg viewBox="0 0 850 550" width="850">
+                    <defs>
+                        <marker id="ladderArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <path d="M0,0 L0,6 L9,3 z" fill="currentColor"/>
+                        </marker>
+                    </defs>
+
+                    <line x1="190" y1="450" x2="720" y2="450"
+                          stroke="currentColor" stroke-width="6"/>
+
+                    <line x1="680" y1="450" x2="680" y2="85"
+                          stroke="currentColor" stroke-width="6"/>
+
+                    <line x1="250" y1="440" x2="675" y2="105"
+                          stroke="currentColor" stroke-width="10"/>
+
+                    <line x1="250" y1="440" x2="250" y2="355"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#ladderArrow)"/>
+
+                    <line x1="250" y1="440" x2="165" y2="440"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#ladderArrow)"/>
+
+                    <line x1="675" y1="105" x2="590" y2="105"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#ladderArrow)"/>
+
+                    <line x1="462" y1="272" x2="462" y2="355"
+                          stroke="currentColor" stroke-width="4"
+                          marker-end="url(#ladderArrow)"/>
+
+                    <text x="258" y="355" font-size="22">Nf</text>
+                    <text x="170" y="430" font-size="22">Ff</text>
+                    <text x="590" y="95" font-size="22">Fw</text>
+                    <text x="475" y="355" font-size="22">W</text>
+
+                    <text x="300" y="500" font-size="23">ROUGH FLOOR</text>
+                    <text x="690" y="270" font-size="23">WALL</text>
+                    <text x="435" y="245" font-size="20">LADDER</text>
+                    <text x="445" y="220" font-size="19">C.G.</text>
+                </svg>
+            </div>
+
+            <h3>Ladder par Possible Forces</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Force</th>
+                        <th>Meaning</th>
+                        <th>Direction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>W</td>
+                        <td>Ladder ka weight.</td>
+                        <td>Vertically downward through C.G.</td>
+                    </tr>
+                    <tr>
+                        <td>N<sub>f</sub></td>
+                        <td>Floor normal reaction.</td>
+                        <td>Floor ke perpendicular.</td>
+                    </tr>
+                    <tr>
+                        <td>F<sub>f</sub></td>
+                        <td>Floor friction.</td>
+                        <td>Floor ke along, tendency ke opposite.</td>
+                    </tr>
+                    <tr>
+                        <td>N<sub>w</sub></td>
+                        <td>Wall normal reaction.</td>
+                        <td>Wall ke perpendicular.</td>
+                    </tr>
+                    <tr>
+                        <td>F<sub>w</sub></td>
+                        <td>Wall friction, if wall rough.</td>
+                        <td>Wall ke along.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>Important:</strong>
+                Ladder ke FBD mein forces contact condition ke according change ho sakte hain.
+                Smooth contact par friction force consider nahi kiya jata. Rough contact par
+                normal reaction ke saath friction bhi possible hota hai.
+            </div>
+
+            <h3>Smooth vs Rough Contact</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Contact</th>
+                        <th>Forces Considered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Smooth contact</td>
+                        <td>Normal reaction only.</td>
+                    </tr>
+                    <tr>
+                        <td>Rough contact</td>
+                        <td>Normal reaction + friction.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Common Idealized Case — Smooth Wall, Rough Floor</h3>
+
+            <p>
+                Agar wall smooth aur floor rough hai, to smooth wall friction provide nahi
+                karegi. Wall par normal reaction horizontal direction mein hoga. Floor par
+                normal reaction aur friction dono consider kiye ja sakte hain.
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    ΣF<sub>x</sub> = 0
+                    <br>
+                    ΣF<sub>y</sub> = 0
+                    <br>
+                    ΣM = 0
+                </div>
+            </div>
+
+            <h3>Ladder Geometry</h3>
+
+            <p>
+                Agar ladder ki length L hai aur horizontal se θ angle banati hai:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    Horizontal distance of top = L cos θ
+                    <br>
+                    Vertical height of top = L sin θ
+                </div>
+            </div>
+
+            <p>
+                Agar C.G. foot se ladder ke along distance x par hai:
+            </p>
+
+            <div class="formula-card">
+                <div class="formula">
+                    Horizontal distance of C.G. = x cos θ
+                    <br>
+                    Vertical distance of C.G. = x sin θ
+                </div>
+            </div>
+
+            <h3>Moment Method in Ladder Problem</h3>
+
+            <p>
+                Ladder ka moment solve karte time convenient point choose karna important hai.
+                Agar foot ke about moments liye jaate hain, to foot par acting normal reaction
+                aur friction ka moment zero hota hai because unka line of action foot se pass
+                karta hai.
+            </p>
+
+            <div class="tip">
+                <strong>Exam Trick:</strong>
+                Moment arm ko hamesha force ke line of action se chosen point tak
+                perpendicular distance se identify karo. Ladder ki full length automatically
+                moment arm nahi hoti.
+            </div>
+
+            <h3>Ladder Problem — 8-Step Method</h3>
+
+            <ol>
+                <li>Ladder ko isolate karo.</li>
+                <li>Weight ko C.G. par mark karo.</li>
+                <li>Contact points par normal reactions show karo.</li>
+                <li>Possible motion tendency decide karo.</li>
+                <li>Friction ko tendency ke opposite direction mein draw karo.</li>
+                <li>ΣF<sub>x</sub> = 0 aur ΣF<sub>y</sub> = 0 likho.</li>
+                <li>Convenient point ke about ΣM = 0 apply karo.</li>
+                <li>Final forces, direction aur units check karo.</li>
+            </ol>
+        </section>
+
+        <!-- NUMERICALS -->
+
+        <section class="section" id="numericals">
+            <div class="section-header">
+                <div class="section-number">Solved Numericals</div>
+                <h2>Exam-Oriented Numerical Practice</h2>
+                <p class="lead">
+                    Har numerical mein same systematic method follow karo:
+                    GIVEN → FIND → FORMULA → WHY THIS FORMULA → SUBSTITUTION →
+                    CALCULATION → ANSWER.
+                </p>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 6 — Coefficient of Friction
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        Limiting friction F<sub>l</sub> = 75 N<br>
+                        Normal reaction N = 250 N
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Coefficient of friction μ.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        μ = F<sub>l</sub> / N
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Coefficient of friction limiting friction aur normal reaction ka ratio hai.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        μ = 75 / 250
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        μ = 0.30
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">μ = 0.30</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 7 — Limiting Friction
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        μ = 0.30<br>
+                        N = 600 N
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Limiting friction.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        F<sub>l</sub> = μN
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Given condition limiting friction determine karne ki hai.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        F<sub>l</sub> = 0.30 × 600
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        F<sub>l</sub> = 180 N
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">F<sub>l</sub> = 180 N</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 8 — Angle of Friction
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        μ = 0.45
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Angle of friction φ.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        μ = tan φ
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Coefficient of friction aur angle of friction ka relation
+                        μ = tanφ hai.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        tanφ = 0.45
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        φ = tan⁻¹(0.45)
+                        <br>
+                        φ ≈ 24.23°
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">φ ≈ 24.23°</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 9 — Angle of Repose
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        Angle of repose θ = 25°
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Coefficient of friction μ.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        μ = tan θ
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Angle of repose condition par body just sliding condition mein hoti hai.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        μ = tan25°
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        μ ≈ 0.4663
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">μ ≈ 0.466</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="numerical">
+                <div class="numerical-head">
+                    Numerical 10 — Check Equilibrium on Inclined Plane
+                </div>
+
+                <div class="numerical-body">
+
+                    <div class="step">
+                        <strong>GIVEN</strong>
+                        W = 500 N<br>
+                        θ = 20°<br>
+                        μ = 0.50
+                    </div>
+
+                    <div class="step">
+                        <strong>FIND</strong>
+                        Check whether the body can remain in equilibrium.
+                    </div>
+
+                    <div class="step">
+                        <strong>FORMULA</strong>
+                        Down-plane component = W sinθ
+                        <br>
+                        N = W cosθ
+                        <br>
+                        F<sub>l</sub> = μN
+                    </div>
+
+                    <div class="step">
+                        <strong>WHY THIS FORMULA</strong>
+                        Inclined plane par weight ko plane ke parallel aur normal components
+                        mein resolve karna hota hai.
+                    </div>
+
+                    <div class="step">
+                        <strong>SUBSTITUTION</strong>
+                        Wsin20° = 500 × 0.342
+                        <br>
+                        N = 500 × 0.940
+                    </div>
+
+                    <div class="step">
+                        <strong>CALCULATION</strong>
+                        Down-plane force ≈ 171.0 N
+                        <br>
+                        N ≈ 469.85 N
+                        <br>
+                        F<sub>l</sub> = 0.50 × 469.85
+                        <br>
+                        F<sub>l</sub> ≈ 234.9 N
+                    </div>
+
+                    <div class="step">
+                        <strong>ANSWER</strong>
+                        <div class="answer">
+                            Required friction ≈ 171.0 N, while available limiting friction
+                            ≈ 234.9 N. Therefore equilibrium is possible.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- DEFINITIONS -->
+
+        <section class="section" id="definitions">
+            <div class="section-header">
+                <div class="section-number">Exam Definitions</div>
+                <h2>Important Definitions — 2/3 Mark Answers</h2>
+            </div>
+
+            <details open>
+                <summary>1. Define Friction.</summary>
+                <div class="detail-content">
+                    Friction is the resisting force developed at the contact between two surfaces
+                    when there is relative motion or a tendency for relative motion.
+                </div>
+            </details>
+
+            <details>
+                <summary>2. Define Static Friction.</summary>
+                <div class="detail-content">
+                    Static friction is the friction acting between surfaces when there is no
+                    relative sliding and it adjusts according to the applied tendency up to
+                    its limiting value.
+                </div>
+            </details>
+
+            <details>
+                <summary>3. Define Limiting Friction.</summary>
+                <div class="detail-content">
+                    Limiting friction is the maximum value of static friction when the body is
+                    just about to move.
+                </div>
+            </details>
+
+            <details>
+                <summary>4. Define Coefficient of Friction.</summary>
+                <div class="detail-content">
+                    Coefficient of friction is the ratio of limiting friction to normal reaction.
+                    <br><br>
+                    <strong>μ = F<sub>l</sub>/N</strong>
+                </div>
+            </details>
+
+            <details>
+                <summary>5. Define Limiting Equilibrium.</summary>
+                <div class="detail-content">
+                    Limiting equilibrium is the condition in which a body remains in equilibrium
+                    but is just about to start motion.
+                </div>
+            </details>
+
+            <details>
+                <summary>6. Define Angle of Friction.</summary>
+                <div class="detail-content">
+                    Angle of friction is the angle made by the resultant reaction with the
+                    normal reaction at limiting equilibrium.
+                </div>
+            </details>
+
+            <details>
+                <summary>7. Define Angle of Repose.</summary>
+                <div class="detail-content">
+                    Angle of repose is the inclination of a plane with the horizontal at which
+                    a body placed on it is just about to slide.
+                </div>
+            </details>
+
+            <details>
+                <summary>8. What is FBD?</summary>
+                <div class="detail-content">
+                    Free Body Diagram is a diagram of an isolated body showing all external
+                    forces and reactions acting on it.
+                </div>
+            </details>
+        </section>
+
+        <!-- FORMULA SHEET -->
+
+        <section class="section" id="formula-sheet">
+            <div class="section-header">
+                <div class="section-number">Master Formula Sheet</div>
+                <h2>Unit 3 Formula Bank</h2>
+                <p class="lead">Exam se pehle is section ko quick revision ke liye use karo.</p>
+            </div>
+
+            <div class="grid-2">
+
+                <div class="formula-card">
+                    <div class="formula-title">Limiting Friction</div>
+                    <div class="formula">F<sub>l</sub> = μN</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Coefficient of Friction</div>
+                    <div class="formula">μ = F<sub>l</sub>/N</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Angle of Friction</div>
+                    <div class="formula">μ = tanφ</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Angle of Repose</div>
+                    <div class="formula">μ = tanθ</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Horizontal Surface</div>
+                    <div class="formula">N = W</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Inclined Plane</div>
+                    <div class="formula">N = W cosθ</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Down-plane Component</div>
+                    <div class="formula">W sinθ</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Upward Inclined Pull</div>
+                    <div class="formula">N = W − P sinα</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Downward Inclined Push</div>
+                    <div class="formula">N = W + P sinα</div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Upward Pull — Impending Motion</div>
+                    <div class="formula">
+                        P = μW/(cosα + μsinα)
+                    </div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Downward Push — Impending Motion</div>
+                    <div class="formula">
+                        P = μW/(cosα − μsinα)
+                    </div>
+                </div>
+
+                <div class="formula-card">
+                    <div class="formula-title">Up the Inclined Plane</div>
+                    <div class="formula">
+                        P = Wsinθ + μWcosθ
+                    </div>
+                </div>
+
+            </div>
+
+            <h3>Symbol Table</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Meaning</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>F</td>
+                        <td>Friction</td>
+                        <td>N</td>
+                    </tr>
+                    <tr>
+                        <td>F<sub>l</sub></td>
+                        <td>Limiting friction</td>
+                        <td>N</td>
+                    </tr>
+                    <tr>
+                        <td>N</td>
+                        <td>Normal reaction</td>
+                        <td>N</td>
+                    </tr>
+                    <tr>
+                        <td>μ</td>
+                        <td>Coefficient of friction</td>
+                        <td>No unit</td>
+                    </tr>
+                    <tr>
+                        <td>W</td>
+                        <td>Weight</td>
+                        <td>N</td>
+                    </tr>
+                    <tr>
+                        <td>P</td>
+                        <td>Applied force</td>
+                        <td>N</td>
+                    </tr>
+                    <tr>
+                        <td>φ</td>
+                        <td>Angle of friction</td>
+                        <td>Degree/radian</td>
+                    </tr>
+                    <tr>
+                        <td>θ</td>
+                        <td>Inclination / angle of repose where applicable</td>
+                        <td>Degree/radian</td>
+                    </tr>
+                    <tr>
+                        <td>α</td>
+                        <td>Angle of applied force</td>
+                        <td>Degree/radian</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- COMMON MISTAKES -->
+
+        <section class="section" id="mistakes">
+            <div class="section-header">
+                <div class="section-number">Exam Safety Zone</div>
+                <h2>Common Mistakes</h2>
+            </div>
+
+            <div class="grid-2">
+
+                <div class="warning">
+                    <strong>1. Har jagah F = μN mat likho.</strong>
+                    <p>
+                        F = μN limiting equilibrium par use hota hai. Static equilibrium
+                        mein actual friction smaller ho sakta hai.
+                    </p>
+                </div>
+
+                <div class="warning">
+                    <strong>2. Friction direction guess mat karo.</strong>
+                    <p>
+                        Pehle motion ya impending motion ki tendency identify karo.
+                    </p>
+                </div>
+
+                <div class="warning">
+                    <strong>3. Normal reaction ko automatically W mat maan lo.</strong>
+                    <p>
+                        Horizontal simple surface par N = W ho sakta hai, lekin inclined
+                        force ya inclined plane par situation change ho sakti hai.
+                    </p>
+                </div>
+
+                <div class="warning">
+                    <strong>4. Inclined plane par Wsinθ/Wcosθ interchange mat karo.</strong>
+                    <p>
+                        Plane ke along component Wsinθ aur plane ke normal component Wcosθ hota hai.
+                    </p>
+                </div>
+
+                <div class="warning">
+                    <strong>5. Upward pull aur downward push confuse mat karo.</strong>
+                    <p>
+                        Upward pull N ko reduce karta hai; downward push N ko increase karta hai.
+                    </p>
+                </div>
+
+                <div class="warning">
+                    <strong>6. Ladder ka FBD incomplete mat banao.</strong>
+                    <p>
+                        Contact condition ke according normal reactions aur friction forces
+                        identify karo.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- QUESTIONS -->
+
+        <section class="section" id="questions">
+            <div class="section-header">
+                <div class="section-number">Exam Preparation</div>
+                <h2>Important Questions</h2>
+            </div>
+
+            <h3>Very Short Answer</h3>
+
+            <ol>
+                <li>Define friction.</li>
+                <li>What is limiting friction?</li>
+                <li>Define coefficient of friction.</li>
+                <li>What is limiting equilibrium?</li>
+                <li>Define angle of friction.</li>
+                <li>Define angle of repose.</li>
+                <li>Write the relation between μ and φ.</li>
+                <li>Write the relation between μ and angle of repose.</li>
+                <li>What is static friction?</li>
+                <li>What is an FBD?</li>
+            </ol>
+
+            <h3>Short Answer</h3>
+
+            <ol>
+                <li>Explain the engineering relevance of friction.</li>
+                <li>Explain different types of friction.</li>
+                <li>State the laws of friction.</li>
+                <li>Explain limiting equilibrium with a suitable example.</li>
+                <li>Explain angle of friction and derive μ = tanφ.</li>
+                <li>Explain angle of repose.</li>
+                <li>Explain the effect of mass on limiting friction.</li>
+                <li>Explain the effect of inclination on a body on an inclined plane.</li>
+                <li>Explain upward inclined pull on a rough horizontal surface.</li>
+                <li>Explain downward inclined push on a rough horizontal surface.</li>
+            </ol>
+
+            <h3>Long Answer / Numerical Questions</h3>
+
+            <ol>
+                <li>
+                    A body rests on a rough horizontal surface. Given weight and coefficient
+                    of friction, determine the force required to start motion.
+                </li>
+                <li>
+                    A body is pulled by a force inclined at an angle to a rough horizontal
+                    plane. Determine the force required for impending motion.
+                </li>
+                <li>
+                    A body is pushed by a force inclined downward to a rough horizontal
+                    plane. Determine the force required for impending motion.
+                </li>
+                <li>
+                    A body is placed on a rough inclined plane. Determine the force parallel
+                    to the plane required for upward impending motion.
+                </li>
+                <li>
+                    Draw the FBD of a ladder under friction for a specified contact condition.
+                </li>
+                <li>
+                    Explain the forces acting on a ladder resting against a wall and floor.
+                </li>
+            </ol>
+        </section>
+
+        <!-- MCQ -->
+
+        <section class="section" id="mcq">
+            <div class="section-header">
+                <div class="section-number">Practice MCQs</div>
+                <h2>Multiple Choice Questions</h2>
+            </div>
+
+            <div class="quiz-question">
+                <strong>1. Limiting friction is:</strong>
+                <div class="option">A. Minimum static friction</div>
+                <div class="option">B. Maximum static friction</div>
+                <div class="option">C. Zero friction</div>
+                <div class="option">D. Rolling resistance</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>B. Maximum static friction</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>2. Coefficient of friction is:</strong>
+                <div class="option">A. F<sub>l</sub> × N</div>
+                <div class="option">B. N/F<sub>l</sub></div>
+                <div class="option">C. F<sub>l</sub>/N</div>
+                <div class="option">D. F<sub>l</sub> + N</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>C. F<sub>l</sub>/N</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>3. Coefficient of friction has:</strong>
+                <div class="option">A. Newton</div>
+                <div class="option">B. Joule</div>
+                <div class="option">C. No unit</div>
+                <div class="option">D. Pascal</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>C. No unit</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>4. At limiting equilibrium:</strong>
+                <div class="option">A. F = 0</div>
+                <div class="option">B. F = μN</div>
+                <div class="option">C. N = 0</div>
+                <div class="option">D. W = 0</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>B. F = μN</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>5. The relation between coefficient of friction and angle of friction is:</strong>
+                <div class="option">A. μ = sinφ</div>
+                <div class="option">B. μ = cosφ</div>
+                <div class="option">C. μ = tanφ</div>
+                <div class="option">D. μ = cotφ</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>C. μ = tanφ</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>6. On a simple inclined plane, weight component along plane is:</strong>
+                <div class="option">A. Wcosθ</div>
+                <div class="option">B. Wsinθ</div>
+                <div class="option">C. Wtanθ</div>
+                <div class="option">D. W</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>B. Wsinθ</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>7. On a simple inclined plane, normal component of weight is:</strong>
+                <div class="option">A. Wsinθ</div>
+                <div class="option">B. Wcosθ</div>
+                <div class="option">C. Wtanθ</div>
+                <div class="option">D. W/θ</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>B. Wcosθ</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>8. An upward inclined pull on a horizontal rough surface generally:</strong>
+                <div class="option">A. Increases normal reaction</div>
+                <div class="option">B. Reduces normal reaction</div>
+                <div class="option">C. Makes normal reaction zero always</div>
+                <div class="option">D. Has no vertical component</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>B. Reduces normal reaction</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>9. A downward inclined push generally:</strong>
+                <div class="option">A. Reduces normal reaction</div>
+                <div class="option">B. Increases normal reaction</div>
+                <div class="option">C. Removes friction</div>
+                <div class="option">D. Removes weight</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>B. Increases normal reaction</div>
+            </div>
+
+            <div class="quiz-question">
+                <strong>10. In ladder analysis, FBD stands for:</strong>
+                <div class="option">A. Force Balance Direction</div>
+                <div class="option">B. Free Body Diagram</div>
+                <div class="option">C. Friction Body Direction</div>
+                <div class="option">D. Force Beam Diagram</div>
+                <div class="answer-toggle" onclick="toggleAnswer(this)">Show Answer</div>
+                <div class="answer" hidden>B. Free Body Diagram</div>
+            </div>
+        </section>
+
+        <!-- ONE SHOT -->
+
+        <section class="section" id="revision">
+            <div class="section-header">
+                <div class="section-number">One-Shot Revision</div>
+                <h2>Unit 3 in 10 Minutes</h2>
+            </div>
+
+            <div class="revision-box">
+
+                <h3>Core Chain</h3>
+
+                <p>
+                    <strong>
+                        Friction → Static Friction → Limiting Friction → μ →
+                        Angle of Friction → Angle of Repose → Level Surface →
+                        Inclined Force → Inclined Plane → Ladder FBD
+                    </strong>
+                </p>
+
+                <h3>10 Lines You Must Remember</h3>
+
+                <ol>
+                    <li>Friction relative ya impending relative motion ko oppose karta hai.</li>
+                    <li>Static friction self-adjusting hota hai.</li>
+                    <li>Limiting friction maximum static friction hai.</li>
+                    <li>F<sub>l</sub> = μN.</li>
+                    <li>μ = F<sub>l</sub>/N.</li>
+                    <li>μ = tanφ.</li>
+                    <li>Angle of repose par μ = tanθ.</li>
+                    <li>Inclined plane par Wsinθ along plane aur Wcosθ normal hota hai.</li>
+                    <li>Simple horizontal surface par N = W.</li>
+                    <li>Planar equilibrium ke liye ΣF<sub>x</sub> = 0, ΣF<sub>y</sub> = 0, ΣM = 0.</li>
+                </ol>
+
+            </div>
+
+            <h3>Numerical Golden Method</h3>
+
+            <ol>
+                <li><strong>Given</strong> data clearly likho.</li>
+                <li><strong>Find</strong> identify karo.</li>
+                <li>FBD banao.</li>
+                <li>Friction ki direction decide karo.</li>
+                <li>Forces ko required directions mein resolve karo.</li>
+                <li>Equilibrium equations apply karo.</li>
+                <li>Limiting condition ho to F = μN use karo.</li>
+                <li>Calculation carefully karo.</li>
+                <li>Final answer ke saath unit likho.</li>
+                <li>Direction aur physical meaning check karo.</li>
+            </ol>
+
+            <div class="exam">
+                <strong>Last-Minute Checklist</strong>
+
+                <ul>
+                    <li>☐ Friction ki definition clear hai.</li>
+                    <li>☐ Static aur limiting friction ka difference clear hai.</li>
+                    <li>☐ F<sub>l</sub> = μN yaad hai.</li>
+                    <li>☐ μ = F<sub>l</sub>/N yaad hai.</li>
+                    <li>☐ μ = tanφ yaad hai.</li>
+                    <li>☐ Angle of repose relation yaad hai.</li>
+                    <li>☐ Horizontal rough surface solve kar sakta hoon.</li>
+                    <li>☐ Upward inclined pull solve kar sakta hoon.</li>
+                    <li>☐ Downward inclined push solve kar sakta hoon.</li>
+                    <li>☐ Inclined plane par Wsinθ aur Wcosθ correctly identify kar sakta hoon.</li>
+                    <li>☐ Ladder ka FBD bana sakta hoon.</li>
+                    <li>☐ Final numerical answer ke saath unit likhta hoon.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PRACTICE -->
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">Self Practice</div>
+                <h2>Practice Set — Solve Yourself</h2>
+            </div>
+
+            <ol>
+                <li>F<sub>l</sub> = 90 N and N = 300 N. Find μ.</li>
+                <li>μ = 0.35 and N = 400 N. Find limiting friction.</li>
+                <li>μ = 0.45. Find angle of friction.</li>
+                <li>Angle of repose = 25°. Find μ.</li>
+                <li>W = 800 N, μ = 0.25. Find horizontal force for impending motion.</li>
+                <li>W = 500 N, θ = 20°, μ = 0.5. Check equilibrium.</li>
+                <li>W = 600 N, θ = 30°, μ = 0.2. Find force parallel to plane for impending upward motion.</li>
+                <li>W = 400 N, μ = 0.25, α = 30° upward pull. Find P.</li>
+                <li>W = 400 N, μ = 0.25, α = 30° downward push. Find P.</li>
+                <li>Explain why actual static friction can be smaller than μN.</li>
+            </ol>
+
+            <details>
+                <summary>Answer Key</summary>
+                <div class="detail-content">
+                    <ol>
+                        <li>μ = 0.30</li>
+                        <li>F<sub>l</sub> = 140 N</li>
+                        <li>φ ≈ 24.23°</li>
+                        <li>μ ≈ 0.4663</li>
+                        <li>P = 200 N</li>
+                        <li>Equilibrium possible; required friction is approximately 171.0 N and limiting friction approximately 234.9 N.</li>
+                        <li>P ≈ 403.9 N</li>
+                        <li>P ≈ 100.9 N</li>
+                        <li>P ≈ 135.3 N</li>
+                        <li>Because static friction is self-adjusting and reaches μN only at limiting equilibrium.</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+
+        <!-- FINAL REVISION -->
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number">Final Quick Revision</div>
+                <h2>Before Entering the Exam Hall</h2>
+            </div>
+
+            <div class="grid-2">
+
+                <div class="mini-card">
+                    <strong>Friction Direction</strong>
+                    Opposite to actual or impending relative motion.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Limiting Condition</strong>
+                    F = F<sub>l</sub> = μN.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Coefficient</strong>
+                    μ = F<sub>l</sub>/N.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Angle of Friction</strong>
+                    μ = tanφ.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Angle of Repose</strong>
+                    μ = tanθ.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Horizontal Surface</strong>
+                    Simple case: N = W.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Inclined Plane</strong>
+                    N = Wcosθ and down-plane component = Wsinθ.
+                </div>
+
+                <div class="mini-card">
+                    <strong>Ladder</strong>
+                    Correct FBD + ΣFx + ΣFy + ΣM.
+                </div>
+
+            </div>
+
+            <div class="definition">
+                <strong>Final Concept:</strong>
+                Friction problems mein sabse important formula yaad karna hi nahi hai.
+                Sabse pehle <strong>motion tendency → friction direction → FBD → force resolution →
+                equilibrium equations → limiting condition</strong> ka sequence follow karo.
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer class="footer">
+    <div class="footer-card">
+        <strong style="font-size:20px;color:var(--ink)">PRINCEXMAHTO STUDY</strong>
+
+        <p>
+            SBTE Bihar Diploma Study Materials
+            <br>
+            Engineering Mechanics • Electronics Engineering • Semester I
+            <br>
+            Course Code: 2625104 • Unit 3 — Friction
+        </p>
+
+        <p>
+            © 2026 PrinceXmahto Study. All rights reserved.
+            <br>
+            Made for Diploma Students.
+        </p>
+    </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
+<script>
+const progress = document.getElementById("progress");
+const backTop = document.getElementById("backTop");
+
+function updateProgress(){
+    const scrollTop = window.scrollY;
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const percentage = height > 0 ? (scrollTop / height) * 100 : 0;
+    progress.style.width = percentage + "%";
+
+    if(scrollTop > 500){
+        backTop.classList.add("show");
+    }else{
+        backTop.classList.remove("show");
+    }
+}
+
+window.addEventListener("scroll", updateProgress);
+
+function scrollToTop(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function toggleDark(){
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("px-theme","dark");
+    }else{
+        localStorage.setItem("px-theme","light");
+    }
+}
+
+if(localStorage.getItem("px-theme") === "dark"){
+    document.body.classList.add("dark");
+}
+
+function toggleAnswer(button){
+    const answer = button.nextElementSibling;
+
+    if(answer.hasAttribute("hidden")){
+        answer.removeAttribute("hidden");
+        button.textContent = "Hide Answer";
+    }else{
+        answer.setAttribute("hidden","");
+        button.textContent = "Show Answer";
+    }
+}
+
+function copyFormula(button,text){
+    navigator.clipboard.writeText(text).then(()=>{
+        const old = button.textContent;
+        button.textContent = "Copied!";
+        setTimeout(()=>{
+            button.textContent = old;
+        },1200);
+    }).catch(()=>{
+        button.textContent = "Copy failed";
+        setTimeout(()=>{
+            button.textContent = "Copy";
+        },1200);
+    });
+}
+
+/* Active TOC */
+const sections = document.querySelectorAll("section[id]");
+const tocLinks = document.querySelectorAll(".toc a");
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            tocLinks.forEach(link=>{
+                link.classList.remove("active");
+                if(link.getAttribute("href") === "#" + entry.target.id){
+                    link.classList.add("active");
+                }
+            });
+        }
+    });
+},{
+    rootMargin:"-15% 0px -70% 0px",
+    threshold:0
+});
+
+sections.forEach(section=>observer.observe(section));
+
+/* Keyboard shortcuts */
+document.addEventListener("keydown",(event)=>{
+    if(event.key === "Home" && !["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)){
+        event.preventDefault();
+        scrollToTop();
+    }
+});
+
+/* Print preparation */
+window.addEventListener("beforeprint",()=>{
+    document.title = "PrinceXmahto Study | Engineering Mechanics | Unit 3 - Friction";
+});
+
+/* Initial progress */
+updateProgress();
+</script>
+
+<!-- Source basis: uploaded SBTE Bihar Electronics Engineering curriculum, Unit 3 — Friction. :contentReference[oaicite:0]{index=0} -->
+
+</body>
+</html>
