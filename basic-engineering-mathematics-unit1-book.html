@@ -1,0 +1,4184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="PrinceXmahto Study - SBTE Bihar Diploma Electronics Engineering Semester I Basic Engineering Mathematics Unit 1 Algebra study book covering determinants, matrices, vectors and Indian Mathematics.">
+  <meta name="keywords" content="PrinceXmahto Study, SBTE Bihar, Diploma Electronics Engineering, Basic Engineering Mathematics, Unit 1 Algebra, Determinants, Matrices, Vectors">
+  <meta name="author" content="PrinceXmahto Study">
+  <title>PrinceXmahto Study | Basic Engineering Mathematics | Unit 1 - Algebra</title>
+
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --surface:#ffffff;
+      --surface-2:#f8fafc;
+      --ink:#172033;
+      --muted:#64748b;
+      --primary:#172554;
+      --primary-2:#1e3a8a;
+      --accent:#2563eb;
+      --accent-soft:#dbeafe;
+      --success:#047857;
+      --success-soft:#d1fae5;
+      --warning:#b45309;
+      --warning-soft:#fef3c7;
+      --danger:#b91c1c;
+      --danger-soft:#fee2e2;
+      --border:#e2e8f0;
+      --shadow:0 12px 35px rgba(15,23,42,.07);
+      --shadow-sm:0 5px 18px rgba(15,23,42,.06);
+      --radius:18px;
+      --radius-sm:12px;
+      --max:1180px;
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    }
+
+    *{box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:90px;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+      line-height:1.72;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+
+    .progress{
+      position:fixed;
+      top:0;
+      left:0;
+      height:4px;
+      width:0;
+      z-index:9999;
+      background:linear-gradient(90deg,#2563eb,#7c3aed);
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,.96);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      color:#fff;
+    }
+
+    .nav{
+      max-width:var(--max);
+      margin:auto;
+      min-height:66px;
+      padding:0 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:-.02em;
+      white-space:nowrap;
+    }
+
+    .brand-mark{
+      width:38px;
+      height:38px;
+      border-radius:11px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,#2563eb,#7c3aed);
+      font-size:18px;
+      box-shadow:0 7px 20px rgba(37,99,235,.35);
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .nav-btn{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      padding:9px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      font:inherit;
+      font-size:13px;
+    }
+
+    .nav-btn:hover{background:rgba(255,255,255,.12)}
+
+    .hero{
+      background:
+        radial-gradient(circle at 85% 20%,rgba(59,130,246,.23),transparent 32%),
+        radial-gradient(circle at 15% 80%,rgba(124,58,237,.18),transparent 28%),
+        linear-gradient(135deg,#0f172a,#172554 65%,#1e3a8a);
+      color:#fff;
+      padding:70px 22px 80px;
+    }
+
+    .hero-inner{
+      max-width:var(--max);
+      margin:auto;
+      display:grid;
+      grid-template-columns:1.35fr .65fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 11px;
+      border:1px solid rgba(255,255,255,.17);
+      background:rgba(255,255,255,.06);
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .hero h1{
+      font-family:var(--serif);
+      font-size:clamp(38px,5vw,66px);
+      line-height:1.05;
+      margin:20px 0 18px;
+      letter-spacing:-.045em;
+    }
+
+    .hero h1 span{
+      color:#93c5fd;
+    }
+
+    .hero p{
+      max-width:760px;
+      color:#dbeafe;
+      font-size:17px;
+      margin:0 0 26px;
+    }
+
+    .hero-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .tag{
+      padding:7px 11px;
+      border-radius:9px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#e0e7ff;
+      font-size:13px;
+    }
+
+    .hero-card{
+      padding:25px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.13);
+      background:rgba(255,255,255,.07);
+      box-shadow:0 20px 55px rgba(0,0,0,.2);
+    }
+
+    .hero-card-title{
+      color:#93c5fd;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:800;
+      margin-bottom:16px;
+    }
+
+    .meta-row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.1);
+      font-size:14px;
+    }
+
+    .meta-row:last-child{border-bottom:0}
+    .meta-row strong{color:#fff}
+    .meta-row span{color:#cbd5e1;text-align:right}
+
+    .page{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:30px 22px 70px;
+      display:grid;
+      grid-template-columns:270px minmax(0,1fr);
+      gap:28px;
+    }
+
+    .sidebar{
+      position:sticky;
+      top:88px;
+      align-self:start;
+      max-height:calc(100vh - 105px);
+      overflow:auto;
+    }
+
+    .side-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .side-title{
+      margin:0 0 12px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    .toc{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .toc li{margin:2px 0}
+
+    .toc a{
+      display:block;
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:9px;
+      color:#475569;
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    .toc a:hover,
+    .toc a.active{
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-weight:700;
+    }
+
+    .search-box{
+      width:100%;
+      padding:11px 12px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      outline:none;
+      font:inherit;
+      margin-bottom:13px;
+      background:#fff;
+    }
+
+    .search-box:focus{
+      border-color:#93c5fd;
+      box-shadow:0 0 0 3px rgba(37,99,235,.1);
+    }
+
+    .content{
+      min-width:0;
+    }
+
+    .notice{
+      background:linear-gradient(135deg,#eff6ff,#f8fafc);
+      border:1px solid #bfdbfe;
+      border-left:5px solid var(--accent);
+      border-radius:var(--radius);
+      padding:20px 22px;
+      margin-bottom:25px;
+    }
+
+    .notice strong{
+      display:block;
+      margin-bottom:5px;
+      color:var(--primary);
+    }
+
+    section.article-section{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      margin-bottom:26px;
+      overflow:hidden;
+    }
+
+    .section-head{
+      padding:28px 30px 22px;
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,#fff,#fbfdff);
+    }
+
+    .section-number{
+      color:var(--accent);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      margin-bottom:7px;
+    }
+
+    h2{
+      font-family:var(--serif);
+      font-size:clamp(27px,3vw,38px);
+      line-height:1.2;
+      letter-spacing:-.025em;
+      margin:0;
+      color:#0f172a;
+    }
+
+    h3{
+      font-size:22px;
+      line-height:1.3;
+      margin:30px 0 12px;
+      color:#172554;
+    }
+
+    h4{
+      font-size:17px;
+      margin:22px 0 8px;
+      color:#1e293b;
+    }
+
+    .section-body{
+      padding:28px 30px 34px;
+    }
+
+    p{margin:10px 0 16px}
+    ul,ol{padding-left:24px}
+    li{margin:5px 0}
+
+    .lead{
+      font-size:17px;
+      color:#475569;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .card{
+      background:var(--surface-2);
+      border:1px solid var(--border);
+      border-radius:var(--radius-sm);
+      padding:18px;
+    }
+
+    .card h4{
+      margin-top:0;
+      color:var(--primary);
+    }
+
+    .definition{
+      border-left:4px solid var(--accent);
+      background:#eff6ff;
+      border-radius:10px;
+      padding:15px 17px;
+      margin:18px 0;
+    }
+
+    .definition strong{
+      display:block;
+      color:#1e3a8a;
+      margin-bottom:4px;
+    }
+
+    .important{
+      border-left:4px solid var(--warning);
+      background:var(--warning-soft);
+      border-radius:10px;
+      padding:15px 17px;
+      margin:18px 0;
+    }
+
+    .success{
+      border-left:4px solid var(--success);
+      background:var(--success-soft);
+      border-radius:10px;
+      padding:15px 17px;
+      margin:18px 0;
+    }
+
+    .danger{
+      border-left:4px solid var(--danger);
+      background:var(--danger-soft);
+      border-radius:10px;
+      padding:15px 17px;
+      margin:18px 0;
+    }
+
+    .formula{
+      position:relative;
+      background:#0f172a;
+      color:#f8fafc;
+      border-radius:14px;
+      padding:20px 55px 20px 20px;
+      margin:18px 0;
+      overflow:auto;
+      font-family:var(--mono);
+      font-size:15px;
+      line-height:1.8;
+      box-shadow:0 10px 24px rgba(15,23,42,.12);
+    }
+
+    .formula .copy{
+      position:absolute;
+      right:10px;
+      top:10px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.07);
+      color:#fff;
+      border-radius:8px;
+      padding:5px 8px;
+      cursor:pointer;
+      font-size:11px;
+    }
+
+    .formula-label{
+      display:block;
+      color:#93c5fd;
+      font-family:var(--sans);
+      font-weight:800;
+      font-size:11px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    .math{
+      font-family:var(--serif);
+      font-size:19px;
+      color:#0f172a;
+    }
+
+    .matrix-wrap{
+      overflow-x:auto;
+      margin:15px 0;
+    }
+
+    .matrix{
+      display:inline-table;
+      border-collapse:collapse;
+      font-family:var(--serif);
+      font-size:20px;
+      background:#fff;
+    }
+
+    .matrix td{
+      padding:4px 13px;
+      text-align:center;
+    }
+
+    .matrix-wrap .matrix{
+      border-left:3px solid #334155;
+      border-right:3px solid #334155;
+    }
+
+    .matrix-wrap .matrix tr:first-child td{
+      padding-top:8px;
+    }
+
+    .steps{
+      counter-reset:step;
+      list-style:none;
+      padding:0;
+      margin:20px 0;
+    }
+
+    .steps li{
+      counter-increment:step;
+      position:relative;
+      padding:13px 15px 13px 55px;
+      margin:8px 0;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      border-radius:10px;
+    }
+
+    .steps li::before{
+      content:counter(step);
+      position:absolute;
+      left:13px;
+      top:11px;
+      width:27px;
+      height:27px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#dbeafe;
+      color:#1d4ed8;
+      font-weight:800;
+      font-size:12px;
+    }
+
+    .example{
+      margin:22px 0;
+      border:1px solid #cbd5e1;
+      border-radius:15px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .example-head{
+      padding:12px 16px;
+      background:#f1f5f9;
+      border-bottom:1px solid var(--border);
+      font-weight:800;
+      color:#172554;
+    }
+
+    .example-body{
+      padding:18px;
+    }
+
+    .label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      color:var(--muted);
+      font-weight:900;
+      margin-top:13px;
+    }
+
+    .answer{
+      margin-top:15px;
+      background:#ecfdf5;
+      border:1px solid #a7f3d0;
+      padding:12px 14px;
+      border-radius:10px;
+      color:#065f46;
+      font-weight:700;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:18px 0;
+      font-size:14px;
+    }
+
+    th,td{
+      padding:12px 13px;
+      border:1px solid var(--border);
+      text-align:left;
+      vertical-align:top;
+    }
+
+    th{
+      background:#eff6ff;
+      color:#1e3a8a;
+      font-weight:800;
+    }
+
+    tr:nth-child(even) td{background:#fafcff}
+
+    .table-wrap{
+      width:100%;
+      overflow-x:auto;
+      border-radius:12px;
+    }
+
+    .diagram{
+      margin:22px 0;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+      background:#fbfdff;
+      overflow:hidden;
+    }
+
+    .diagram-title{
+      font-weight:800;
+      color:#334155;
+      margin-bottom:12px;
+      text-align:center;
+    }
+
+    .diagram svg{
+      width:100%;
+      height:auto;
+      display:block;
+      max-width:800px;
+      margin:auto;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:4px 9px;
+      border-radius:999px;
+      background:#e0e7ff;
+      color:#3730a3;
+      font-size:12px;
+      font-weight:800;
+      margin:2px;
+    }
+
+    .question{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:13px;
+      margin:12px 0;
+      padding:16px;
+    }
+
+    .question strong{
+      display:block;
+      margin-bottom:9px;
+      color:#172554;
+    }
+
+    .options{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:7px 14px;
+      margin:10px 0;
+    }
+
+    .mcq-answer{
+      margin-top:10px;
+      padding:9px 11px;
+      background:#ecfdf5;
+      border-radius:8px;
+      color:#065f46;
+      font-size:13px;
+    }
+
+    details{
+      border:1px solid var(--border);
+      border-radius:12px;
+      margin:12px 0;
+      background:#fff;
+    }
+
+    summary{
+      cursor:pointer;
+      padding:14px 16px;
+      font-weight:800;
+      color:#1e3a8a;
+    }
+
+    details > div{
+      padding:0 16px 16px;
+    }
+
+    .revision-list{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      padding:0;
+      list-style:none;
+    }
+
+    .revision-list li{
+      margin:0;
+      padding:12px 14px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      border-radius:10px;
+    }
+
+    .floating-top{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:44px;
+      height:44px;
+      border:0;
+      border-radius:50%;
+      background:#172554;
+      color:#fff;
+      cursor:pointer;
+      display:none;
+      box-shadow:0 10px 25px rgba(15,23,42,.2);
+      z-index:900;
+    }
+
+    .floating-top.show{display:block}
+
+    .print-note{display:none}
+
+    footer{
+      background:#0f172a;
+      color:#cbd5e1;
+      padding:45px 22px;
+    }
+
+    .footer-inner{
+      max-width:var(--max);
+      margin:auto;
+      display:grid;
+      grid-template-columns:1.5fr 1fr 1fr;
+      gap:35px;
+    }
+
+    footer h3{
+      color:#fff;
+      font-family:var(--sans);
+      margin:0 0 12px;
+      font-size:17px;
+    }
+
+    footer p{
+      font-size:14px;
+      color:#94a3b8;
+    }
+
+    .footer-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .footer-list li{
+      margin:7px 0;
+      font-size:14px;
+      color:#94a3b8;
+    }
+
+    .copyright{
+      max-width:var(--max);
+      margin:30px auto 0;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.1);
+      color:#64748b;
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .hidden-search{display:none!important}
+
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr}
+      .page{grid-template-columns:1fr}
+      .sidebar{
+        position:relative;
+        top:0;
+        max-height:none;
+      }
+      .toc{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+      }
+      .grid-3{grid-template-columns:1fr 1fr}
+      .footer-inner{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:640px){
+      .nav{padding:0 14px}
+      .brand span:last-child{font-size:14px}
+      .nav-btn{padding:8px 9px;font-size:12px}
+      .nav-btn.hide-mobile{display:none}
+      .hero{padding:48px 16px 55px}
+      .page{padding:20px 12px 45px}
+      .section-head{padding:23px 19px 18px}
+      .section-body{padding:21px 19px 27px}
+      .grid-2,.grid-3{grid-template-columns:1fr}
+      .toc{grid-template-columns:1fr}
+      .options{grid-template-columns:1fr}
+      .revision-list{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+      .copyright{flex-direction:column}
+      table{min-width:620px}
+      .table-wrap{overflow-x:auto}
+      .hero h1{font-size:42px}
+    }
+
+    @media print{
+      body{background:#fff}
+      .topbar,.sidebar,.floating-top,.progress,.nav-actions{display:none!important}
+      .hero{
+        background:#fff;
+        color:#000;
+        padding:25px 0;
+        border-bottom:2px solid #000;
+      }
+      .hero h1,.hero p,.hero-card-title,.meta-row strong,.meta-row span{color:#000}
+      .hero-card{border:1px solid #aaa;background:#fff;box-shadow:none}
+      .page{display:block;padding:20px 0}
+      section.article-section{box-shadow:none;break-inside:auto}
+      .formula{color:#000;background:#f3f4f6;border:1px solid #bbb}
+      footer{background:#fff;color:#000;border-top:1px solid #aaa}
+      footer h3,footer p,.footer-list li,.copyright{color:#000}
+      .print-note{display:block}
+      a{text-decoration:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#top">
+      <span class="brand-mark">P</span>
+      <span>PrinceXmahto Study</span>
+    </a>
+
+    <div class="nav-actions">
+      <button class="nav-btn hide-mobile" onclick="window.print()">Print Chapter</button>
+      <button class="nav-btn" onclick="document.getElementById('search').focus()">Search</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+
+    <div>
+      <div class="eyebrow">SBTE Bihar • Semester I • Diploma Study Book</div>
+
+      <h1>
+        Unit 1<br>
+        <span>Algebra</span>
+      </h1>
+
+      <p>
+        Basic Engineering Mathematics ke Unit 1 ko step-by-step, exam-oriented
+        aur concept-based manner mein cover kiya gaya hai. Chapter mein
+        Determinants, Matrices, simultaneous equations, Vectors aur Indian
+        Mathematics ka prescribed IKS component included hai.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag">Determinants</span>
+        <span class="tag">Cramer's Rule</span>
+        <span class="tag">Matrices</span>
+        <span class="tag">Inverse Matrix</span>
+        <span class="tag">Vectors</span>
+        <span class="tag">Scalar Product</span>
+        <span class="tag">Vector Product</span>
+        <span class="tag">Indian Mathematics</span>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="hero-card-title">Course Information</div>
+
+      <div class="meta-row">
+        <strong>Course</strong>
+        <span>Basic Engg. Mathematics</span>
+      </div>
+
+      <div class="meta-row">
+        <strong>Course Code</strong>
+        <span>2600101</span>
+      </div>
+
+      <div class="meta-row">
+        <strong>Semester</strong>
+        <span>Semester I</span>
+      </div>
+
+      <div class="meta-row">
+        <strong>Branch</strong>
+        <span>Electronics Engineering</span>
+      </div>
+
+      <div class="meta-row">
+        <strong>Unit</strong>
+        <span>Unit-1.0 Algebra</span>
+      </div>
+
+      <div class="meta-row">
+        <strong>Relevant CO</strong>
+        <span>CO1</span>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<div class="page">
+
+  <aside class="sidebar">
+    <div class="side-card">
+      <input
+        id="search"
+        class="search-box"
+        type="search"
+        placeholder="Search this chapter..."
+        aria-label="Search this chapter"
+      >
+
+      <div class="side-title">Contents</div>
+
+      <ul class="toc" id="toc">
+        <li><a href="#overview">1. Unit Overview</a></li>
+        <li><a href="#determinants">2. Determinants</a></li>
+        <li><a href="#cramer">3. Cramer's Rule</a></li>
+        <li><a href="#matrices">4. Matrices</a></li>
+        <li><a href="#matrix-operations">5. Matrix Operations</a></li>
+        <li><a href="#transpose">6. Transpose</a></li>
+        <li><a href="#adjoint">7. Adjoint & Inverse</a></li>
+        <li><a href="#inverse-method">8. Matrix Inversion Method</a></li>
+        <li><a href="#vectors">9. Vectors</a></li>
+        <li><a href="#position-vector">10. Position Vector</a></li>
+        <li><a href="#vector-algebra">11. Vector Algebra</a></li>
+        <li><a href="#scalar-product">12. Scalar Product</a></li>
+        <li><a href="#vector-product">13. Vector Product</a></li>
+        <li><a href="#iks">14. Indian Mathematics</a></li>
+        <li><a href="#exam">15. Exam Section</a></li>
+        <li><a href="#mcq">16. MCQs</a></li>
+        <li><a href="#revision">17. One-Shot Revision</a></li>
+        <li><a href="#formula-sheet">18. Formula Sheet</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="notice">
+      <strong>Official syllabus coverage</strong>
+      This chapter follows Unit-1.0 Algebra of SBTE Bihar's Semester-I
+      Basic Engineering Mathematics course code 2600101 for Electronics Engineering.
+      The prescribed Unit 1 covers determinants, Cramer's rule, matrices,
+      transpose, adjoint and inverse, 3×3 matrix inversion method, position
+      vector, vector algebra, scalar product, vector product and the specified
+      Indian Knowledge System component.
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- UNIT OVERVIEW -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="overview">
+      <div class="section-head">
+        <div class="section-number">Unit 01 • Foundation</div>
+        <h2>Unit Overview — Algebra</h2>
+      </div>
+
+      <div class="section-body">
+
+        <p class="lead">
+          Algebra engineering mathematics ka ek fundamental part hai. Is unit mein
+          hum numbers ko systematically represent karne ke liye determinants,
+          matrices aur vectors ka use karte hain. In tools ki help se multiple
+          unknowns wali equations solve karna, quantities ko organize karna aur
+          direction-based quantities ko mathematically handle karna easy hota hai.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4>Determinant</h4>
+            <p>
+              Determinant ek numerical value hai jo square matrix se obtain hoti hai.
+              Ye matrix ki properties aur simultaneous equations ki solvability
+              samajhne mein useful hai.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Matrix</h4>
+            <p>
+              Matrix numbers ya quantities ka rectangular arrangement hai.
+              Engineering calculations mein data aur equations ko compact form
+              mein represent kiya ja sakta hai.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Vector</h4>
+            <p>
+              Vector aisi quantity hai jisme magnitude ke saath direction bhi hoti hai.
+              Isliye force, displacement aur velocity jaise concepts ko represent
+              karne mein vector algebra useful hai.
+            </p>
+          </div>
+        </div>
+
+        <h3>Learning Objectives</h3>
+
+        <p>Unit complete karne ke baad student ko following skills develop karni chahiye:</p>
+
+        <ol>
+          <li>Determinant ka concept aur important properties explain karna.</li>
+          <li>Three unknowns wali simultaneous equations ko Cramer's rule se solve karna.</li>
+          <li>Matrix addition, subtraction, scalar multiplication aur matrix multiplication karna.</li>
+          <li>Transpose, adjoint aur inverse matrix calculate karna.</li>
+          <li>3×3 matrix inversion method se simultaneous equations solve karna.</li>
+          <li>Position vector aur basic vector algebra use karna.</li>
+          <li>Scalar product aur vector product calculate karna.</li>
+          <li>Prescribed Indian Mathematics approach ke context mein simultaneous equations ka idea samajhna.</li>
+        </ol>
+
+        <div class="important">
+          <strong>Exam focus:</strong>
+          Unit 1 ke questions mein calculation ke saath method bhi important hai.
+          Matrix ka order, determinant ka value, signs of cofactors aur final
+          substitution carefully check karein.
+        </div>
+
+        <h3>Unit Roadmap</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Part</th>
+                <th>Core Concept</th>
+                <th>Typical Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Determinants</td>
+                <td>Square array se scalar value obtain karna</td>
+                <td>Equations, matrix properties</td>
+              </tr>
+              <tr>
+                <td>Cramer's Rule</td>
+                <td>Determinants ki help se unknowns solve karna</td>
+                <td>Three simultaneous equations</td>
+              </tr>
+              <tr>
+                <td>Matrices</td>
+                <td>Numbers ka rectangular arrangement</td>
+                <td>Systematic representation</td>
+              </tr>
+              <tr>
+                <td>Matrix Inverse</td>
+                <td>A⁻¹ ka use</td>
+                <td>Simultaneous equations</td>
+              </tr>
+              <tr>
+                <td>Vectors</td>
+                <td>Magnitude + direction</td>
+                <td>Engineering quantities</td>
+              </tr>
+              <tr>
+                <td>Scalar Product</td>
+                <td>Two vectors se scalar result</td>
+                <td>Angle/work-type calculations</td>
+              </tr>
+              <tr>
+                <td>Vector Product</td>
+                <td>Two vectors se vector result</td>
+                <td>Direction and area-type calculations</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- DETERMINANTS -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="determinants">
+      <div class="section-head">
+        <div class="section-number">Topic 01</div>
+        <h2>Determinants — Concept and Properties</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>1.1 Introduction</h3>
+
+        <p>
+          Determinant ko simple language mein square matrix se associated ek
+          single numerical value samajh sakte hain. Determinant sirf square
+          matrix ke liye define kiya jata hai. Iska notation generally
+          <span class="math">|A|</span> ya <span class="math">det(A)</span>
+          hota hai.
+        </p>
+
+        <div class="definition">
+          <strong>Definition</strong>
+          A determinant is a scalar value obtained from the elements of a square
+          array according to a specified mathematical rule.
+        </div>
+
+        <h3>1.2 Determinant of Order 2</h3>
+
+        <p>
+          Agar two-row aur two-column arrangement ho:
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="matrix" aria-label="2 by 2 matrix">
+            <tr>
+              <td>a</td>
+              <td>b</td>
+            </tr>
+            <tr>
+              <td>c</td>
+              <td>d</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="formula">
+          <button class="copy" onclick="copyFormula(this)">Copy</button>
+          <span class="formula-label">Order 2 determinant</span>
+          |A| = | a  b |<br>
+               | c  d |<br><br>
+          |A| = ad − bc
+        </div>
+
+        <p>
+          Yahan <strong>a, b, c, d</strong> matrix ke elements hain. Product
+          <strong>ad</strong> principal diagonal se aata hai aur
+          <strong>bc</strong> other diagonal se.
+        </p>
+
+        <div class="card">
+          <h4>Important terminology</h4>
+          <ul>
+            <li><strong>Order:</strong> Rows × Columns.</li>
+            <li><strong>Element:</strong> Matrix ke andar individual entry.</li>
+            <li><strong>Square matrix:</strong> Rows aur columns ki number equal.</li>
+            <li><strong>Determinant:</strong> Square matrix se obtained scalar value.</li>
+            <li><strong>Zero determinant:</strong> Determinant ka value 0.</li>
+            <li><strong>Non-zero determinant:</strong> Determinant zero nahi hai.</li>
+          </ul>
+        </div>
+
+        <h3>1.3 Solved Example — 2×2 Determinant</h3>
+
+        <div class="example">
+          <div class="example-head">Example 1 — Find the determinant</div>
+
+          <div class="example-body">
+            <div class="label">Given</div>
+            <p>
+              A = [ [4, 7], [2, 5] ]
+            </p>
+
+            <div class="label">Find</div>
+            <p><span class="math">|A|</span></p>
+
+            <div class="label">Formula</div>
+            <div class="formula">
+              |A| = ad − bc
+            </div>
+
+            <div class="label">Why this formula</div>
+            <p>
+              Matrix order 2 hai. Isliye 2×2 determinant ka direct formula
+              <span class="math">ad − bc</span> applicable hai.
+            </p>
+
+            <div class="label">Substitution</div>
+            <p>
+              a = 4, b = 7, c = 2, d = 5
+            </p>
+
+            <div class="label">Calculation</div>
+            <p>
+              |A| = (4)(5) − (7)(2)<br>
+              = 20 − 14<br>
+              = 6
+            </p>
+
+            <div class="answer">
+              Answer: |A| = 6
+            </div>
+          </div>
+        </div>
+
+        <h3>1.4 Determinant of Order 3</h3>
+
+        <p>
+          Third-order determinant mein three rows aur three columns hote hain.
+          General form:
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <tr>
+              <td>a</td><td>b</td><td>c</td>
+            </tr>
+            <tr>
+              <td>d</td><td>e</td><td>f</td>
+            </tr>
+            <tr>
+              <td>g</td><td>h</td><td>i</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="formula">
+          <button class="copy" onclick="copyFormula(this)">Copy</button>
+          <span class="formula-label">3×3 determinant expansion</span>
+          |A| = a(ei − fh) − b(di − fg) + c(dh − eg)
+        </div>
+
+        <p>
+          Is expression mein first row ke elements ke saath corresponding
+          minors/cofactors combine hote hain. Sign pattern ko yaad rakhna
+          important hai:
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <tr>
+              <td>+</td><td>−</td><td>+</td>
+            </tr>
+          </table>
+        </div>
+
+        <h3>1.5 Minor and Cofactor</h3>
+
+        <div class="definition">
+          <strong>Minor</strong>
+          Kisi element ka minor us row aur column ko remove karne ke baad
+          remaining determinant hota hai.
+        </div>
+
+        <p>
+          Element <span class="math">a<sub>ij</sub></span> ka minor
+          <span class="math">M<sub>ij</sub></span> se represent kiya ja sakta hai.
+        </p>
+
+        <div class="definition">
+          <strong>Cofactor</strong>
+          Cofactor minor ko sign factor ke saath multiply karke obtain hota hai.
+        </div>
+
+        <div class="formula">
+          <button class="copy" onclick="copyFormula(this)">Copy</button>
+          Cᵢⱼ = (−1)ⁱ⁺ʲ Mᵢⱼ
+        </div>
+
+        <p>
+          Cofactor sign pattern 3×3 matrix ke liye:
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <tr>
+              <td>+</td><td>−</td><td>+</td>
+            </tr>
+            <tr>
+              <td>−</td><td>+</td><td>−</td>
+            </tr>
+            <tr>
+              <td>+</td><td>−</td><td>+</td>
+            </tr>
+          </table>
+        </div>
+
+        <h3>1.6 Properties of Determinants</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>What happens</th>
+                <th>Exam observation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Interchange of two rows</td>
+                <td>Sign of determinant changes.</td>
+                <td>D becomes −D.</td>
+              </tr>
+              <tr>
+                <td>Interchange of two columns</td>
+                <td>Sign of determinant changes.</td>
+                <td>D becomes −D.</td>
+              </tr>
+              <tr>
+                <td>Two identical rows</td>
+                <td>Determinant becomes zero.</td>
+                <td>D = 0.</td>
+              </tr>
+              <tr>
+                <td>Two identical columns</td>
+                <td>Determinant becomes zero.</td>
+                <td>D = 0.</td>
+              </tr>
+              <tr>
+                <td>One row/column all zero</td>
+                <td>Determinant becomes zero.</td>
+                <td>D = 0.</td>
+              </tr>
+              <tr>
+                <td>Multiplying one row by k</td>
+                <td>Determinant is multiplied by k.</td>
+                <td>New determinant = kD.</td>
+              </tr>
+              <tr>
+                <td>Transpose</td>
+                <td>Determinant remains unchanged.</td>
+                <td>|Aᵀ| = |A|.</td>
+              </tr>
+              <tr>
+                <td>Triangular matrix</td>
+                <td>Determinant equals product of diagonal elements.</td>
+                <td>Useful shortcut.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="important">
+          <strong>Common mistake:</strong>
+          Row interchange ke baad determinant ka sign change karna bhoolna
+          ek common calculation error hai.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- CRAMER -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="cramer">
+      <div class="section-head">
+        <div class="section-number">Topic 02</div>
+        <h2>Simultaneous Equations by Cramer's Rule</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>2.1 Basic Idea</h3>
+
+        <p>
+          Simultaneous equations mein multiple unknown quantities hoti hain aur
+          sabhi equations ko ek saath satisfy karna hota hai. Unit 1 specifically
+          three unknowns ke system ko Cramer's rule se solve karne par focus karta hai.
+        </p>
+
+        <p>General system:</p>
+
+        <div class="formula">
+          a₁x + b₁y + c₁z = d₁<br>
+          a₂x + b₂y + c₂z = d₂<br>
+          a₃x + b₃y + c₃z = d₃
+        </div>
+
+        <h3>2.2 Main Determinant</h3>
+
+        <div class="formula">
+          <span class="formula-label">Coefficient determinant</span>
+          D = | a₁  b₁  c₁ |<br>
+              | a₂  b₂  c₂ |<br>
+              | a₃  b₃  c₃ |
+        </div>
+
+        <p>
+          <strong>D<sub>x</sub></strong> banane ke liye coefficient matrix ki
+          first column ko constants se replace karte hain.
+        </p>
+
+        <p>
+          <strong>D<sub>y</sub></strong> ke liye second column replace hota hai.
+          <strong>D<sub>z</sub></strong> ke liye third column replace hota hai.
+        </p>
+
+        <div class="formula">
+          <span class="formula-label">Cramer's Rule</span>
+          x = Dₓ / D<br>
+          y = Dᵧ / D<br>
+          z = D𝓏 / D
+        </div>
+
+        <div class="important">
+          <strong>Condition:</strong>
+          Cramer's rule ke direct form mein D ≠ 0 hona chahiye.
+          Agar D = 0 ho, to simple division by D possible nahi hoti.
+        </div>
+
+        <h3>2.3 Step-by-Step Method</h3>
+
+        <ol class="steps">
+          <li>Equations ko standard form mein arrange karein.</li>
+          <li>x, y aur z ke coefficients ko identify karein.</li>
+          <li>Main determinant D form karein.</li>
+          <li>First column ko constants se replace karke Dₓ calculate karein.</li>
+          <li>Second column replace karke Dᵧ calculate karein.</li>
+          <li>Third column replace karke D𝓏 calculate karein.</li>
+          <li>x = Dₓ/D, y = Dᵧ/D aur z = D𝓏/D calculate karein.</li>
+          <li>Final values ko original equations mein substitute karke verify karein.</li>
+        </ol>
+
+        <div class="example">
+          <div class="example-head">Example 2 — Solve three simultaneous equations</div>
+
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <p>
+              x + y + z = 6<br>
+              2x − y + z = 3<br>
+              x + 2y − z = 2
+            </p>
+
+            <div class="label">Find</div>
+            <p>x, y and z.</p>
+
+            <div class="label">Formula</div>
+
+            <div class="formula">
+              x = Dₓ/D<br>
+              y = Dᵧ/D<br>
+              z = D𝓏/D
+            </div>
+
+            <div class="label">Why this formula</div>
+
+            <p>
+              Teen linear simultaneous equations aur teen unknowns diye gaye hain.
+              Isliye coefficient determinant aur replacement determinants ke through
+              Cramer's rule directly apply kiya ja sakta hai.
+            </p>
+
+            <div class="label">Calculation of D</div>
+
+            <div class="formula">
+              D = | 1   1   1 |<br>
+                  | 2  −1   1 |<br>
+                  | 1   2  −1 |<br><br>
+
+              D = 1[(-1)(-1) − (1)(2)]<br>
+              &nbsp;&nbsp;− 1[(2)(-1) − (1)(1)]<br>
+              &nbsp;&nbsp;+ 1[(2)(2) − (-1)(1)]<br><br>
+
+              = 1(1 − 2) − 1(−2 − 1) + 1(4 + 1)<br>
+              = −1 + 3 + 5<br>
+              = 7
+            </div>
+
+            <div class="label">Calculation of Dₓ</div>
+
+            <div class="formula">
+              Dₓ = | 6   1   1 |<br>
+                   | 3  −1   1 |<br>
+                   | 2   2  −1 |<br><br>
+
+              Dₓ = 6[(-1)(-1) − (1)(2)]<br>
+              &nbsp;&nbsp;− 1[(3)(-1) − (1)(2)]<br>
+              &nbsp;&nbsp;+ 1[(3)(2) − (-1)(2)]<br><br>
+
+              = 6(−1) − 1(−5) + 1(8)<br>
+              = −6 + 5 + 8<br>
+              = 7
+            </div>
+
+            <div class="label">Calculation of Dᵧ</div>
+
+            <div class="formula">
+              Dᵧ = | 1   6   1 |<br>
+                   | 2   3   1 |<br>
+                   | 1   2  −1 |<br><br>
+
+              Dᵧ = 1[(3)(−1) − (1)(2)]<br>
+              &nbsp;&nbsp;− 6[(2)(−1) − (1)(1)]<br>
+              &nbsp;&nbsp;+ 1[(2)(2) − (3)(1)]<br><br>
+
+              = −5 + 18 + 1<br>
+              = 14
+            </div>
+
+            <div class="label">Calculation of D𝓏</div>
+
+            <div class="formula">
+              D𝓏 = | 1   1   6 |<br>
+                   | 2  −1   3 |<br>
+                   | 1   2   2 |<br><br>
+
+              D𝓏 = 1[(−1)(2) − (3)(2)]<br>
+              &nbsp;&nbsp;− 1[(2)(2) − (3)(1)]<br>
+              &nbsp;&nbsp;+ 6[(2)(2) − (−1)(1)]<br><br>
+
+              = −8 − 1 + 30<br>
+              = 21
+            </div>
+
+            <div class="label">Answer</div>
+
+            <div class="formula">
+              x = Dₓ/D = 7/7 = 1<br>
+              y = Dᵧ/D = 14/7 = 2<br>
+              z = D𝓏/D = 21/7 = 3
+            </div>
+
+            <div class="answer">
+              Therefore, x = 1, y = 2 and z = 3.
+            </div>
+
+            <div class="label">Verification</div>
+            <p>
+              Equation 1: 1 + 2 + 3 = 6 ✓<br>
+              Equation 2: 2(1) − 2 + 3 = 3 ✓<br>
+              Equation 3: 1 + 2(2) − 3 = 2 ✓
+            </p>
+
+          </div>
+        </div>
+
+        <h3>2.4 Exam Checklist for Cramer's Rule</h3>
+
+        <ul>
+          <li>Equations ko same variable order mein likho.</li>
+          <li>Missing coefficient ko zero treat karo.</li>
+          <li>Main determinant D clearly calculate karo.</li>
+          <li>Replacement columns correctly identify karo.</li>
+          <li>Minus signs especially second-term expansion mein carefully handle karo.</li>
+          <li>Final values ko original equations mein verify karna useful hai.</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MATRICES -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="matrices">
+      <div class="section-head">
+        <div class="section-number">Topic 03</div>
+        <h2>Matrices — Algebra of Matrices</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>3.1 Definition of Matrix</h3>
+
+        <div class="definition">
+          <strong>Definition</strong>
+          A matrix is a rectangular arrangement of numbers, symbols or quantities
+          arranged in rows and columns and enclosed by brackets.
+        </div>
+
+        <p>
+          Example:
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <tr>
+              <td>2</td><td>5</td><td>7</td>
+            </tr>
+            <tr>
+              <td>1</td><td>0</td><td>4</td>
+            </tr>
+          </table>
+        </div>
+
+        <p>
+          Is matrix mein 2 rows aur 3 columns hain. Therefore its order is
+          <strong>2 × 3</strong>.
+        </p>
+
+        <h3>3.2 Order of Matrix</h3>
+
+        <div class="formula">
+          <span class="formula-label">Order</span>
+          Order = Number of rows × Number of columns
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Matrix</th>
+              <th>Order</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[a b]</td>
+              <td>1×2</td>
+              <td>Row matrix</td>
+            </tr>
+            <tr>
+              <td>[a; b; c]</td>
+              <td>3×1</td>
+              <td>Column matrix</td>
+            </tr>
+            <tr>
+              <td>[a b; c d]</td>
+              <td>2×2</td>
+              <td>Square matrix</td>
+            </tr>
+            <tr>
+              <td>[a b c; d e f]</td>
+              <td>2×3</td>
+              <td>Rectangular matrix</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>3.3 Important Matrix Terminology</h3>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4>Element</h4>
+            <p>
+              Matrix ki individual entry ko element kehte hain.
+              A ke element ko aᵢⱼ se represent kiya ja sakta hai.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Square Matrix</h4>
+            <p>
+              Jisme rows aur columns ki number equal ho, jaise 2×2 ya 3×3.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Zero Matrix</h4>
+            <p>
+              Jisme sabhi elements zero hon.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Identity Matrix</h4>
+            <p>
+              Square matrix jisme principal diagonal par 1 aur remaining
+              positions par 0 hota hai.
+            </p>
+          </div>
+        </div>
+
+        <h3>3.4 Equality of Matrices</h3>
+
+        <p>
+          Do matrices equal tab hoti hain jab:
+        </p>
+
+        <ol>
+          <li>Dono matrices ka order same ho.</li>
+          <li>Corresponding elements equal hon.</li>
+        </ol>
+
+        <div class="formula">
+          A = B ⇔ corresponding elements of A and B are equal
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MATRIX OPERATIONS -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="matrix-operations">
+      <div class="section-head">
+        <div class="section-number">Topic 04</div>
+        <h2>Matrix Operations</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>4.1 Addition of Matrices</h3>
+
+        <p>
+          Matrix addition tab possible hota hai jab dono matrices ka order same ho.
+          Corresponding elements add kiye jaate hain.
+        </p>
+
+        <div class="formula">
+          A + B = [aᵢⱼ + bᵢⱼ]
+        </div>
+
+        <div class="example">
+          <div class="example-head">Example 3 — Matrix Addition</div>
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <div class="matrix-wrap">
+              <table class="matrix">
+                <tr><td>1</td><td>2</td></tr>
+                <tr><td>3</td><td>4</td></tr>
+              </table>
+
+              &nbsp;&nbsp;+
+
+              <table class="matrix">
+                <tr><td>5</td><td>6</td></tr>
+                <tr><td>7</td><td>8</td></tr>
+              </table>
+            </div>
+
+            <div class="label">Calculation</div>
+
+            <p>
+              Corresponding entries add:
+            </p>
+
+            <div class="formula">
+              A+B = |1+5   2+6|<br>
+                    |3+7   4+8|<br><br>
+                  = |6   8|<br>
+                    |10 12|
+            </div>
+
+            <div class="answer">
+              Answer: A+B = [[6,8],[10,12]]
+            </div>
+
+          </div>
+        </div>
+
+        <h3>4.2 Subtraction of Matrices</h3>
+
+        <p>
+          Same order condition apply hoti hai. Corresponding elements subtract
+          kiye jaate hain.
+        </p>
+
+        <div class="formula">
+          A − B = [aᵢⱼ − bᵢⱼ]
+        </div>
+
+        <h3>4.3 Multiplication by Scalar</h3>
+
+        <p>
+          Scalar ek single number hota hai. Scalar multiplication mein matrix
+          ke har element ko scalar se multiply kiya jata hai.
+        </p>
+
+        <div class="formula">
+          kA = [kaᵢⱼ]
+        </div>
+
+        <div class="example">
+          <div class="example-head">Example 4 — Scalar Multiplication</div>
+
+          <div class="example-body">
+            <div class="label">Given</div>
+            <p>
+              A = [[2, −1],[3, 4]], k = 3
+            </p>
+
+            <div class="label">Calculation</div>
+
+            <div class="formula">
+              3A = |3(2)   3(−1)|<br>
+                   |3(3)    3(4)|<br><br>
+                 = |6   −3|<br>
+                   |9    12|
+            </div>
+
+            <div class="answer">
+              Answer: 3A = [[6,−3],[9,12]]
+            </div>
+          </div>
+        </div>
+
+        <h3>4.4 Multiplication of Two Matrices</h3>
+
+        <p>
+          Matrix multiplication ke liye first matrix ke columns ki number
+          second matrix ke rows ki number ke equal honi chahiye.
+        </p>
+
+        <div class="formula">
+          <span class="formula-label">Compatibility condition</span>
+          If A is m×n and B is n×p, then AB exists and is m×p.
+        </div>
+
+        <p>
+          Product ka individual element row × column multiplication and addition
+          se obtain hota hai.
+        </p>
+
+        <div class="example">
+          <div class="example-head">Example 5 — Multiplication of Two Matrices</div>
+
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <div class="matrix-wrap">
+              <table class="matrix">
+                <tr><td>1</td><td>2</td></tr>
+                <tr><td>3</td><td>4</td></tr>
+              </table>
+
+              &nbsp;&nbsp;×&nbsp;&nbsp;
+
+              <table class="matrix">
+                <tr><td>5</td><td>6</td></tr>
+                <tr><td>7</td><td>8</td></tr>
+              </table>
+            </div>
+
+            <div class="label">Calculation</div>
+
+            <div class="formula">
+              First element = (1×5) + (2×7)<br>
+                            = 5 + 14<br>
+                            = 19<br><br>
+
+              Second element = (1×6) + (2×8)<br>
+                             = 6 + 16<br>
+                             = 22<br><br>
+
+              Third element = (3×5) + (4×7)<br>
+                            = 15 + 28<br>
+                            = 43<br><br>
+
+              Fourth element = (3×6) + (4×8)<br>
+                             = 18 + 32<br>
+                             = 50
+            </div>
+
+            <div class="answer">
+              AB = [[19,22],[43,50]]
+            </div>
+
+          </div>
+        </div>
+
+        <div class="danger">
+          <strong>Important:</strong>
+          Matrix multiplication generally commutative nahi hoti.
+          Usually AB ≠ BA. Isliye order of multiplication ko casually reverse
+          nahi karna chahiye.
+        </div>
+
+        <h3>4.5 Operation Summary</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Condition</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A+B</td>
+              <td>Same order</td>
+              <td>Same order as A and B</td>
+            </tr>
+            <tr>
+              <td>A−B</td>
+              <td>Same order</td>
+              <td>Same order as A and B</td>
+            </tr>
+            <tr>
+              <td>kA</td>
+              <td>Any scalar k</td>
+              <td>Same order as A</td>
+            </tr>
+            <tr>
+              <td>AB</td>
+              <td>Columns of A = rows of B</td>
+              <td>Rows of A × columns of B</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TRANSPOSE -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="transpose">
+      <div class="section-head">
+        <div class="section-number">Topic 05</div>
+        <h2>Transpose of a Matrix</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>5.1 Definition</h3>
+
+        <div class="definition">
+          <strong>Transpose</strong>
+          Matrix ki rows ko columns aur columns ko rows mein interchange karne
+          par jo matrix obtain hoti hai use transpose kehte hain.
+        </div>
+
+        <div class="formula">
+          A → Aᵀ
+        </div>
+
+        <p>
+          Agar:
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td></tr>
+          </table>
+        </div>
+
+        <p>To:</p>
+
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <tr><td>1</td><td>4</td></tr>
+            <tr><td>2</td><td>5</td></tr>
+            <tr><td>3</td><td>6</td></tr>
+          </table>
+        </div>
+
+        <p>
+          Original matrix ka order 2×3 tha aur transpose ka order 3×2 ho gaya.
+        </p>
+
+        <h3>5.2 Important Properties</h3>
+
+        <div class="formula">
+          (Aᵀ)ᵀ = A<br>
+          (A+B)ᵀ = Aᵀ + Bᵀ<br>
+          (A−B)ᵀ = Aᵀ − Bᵀ<br>
+          (AB)ᵀ = BᵀAᵀ
+        </div>
+
+        <div class="important">
+          <strong>Exam trap:</strong>
+          Product ka transpose nikalte waqt order reverse hota hai:
+          <span class="math">(AB)ᵀ = BᵀAᵀ</span>.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- ADJOINT INVERSE -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="adjoint">
+      <div class="section-head">
+        <div class="section-number">Topic 06</div>
+        <h2>Adjoint and Inverse of a Matrix</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>6.1 Adjoint — Basic Concept</h3>
+
+        <p>
+          Adjoint obtain karne ke liye pehle matrix ke elements ke cofactors
+          calculate kiye jaate hain. Cofactor matrix banane ke baad uska
+          transpose lene par adjoint obtain hota hai.
+        </p>
+
+        <div class="formula">
+          <span class="formula-label">Adjoint</span>
+          adj(A) = (Cofactor Matrix)ᵀ
+        </div>
+
+        <h3>6.2 Inverse Matrix</h3>
+
+        <div class="definition">
+          <strong>Definition</strong>
+          A square matrix A ka inverse A⁻¹ aisi matrix hai jiske saath
+          multiplication karne par identity matrix obtain hoti hai.
+        </div>
+
+        <div class="formula">
+          AA⁻¹ = A⁻¹A = I
+        </div>
+
+        <h3>6.3 Formula for Inverse</h3>
+
+        <div class="formula">
+          <button class="copy" onclick="copyFormula(this)">Copy</button>
+          A⁻¹ = adj(A) / |A|
+        </div>
+
+        <p>
+          Is formula ko use karne ke liye <strong>|A| ≠ 0</strong> hona chahiye.
+          Agar determinant zero hai, to ordinary inverse exist nahi karta.
+        </p>
+
+        <h3>6.4 2×2 Inverse Formula</h3>
+
+        <p>
+          For:
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <tr><td>a</td><td>b</td></tr>
+            <tr><td>c</td><td>d</td></tr>
+          </table>
+        </div>
+
+        <div class="formula">
+          A⁻¹ = 1/(ad−bc) × | d   −b |<br>
+                           | −c   a |
+        </div>
+
+        <h3>6.5 Step-by-Step Inverse by Adjoint Method</h3>
+
+        <ol class="steps">
+          <li>Matrix A ka determinant |A| calculate karein.</li>
+          <li>Har element ka minor find karein.</li>
+          <li>Minor ko sign pattern ke according cofactor mein convert karein.</li>
+          <li>Cofactor matrix form karein.</li>
+          <li>Cofactor matrix ka transpose lein.</li>
+          <li>Is transpose ko adj(A) kehte hain.</li>
+          <li>A⁻¹ = adj(A)/|A| apply karein.</li>
+          <li>Result ko multiplication se verify kar sakte hain.</li>
+        </ol>
+
+        <div class="example">
+          <div class="example-head">Example 6 — Inverse of a 2×2 Matrix</div>
+
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <div class="matrix-wrap">
+              <table class="matrix">
+                <tr><td>2</td><td>1</td></tr>
+                <tr><td>3</td><td>2</td></tr>
+              </table>
+            </div>
+
+            <div class="label">Find</div>
+            <p>A⁻¹</p>
+
+            <div class="label">Formula</div>
+
+            <div class="formula">
+              A⁻¹ = 1/|A| × adj(A)
+            </div>
+
+            <div class="label">Determinant</div>
+
+            <div class="formula">
+              |A| = (2)(2) − (1)(3)<br>
+                  = 4 − 3<br>
+                  = 1
+            </div>
+
+            <div class="label">Adjoint</div>
+
+            <div class="formula">
+              adj(A) = | 2  −1 |<br>
+                       |−3   2 |
+            </div>
+
+            <div class="label">Substitution</div>
+
+            <div class="formula">
+              A⁻¹ = 1/1 × | 2  −1 |<br>
+                       &nbsp;&nbsp;&nbsp;&nbsp;|−3   2 |
+            </div>
+
+            <div class="answer">
+              A⁻¹ = [[2,−1],[−3,2]]
+            </div>
+
+          </div>
+        </div>
+
+        <h3>6.6 When Inverse Should NOT Be Used</h3>
+
+        <ul>
+          <li>Matrix square nahi hai.</li>
+          <li>Determinant zero hai.</li>
+          <li>Problem explicitly kisi different method ki demand karti hai.</li>
+          <li>Calculation mein inverse unnecessary complexity create kar raha ho.</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MATRIX INVERSION METHOD -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="inverse-method">
+      <div class="section-head">
+        <div class="section-number">Topic 07</div>
+        <h2>3×3 Simultaneous Equations by Matrix Inversion Method</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>7.1 Matrix Form of Simultaneous Equations</h3>
+
+        <p>
+          Teen equations ko compact matrix form mein likha ja sakta hai:
+        </p>
+
+        <div class="formula">
+          AX = B
+        </div>
+
+        <p>where:</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4>A</h4>
+            <p>Coefficient matrix.</p>
+          </div>
+          <div class="card">
+            <h4>X</h4>
+            <p>Unknowns ka column matrix.</p>
+          </div>
+          <div class="card">
+            <h4>B</h4>
+            <p>Constants ka column matrix.</p>
+          </div>
+        </div>
+
+        <div class="formula">
+          A = | a₁ b₁ c₁ |<br>
+              | a₂ b₂ c₂ |<br>
+              | a₃ b₃ c₃ |<br><br>
+
+          X = |x|<br>
+              |y|<br>
+              |z|<br><br>
+
+          B = |d₁|<br>
+              |d₂|<br>
+              |d₃|
+        </div>
+
+        <h3>7.2 Derivation of Inversion Method</h3>
+
+        <p>
+          Starting with:
+        </p>
+
+        <div class="formula">
+          AX = B
+        </div>
+
+        <p>
+          Dono sides ko left side se A⁻¹ se multiply karein:
+        </p>
+
+        <div class="formula">
+          A⁻¹AX = A⁻¹B
+        </div>
+
+        <p>
+          Since:
+        </p>
+
+        <div class="formula">
+          A⁻¹A = I
+        </div>
+
+        <p>
+          Therefore:
+        </p>
+
+        <div class="formula">
+          IX = A⁻¹B
+        </div>
+
+        <p>And:</p>
+
+        <div class="formula">
+          X = A⁻¹B
+        </div>
+
+        <div class="success">
+          <strong>Main result:</strong>
+          Simultaneous equations ka solution matrix form mein
+          <span class="math">X = A⁻¹B</span> hota hai, provided A ka inverse exist karta ho.
+        </div>
+
+        <h3>7.3 Step-by-Step Procedure</h3>
+
+        <ol class="steps">
+          <li>Given equations ko AX = B form mein convert karein.</li>
+          <li>Coefficient matrix A identify karein.</li>
+          <li>Constant matrix B identify karein.</li>
+          <li>|A| calculate karein.</li>
+          <li>Check karein ki |A| ≠ 0 hai.</li>
+          <li>Adjoint method se A⁻¹ calculate karein.</li>
+          <li>X = A⁻¹B calculate karein.</li>
+          <li>X matrix se x, y, z ki values read karein.</li>
+          <li>Original equations mein verification karein.</li>
+        </ol>
+
+        <div class="example">
+          <div class="example-head">Example 7 — Matrix Inversion Method</div>
+
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <p>
+              x + y + z = 6<br>
+              2x − y + z = 3<br>
+              x + 2y − z = 2
+            </p>
+
+            <div class="label">Matrix form</div>
+
+            <div class="formula">
+              A = | 1   1   1 |<br>
+                  | 2  −1   1 |<br>
+                  | 1   2  −1 |<br><br>
+
+              X = |x|<br>
+                  |y|<br>
+                  |z|<br><br>
+
+              B = |6|<br>
+                  |3|<br>
+                  |2|
+            </div>
+
+            <div class="label">Formula</div>
+
+            <div class="formula">
+              X = A⁻¹B
+            </div>
+
+            <div class="label">Important calculation</div>
+
+            <p>
+              Is coefficient matrix ka determinant:
+            </p>
+
+            <div class="formula">
+              |A| = 7 ≠ 0
+            </div>
+
+            <p>
+              Therefore inverse exists. Adjoint method se A⁻¹ calculate karke
+              B se multiply karne par:
+            </p>
+
+            <div class="formula">
+              X = |1|<br>
+                  |2|<br>
+                  |3|
+            </div>
+
+            <div class="answer">
+              Therefore x = 1, y = 2 and z = 3.
+            </div>
+
+          </div>
+        </div>
+
+        <h3>7.4 Cramer's Rule vs Matrix Inversion</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Point</th>
+              <th>Cramer's Rule</th>
+              <th>Matrix Inversion Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Basic idea</td>
+              <td>Replacement determinants</td>
+              <td>X = A⁻¹B</td>
+            </tr>
+            <tr>
+              <td>Main requirement</td>
+              <td>D ≠ 0 for direct formula</td>
+              <td>A⁻¹ must exist</td>
+            </tr>
+            <tr>
+              <td>Major calculation</td>
+              <td>D, Dₓ, Dᵧ, D𝓏</td>
+              <td>Determinant, adjoint, inverse, multiplication</td>
+            </tr>
+            <tr>
+              <td>Useful for</td>
+              <td>Direct equation solving</td>
+              <td>Matrix-based representation</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- VECTORS -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="vectors">
+      <div class="section-head">
+        <div class="section-number">Topic 08</div>
+        <h2>Vectors — Basic Concept</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>8.1 Scalar and Vector Quantities</h3>
+
+        <p>
+          Vector algebra samajhne ke liye scalar aur vector quantity ka difference
+          clear hona chahiye.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Scalar</th>
+              <th>Vector</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Magnitude</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Direction</td>
+              <td>Not required</td>
+              <td>Essential characteristic</td>
+            </tr>
+            <tr>
+              <td>Representation</td>
+              <td>Ordinary number</td>
+              <td>Directed quantity / components</td>
+            </tr>
+            <tr>
+              <td>Examples</td>
+              <td>Mass, temperature, time</td>
+              <td>Displacement, velocity, force</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="definition">
+          <strong>Vector</strong>
+          A quantity having both magnitude and direction is represented as a vector.
+        </div>
+
+        <h3>8.2 Geometrical Representation</h3>
+
+        <div class="diagram">
+          <div class="diagram-title">Vector representation</div>
+
+          <svg viewBox="0 0 720 280" role="img" aria-label="Vector from A to B">
+            <defs>
+              <marker id="arrowA" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"></path>
+              </marker>
+            </defs>
+
+            <line x1="100" y1="210" x2="590" y2="80"
+                  stroke="#94a3b8" stroke-width="2"></line>
+
+            <line x1="100" y1="210" x2="570" y2="86"
+                  stroke="#2563eb" stroke-width="6"
+                  marker-end="url(#arrowA)"></line>
+
+            <circle cx="100" cy="210" r="7" fill="#172554"></circle>
+            <circle cx="570" cy="86" r="7" fill="#172554"></circle>
+
+            <text x="83" y="240" font-size="20" fill="#172033">A</text>
+            <text x="578" y="78" font-size="20" fill="#172033">B</text>
+            <text x="300" y="120" font-size="20" fill="#1d4ed8">vector AB</text>
+            <text x="270" y="255" font-size="16" fill="#64748b">Direction: A → B</text>
+          </svg>
+        </div>
+
+        <h3>8.3 Components of a Vector</h3>
+
+        <p>
+          Three-dimensional Cartesian representation mein vector ko generally
+          x, y aur z directions ke components se express kiya ja sakta hai:
+        </p>
+
+        <div class="formula">
+          A = Aₓ i + Aᵧ j + A𝓏 k
+        </div>
+
+        <p>
+          Yahan:
+        </p>
+
+        <ul>
+          <li><strong>Aₓ</strong> = x-direction component</li>
+          <li><strong>Aᵧ</strong> = y-direction component</li>
+          <li><strong>A𝓏</strong> = z-direction component</li>
+          <li><strong>i</strong> = x-direction unit vector</li>
+          <li><strong>j</strong> = y-direction unit vector</li>
+          <li><strong>k</strong> = z-direction unit vector</li>
+        </ul>
+
+        <h3>8.4 Magnitude of Vector</h3>
+
+        <div class="formula">
+          |A| = √(Aₓ² + Aᵧ² + A𝓏²)
+        </div>
+
+        <p>
+          Magnitude vector ki length ya size ko represent karti hai.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- POSITION VECTOR -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="position-vector">
+      <div class="section-head">
+        <div class="section-number">Topic 09</div>
+        <h2>Position Vector</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>9.1 Meaning</h3>
+
+        <p>
+          Origin se kisi point tak directed vector ko us point ka position vector
+          kaha jata hai.
+        </p>
+
+        <div class="diagram">
+          <div class="diagram-title">Position vector from origin O to point P</div>
+
+          <svg viewBox="0 0 700 360" role="img" aria-label="Position vector diagram">
+            <defs>
+              <marker id="arrowP" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"></path>
+              </marker>
+            </defs>
+
+            <line x1="90" y1="285" x2="620" y2="285" stroke="#64748b" stroke-width="2"></line>
+            <line x1="90" y1="285" x2="90" y2="50" stroke="#64748b" stroke-width="2"></line>
+
+            <line x1="90" y1="285" x2="500" y2="100"
+                  stroke="#7c3aed" stroke-width="5"
+                  marker-end="url(#arrowP)"></line>
+
+            <line x1="500" y1="100" x2="500" y2="285"
+                  stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 7"></line>
+
+            <line x1="500" y1="100" x2="90" y2="100"
+                  stroke="#cbd5e1" stroke-width="2" stroke-dasharray="7 7"></line>
+
+            <circle cx="90" cy="285" r="7" fill="#172554"></circle>
+            <circle cx="500" cy="100" r="7" fill="#172554"></circle>
+
+            <text x="70" y="315" font-size="19">O</text>
+            <text x="510" y="95" font-size="19">P(x,y,z)</text>
+            <text x="280" y="165" font-size="19" fill="#6d28d9">r</text>
+            <text x="335" y="305" font-size="16" fill="#64748b">x-axis</text>
+            <text x="38" y="150" font-size="16" fill="#64748b">y-axis</text>
+          </svg>
+        </div>
+
+        <p>
+          Agar point P ke coordinates <span class="math">(x,y,z)</span> hain,
+          to position vector:
+        </p>
+
+        <div class="formula">
+          OP = xi + yj + zk
+        </div>
+
+        <h3>9.2 Example</h3>
+
+        <div class="example">
+          <div class="example-head">Example 8 — Position Vector</div>
+
+          <div class="example-body">
+            <div class="label">Given</div>
+            <p>Point P(3, −2, 5)</p>
+
+            <div class="label">Find</div>
+            <p>Position vector OP.</p>
+
+            <div class="label">Formula</div>
+            <div class="formula">
+              OP = xi + yj + zk
+            </div>
+
+            <div class="label">Substitution</div>
+            <div class="formula">
+              OP = 3i − 2j + 5k
+            </div>
+
+            <div class="label">Magnitude</div>
+            <div class="formula">
+              |OP| = √(3² + (−2)² + 5²)<br>
+                   = √(9 + 4 + 25)<br>
+                   = √38
+            </div>
+
+            <div class="answer">
+              Position vector = 3i − 2j + 5k; magnitude = √38.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- VECTOR ALGEBRA -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="vector-algebra">
+      <div class="section-head">
+        <div class="section-number">Topic 10</div>
+        <h2>Algebra of Vectors</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>10.1 Vector Addition</h3>
+
+        <p>
+          Do vectors ko add karne ke liye corresponding components add kiye jaate hain.
+        </p>
+
+        <div class="formula">
+          A = Aₓi + Aᵧj + A𝓏k<br>
+          B = Bₓi + Bᵧj + B𝓏k<br><br>
+          A + B = (Aₓ+Bₓ)i + (Aᵧ+Bᵧ)j + (A𝓏+B𝓏)k
+        </div>
+
+        <h3>10.2 Vector Subtraction</h3>
+
+        <div class="formula">
+          A − B = (Aₓ−Bₓ)i + (Aᵧ−Bᵧ)j + (A𝓏−B𝓏)k
+        </div>
+
+        <h3>10.3 Scalar Multiplication of Vector</h3>
+
+        <p>
+          Kisi vector ko scalar k se multiply karne par vector ke har component
+          ko k se multiply kiya jata hai.
+        </p>
+
+        <div class="formula">
+          kA = kAₓi + kAᵧj + kA𝓏k
+        </div>
+
+        <div class="example">
+          <div class="example-head">Example 9 — Vector Addition and Subtraction</div>
+
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <div class="formula">
+              A = 2i + 3j − k<br>
+              B = i − 2j + 4k
+            </div>
+
+            <div class="label">Find</div>
+            <p>A+B and A−B.</p>
+
+            <div class="label">Calculation</div>
+
+            <div class="formula">
+              A+B = (2+1)i + (3−2)j + (−1+4)k<br>
+                  = 3i + j + 3k<br><br>
+
+              A−B = (2−1)i + (3−(−2))j + (−1−4)k<br>
+                  = i + 5j − 5k
+            </div>
+
+            <div class="answer">
+              A+B = 3i + j + 3k<br>
+              A−B = i + 5j − 5k
+            </div>
+
+          </div>
+        </div>
+
+        <h3>10.4 Vector Laws</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Law</th>
+              <th>Expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Commutative addition</td>
+              <td>A+B = B+A</td>
+            </tr>
+            <tr>
+              <td>Associative addition</td>
+              <td>(A+B)+C = A+(B+C)</td>
+            </tr>
+            <tr>
+              <td>Additive identity</td>
+              <td>A+0 = A</td>
+            </tr>
+            <tr>
+              <td>Additive inverse</td>
+              <td>A+(−A)=0</td>
+            </tr>
+            <tr>
+              <td>Scalar distributive law</td>
+              <td>k(A+B)=kA+kB</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- SCALAR PRODUCT -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="scalar-product">
+      <div class="section-head">
+        <div class="section-number">Topic 11</div>
+        <h2>Scalar Product / Dot Product</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>11.1 Definition</h3>
+
+        <div class="definition">
+          <strong>Scalar Product</strong>
+          Do vectors ka dot product ek scalar quantity produce karta hai.
+        </div>
+
+        <div class="formula">
+          A · B = |A||B|cosθ
+        </div>
+
+        <p>
+          Yahan:
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Meaning</th>
+              <th>Unit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A</td>
+              <td>First vector</td>
+              <td>Depends on quantity</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td>Second vector</td>
+              <td>Depends on quantity</td>
+            </tr>
+            <tr>
+              <td>|A|</td>
+              <td>Magnitude of A</td>
+              <td>Same as A</td>
+            </tr>
+            <tr>
+              <td>|B|</td>
+              <td>Magnitude of B</td>
+              <td>Same as B</td>
+            </tr>
+            <tr>
+              <td>θ</td>
+              <td>Angle between vectors</td>
+              <td>Degree or radian</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>11.2 Component Form</h3>
+
+        <div class="formula">
+          A = Aₓi + Aᵧj + A𝓏k<br>
+          B = Bₓi + Bᵧj + B𝓏k<br><br>
+
+          A·B = AₓBₓ + AᵧBᵧ + A𝓏B𝓏
+        </div>
+
+        <h3>11.3 Angle Between Two Vectors</h3>
+
+        <div class="formula">
+          cosθ = (A·B)/(|A||B|)
+        </div>
+
+        <h3>11.4 Perpendicular Vectors</h3>
+
+        <p>
+          Agar two non-zero vectors perpendicular hain, θ = 90°.
+        </p>
+
+        <div class="formula">
+          cos90° = 0<br>
+          Therefore A·B = 0
+        </div>
+
+        <h3>11.5 Parallel Vectors</h3>
+
+        <p>
+          Same direction mein θ = 0° hota hai:
+        </p>
+
+        <div class="formula">
+          A·B = |A||B|
+        </div>
+
+        <h3>11.6 Solved Example</h3>
+
+        <div class="example">
+          <div class="example-head">Example 10 — Find the scalar product</div>
+
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <div class="formula">
+              A = 2i + 3j + k<br>
+              B = i − j + 4k
+            </div>
+
+            <div class="label">Find</div>
+            <p>A·B</p>
+
+            <div class="label">Formula</div>
+
+            <div class="formula">
+              A·B = AₓBₓ + AᵧBᵧ + A𝓏B𝓏
+            </div>
+
+            <div class="label">Substitution</div>
+
+            <div class="formula">
+              A·B = (2)(1) + (3)(−1) + (1)(4)
+            </div>
+
+            <div class="label">Calculation</div>
+
+            <div class="formula">
+              = 2 − 3 + 4<br>
+              = 3
+            </div>
+
+            <div class="answer">
+              Answer: A·B = 3
+            </div>
+
+          </div>
+        </div>
+
+        <div class="important">
+          <strong>Remember:</strong>
+          Dot product ka result scalar hota hai. Isliye answer mein
+          i, j, k components nahi aayenge.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- VECTOR PRODUCT -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="vector-product">
+      <div class="section-head">
+        <div class="section-number">Topic 12</div>
+        <h2>Vector Product / Cross Product</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>12.1 Definition</h3>
+
+        <div class="definition">
+          <strong>Vector Product</strong>
+          Do vectors ka cross product ek vector quantity produce karta hai jo
+          dono original vectors ke perpendicular direction mein hota hai.
+        </div>
+
+        <div class="formula">
+          A × B = |A||B|sinθ n̂
+        </div>
+
+        <p>
+          Yahan <strong>n̂</strong> dono vectors ke plane ke perpendicular unit
+          vector ko indicate karta hai.
+        </p>
+
+        <h3>12.2 Determinant Form</h3>
+
+        <div class="formula">
+          A × B = | i    j    k |<br>
+                  | Aₓ  Aᵧ  A𝓏 |<br>
+                  | Bₓ  Bᵧ  B𝓏 |
+        </div>
+
+        <p>
+          Expansion karte waqt first row ke signs:
+        </p>
+
+        <div class="formula">
+          + i − j + k
+        </div>
+
+        <h3>12.3 Important Results</h3>
+
+        <div class="formula">
+          A × B = −(B × A)<br>
+          A × A = 0<br>
+          A × 0 = 0
+        </div>
+
+        <h3>12.4 Perpendicular Vectors</h3>
+
+        <p>
+          Agar θ = 90°:
+        </p>
+
+        <div class="formula">
+          |A×B| = |A||B|sin90° = |A||B|
+        </div>
+
+        <h3>12.5 Parallel Vectors</h3>
+
+        <p>
+          Agar θ = 0° ya 180°:
+        </p>
+
+        <div class="formula">
+          sinθ = 0<br>
+          Therefore A×B = 0
+        </div>
+
+        <h3>12.6 Solved Example</h3>
+
+        <div class="example">
+          <div class="example-head">Example 11 — Cross Product</div>
+
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <div class="formula">
+              A = i + 2j + 3k<br>
+              B = 2i − j + k
+            </div>
+
+            <div class="label">Find</div>
+            <p>A × B</p>
+
+            <div class="label">Formula</div>
+
+            <div class="formula">
+              A × B = | i   j   k |<br>
+                      | 1   2   3 |<br>
+                      | 2  −1   1 |
+            </div>
+
+            <div class="label">Calculation</div>
+
+            <div class="formula">
+              A × B<br>
+              = i[(2)(1) − (3)(−1)]<br>
+              − j[(1)(1) − (3)(2)]<br>
+              + k[(1)(−1) − (2)(2)]<br><br>
+
+              = i(2+3) − j(1−6) + k(−1−4)<br>
+              = 5i + 5j − 5k
+            </div>
+
+            <div class="answer">
+              Answer: A × B = 5i + 5j − 5k
+            </div>
+
+          </div>
+        </div>
+
+        <h3>12.7 Dot Product vs Cross Product</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Scalar Product</th>
+              <th>Vector Product</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Symbol</td>
+              <td>A·B</td>
+              <td>A×B</td>
+            </tr>
+            <tr>
+              <td>Result</td>
+              <td>Scalar</td>
+              <td>Vector</td>
+            </tr>
+            <tr>
+              <td>Main relation</td>
+              <td>|A||B|cosθ</td>
+              <td>|A||B|sinθ</td>
+            </tr>
+            <tr>
+              <td>Perpendicular condition</td>
+              <td>A·B = 0</td>
+              <td>Magnitude = |A||B|</td>
+            </tr>
+            <tr>
+              <td>Parallel condition</td>
+              <td>Maximum magnitude for same direction</td>
+              <td>A×B = 0</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- IKS -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="iks">
+      <div class="section-head">
+        <div class="section-number">Topic 13 • IKS</div>
+        <h2>Algebra in Indian Knowledge System — Simultaneous Equations</h2>
+      </div>
+
+      <div class="section-body">
+
+        <p class="lead">
+          SBTE Bihar Unit 1 mein Indian Knowledge System ke under simultaneous
+          equations ki solution approach from Indian Mathematics included hai.
+          Is section ka purpose prescribed mathematical heritage ko algebraic
+          problem-solving ke context mein understand karna hai.
+        </p>
+
+        <div class="definition">
+          <strong>Syllabus scope</strong>
+          Is Unit ke IKS component ka focus simultaneous equations ko Indian
+          Mathematics ke context mein solve karne par hai. Isliye yahan discussion
+          isi prescribed scope tak limited rakha gaya hai.
+        </div>
+
+        <h3>13.1 Historical Mathematical Context</h3>
+
+        <p>
+          Indian mathematical tradition mein unknown quantities ko relationships
+          aur algebraic operations ke through determine karne ki techniques
+          develop hui hain. Engineering student ke liye important point ye hai
+          ki mathematical notation aur modern notation different ho sakte hain,
+          lekin underlying objective — unknown quantities ko given relationships
+          se determine karna — same mathematical problem ko represent kar sakta hai.
+        </p>
+
+        <h3>13.2 Simultaneous Equation ka Basic Idea</h3>
+
+        <p>
+          Suppose do unknowns x aur y hain aur humein do relationships di gayi hain:
+        </p>
+
+        <div class="formula">
+          ax + by = c<br>
+          px + qy = r
+        </div>
+
+        <p>
+          Dono equations ko simultaneously satisfy karne wali x aur y values
+          desired solution hoti hain.
+        </p>
+
+        <h3>13.3 Elimination-Based Thinking</h3>
+
+        <p>
+          Simultaneous equations ko solve karne ka basic algebraic idea ye hai ki
+          ek unknown ko eliminate karke doosre unknown ko find kiya jaaye.
+          Uske baad obtained value ko original equation mein substitute karke
+          remaining unknown find kiya ja sakta hai.
+        </p>
+
+        <ol class="steps">
+          <li>Equations ko suitable standard form mein arrange karein.</li>
+          <li>Ek variable ke coefficients ko suitable multiple se equal karein.</li>
+          <li>Equations ko add/subtract karke ek variable eliminate karein.</li>
+          <li>Remaining variable calculate karein.</li>
+          <li>Calculated value ko original equation mein substitute karein.</li>
+          <li>Final result ko check karein.</li>
+        </ol>
+
+        <div class="example">
+          <div class="example-head">Example 12 — Two Simultaneous Equations</div>
+
+          <div class="example-body">
+
+            <div class="label">Given</div>
+
+            <div class="formula">
+              2x + y = 7<br>
+              x − y = 2
+            </div>
+
+            <div class="label">Find</div>
+            <p>x and y.</p>
+
+            <div class="label">Calculation</div>
+
+            <p>
+              Second equation:
+            </p>
+
+            <div class="formula">
+              x − y = 2
+            </div>
+
+            <p>
+              Therefore:
+            </p>
+
+            <div class="formula">
+              y = x − 2
+            </div>
+
+            <p>
+              First equation mein substitute:
+            </p>
+
+            <div class="formula">
+              2x + (x−2) = 7<br>
+              3x − 2 = 7<br>
+              3x = 9<br>
+              x = 3
+            </div>
+
+            <p>
+              Therefore:
+            </p>
+
+            <div class="formula">
+              y = 3 − 2 = 1
+            </div>
+
+            <div class="answer">
+              Answer: x = 3 and y = 1.
+            </div>
+
+          </div>
+        </div>
+
+        <div class="important">
+          <strong>Study note:</strong>
+          IKS section ko sirf historical paragraph ki tarah memorize na karein.
+          Simultaneous equations ke mathematical structure aur solution logic
+          ko clearly samajhna important hai.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- PRACTICAL APPLICATION -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="applications">
+      <div class="section-head">
+        <div class="section-number">Applied Understanding</div>
+        <h2>Engineering-Oriented Understanding of Unit 1</h2>
+      </div>
+
+      <div class="section-body">
+
+        <p>
+          Unit 1 ke concepts ko engineering problems mein mathematical representation
+          ke tools ki tarah samjha ja sakta hai. SBTE ke broader course context mein
+          matrices aur vectors ke engineering applications ko term work/tutorial
+          activities ke through bhi connect kiya gaya hai.
+        </p>
+
+        <div class="grid-2">
+
+          <div class="card">
+            <h4>Determinants</h4>
+            <p>
+              Simultaneous equations ke solution aur matrix properties ko
+              mathematically handle karne ke liye useful.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Matrices</h4>
+            <p>
+              Multiple values aur relationships ko compact rectangular form mein
+              organize karne ka systematic method.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Vectors</h4>
+            <p>
+              Direction-dependent engineering quantities ko represent karne
+              ke liye useful mathematical language.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Scalar Product</h4>
+            <p>
+              Do vectors ke relative angle aur scalar result wale calculations
+              ko understand karne mein useful.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Vector Product</h4>
+            <p>
+              Perpendicular direction wale vector result ko calculate karne
+              ke liye useful.
+            </p>
+          </div>
+
+          <div class="card">
+            <h4>Matrix Inverse</h4>
+            <p>
+              AX = B type system ko X = A⁻¹B form mein solve karne ka structured
+              mathematical method.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- EXAM SECTION -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="exam">
+      <div class="section-head">
+        <div class="section-number">Exam Preparation</div>
+        <h2>Important Definitions, Questions & Exam Points</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>Important Definitions</h3>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4>Determinant</h4>
+            <p>Square array se mathematical rule ke according obtained scalar value.</p>
+          </div>
+
+          <div class="card">
+            <h4>Matrix</h4>
+            <p>Rows aur columns mein arranged rectangular collection of elements.</p>
+          </div>
+
+          <div class="card">
+            <h4>Transpose</h4>
+            <p>Rows ko columns aur columns ko rows mein interchange karne se obtained matrix.</p>
+          </div>
+
+          <div class="card">
+            <h4>Adjoint</h4>
+            <p>Cofactor matrix ka transpose.</p>
+          </div>
+
+          <div class="card">
+            <h4>Inverse Matrix</h4>
+            <p>Aisi square matrix A⁻¹ jiske liye AA⁻¹ = A⁻¹A = I.</p>
+          </div>
+
+          <div class="card">
+            <h4>Vector</h4>
+            <p>Magnitude aur direction dono wali quantity.</p>
+          </div>
+
+          <div class="card">
+            <h4>Scalar Product</h4>
+            <p>Do vectors ka product jiska result scalar hota hai.</p>
+          </div>
+
+          <div class="card">
+            <h4>Vector Product</h4>
+            <p>Do vectors ka product jiska result vector hota hai.</p>
+          </div>
+        </div>
+
+        <h3>Important Short Questions</h3>
+
+        <ol>
+          <li>Determinant kya hai?</li>
+          <li>Matrix ka order kaise determine karte hain?</li>
+          <li>Square matrix kya hoti hai?</li>
+          <li>2×2 determinant ka formula likhiye.</li>
+          <li>Minor aur cofactor mein difference batayiye.</li>
+          <li>Cramer's rule ki conditions kya hain?</li>
+          <li>Transpose of a matrix define kijiye.</li>
+          <li>Adjoint of a matrix kya hai?</li>
+          <li>Matrix inverse ka formula likhiye.</li>
+          <li>Matrix multiplication ke liye compatibility condition kya hai?</li>
+          <li>Position vector kya hota hai?</li>
+          <li>Scalar product ka formula likhiye.</li>
+          <li>Vector product ka formula likhiye.</li>
+          <li>Perpendicular vectors ke scalar product ka value kya hota hai?</li>
+          <li>Parallel vectors ka vector product kya hota hai?</li>
+        </ol>
+
+        <h3>Important Long Questions</h3>
+
+        <ol>
+          <li>
+            3×3 determinant ko cofactors ke through expand karke explain kijiye.
+          </li>
+          <li>
+            Cramer's rule explain karke three simultaneous equations solve kijiye.
+          </li>
+          <li>
+            Matrix addition, subtraction, scalar multiplication aur multiplication
+            examples ke saath explain kijiye.
+          </li>
+          <li>
+            Transpose, adjoint aur inverse matrix ko step-by-step explain kijiye.
+          </li>
+          <li>
+            Matrix inversion method se three simultaneous equations solve kijiye.
+          </li>
+          <li>
+            Position vector aur vector addition/subtraction explain kijiye.
+          </li>
+          <li>
+            Scalar product aur vector product ko formula aur examples ke saath
+            explain kijiye.
+          </li>
+          <li>
+            Indian Mathematics ke prescribed simultaneous-equation component ko
+            mathematical solution process ke context mein explain kijiye.
+          </li>
+        </ol>
+
+        <h3>Important Numerical Questions</h3>
+
+        <ol>
+          <li>Given 2×2 matrix ka determinant find kijiye.</li>
+          <li>Given 3×3 determinant evaluate kijiye.</li>
+          <li>Three simultaneous equations ko Cramer's rule se solve kijiye.</li>
+          <li>Two matrices ka sum aur difference calculate kijiye.</li>
+          <li>Given matrices ka product find kijiye.</li>
+          <li>Given matrix ka transpose find kijiye.</li>
+          <li>Given matrix ka adjoint calculate kijiye.</li>
+          <li>Given non-singular matrix ka inverse find kijiye.</li>
+          <li>Matrix inversion method se simultaneous equations solve kijiye.</li>
+          <li>Given vectors ka sum aur difference calculate kijiye.</li>
+          <li>Position vector aur magnitude find kijiye.</li>
+          <li>Two vectors ka scalar product find kijiye.</li>
+          <li>Two vectors ka vector product find kijiye.</li>
+          <li>Dot product ki help se angle between vectors find kijiye.</li>
+        </ol>
+
+        <h3>Common Mistakes</h3>
+
+        <div class="danger">
+          <ul>
+            <li>2×2 determinant mein ad − bc ki jagah ad + bc likhna.</li>
+            <li>3×3 determinant expansion mein signs galat karna.</li>
+            <li>Cramer's rule mein wrong column replace karna.</li>
+            <li>Matrix addition different-order matrices par perform karna.</li>
+            <li>Matrix multiplication ko element-by-element multiplication samajhna.</li>
+            <li>(AB)ᵀ = AᵀBᵀ likhna. Correct relation: (AB)ᵀ = BᵀAᵀ.</li>
+            <li>|A| = 0 hone par ordinary inverse apply kar dena.</li>
+            <li>Dot product ka answer vector form mein dena.</li>
+            <li>Cross product ke j-component ke sign ko ignore karna.</li>
+            <li>Vector components mein negative signs miss karna.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- MCQs -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="mcq">
+      <div class="section-head">
+        <div class="section-number">Practice Zone</div>
+        <h2>Exam-Oriented MCQs</h2>
+      </div>
+
+      <div class="section-body">
+
+        <div class="question">
+          <strong>1. A determinant is directly associated with which type of matrix?</strong>
+          <div class="options">
+            <div>A. Only row matrix</div>
+            <div>B. Only column matrix</div>
+            <div>C. Square matrix</div>
+            <div>D. Any rectangular matrix</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: C — Determinant is defined for square matrices.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>2. The determinant of [[a,b],[c,d]] is:</strong>
+          <div class="options">
+            <div>A. ab − cd</div>
+            <div>B. ad − bc</div>
+            <div>C. ac − bd</div>
+            <div>D. ad + bc</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: B — The order-2 determinant is ad − bc.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>3. If two rows of a determinant are identical, its value is:</strong>
+          <div class="options">
+            <div>A. 1</div>
+            <div>B. −1</div>
+            <div>C. Zero</div>
+            <div>D. Cannot be determined</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: C — Identical rows make the determinant zero.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>4. For Cramer's rule, the direct expressions are:</strong>
+          <div class="options">
+            <div>A. x=D/Dx</div>
+            <div>B. x=Dx/D</div>
+            <div>C. x=D+Dx</div>
+            <div>D. x=D−Dx</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: B — x = Dx/D.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>5. Matrix addition requires:</strong>
+          <div class="options">
+            <div>A. Same order</div>
+            <div>B. Same determinant</div>
+            <div>C. Same diagonal</div>
+            <div>D. Same elements only</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: A — Matrices must have the same order for addition.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>6. If A is m×n and B is n×p, the order of AB is:</strong>
+          <div class="options">
+            <div>A. m×p</div>
+            <div>B. n×n</div>
+            <div>C. p×m</div>
+            <div>D. m×n</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: A — The inner dimensions n match and the outer dimensions remain m×p.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>7. The transpose of a 2×3 matrix has order:</strong>
+          <div class="options">
+            <div>A. 2×3</div>
+            <div>B. 3×2</div>
+            <div>C. 2×2</div>
+            <div>D. 3×3</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: B — Rows and columns interchange.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>8. The inverse of A by adjoint method is:</strong>
+          <div class="options">
+            <div>A. A/det(A)</div>
+            <div>B. det(A)/adj(A)</div>
+            <div>C. adj(A)/det(A)</div>
+            <div>D. det(A)×adj(A)</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: C — A⁻¹ = adj(A)/|A|, when |A| ≠ 0.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>9. A matrix has an ordinary inverse only when:</strong>
+          <div class="options">
+            <div>A. It is rectangular</div>
+            <div>B. Its determinant is zero</div>
+            <div>C. It is square and its determinant is non-zero</div>
+            <div>D. All elements are equal</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: C — A square matrix with non-zero determinant is non-singular and has an inverse.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>10. A position vector generally starts from:</strong>
+          <div class="options">
+            <div>A. Any random point</div>
+            <div>B. Origin</div>
+            <div>C. End point</div>
+            <div>D. Negative axis only</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: B — Position vector is directed from origin to the point.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>11. A·B represents:</strong>
+          <div class="options">
+            <div>A. Vector product</div>
+            <div>B. Scalar product</div>
+            <div>C. Matrix product</div>
+            <div>D. Determinant</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: B — Dot product is the scalar product.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>12. The result of A·B is:</strong>
+          <div class="options">
+            <div>A. Scalar</div>
+            <div>B. Vector</div>
+            <div>C. Matrix only</div>
+            <div>D. Unit vector</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: A — Scalar product produces a scalar.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>13. The formula for scalar product is:</strong>
+          <div class="options">
+            <div>A. |A||B|sinθ</div>
+            <div>B. |A||B|cosθ</div>
+            <div>C. |A|/|B|</div>
+            <div>D. |A|+|B|</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: B — A·B = |A||B|cosθ.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>14. The result of A×B is:</strong>
+          <div class="options">
+            <div>A. Scalar</div>
+            <div>B. Vector</div>
+            <div>C. Number only</div>
+            <div>D. Determinant only</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: B — Cross product produces a vector.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>15. For perpendicular vectors A and B:</strong>
+          <div class="options">
+            <div>A. A·B = 0</div>
+            <div>B. A×B = 0</div>
+            <div>C. |A| = 0</div>
+            <div>D. |B| = 0</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: A — cos90° = 0, so A·B = 0.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>16. For parallel vectors A and B:</strong>
+          <div class="options">
+            <div>A. A×B = 0</div>
+            <div>B. A·B = 0 always</div>
+            <div>C. Both vectors become zero</div>
+            <div>D. Determinant becomes 1</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: A — sin0° = 0, hence A×B = 0 for parallel vectors.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>17. The matrix equation for a system of linear equations can be written as:</strong>
+          <div class="options">
+            <div>A. AX = B</div>
+            <div>B. A+B=X</div>
+            <div>C. AB=X</div>
+            <div>D. A=X+B</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: A — The coefficient matrix form is AX = B.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>18. From AX = B, multiplying by A⁻¹ gives:</strong>
+          <div class="options">
+            <div>A. X=A⁻¹B</div>
+            <div>B. X=AB</div>
+            <div>C. X=A+B</div>
+            <div>D. X=B⁻¹A</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: A — A⁻¹AX = A⁻¹B and A⁻¹A = I, so X=A⁻¹B.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>19. In a 3×3 cofactor sign pattern, the first row is:</strong>
+          <div class="options">
+            <div>A. + + +</div>
+            <div>B. − − −</div>
+            <div>C. + − +</div>
+            <div>D. − + −</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: C — The standard cofactor sign pattern begins + − +.
+          </div>
+        </div>
+
+        <div class="question">
+          <strong>20. The IKS component prescribed in Unit 1 relates to:</strong>
+          <div class="options">
+            <div>A. Probability distributions</div>
+            <div>B. Solution of simultaneous equations</div>
+            <div>C. Conic sections</div>
+            <div>D. Differential equations</div>
+          </div>
+          <div class="mcq-answer">
+            Correct Answer: B — Unit 1 specifies solution of simultaneous equations under Indian Mathematics.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- ONE SHOT REVISION -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="revision">
+      <div class="section-head">
+        <div class="section-number">Rapid Revision</div>
+        <h2>One-Shot Revision</h2>
+      </div>
+
+      <div class="section-body">
+
+        <p class="lead">
+          Exam se pehle Unit 1 ko quickly revise karne ke liye following points
+          ek compact checklist ki tarah use karein.
+        </p>
+
+        <ul class="revision-list">
+
+          <li>
+            <strong>Determinant:</strong>
+            Square matrix se scalar value.
+          </li>
+
+          <li>
+            <strong>2×2 determinant:</strong>
+            ad − bc.
+          </li>
+
+          <li>
+            <strong>3×3 determinant:</strong>
+            First row/cofactor expansion carefully.
+          </li>
+
+          <li>
+            <strong>Cofactor signs:</strong>
+            + − + / − + − / + − +.
+          </li>
+
+          <li>
+            <strong>Cramer's rule:</strong>
+            x=Dx/D, y=Dy/D, z=Dz/D.
+          </li>
+
+          <li>
+            <strong>Matrix addition:</strong>
+            Same order required.
+          </li>
+
+          <li>
+            <strong>Matrix multiplication:</strong>
+            Columns of first = rows of second.
+          </li>
+
+          <li>
+            <strong>Transpose:</strong>
+            Rows ↔ columns.
+          </li>
+
+          <li>
+            <strong>Adjoint:</strong>
+            Transpose of cofactor matrix.
+          </li>
+
+          <li>
+            <strong>Inverse:</strong>
+            A⁻¹ = adj(A)/|A|.
+          </li>
+
+          <li>
+            <strong>Inverse condition:</strong>
+            |A| ≠ 0.
+          </li>
+
+          <li>
+            <strong>Matrix equation:</strong>
+            AX = B.
+          </li>
+
+          <li>
+            <strong>Inversion method:</strong>
+            X = A⁻¹B.
+          </li>
+
+          <li>
+            <strong>Position vector:</strong>
+            OP = xi + yj + zk.
+          </li>
+
+          <li>
+            <strong>Vector magnitude:</strong>
+            √(Ax²+Ay²+Az²).
+          </li>
+
+          <li>
+            <strong>Vector addition:</strong>
+            Corresponding components add.
+          </li>
+
+          <li>
+            <strong>Scalar product:</strong>
+            A·B = |A||B|cosθ.
+          </li>
+
+          <li>
+            <strong>Vector product:</strong>
+            A×B = |A||B|sinθ n̂.
+          </li>
+
+          <li>
+            <strong>Perpendicular vectors:</strong>
+            A·B = 0.
+          </li>
+
+          <li>
+            <strong>Parallel vectors:</strong>
+            A×B = 0.
+          </li>
+
+          <li>
+            <strong>IKS:</strong>
+            Simultaneous equations in Indian Mathematics context.
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- FORMULA SHEET -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="formula-sheet">
+      <div class="section-head">
+        <div class="section-number">Final Reference</div>
+        <h2>Unit 1 Formula Sheet</h2>
+      </div>
+
+      <div class="section-body">
+
+        <h3>Determinants</h3>
+
+        <div class="formula">
+          | a  b |<br>
+          | c  d | = ad − bc
+        </div>
+
+        <div class="formula">
+          |A|₃×₃ = a(ei−fh) − b(di−fg) + c(dh−eg)
+        </div>
+
+        <h3>Cramer's Rule</h3>
+
+        <div class="formula">
+          x = Dₓ/D<br>
+          y = Dᵧ/D<br>
+          z = D𝓏/D
+        </div>
+
+        <h3>Matrix Operations</h3>
+
+        <div class="formula">
+          A+B = [aᵢⱼ+bᵢⱼ]<br>
+          A−B = [aᵢⱼ−bᵢⱼ]<br>
+          kA = [kaᵢⱼ]
+        </div>
+
+        <h3>Transpose</h3>
+
+        <div class="formula">
+          (Aᵀ)ᵀ=A<br>
+          (A+B)ᵀ=Aᵀ+Bᵀ<br>
+          (AB)ᵀ=BᵀAᵀ
+        </div>
+
+        <h3>Adjoint and Inverse</h3>
+
+        <div class="formula">
+          adj(A) = (Cofactor Matrix)ᵀ<br>
+          A⁻¹ = adj(A)/|A|<br>
+          AA⁻¹ = A⁻¹A = I
+        </div>
+
+        <h3>Matrix Inversion Method</h3>
+
+        <div class="formula">
+          AX=B<br>
+          X=A⁻¹B
+        </div>
+
+        <h3>Position Vector</h3>
+
+        <div class="formula">
+          OP = xi + yj + zk<br>
+          |OP| = √(x²+y²+z²)
+        </div>
+
+        <h3>Vector Algebra</h3>
+
+        <div class="formula">
+          A+B = (Aₓ+Bₓ)i + (Aᵧ+Bᵧ)j + (A𝓏+B𝓏)k<br>
+          A−B = (Aₓ−Bₓ)i + (Aᵧ−Bᵧ)j + (A𝓏−B𝓏)k
+        </div>
+
+        <h3>Scalar Product</h3>
+
+        <div class="formula">
+          A·B = |A||B|cosθ<br>
+          A·B = AₓBₓ+AᵧBᵧ+A𝓏B𝓏<br>
+          cosθ = (A·B)/(|A||B|)
+        </div>
+
+        <h3>Vector Product</h3>
+
+        <div class="formula">
+          A×B = |A||B|sinθ n̂
+        </div>
+
+        <div class="formula">
+          A×B = | i    j    k |<br>
+                | Aₓ  Aᵧ  A𝓏 |<br>
+                | Bₓ  Bᵧ  B𝓏 |
+        </div>
+
+        <div class="success">
+          <strong>Final exam rule:</strong>
+          Formula yaad karna enough nahi hai. Har numerical mein
+          GIVEN → FIND → FORMULA → WHY THIS FORMULA → SUBSTITUTION →
+          CALCULATION → ANSWER ka sequence maintain karein.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- FINAL QUICK REVISION -->
+    <!-- ========================================================= -->
+
+    <section class="article-section" id="quick-final">
+      <div class="section-head">
+        <div class="section-number">Last-Minute Revision</div>
+        <h2>Final Quick Revision — Before Examination</h2>
+      </div>
+
+      <div class="section-body">
+
+        <details open>
+          <summary>Determinant ke liye kya revise karein?</summary>
+          <div>
+            <p>
+              2×2 formula, 3×3 expansion, minors, cofactors, sign pattern,
+              determinant properties aur zero/non-zero determinant ka significance
+              revise karein.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Cramer's Rule ke liye kya revise karein?</summary>
+          <div>
+            <p>
+              D, Dx, Dy, Dz ki formation aur x=Dx/D, y=Dy/D, z=Dz/D.
+              Replacement column ka concept especially practice karein.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Matrices ke liye kya revise karein?</summary>
+          <div>
+            <p>
+              Order, addition, subtraction, scalar multiplication, matrix
+              multiplication, transpose, adjoint aur inverse.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Vectors ke liye kya revise karein?</summary>
+          <div>
+            <p>
+              Position vector, components, magnitude, addition, subtraction,
+              scalar multiplication, dot product aur cross product.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>IKS ke liye kya revise karein?</summary>
+          <div>
+            <p>
+              Unit 1 ke prescribed Indian Mathematics component mein simultaneous
+              equations ki solution approach ko conceptually revise karein.
+            </p>
+          </div>
+        </details>
+
+        <div class="notice">
+          <strong>Study Strategy</strong>
+          Pehle formulas revise karein → phir solved examples ko khud reproduce
+          karein → uske baad without looking numerical solve karein → finally
+          short definitions aur properties revise karein.
+        </div>
+
+        <p class="print-note">
+          Printed study-book version — PrinceXmahto Study — Basic Engineering Mathematics,
+          Semester I, Unit 1: Algebra.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+
+    <div>
+      <h3>PrinceXmahto Study</h3>
+      <p>
+        SBTE Bihar Diploma Study Materials — professionally structured study
+        resources for diploma students.
+      </p>
+      <p>
+        This chapter is prepared around the prescribed Semester-I Unit 1
+        syllabus for Basic Engineering Mathematics.
+      </p>
+    </div>
+
+    <div>
+      <h3>Course</h3>
+      <ul class="footer-list">
+        <li>Basic Engg. Mathematics</li>
+        <li>Course Code: 2600101</li>
+        <li>Semester: I</li>
+        <li>Branch: Electronics Engineering</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Unit</h3>
+      <ul class="footer-list">
+        <li>Unit 1.0 — Algebra</li>
+        <li>Determinants</li>
+        <li>Matrices</li>
+        <li>Vectors</li>
+        <li>Indian Mathematics — IKS</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    <span>© 2026 PrinceXmahto Study</span>
+    <span>Made for Diploma Students</span>
+  </div>
+</footer>
+
+<button
+  class="floating-top"
+  id="topBtn"
+  aria-label="Back to top"
+  title="Back to top"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>↑</button>
+
+<script>
+  /* =========================================================
+     PrinceXmahto Study — Lightweight Study Book JavaScript
+     ========================================================= */
+
+  const progress = document.getElementById("progress");
+  const topBtn = document.getElementById("topBtn");
+  const search = document.getElementById("search");
+  const sections = [...document.querySelectorAll("section.article-section")];
+  const tocLinks = [...document.querySelectorAll(".toc a")];
+
+  function updateProgress(){
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    if(docHeight > 0){
+      progress.style.width = ((scrollTop / docHeight) * 100) + "%";
+    }
+
+    if(scrollTop > 500){
+      topBtn.classList.add("show");
+    }else{
+      topBtn.classList.remove("show");
+    }
+
+    let current = "";
+
+    sections.forEach(section => {
+      const top = section.offsetTop - 130;
+
+      if(scrollTop >= top){
+        current = section.id;
+      }
+    });
+
+    tocLinks.forEach(link => {
+      link.classList.remove("active");
+
+      const target = link.getAttribute("href");
+
+      if(target === "#" + current){
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateProgress, {passive:true});
+  window.addEventListener("load", updateProgress);
+
+  /* Smooth navigation */
+  tocLinks.forEach(link => {
+    link.addEventListener("click", function(event){
+      const targetId = this.getAttribute("href");
+
+      if(targetId && targetId.startsWith("#")){
+        const target = document.querySelector(targetId);
+
+        if(target){
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+          });
+        }
+      }
+    });
+  });
+
+  /* =========================================================
+     Search within chapter
+     ========================================================= */
+
+  search.addEventListener("input", function(){
+
+    const query = this.value.trim().toLowerCase();
+
+    sections.forEach(section => {
+
+      if(!query){
+        section.classList.remove("hidden-search");
+        return;
+      }
+
+      const text = section.innerText.toLowerCase();
+
+      if(text.includes(query)){
+        section.classList.remove("hidden-search");
+      }else{
+        section.classList.add("hidden-search");
+      }
+
+    });
+
+  });
+
+  /* =========================================================
+     Formula copy buttons
+     ========================================================= */
+
+  function copyFormula(button){
+
+    const formulaBox = button.parentElement;
+
+    const clone = formulaBox.cloneNode(true);
+
+    const cloneButton = clone.querySelector(".copy");
+
+    if(cloneButton){
+      cloneButton.remove();
+    }
+
+    const text = clone.innerText
+      .replace(/\s+\n/g,"\n")
+      .trim();
+
+    navigator.clipboard.writeText(text).then(() => {
+
+      const oldText = button.textContent;
+
+      button.textContent = "Copied";
+
+      setTimeout(() => {
+        button.textContent = oldText;
+      },1200);
+
+    }).catch(() => {
+
+      button.textContent = "Select";
+
+      setTimeout(() => {
+        button.textContent = "Copy";
+      },1200);
+
+    });
+  }
+
+  /* =========================================================
+     Keyboard shortcuts
+     ========================================================= */
+
+  document.addEventListener("keydown", function(event){
+
+    if((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k"){
+      event.preventDefault();
+      search.focus();
+      search.select();
+    }
+
+    if(event.key === "Escape"){
+      search.value = "";
+
+      sections.forEach(section => {
+        section.classList.remove("hidden-search");
+      });
+
+      search.blur();
+    }
+
+  });
+
+  /* =========================================================
+     Print shortcut
+     ========================================================= */
+
+  document.addEventListener("keydown", function(event){
+
+    if((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "p"){
+      /* Browser handles Ctrl+P naturally.
+         This handler intentionally does not prevent default. */
+    }
+
+  });
+
+  /* =========================================================
+     External-free accessibility helpers
+     ========================================================= */
+
+  document.querySelectorAll("details").forEach(detail => {
+
+    detail.addEventListener("toggle", function(){
+
+      if(this.open){
+        this.scrollIntoView({
+          behavior:"smooth",
+          block:"nearest"
+        });
+      }
+
+    });
+
+  });
+
+  /* Initial state */
+  updateProgress();
+</script>
+
+</body>
+</html>
