@@ -45,6 +45,12 @@ function renderLesson(topic,note,index,title,units){
 if(!branch||!subject){root.innerHTML='<div class="empty">Topic path not found. <a href="./">Return to catalogue</a>.</div>';}
 else{
  const[code,title,units]=subject;
+ if(code==='2625104'&&(branch.id==='elx'||branch.id==='electronics')){
+   const m={'Force systems and equilibrium':1,'Mechanics and Force System':1,'Static Equilibrium':2,'Friction':3,'Centroid and centre of gravity':4,'Centroid, Centre of Gravity and Moment of Inertia':4,'Simple lifting machines':5,'Simple Lifting Machine':5};
+   const n=m[selected]||1;
+   window.location.href='./engineering-mechanics-unit'+n+'-book.html';
+   return;
+ }
  const topic=units.includes(selected)?selected:units[0];
  const note=window.PX_LESSONS&&window.PX_LESSONS[topic];
  if(note)renderLesson(topic,note,units.indexOf(topic)+1,title,units);
