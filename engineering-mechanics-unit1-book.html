@@ -1,1 +1,2895 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Engineering Mechanics Unit 1 — Mechanics and Force System | PrinceXmahto Study</title>
+
+<meta name="description"
+content="SBTE Bihar Diploma Engineering Mechanics Unit 1 — Mechanics and Force System. Complete Hinglish textbook notes by PrinceXmahto Study.">
+
+<style>
+
+:root{
+    --ink:#172033;
+    --muted:#5f6b7a;
+    --paper:#ffffff;
+    --bg:#eef1f5;
+    --line:#dfe4ea;
+    --blue:#183b6b;
+    --blue2:#285b96;
+    --soft:#f4f7fb;
+    --green:#176b4d;
+    --orange:#a85d00;
+    --red:#a52a2a;
+    --shadow:0 10px 30px rgba(20,35,55,.08);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    line-height:1.75;
+}
+
+.page{
+    width:min(1120px, calc(100% - 28px));
+    margin:28px auto;
+    background:var(--paper);
+    box-shadow:var(--shadow);
+}
+
+header{
+    padding:55px 65px;
+    background:
+        linear-gradient(135deg,#102c50,#244e7e);
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+header:after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+    right:-80px;
+    top:-100px;
+}
+
+.brand{
+    letter-spacing:3px;
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    opacity:.85;
+}
+
+header h1{
+    font-size:42px;
+    line-height:1.15;
+    margin:18px 0 10px;
+    max-width:850px;
+}
+
+header .subtitle{
+    font-size:20px;
+    opacity:.92;
+    margin:0;
+}
+
+.header-meta{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.header-meta span{
+    padding:7px 12px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:7px;
+    font-size:13px;
+}
+
+.content{
+    padding:50px 65px;
+}
+
+.toc{
+    background:var(--soft);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:28px 30px;
+    margin-bottom:45px;
+}
+
+.toc h2{
+    margin-top:0;
+}
+
+.toc ol{
+    margin-bottom:0;
+}
+
+.toc a{
+    color:var(--blue);
+    text-decoration:none;
+}
+
+.chapter{
+    margin-top:65px;
+    padding-top:20px;
+}
+
+.chapter-title{
+    border-left:6px solid var(--blue);
+    padding-left:18px;
+}
+
+.chapter-title .unit{
+    color:var(--blue2);
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.chapter-title h2{
+    margin:4px 0;
+    font-size:31px;
+    line-height:1.25;
+}
+
+h3{
+    color:var(--blue);
+    margin-top:38px;
+    font-size:23px;
+}
+
+h4{
+    color:#253a57;
+    margin-top:28px;
+    font-size:18px;
+}
+
+p{
+    margin:12px 0;
+}
+
+.definition{
+    background:#edf5ff;
+    border-left:5px solid var(--blue2);
+    padding:18px 20px;
+    border-radius:0 10px 10px 0;
+    margin:20px 0;
+}
+
+.important{
+    background:#fff7e8;
+    border-left:5px solid var(--orange);
+    padding:18px 20px;
+    border-radius:0 10px 10px 0;
+    margin:20px 0;
+}
+
+.exam{
+    background:#edf9f4;
+    border-left:5px solid var(--green);
+    padding:18px 20px;
+    border-radius:0 10px 10px 0;
+    margin:20px 0;
+}
+
+.warning{
+    background:#fff0f0;
+    border-left:5px solid var(--red);
+    padding:18px 20px;
+    border-radius:0 10px 10px 0;
+    margin:20px 0;
+}
+
+.formula{
+    background:#101827;
+    color:#fff;
+    padding:22px;
+    border-radius:12px;
+    margin:22px 0;
+    overflow:auto;
+}
+
+.formula code{
+    font-size:17px;
+    white-space:pre-wrap;
+}
+
+.symbol-table,
+.comparison,
+.question-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:22px 0;
+}
+
+.symbol-table th,
+.symbol-table td,
+.comparison th,
+.comparison td,
+.question-table th,
+.question-table td{
+    border:1px solid var(--line);
+    padding:11px 13px;
+    text-align:left;
+    vertical-align:top;
+}
+
+.symbol-table th,
+.comparison th,
+.question-table th{
+    background:#f2f5f8;
+}
+
+.example{
+    border:1px solid var(--line);
+    border-radius:13px;
+    padding:23px;
+    margin:25px 0;
+    background:#fff;
+}
+
+.example-title{
+    font-weight:800;
+    color:var(--blue);
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+.step{
+    margin:9px 0;
+    padding-left:15px;
+    border-left:3px solid #cdd7e4;
+}
+
+.diagram{
+    margin:28px auto;
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:#fbfcfd;
+    overflow:auto;
+    text-align:center;
+}
+
+.diagram svg{
+    max-width:100%;
+    height:auto;
+}
+
+.diagram-caption{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:8px;
+}
+
+.badge{
+    display:inline-block;
+    padding:4px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+    background:#e9eef5;
+    color:var(--blue);
+    margin:3px;
+}
+
+ul,ol{
+    padding-left:25px;
+}
+
+li{
+    margin:7px 0;
+}
+
+.two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.card{
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px;
+    background:#fff;
+}
+
+.card h4{
+    margin-top:0;
+}
+
+.mcq{
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px;
+    margin:15px 0;
+}
+
+.answer{
+    color:var(--green);
+    font-weight:700;
+}
+
+footer{
+    background:#101827;
+    color:#dce4ef;
+    padding:35px 65px;
+    text-align:center;
+}
+
+.small{
+    color:var(--muted);
+    font-size:14px;
+}
+
+hr{
+    border:0;
+    border-top:1px solid var(--line);
+    margin:45px 0;
+}
+
+@media(max-width:760px){
+
+    .page{
+        width:100%;
+        margin:0;
+    }
+
+    header{
+        padding:35px 22px;
+    }
+
+    header h1{
+        font-size:31px;
+    }
+
+    .content{
+        padding:32px 20px;
+    }
+
+    .two-col{
+        grid-template-columns:1fr;
+    }
+
+    .chapter-title h2{
+        font-size:25px;
+    }
+
+    footer{
+        padding:30px 20px;
+    }
+
+}
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    .page{
+        width:100%;
+        margin:0;
+        box-shadow:none;
+    }
+
+    header{
+        break-after:page;
+    }
+
+    .chapter{
+        break-inside:auto;
+    }
+
+    .example,
+    .definition,
+    .important,
+    .exam,
+    .warning,
+    .formula,
+    .diagram{
+        break-inside:avoid;
+    }
+
+    a{
+        color:inherit;
+        text-decoration:none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+<div class="brand">
+PRINCEXMAHTO STUDY
+</div>
+
+<h1>
+Engineering Mechanics
+<br>
+Unit 1 — Mechanics and Force System
+</h1>
+
+<p class="subtitle">
+Complete Diploma Study Material — Easy Hinglish
+</p>
+
+<div class="header-meta">
+<span>SBTE Bihar</span>
+<span>Semester I</span>
+<span>Course Code: 2625104</span>
+<span>Unit 1.0</span>
+</div>
+
+</header>
+
+
+<div class="content">
+
+<section class="toc">
+
+<h2>Unit 1 — Contents</h2>
+
+<p>
+Is unit mein mechanics aur force system ke basic concepts se lekar
+analytical aur graphical resultant determination tak concepts cover kiye
+gaye hain.
+</p>
+
+<ol>
+<li><a href="#s11">1.1 Mechanics, Applied Mechanics, Statics and Dynamics</a></li>
+<li><a href="#s12">1.2 Space, Time, Mass, Particle, Body and Rigid Body</a></li>
+<li><a href="#s13">1.3 Scalar and Vector Quantities + SI Units</a></li>
+<li><a href="#s14">1.4 Force, Bow's Notation and Force Systems</a></li>
+<li><a href="#s15">1.5 Resolution of Force and Moment</a></li>
+<li><a href="#s16">1.6 Composition of Forces and Resultant</a></li>
+<li><a href="#s17">1.7 Graphic Statics</a></li>
+<li>Important Formula Sheet</li>
+<li>Common Mistakes</li>
+<li>Important Exam Questions</li>
+<li>MCQs</li>
+<li>Practice Set</li>
+<li>One-Shot Revision</li>
+</ol>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 1.1 -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="s11">
+
+<div class="chapter-title">
+<div class="unit">Section 1.1</div>
+<h2>Mechanics, Applied Mechanics, Statics and Dynamics</h2>
+</div>
+
+<div class="definition">
+
+<strong>Definition:</strong>
+
+Mechanics engineering science ki woh branch hai jisme bodies par
+lagne wale forces aur un forces ke effect ka study kiya jata hai.
+
+</div>
+
+<h3>Mechanics ka simple meaning</h3>
+
+<p>
+Mechanics ko simple language mein samjho:
+<strong>kisi body par force lagane se body ka kya effect hota hai</strong>
+— body move karegi, rest mein rahegi, rotate karegi ya deform hogi —
+iska study mechanics mein kiya jata hai.
+</p>
+
+<p>
+Engineering mein mechanics bahut important hai kyunki almost har
+structure, machine aur moving system par kisi na kisi type ka force
+act karta hai.
+</p>
+
+<h3>Applied Mechanics</h3>
+
+<div class="definition">
+
+<strong>Applied Mechanics</strong> mechanics ke principles ko real
+engineering problems par apply karne ka study hai.
+
+</div>
+
+<p>
+For example, ek bridge par load hai. Hume determine karna hai ki
+bridge ke different members mein force kitna hai aur supports par
+reaction kitna aayega. Ye applied mechanics ka practical use hai.
+</p>
+
+<h3>Statics</h3>
+
+<div class="definition">
+
+<strong>Statics</strong> mechanics ki woh branch hai jisme bodies ke
+equilibrium condition ka study kiya jata hai.
+
+</div>
+
+<p>
+Statics mein body generally rest mein hoti hai ya aisi condition mein
+hot hai jahan acceleration zero hai.
+</p>
+
+<p>
+Example:
+</p>
+
+<ul>
+<li>Table par rakha hua book</li>
+<li>Building ka stationary structure</li>
+<li>Bridge under static loading</li>
+<li>Wall par fixed bracket</li>
+</ul>
+
+<h3>Dynamics</h3>
+
+<div class="definition">
+
+<strong>Dynamics</strong> mechanics ki woh branch hai jisme moving
+bodies aur motion ke causes ka study kiya jata hai.
+
+</div>
+
+<p>
+Agar body accelerate kar rahi hai ya uski velocity change ho rahi hai,
+to dynamics important ho jata hai.
+</p>
+
+<p>
+Examples:
+</p>
+
+<ul>
+<li>Moving car</li>
+<li>Rotating fan</li>
+<li>Running machine</li>
+<li>Moving lift</li>
+</ul>
+
+<div class="comparison">
+
+<table>
+<tr>
+<th>Point</th>
+<th>Statics</th>
+<th>Dynamics</th>
+</tr>
+
+<tr>
+<td>Basic study</td>
+<td>Equilibrium / rest condition</td>
+<td>Motion of body</td>
+</tr>
+
+<tr>
+<td>Acceleration</td>
+<td>Generally zero</td>
+<td>May be present</td>
+</tr>
+
+<tr>
+<td>Example</td>
+<td>Stationary bridge</td>
+<td>Moving vehicle</td>
+</tr>
+
+<tr>
+<td>Main concern</td>
+<td>Forces and equilibrium</td>
+<td>Forces and motion</td>
+</tr>
+</table>
+
+</div>
+
+<div class="exam">
+
+<strong>Exam Focus:</strong>
+
+Mechanics, Applied Mechanics, Statics aur Dynamics ki definition
+properly yaad rakho. Difference question ke liye Statics vs Dynamics
+important preparation point hai.
+
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 1.2 -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="s12">
+
+<div class="chapter-title">
+<div class="unit">Section 1.2</div>
+<h2>Space, Time, Mass, Particle, Body and Rigid Body</h2>
+</div>
+
+<h3>Space</h3>
+
+<div class="definition">
+
+<strong>Space</strong> woh region hai jisme physical objects exist
+karte hain aur position occupy karte hain.
+
+</div>
+
+<p>
+Engineering mechanics mein kisi object ki position describe karne ke
+liye space concept use hota hai.
+</p>
+
+<p>
+SI system mein length ka basic unit <strong>metre (m)</strong> hai.
+</p>
+
+<h3>Time</h3>
+
+<div class="definition">
+
+<strong>Time</strong> events ke occurrence aur duration ko measure
+karne ki physical quantity hai.
+
+</div>
+
+<p>
+Time ka SI unit <strong>second (s)</strong> hai.
+</p>
+
+<h3>Mass</h3>
+
+<div class="definition">
+
+<strong>Mass</strong> kisi body mein present matter ki quantity ka
+measure hai.
+
+</div>
+
+<p>
+Mass ka SI unit <strong>kilogram (kg)</strong> hai.
+</p>
+
+<div class="important">
+
+<strong>Important:</strong>
+
+Mass aur weight same nahi hote.
+
+Mass ki unit kg hoti hai, jabki weight ek force hai aur uski unit
+Newton (N) hoti hai.
+
+</div>
+
+<h3>Particle</h3>
+
+<div class="definition">
+
+<strong>Particle</strong> ek idealized body hai jiska size problem ke
+comparison mein negligible maana jata hai.
+
+</div>
+
+<p>
+Particle ka mass ho sakta hai, lekin uske dimensions ko particular
+problem mein ignore kiya jata hai.
+</p>
+
+<p>
+Example: Bahut large distance par moving vehicle ko sirf uski overall
+motion study karte waqt particle ke form mein represent kiya ja sakta
+hai.
+</p>
+
+<h3>Body</h3>
+
+<div class="definition">
+
+<strong>Body</strong> matter ka ek physical object hai jiska definite
+mass aur dimensions hote hain.
+
+</div>
+
+<p>
+Engineering mechanics mein body par forces act karte hain aur hum
+un forces ke effects study karte hain.
+</p>
+
+<h3>Rigid Body</h3>
+
+<div class="definition">
+
+<strong>Rigid body</strong> ideal body hai jisme do points ke beech
+distance force apply hone par bhi constant maana jata hai.
+
+</div>
+
+<p>
+Real life mein perfectly rigid body practically exist nahi karti.
+Har material mein kuch na kuch deformation hota hai. Lekin engineering
+mechanics ke bahut se problems mein deformation negligible hone ki
+condition mein body ko rigid maana jata hai.
+</p>
+
+<div class="diagram">
+
+<svg width="650" height="260" viewBox="0 0 650 260">
+
+<rect x="170" y="65" width="300" height="120"
+rx="8"
+fill="#eef4fb"
+stroke="#183b6b"
+stroke-width="4"/>
+
+<circle cx="220" cy="125" r="8" fill="#183b6b"/>
+<circle cx="420" cy="125" r="8" fill="#183b6b"/>
+
+<line x1="220" y1="125" x2="420" y2="125"
+stroke="#a52a2a"
+stroke-width="3"/>
+
+<text x="215" y="105"
+font-size="18">A</text>
+
+<text x="415" y="105"
+font-size="18">B</text>
+
+<text x="260" y="115"
+font-size="17"
+fill="#a52a2a">
+Distance AB = constant
+</text>
+
+<text x="245" y="220"
+font-size="20"
+fill="#183b6b">
+Ideal Rigid Body
+</text>
+
+</svg>
+
+<div class="diagram-caption">
+Rigid body mein considered points ke beech distance constant maana jata hai.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 1.3 -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="s13">
+
+<div class="chapter-title">
+<div class="unit">Section 1.3</div>
+<h2>Scalar and Vector Quantities — SI Units</h2>
+</div>
+
+<h3>Scalar Quantity</h3>
+
+<div class="definition">
+
+<strong>Scalar quantity</strong> woh physical quantity hai jise
+completely specify karne ke liye sirf magnitude required hota hai.
+
+</div>
+
+<p>
+Scalar mein direction required nahi hoti.
+</p>
+
+<p><strong>Examples:</strong></p>
+
+<ul>
+<li>Mass</li>
+<li>Time</li>
+<li>Temperature</li>
+<li>Distance</li>
+<li>Speed</li>
+<li>Energy</li>
+</ul>
+
+<h3>Vector Quantity</h3>
+
+<div class="definition">
+
+<strong>Vector quantity</strong> woh physical quantity hai jiske
+complete representation ke liye magnitude ke saath direction bhi
+required hoti hai.
+
+</div>
+
+<p><strong>Examples:</strong></p>
+
+<ul>
+<li>Force</li>
+<li>Velocity</li>
+<li>Acceleration</li>
+<li>Displacement</li>
+<li>Momentum</li>
+</ul>
+
+<div class="diagram">
+
+<svg width="600" height="230" viewBox="0 0 600 230">
+
+<line x1="80" y1="160"
+x2="470" y2="70"
+stroke="#183b6b"
+stroke-width="7"/>
+
+<polygon points="470,70 440,65 450,92"
+fill="#183b6b"/>
+
+<text x="250" y="110"
+font-size="22"
+fill="#183b6b">
+F = 100 N
+</text>
+
+<text x="220" y="205"
+font-size="17">
+Magnitude + Direction
+</text>
+
+</svg>
+
+<div class="diagram-caption">
+Force ko vector arrow se represent kiya ja sakta hai.
+</div>
+
+</div>
+
+<h3>Scalar vs Vector</h3>
+
+<table class="comparison">
+
+<tr>
+<th>Point</th>
+<th>Scalar</th>
+<th>Vector</th>
+</tr>
+
+<tr>
+<td>Magnitude</td>
+<td>Required</td>
+<td>Required</td>
+</tr>
+
+<tr>
+<td>Direction</td>
+<td>Required nahi</td>
+<td>Required</td>
+</tr>
+
+<tr>
+<td>Example</td>
+<td>Mass, time, speed</td>
+<td>Force, velocity</td>
+</tr>
+
+<tr>
+<td>Representation</td>
+<td>Usually numerical value</td>
+<td>Arrow/vector</td>
+</tr>
+
+</table>
+
+<h3>SI System of Units</h3>
+
+<p>
+SI ka full form <strong>International System of Units</strong> hai.
+Engineering calculations mein SI system ka widespread use hota hai.
+</p>
+
+<h4>Fundamental SI Units</h4>
+
+<table class="symbol-table">
+
+<tr>
+<th>Physical Quantity</th>
+<th>SI Unit</th>
+<th>Symbol</th>
+</tr>
+
+<tr>
+<td>Length</td>
+<td>metre</td>
+<td>m</td>
+</tr>
+
+<tr>
+<td>Mass</td>
+<td>kilogram</td>
+<td>kg</td>
+</tr>
+
+<tr>
+<td>Time</td>
+<td>second</td>
+<td>s</td>
+</tr>
+
+<tr>
+<td>Electric current</td>
+<td>ampere</td>
+<td>A</td>
+</tr>
+
+<tr>
+<td>Temperature</td>
+<td>kelvin</td>
+<td>K</td>
+</tr>
+
+</table>
+
+<h4>Common Derived Units in Mechanics</h4>
+
+<table class="symbol-table">
+
+<tr>
+<th>Quantity</th>
+<th>SI Unit</th>
+<th>Symbol</th>
+</tr>
+
+<tr>
+<td>Area</td>
+<td>square metre</td>
+<td>m²</td>
+</tr>
+
+<tr>
+<td>Volume</td>
+<td>cubic metre</td>
+<td>m³</td>
+</tr>
+
+<tr>
+<td>Velocity</td>
+<td>metre/second</td>
+<td>m/s</td>
+</tr>
+
+<tr>
+<td>Acceleration</td>
+<td>metre/second²</td>
+<td>m/s²</td>
+</tr>
+
+<tr>
+<td>Force</td>
+<td>Newton</td>
+<td>N</td>
+</tr>
+
+<tr>
+<td>Moment</td>
+<td>Newton metre</td>
+<td>N·m</td>
+</tr>
+
+</table>
+
+<div class="formula">
+
+<code>
+1 N = 1 kg·m/s²
+</code>
+
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 1.4 -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="s14">
+
+<div class="chapter-title">
+<div class="unit">Section 1.4</div>
+<h2>Force — Representation, Characteristics, Effects and Force Systems</h2>
+</div>
+
+<h3>Force kya hai?</h3>
+
+<div class="definition">
+
+<strong>Force</strong> ek push ya pull hai jo body ki state of rest,
+motion ya shape ko change kar sakta hai.
+
+</div>
+
+<p>
+Engineering mechanics mein force sabse important concepts mein se ek
+hai.
+</p>
+
+<p>
+Force kisi body ko:
+</p>
+
+<ul>
+<li>move kara sakta hai</li>
+<li>stop kara sakta hai</li>
+<li>speed change kara sakta hai</li>
+<li>direction change kara sakta hai</li>
+<li>rotate kara sakta hai</li>
+<li>deform kar sakta hai</li>
+</ul>
+
+<h3>Unit of Force</h3>
+
+<p>
+SI system mein force ka unit <strong>Newton (N)</strong> hai.
+</p>
+
+<div class="formula">
+
+<code>
+F = ma
+
+F = force
+m = mass
+a = acceleration
+
+SI unit = kg·m/s² = N
+</code>
+
+</div>
+
+<h3>Force ka Vector Representation</h3>
+
+<p>
+Force vector quantity hai. Isliye force ko arrow se represent kiya
+jata hai.
+</p>
+
+<p>
+Arrow ki:
+</p>
+
+<ul>
+<li>Length → magnitude indicate kar sakti hai</li>
+<li>Arrow head → direction show karta hai</li>
+<li>Line → line of action indicate karti hai</li>
+</ul>
+
+<div class="diagram">
+
+<svg width="700" height="260" viewBox="0 0 700 260">
+
+<line x1="100" y1="180"
+x2="560" y2="75"
+stroke="#183b6b"
+stroke-width="7"/>
+
+<polygon points="560,75 525,72 535,105"
+fill="#183b6b"/>
+
+<circle cx="100" cy="180" r="9"
+fill="#a52a2a"/>
+
+<text x="82" y="215"
+font-size="18">
+Point A
+</text>
+
+<text x="280" y="115"
+font-size="21"
+fill="#183b6b">
+F = 500 N
+</text>
+
+<text x="280" y="145"
+font-size="16">
+Line of Action
+</text>
+
+</svg>
+
+</div>
+
+<h3>Bow's Notation</h3>
+
+<p>
+Force system ke graphical representation mein forces aur spaces ko
+letters se identify karne ke liye Bow's notation use ki ja sakti hai.
+</p>
+
+<p>
+Graphical force diagram mein force ke dono sides ke spaces ko letters
+se denote kiya jata hai aur force ko un adjacent letters se identify
+kiya ja sakta hai.
+</p>
+
+<div class="important">
+
+<strong>Exam Point:</strong>
+
+Bow's notation mainly graphical statics mein force identification ke
+liye use hoti hai.
+
+</div>
+
+<h3>Characteristics of a Force</h3>
+
+<p>
+Ek force ko completely describe karne ke liye important characteristics
+consider kiye jate hain:
+</p>
+
+<ol>
+
+<li>
+<strong>Magnitude</strong> — force kitna hai.
+</li>
+
+<li>
+<strong>Direction</strong> — force kis direction mein act kar raha hai.
+</li>
+
+<li>
+<strong>Line of Action</strong> — force kis straight line ke along act
+kar raha hai.
+</li>
+
+<li>
+<strong>Point of Application</strong> — force body ke kis point par
+apply ho raha hai.
+</li>
+
+</ol>
+
+<h3>Effects of Force</h3>
+
+<div class="two-col">
+
+<div class="card">
+<h4>Translational Effect</h4>
+<p>
+Force body ko ek place se doosre place move kara sakta hai.
+</p>
+</div>
+
+<div class="card">
+<h4>Rotational Effect</h4>
+<p>
+Force body mein turning effect produce kar sakta hai.
+</p>
+</div>
+
+<div class="card">
+<h4>Motion Change</h4>
+<p>
+Force velocity ya direction change kar sakta hai.
+</p>
+</div>
+
+<div class="card">
+<h4>Deformation</h4>
+<p>
+Force body ka shape ya dimensions change kar sakta hai.
+</p>
+</div>
+
+</div>
+
+<h3>Principle of Transmissibility of Force</h3>
+
+<div class="definition">
+
+Rigid body ke liye force ko uski line of action ke along kisi doosre
+point par shift karne se external effect on the rigid body unchanged
+rahta hai.
+
+</div>
+
+<p>
+Is principle ka use rigid body mechanics mein force system ko simplify
+karne ke liye kiya jata hai.
+</p>
+
+<div class="diagram">
+
+<svg width="700" height="270" viewBox="0 0 700 270">
+
+<rect x="90" y="75"
+width="200"
+height="110"
+rx="8"
+fill="#edf4fb"
+stroke="#183b6b"
+stroke-width="4"/>
+
+<line x1="90" y1="130"
+x2="610" y2="130"
+stroke="#777"
+stroke-width="2"
+stroke-dasharray="10 8"/>
+
+<line x1="145" y1="130"
+x2="245" y2="70"
+stroke="#183b6b"
+stroke-width="6"/>
+
+<polygon points="245,70 220,74 232,94"
+fill="#183b6b"/>
+
+<line x1="400" y1="130"
+x2="500" y2="70"
+stroke="#183b6b"
+stroke-width="6"/>
+
+<polygon points="500,70 475,74 487,94"
+fill="#183b6b"/>
+
+<text x="130" y="215"
+font-size="17">
+Same line of action
+</text>
+
+<text x="380" y="215"
+font-size="17">
+Shifted position
+</text>
+
+</svg>
+
+</div>
+
+<h3>Classification of Force Systems</h3>
+
+<p>
+Forces ki lines of action aur arrangement ke basis par force systems
+ko classify kiya jata hai.
+</p>
+
+<ul>
+
+<li>Collinear force system</li>
+
+<li>Concurrent force system</li>
+
+<li>Parallel force system</li>
+
+<li>General / non-concurrent force system</li>
+
+<li>Coplanar force systems</li>
+
+<li>Non-coplanar force systems</li>
+
+</ul>
+
+<h4>Coplanar Force System</h4>
+
+<p>
+Jab forces ki lines of action same plane mein lie karti hain, system
+coplanar force system kehlata hai.
+</p>
+
+<h4>Concurrent Force System</h4>
+
+<p>
+Jab multiple forces ki lines of action ek common point par meet karti
+hain, force system concurrent kehlata hai.
+</p>
+
+<h4>Parallel Force System</h4>
+
+<p>
+Jab forces ki lines of action parallel hoti hain, system parallel force
+system kehlata hai.
+</p>
+
+<h4>Non-Concurrent Force System</h4>
+
+<p>
+Jab forces ki lines of action ek common point par intersect nahi karti,
+to system non-concurrent force system kehlata hai.
+</p>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 1.5 -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="s15">
+
+<div class="chapter-title">
+<div class="unit">Section 1.5</div>
+<h2>Resolution of a Force — Components, Moment and Avignon's Theorem</h2>
+</div>
+
+<h3>Resolution of Force</h3>
+
+<div class="definition">
+
+<strong>Resolution of force</strong> ka matlab ek single force ko do
+ya more component forces mein break karna hai jinka combined effect
+original force ke equivalent ho.
+
+</div>
+
+<p>
+Engineering calculations mein force ko convenient directions mein
+resolve karna bahut useful hota hai.
+</p>
+
+<h3>Orthogonal Components</h3>
+
+<p>
+Jab force ke components mutually perpendicular directions mein hote
+hain, unhe orthogonal components kehte hain.
+</p>
+
+<p>
+Normally x-axis aur y-axis ko perpendicular directions ke form mein
+use kiya jata hai.
+</p>
+
+<div class="diagram">
+
+<svg width="700" height="350" viewBox="0 0 700 350">
+
+<line x1="110" y1="270"
+x2="600" y2="270"
+stroke="#333"
+stroke-width="3"/>
+
+<line x1="110" y1="270"
+x2="110" y2="55"
+stroke="#333"
+stroke-width="3"/>
+
+<line x1="110" y1="270"
+x2="500" y2="95"
+stroke="#183b6b"
+stroke-width="7"/>
+
+<polygon points="500,95 470,100 482,125"
+fill="#183b6b"/>
+
+<line x1="110" y1="270"
+x2="500" y2="270"
+stroke="#176b4d"
+stroke-width="5"/>
+
+<line x1="500" y1="270"
+x2="500" y2="95"
+stroke="#a85d00"
+stroke-width="5"/>
+
+<text x="285" y="305"
+font-size="20"
+fill="#176b4d">
+Fx
+</text>
+
+<text x="515" y="190"
+font-size="20"
+fill="#a85d00">
+Fy
+</text>
+
+<text x="290" y="145"
+font-size="21"
+fill="#183b6b">
+F
+</text>
+
+<text x="125" y="255"
+font-size="18">
+θ
+</text>
+
+<text x="575" y="300"
+font-size="18">
+X
+</text>
+
+<text x="85" y="65"
+font-size="18">
+Y
+</text>
+
+</svg>
+
+<div class="diagram-caption">
+Force F ko perpendicular components Fx aur Fy mein resolve kiya gaya hai.
+</div>
+
+</div>
+
+<h3>Orthogonal Component Formulae</h3>
+
+<p>
+Agar force F x-axis se θ angle banata hai:
+</p>
+
+<div class="formula">
+
+<code>
+Fx = F cos θ
+
+Fy = F sin θ
+</code>
+
+</div>
+
+<table class="symbol-table">
+
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+
+<tr>
+<td>F</td>
+<td>Original force</td>
+<td>N</td>
+</tr>
+
+<tr>
+<td>Fx</td>
+<td>X-direction component</td>
+<td>N</td>
+</tr>
+
+<tr>
+<td>Fy</td>
+<td>Y-direction component</td>
+<td>N</td>
+</tr>
+
+<tr>
+<td>θ</td>
+<td>Angle made by F with x-axis</td>
+<td>degree or radian</td>
+</tr>
+
+</table>
+
+<h3>Non-Orthogonal Components</h3>
+
+<p>
+Agar components mutually perpendicular nahi hain, to unhe
+non-orthogonal components kaha jata hai.
+</p>
+
+<p>
+In components ke beech angle 90° nahi hota.
+</p>
+
+<h3>Moment of a Force</h3>
+
+<div class="definition">
+
+<strong>Moment of force</strong> kisi point ke about force ka turning
+effect hai.
+
+</div>
+
+<p>
+Door handle ko push karne par door rotate karta hai. Ye force ke
+turning effect ka simple example hai.
+</p>
+
+<div class="formula">
+
+<code>
+M = F × d
+
+M = Moment of force
+F = Force
+d = perpendicular distance from point to line of action
+
+SI unit = N·m
+</code>
+
+</div>
+
+<p>
+Moment ka magnitude force aur perpendicular distance dono par depend
+karta hai.
+</p>
+
+<div class="diagram">
+
+<svg width="700" height="280" viewBox="0 0 700 280">
+
+<circle cx="130" cy="145" r="12"
+fill="#a52a2a"/>
+
+<line x1="130" y1="145"
+x2="560" y2="145"
+stroke="#777"
+stroke-width="3"/>
+
+<line x1="420" y1="145"
+x2="420" y2="65"
+stroke="#176b4d"
+stroke-width="4"/>
+
+<line x1="420" y1="65"
+x2="530" y2="65"
+stroke="#183b6b"
+stroke-width="7"/>
+
+<polygon points="530,65 500,53 500,78"
+fill="#183b6b"/>
+
+<text x="80" y="190"
+font-size="18">
+O
+</text>
+
+<text x="430" y="50"
+font-size="18">
+F
+</text>
+
+<text x="440" y="105"
+font-size="18"
+fill="#176b4d">
+d
+</text>
+
+<text x="205" y="180"
+font-size="18">
+Line of action
+</text>
+
+</svg>
+
+<div class="diagram-caption">
+Moment about O = force × perpendicular distance from O to line of action.
+</div>
+
+</div>
+
+<h3>Clockwise and Anticlockwise Moment</h3>
+
+<p>
+Force kisi body ko clockwise ya anticlockwise rotate kar sakta hai.
+</p>
+
+<p>
+Sign convention problem ke according choose kiya jata hai. Common
+engineering convention mein anticlockwise moment ko positive aur
+clockwise moment ko negative liya ja sakta hai.
+</p>
+
+<div class="important">
+
+<strong>Important:</strong>
+
+Moment calculate karte waqt distance ko force ki line of action se
+<strong>perpendicular distance</strong> lena chahiye.
+
+</div>
+
+<h3>Avignon's Theorem</h3>
+
+<div class="definition">
+
+Avignon's theorem ke according kisi point ke about ek force ka moment
+us force ke components ke moments ke algebraic sum ke equal hota hai.
+
+</div>
+
+<div class="formula">
+
+<code>
+M_O(F) = M_O(Fx) + M_O(Fy)
+
+Equivalent form:
+
+M_O(F) = Σ M_O(components)
+</code>
+
+</div>
+
+<p>
+Is theorem ka practical benefit ye hai ki difficult force ka direct
+moment calculate karne ke bajay force ko convenient components mein
+resolve karke individual moments calculate kiye ja sakte hain.
+</p>
+
+<h3>Solved Numerical — Force Resolution</h3>
+
+<div class="example">
+
+<div class="example-title">
+Example 1 — 100 N force at 30°
+</div>
+
+<p><strong>Given:</strong></p>
+
+<ul>
+<li>F = 100 N</li>
+<li>θ = 30°</li>
+</ul>
+
+<p><strong>Find:</strong> Fx and Fy</p>
+
+<div class="formula">
+<code>
+Fx = F cos θ
+Fy = F sin θ
+</code>
+</div>
+
+<div class="step">
+Fx = 100 × cos 30°
+</div>
+
+<div class="step">
+Fx = 100 × 0.866
+</div>
+
+<div class="step">
+<strong>Fx = 86.6 N</strong>
+</div>
+
+<div class="step">
+Fy = 100 × sin 30°
+</div>
+
+<div class="step">
+Fy = 100 × 0.5
+</div>
+
+<div class="step">
+<strong>Fy = 50 N</strong>
+</div>
+
+<div class="exam">
+<strong>Answer:</strong>
+Horizontal component = 86.6 N<br>
+Vertical component = 50 N
+</div>
+
+</div>
+
+<h3>Solved Numerical — Moment</h3>
+
+<div class="example">
+
+<div class="example-title">
+Example 2 — Moment of 200 N force
+</div>
+
+<p><strong>Given:</strong></p>
+
+<ul>
+<li>Force F = 200 N</li>
+<li>Perpendicular distance d = 0.5 m</li>
+</ul>
+
+<p><strong>Find:</strong> Moment</p>
+
+<div class="formula">
+<code>
+M = F × d
+</code>
+</div>
+
+<div class="step">
+M = 200 × 0.5
+</div>
+
+<div class="step">
+<strong>M = 100 N·m</strong>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 1.6 -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="s16">
+
+<div class="chapter-title">
+<div class="unit">Section 1.6</div>
+<h2>Composition of Forces and Resultant</h2>
+</div>
+
+<h3>Composition of Forces</h3>
+
+<div class="definition">
+
+<strong>Composition of forces</strong> ka matlab multiple forces ko
+combine karke ek equivalent resultant force determine karna hai.
+
+</div>
+
+<h3>Resultant Force</h3>
+
+<div class="definition">
+
+<strong>Resultant</strong> ek single force hai jo given force system ke
+combined effect ke equivalent hoti hai.
+
+</div>
+
+<p>
+Agar multiple forces act kar rahe hain to har force ko separately
+consider karna complicated ho sakta hai. Resultant ke through poore
+system ko ek equivalent force se represent kiya ja sakta hai.
+</p>
+
+<h3>Concurrent Force System</h3>
+
+<p>
+Concurrent force system mein forces ki lines of action ek common point
+par intersect karti hain.
+</p>
+
+<h3>Triangle Law of Forces</h3>
+
+<div class="definition">
+
+Triangle law ke according agar do forces ko magnitude aur direction ke
+according triangle ki two sides se head-to-tail represent kiya jaye,
+to resultant third side se represent hoti hai.
+
+</div>
+
+<div class="diagram">
+
+<svg width="650" height="330" viewBox="0 0 650 330">
+
+<line x1="110" y1="240"
+x2="330" y2="240"
+stroke="#183b6b"
+stroke-width="6"/>
+
+<polygon points="330,240 300,228 300,252"
+fill="#183b6b"/>
+
+<line x1="330" y1="240"
+x2="450" y2="90"
+stroke="#176b4d"
+stroke-width="6"/>
+
+<polygon points="450,90 420,103 438,117"
+fill="#176b4d"/>
+
+<line x1="110" y1="240"
+x2="450" y2="90"
+stroke="#a52a2a"
+stroke-width="6"/>
+
+<polygon points="450,90 418,91 431,117"
+fill="#a52a2a"/>
+
+<text x="200" y="225"
+font-size="20">
+P
+</text>
+
+<text x="365" y="160"
+font-size="20">
+Q
+</text>
+
+<text x="260" y="150"
+font-size="20"
+fill="#a52a2a">
+R
+</text>
+
+</svg>
+
+</div>
+
+<h3>Parallelogram Law of Forces</h3>
+
+<div class="definition">
+
+Agar do concurrent forces ko parallelogram ki adjacent sides se
+represent kiya jaye, to parallelogram ka diagonal resultant force ko
+represent karta hai.
+
+</div>
+
+<div class="formula">
+
+<code>
+R = √(P² + Q² + 2PQ cos θ)
+
+Direction:
+
+tan α = Q sin θ / (P + Q cos θ)
+</code>
+
+</div>
+
+<table class="symbol-table">
+
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+
+<tr>
+<td>P</td>
+<td>First force</td>
+</tr>
+
+<tr>
+<td>Q</td>
+<td>Second force</td>
+</tr>
+
+<tr>
+<td>θ</td>
+<td>Angle between P and Q</td>
+</tr>
+
+<tr>
+<td>R</td>
+<td>Resultant</td>
+</tr>
+
+<tr>
+<td>α</td>
+<td>Angle of resultant with P</td>
+</tr>
+
+</table>
+
+<h3>Special Cases</h3>
+
+<h4>Case 1 — Same Direction</h4>
+
+<div class="formula">
+<code>
+R = P + Q
+</code>
+</div>
+
+<h4>Case 2 — Opposite Direction</h4>
+
+<div class="formula">
+<code>
+R = |P − Q|
+</code>
+</div>
+
+<h4>Case 3 — Perpendicular Forces</h4>
+
+<div class="formula">
+<code>
+R = √(P² + Q²)
+</code>
+</div>
+
+<h3>Polygon Law of Forces</h3>
+
+<div class="definition">
+
+Agar several forces ko head-to-tail polygon ki successive sides se
+represent kiya jaye, to first point se last point tak drawn closing
+side resultant ko represent karti hai.
+
+</div>
+
+<h3>Analytical Resultant — Perpendicular Forces</h3>
+
+<div class="example">
+
+<div class="example-title">
+Example 3 — 30 N and 40 N perpendicular forces
+</div>
+
+<p><strong>Given:</strong></p>
+
+<ul>
+<li>P = 30 N</li>
+<li>Q = 40 N</li>
+<li>θ = 90°</li>
+</ul>
+
+<p><strong>Formula:</strong></p>
+
+<div class="formula">
+<code>
+R = √(P² + Q² + 2PQ cos θ)
+</code>
+</div>
+
+<p>
+Since cos 90° = 0:
+</p>
+
+<div class="step">
+R = √(30² + 40²)
+</div>
+
+<div class="step">
+R = √(900 + 1600)
+</div>
+
+<div class="step">
+R = √2500
+</div>
+
+<div class="step">
+<strong>R = 50 N</strong>
+</div>
+
+</div>
+
+<h3>Non-Concurrent Force System</h3>
+
+<p>
+Agar forces ki lines of action ek common point par meet nahi karti,
+to system non-concurrent force system kehlata hai.
+</p>
+
+<p>
+Aise cases mein resultant determine karte waqt force ke magnitude aur
+direction ke saath uski position/line of action bhi important hoti hai.
+</p>
+
+<h3>Parallel Co-Planar Force System</h3>
+
+<p>
+Jab forces same plane mein act karti hain aur unki lines of action
+parallel hoti hain, to parallel co-planar force system kehte hain.
+</p>
+
+<div class="diagram">
+
+<svg width="700" height="300" viewBox="0 0 700 300">
+
+<line x1="100" y1="230"
+x2="600" y2="230"
+stroke="#555"
+stroke-width="4"/>
+
+<line x1="180" y1="230"
+x2="180" y2="80"
+stroke="#183b6b"
+stroke-width="6"/>
+
+<polygon points="180,80 168,110 192,110"
+fill="#183b6b"/>
+
+<line x1="350" y1="230"
+x2="350" y2="120"
+stroke="#176b4d"
+stroke-width="6"/>
+
+<polygon points="350,120 338,150 362,150"
+fill="#176b4d"/>
+
+<line x1="500" y1="230"
+x2="500" y2="55"
+stroke="#a52a2a"
+stroke-width="6"/>
+
+<polygon points="500,55 488,85 512,85"
+fill="#a52a2a"/>
+
+<text x="165" y="65"
+font-size="18">
+P₁
+</text>
+
+<text x="335" y="105"
+font-size="18">
+P₂
+</text>
+
+<text x="485" y="40"
+font-size="18">
+P₃
+</text>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 1.7 -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="s17">
+
+<div class="chapter-title">
+<div class="unit">Section 1.7</div>
+<h2>Graphic Statics</h2>
+</div>
+
+<div class="definition">
+
+<strong>Graphic statics</strong> engineering statics problems ko
+graphical construction aur scale drawing ke through solve karne ka
+method hai.
+
+</div>
+
+<p>
+Is method mein forces ko proper scale par draw karke geometry ke
+through resultant aur other quantities determine ki ja sakti hain.
+</p>
+
+<h3>Graphical Representation of Force</h3>
+
+<p>
+Force ko graphical form mein represent karne ke liye:
+</p>
+
+<ol>
+
+<li>Suitable scale select karo.</li>
+
+<li>Force ki magnitude ke according line length choose karo.</li>
+
+<li>Required direction maintain karo.</li>
+
+<li>Arrowhead se force ki direction show karo.</li>
+
+</ol>
+
+<div class="example">
+
+<div class="example-title">
+Example — Force Scale
+</div>
+
+<p>
+Agar scale:
+</p>
+
+<div class="formula">
+<code>
+1 cm = 10 N
+</code>
+</div>
+
+<p>
+aur force 50 N hai, to drawing mein force vector ki length:
+</p>
+
+<div class="formula">
+<code>
+Length = 50 / 10
+       = 5 cm
+</code>
+</div>
+
+</div>
+
+<h3>Space Diagram</h3>
+
+<div class="definition">
+
+<strong>Space diagram</strong> actual physical system ki geometry,
+forces ki position aur arrangement ko show karta hai.
+
+</div>
+
+<p>
+For example beam, support, load aur dimensions ko actual arrangement
+ke according space diagram mein represent kiya ja sakta hai.
+</p>
+
+<h3>Force Diagram</h3>
+
+<div class="definition">
+
+<strong>Force diagram</strong> mein forces ko chosen scale aur
+directions ke according graphical form mein represent kiya jata hai.
+
+</div>
+
+<p>
+Force diagram resultant determine karne mein useful hota hai.
+</p>
+
+<h3>Polar Diagram</h3>
+
+<div class="definition">
+
+<strong>Polar diagram</strong> graphical statics mein ek reference
+pole se force vectors ki lines draw karke graphical relationship
+establish karne ka construction hai.
+
+</div>
+
+<h3>Funicular Polygon</h3>
+
+<div class="definition">
+
+<strong>Funicular polygon</strong> graphical statics mein force system
+ke resultant ki position determine karne ke liye use hone wali
+graphical construction hai.
+
+</div>
+
+<p>
+Iska use especially parallel force systems ke graphical analysis mein
+important hai.
+</p>
+
+<h3>Graphical Resultant</h3>
+
+<p>
+Graphical method se resultant determine karne ke basic steps:
+</p>
+
+<ol>
+
+<li>Problem ka space diagram banao.</li>
+
+<li>Suitable force scale select karo.</li>
+
+<li>Forces ko proper magnitude aur direction ke according draw karo.</li>
+
+<li>Force polygon construct karo.</li>
+
+<li>Closing side/resultant identify karo.</li>
+
+<li>Scale use karke resultant magnitude determine karo.</li>
+
+<li>Diagram se resultant ki direction determine karo.</li>
+
+</ol>
+
+<div class="diagram">
+
+<svg width="720" height="360" viewBox="0 0 720 360">
+
+<line x1="90" y1="270"
+x2="310" y2="270"
+stroke="#183b6b"
+stroke-width="6"/>
+
+<polygon points="310,270 280,258 280,282"
+fill="#183b6b"/>
+
+<line x1="310" y1="270"
+x2="470" y2="130"
+stroke="#176b4d"
+stroke-width="6"/>
+
+<polygon points="470,130 438,140 454,158"
+fill="#176b4d"/>
+
+<line x1="470" y1="130"
+x2="570" y2="250"
+stroke="#a85d00"
+stroke-width="6"/>
+
+<polygon points="570,250 542,230 548,258"
+fill="#a85d00"/>
+
+<line x1="90" y1="270"
+x2="570" y2="250"
+stroke="#a52a2a"
+stroke-width="5"
+stroke-dasharray="12 7"/>
+
+<text x="190" y="250"
+font-size="19">
+F₁
+</text>
+
+<text x="380" y="190"
+font-size="19">
+F₂
+</text>
+
+<text x="505" y="205"
+font-size="19">
+F₃
+</text>
+
+<text x="280" y="310"
+font-size="19"
+fill="#a52a2a">
+Resultant / Closing Side
+</text>
+
+</svg>
+
+<div class="diagram-caption">
+Illustrative graphical force polygon.
+</div>
+
+</div>
+
+<h3>Concurrent Force System — Graphical Resultant</h3>
+
+<p>
+Concurrent forces ke case mein force polygon use karke resultant
+determine ki ja sakti hai.
+</p>
+
+<h3>Parallel Co-Planar Force System — Graphical Resultant</h3>
+
+<p>
+Parallel forces ke case mein graphical constructions ke through
+resultant ki magnitude ke saath uski line of action ki position bhi
+determine ki ja sakti hai.
+</p>
+
+<div class="exam">
+
+<strong>Exam Focus:</strong>
+
+Graphic statics mein following terms ke definitions aur purpose
+prepare karo:
+
+<span class="badge">Space Diagram</span>
+<span class="badge">Force Diagram</span>
+<span class="badge">Polar Diagram</span>
+<span class="badge">Funicular Polygon</span>
+<span class="badge">Graphical Resultant</span>
+
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FORMULA SHEET -->
+<!-- ========================================================= -->
+
+<hr>
+
+<section class="chapter">
+
+<div class="chapter-title">
+<div class="unit">Quick Reference</div>
+<h2>Unit 1 Important Formula Sheet</h2>
+</div>
+
+<div class="formula">
+
+<code>
+
+FORCE
+
+F = ma
+
+Unit of force = Newton (N)
+
+
+RESOLUTION OF FORCE
+
+Fx = F cos θ
+
+Fy = F sin θ
+
+
+MOMENT
+
+M = F × d
+
+Unit = N·m
+
+
+PARALLELOGRAM LAW
+
+R = √(P² + Q² + 2PQ cos θ)
+
+
+DIRECTION OF RESULTANT
+
+tan α = Q sin θ / (P + Q cos θ)
+
+
+SAME DIRECTION
+
+R = P + Q
+
+
+OPPOSITE DIRECTION
+
+R = |P − Q|
+
+
+PERPENDICULAR FORCES
+
+R = √(P² + Q²)
+
+
+AVIGNON'S THEOREM
+
+M(F) = Σ M(components)
+
+</code>
+
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- COMMON MISTAKES -->
+<!-- ========================================================= -->
+
+<section class="chapter">
+
+<div class="chapter-title">
+<div class="unit">Exam Preparation</div>
+<h2>Common Mistakes</h2>
+</div>
+
+<ol>
+
+<li>
+Force ko scalar quantity mat samjho. Force vector quantity hai.
+</li>
+
+<li>
+Moment mein perpendicular distance ki jagah random distance mat use
+karo.
+</li>
+
+<li>
+Fx = F cosθ aur Fy = F sinθ tab directly use karo jab θ x-axis ke
+reference mein diya gaya ho.
+</li>
+
+<li>
+Same direction aur opposite direction forces ke resultant mein sign
+carefully dekho.
+</li>
+
+<li>
+Graphical method mein scale maintain karna zaroori hai.
+</li>
+
+<li>
+Force polygon mein arrows ki direction ignore mat karo.
+</li>
+
+<li>
+Mass aur force ko same quantity mat samjho.
+</li>
+
+<li>
+Rigid body ek idealization hai; real materials perfectly rigid nahi
+hote.
+</li>
+
+</ol>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- QUESTIONS -->
+<!-- ========================================================= -->
+
+<section class="chapter">
+
+<div class="chapter-title">
+<div class="unit">Exam Practice</div>
+<h2>Important Questions</h2>
+</div>
+
+<h3>Short Answer Questions</h3>
+
+<ol>
+
+<li>Define mechanics.</li>
+
+<li>What is applied mechanics?</li>
+
+<li>Define statics.</li>
+
+<li>Define dynamics.</li>
+
+<li>What is a particle?</li>
+
+<li>Define rigid body.</li>
+
+<li>Differentiate scalar and vector quantities.</li>
+
+<li>Write SI unit of force.</li>
+
+<li>What is Bow's notation?</li>
+
+<li>Define force system.</li>
+
+<li>What is principle of transmissibility?</li>
+
+<li>Define moment of force.</li>
+
+<li>What is resolution of force?</li>
+
+<li>Define resultant force.</li>
+
+<li>What is concurrent force system?</li>
+
+<li>What is graphical statics?</li>
+
+</ol>
+
+<h3>Long Answer Questions</h3>
+
+<ol>
+
+<li>
+Explain mechanics, applied mechanics, statics and dynamics with
+suitable examples.
+</li>
+
+<li>
+Explain scalar and vector quantities with suitable examples.
+</li>
+
+<li>
+Explain the characteristics and effects of a force.
+</li>
+
+<li>
+Explain the principle of transmissibility of force.
+</li>
+
+<li>
+Explain classification of force systems.
+</li>
+
+<li>
+Explain resolution of force into orthogonal components.
+</li>
+
+<li>
+Explain moment of a force and its calculation.
+</li>
+
+<li>
+State and explain Avignon's theorem.
+</li>
+
+<li>
+Explain triangle law and parallelogram law of forces.
+</li>
+
+<li>
+Explain polygon law of forces.
+</li>
+
+<li>
+Explain graphic statics and its important terms.
+</li>
+
+<li>
+Explain space diagram, force diagram, polar diagram and funicular
+polygon.
+</li>
+
+</ol>
+
+<h3>Numerical Practice</h3>
+
+<ol>
+
+<li>
+Resolve a 100 N force inclined at 30° to the horizontal into
+horizontal and vertical components.
+</li>
+
+<li>
+A force of 250 N acts at 60° to the horizontal. Determine its
+horizontal and vertical components.
+</li>
+
+<li>
+Calculate the moment of a 500 N force acting at a perpendicular
+distance of 0.4 m from a point.
+</li>
+
+<li>
+Two perpendicular forces of 30 N and 40 N act at a point. Find their
+resultant.
+</li>
+
+<li>
+Two forces 20 N and 30 N act at an angle of 60°. Find their resultant
+using parallelogram law.
+</li>
+
+<li>
+Two forces of 50 N each act in the same direction. Determine resultant.
+</li>
+
+<li>
+Two opposite forces of 80 N and 30 N act along the same line.
+Determine resultant.
+</li>
+
+<li>
+Using a suitable graphical scale, represent a force of 200 N if
+1 cm = 20 N.
+</li>
+
+</ol>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- MCQ -->
+<!-- ========================================================= -->
+
+<section class="chapter">
+
+<div class="chapter-title">
+<div class="unit">Quick Check</div>
+<h2>MCQs</h2>
+</div>
+
+<div class="mcq">
+
+<strong>1. Mechanics mainly deals with:</strong>
+
+<p>
+A) Chemical reactions<br>
+B) Forces and their effects<br>
+C) Electrical resistance<br>
+D) Heat transfer
+</p>
+
+<div class="answer">
+Answer: B
+</div>
+
+</div>
+
+<div class="mcq">
+
+<strong>2. SI unit of force is:</strong>
+
+<p>
+A) kg<br>
+B) m<br>
+C) N<br>
+D) J
+</p>
+
+<div class="answer">
+Answer: C
+</div>
+
+</div>
+
+<div class="mcq">
+
+<strong>3. Which one is a vector quantity?</strong>
+
+<p>
+A) Mass<br>
+B) Time<br>
+C) Force<br>
+D) Temperature
+</p>
+
+<div class="answer">
+Answer: C
+</div>
+
+</div>
+
+<div class="mcq">
+
+<strong>4. Moment of a force is:</strong>
+
+<p>
+A) F/d<br>
+B) F+d<br>
+C) F×d<br>
+D) F−d
+</p>
+
+<div class="answer">
+Answer: C
+</div>
+
+</div>
+
+<div class="mcq">
+
+<strong>5. For perpendicular forces P and Q, resultant is:</strong>
+
+<p>
+A) P+Q<br>
+B) P−Q<br>
+C) √(P²+Q²)<br>
+D) PQ
+</p>
+
+<div class="answer">
+Answer: C
+</div>
+
+</div>
+
+<div class="mcq">
+
+<strong>6. A force is a:</strong>
+
+<p>
+A) Scalar quantity<br>
+B) Vector quantity<br>
+C) Dimensionless quantity<br>
+D) Constant quantity
+</p>
+
+<div class="answer">
+Answer: B
+</div>
+
+</div>
+
+<div class="mcq">
+
+<strong>7. Statics deals mainly with:</strong>
+
+<p>
+A) Equilibrium<br>
+B) Chemical bonding<br>
+C) Electricity<br>
+D) Temperature
+</p>
+
+<div class="answer">
+Answer: A
+</div>
+
+</div>
+
+<div class="mcq">
+
+<strong>8. In graphical statics, a force is represented using:</strong>
+
+<p>
+A) Scale and direction<br>
+B) Temperature<br>
+C) Density only<br>
+D) Mass only
+</p>
+
+<div class="answer">
+Answer: A
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- ONE SHOT -->
+<!-- ========================================================= -->
+
+<section class="chapter">
+
+<div class="chapter-title">
+<div class="unit">Final Revision</div>
+<h2>Unit 1 One-Shot Revision</h2>
+</div>
+
+<div class="definition">
+
+<strong>Mechanics:</strong>
+Forces aur unke effects ka study.
+
+</div>
+
+<div class="definition">
+
+<strong>Statics:</strong>
+Equilibrium condition ka study.
+
+</div>
+
+<div class="definition">
+
+<strong>Dynamics:</strong>
+Moving bodies ka study.
+
+</div>
+
+<div class="definition">
+
+<strong>Force:</strong>
+Push or pull capable of changing motion/state/effect.
+
+</div>
+
+<div class="definition">
+
+<strong>Vector:</strong>
+Magnitude + direction.
+
+</div>
+
+<div class="definition">
+
+<strong>Resolution:</strong>
+Single force ko components mein break karna.
+
+</div>
+
+<div class="definition">
+
+<strong>Resultant:</strong>
+Multiple forces ka equivalent single force.
+
+</div>
+
+<div class="definition">
+
+<strong>Moment:</strong>
+Force ka turning effect.
+
+</div>
+
+<div class="definition">
+
+<strong>Graphic Statics:</strong>
+Graphical construction ke through statics problems solve karna.
+
+</div>
+
+<h3>Must Remember</h3>
+
+<ul>
+
+<li>Force → Newton</li>
+
+<li>Moment → N·m</li>
+
+<li>Fx = F cosθ</li>
+
+<li>Fy = F sinθ</li>
+
+<li>M = Fd</li>
+
+<li>Perpendicular resultant = √(P²+Q²)</li>
+
+<li>Same direction resultant = P+Q</li>
+
+<li>Opposite direction resultant = |P−Q|</li>
+
+<li>Parallelogram law → diagonal gives resultant</li>
+
+<li>Triangle law → closing side gives resultant</li>
+
+<li>Polygon law → closing side gives resultant</li>
+
+<li>Graphic statics → scale + geometry based analysis</li>
+
+</ul>
+
+<div class="exam">
+
+<strong>UNIT 1 FINAL CHECKLIST</strong>
+
+<br><br>
+
+☐ Mechanics understood<br>
+☐ Applied Mechanics understood<br>
+☐ Statics vs Dynamics<br>
+☐ Space, Time, Mass<br>
+☐ Particle and Body<br>
+☐ Rigid Body<br>
+☐ Scalar and Vector<br>
+☐ SI fundamental and derived units<br>
+☐ Force representation<br>
+☐ Bow's notation<br>
+☐ Characteristics of force<br>
+☐ Effects of force<br>
+☐ Transmissibility principle<br>
+☐ Force-system classification<br>
+☐ Orthogonal components<br>
+☐ Non-orthogonal components<br>
+☐ Moment of force<br>
+☐ Avignon's theorem<br>
+☐ Resultant<br>
+☐ Triangle law<br>
+☐ Parallelogram law<br>
+☐ Polygon law<br>
+☐ Concurrent force system<br>
+☐ Non-concurrent force system<br>
+☐ Parallel co-planar system<br>
+☐ Graphic statics<br>
+☐ Space diagram<br>
+☐ Force diagram<br>
+☐ Polar diagram<br>
+☐ Funicular polygon<br>
+☐ Graphical resultant
+
+</div>
+
+</section>
+
+</div>
+
+
+<footer>
+
+<strong>PRINCEXMAHTO STUDY</strong>
+
+<p>
+Engineering Mechanics — Unit 1<br>
+SBTE Bihar Diploma · Semester I
+</p>
+
+<p class="small">
+Prepared as study material in easy Hinglish.
+</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
