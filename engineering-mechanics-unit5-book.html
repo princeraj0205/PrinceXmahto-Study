@@ -1,1 +1,2880 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PrinceXmahto Study - Engineering Mechanics Unit 5 Simple Lifting Machine - SBTE Bihar Diploma Semester I">
+<meta name="keywords" content="SBTE Bihar, Engineering Mechanics, Simple Lifting Machine, Diploma, Electronics Engineering, Unit 5, PrinceXmahto Study">
+<meta name="author" content="PrinceXmahto Study">
+<title>PrinceXmahto Study | Engineering Mechanics | Unit 5 - Simple Lifting Machine</title>
+
+<style>
+:root{
+  --bg:#f4f7fb;
+  --surface:#ffffff;
+  --surface2:#eef4ff;
+  --text:#172033;
+  --muted:#617089;
+  --primary:#315bea;
+  --primary2:#183aa9;
+  --accent:#00a884;
+  --orange:#f59e0b;
+  --red:#e5484d;
+  --border:#dbe3ef;
+  --shadow:0 12px 35px rgba(27,48,91,.09);
+  --radius:18px;
+  --sidebar:290px;
+  --max:1450px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:var(--primary);text-decoration:none}
+button,input{font:inherit}
+
+.progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:4px;
+  width:0;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  z-index:9999;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:var(--max);
+  margin:auto;
+  min-height:70px;
+  padding:10px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+}
+.brand-mark{
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--primary),#6c63ff);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  box-shadow:0 8px 20px rgba(49,91,234,.25);
+}
+.brand small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.toolbar{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.tool-btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:11px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-weight:700;
+}
+.tool-btn:hover{
+  border-color:var(--primary);
+  color:var(--primary);
+}
+
+.layout{
+  max-width:var(--max);
+  margin:auto;
+  display:grid;
+  grid-template-columns:var(--sidebar) minmax(0,1fr);
+  gap:25px;
+  padding:25px 20px 60px;
+}
+
+.sidebar{
+  position:sticky;
+  top:92px;
+  height:calc(100vh - 115px);
+  overflow:auto;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+.sidebar h3{
+  margin:4px 0 12px;
+  font-size:15px;
+}
+.toc-search{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  outline:none;
+  background:var(--bg);
+}
+.toc{
+  margin:14px 0 0;
+  padding:0;
+  list-style:none;
+}
+.toc li{margin:3px 0}
+.toc a{
+  display:block;
+  padding:8px 10px;
+  color:var(--muted);
+  border-radius:9px;
+  font-size:13px;
+  line-height:1.4;
+}
+.toc a:hover{
+  color:var(--primary);
+  background:var(--surface2);
+}
+
+.main{min-width:0}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(255,255,255,.18),transparent 25%),
+    radial-gradient(circle at 15% 85%,rgba(0,168,132,.15),transparent 28%),
+    linear-gradient(135deg,#14275f,#315bea 55%,#4c7dff);
+  color:white;
+  border-radius:26px;
+  padding:42px;
+  box-shadow:0 20px 55px rgba(28,58,145,.22);
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:50%;
+  right:-100px;
+  bottom:-130px;
+}
+.hero-kicker{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.8;
+}
+.hero h1{
+  margin:10px 0 12px;
+  font-size:clamp(32px,5vw,62px);
+  line-height:1.04;
+}
+.hero p{
+  max-width:850px;
+  margin:0;
+  font-size:17px;
+  opacity:.9;
+}
+.hero-meta{
+  margin-top:25px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.hero-meta span{
+  padding:8px 12px;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.09);
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.section{
+  margin-top:24px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+.section h2{
+  margin:0 0 8px;
+  font-size:29px;
+  line-height:1.2;
+}
+.section h3{
+  margin:27px 0 10px;
+  font-size:21px;
+}
+.section h4{
+  margin:20px 0 8px;
+  font-size:17px;
+}
+.kicker{
+  color:var(--primary);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-weight:900;
+}
+.lead{
+  color:var(--muted);
+  font-size:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.card{
+  background:linear-gradient(180deg,#fff,#f8fbff);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:19px;
+}
+.card h3,.card h4{margin-top:0}
+.card p:last-child{margin-bottom:0}
+
+.definition{
+  border-left:5px solid var(--primary);
+  background:var(--surface2);
+  padding:16px 18px;
+  border-radius:0 13px 13px 0;
+  margin:16px 0;
+}
+.tip{
+  border-left:5px solid var(--accent);
+  background:#effbf7;
+  padding:15px 18px;
+  border-radius:0 13px 13px 0;
+  margin:16px 0;
+}
+.warning{
+  border-left:5px solid var(--orange);
+  background:#fff8e8;
+  padding:15px 18px;
+  border-radius:0 13px 13px 0;
+  margin:16px 0;
+}
+.exam{
+  border-left:5px solid var(--red);
+  background:#fff1f2;
+  padding:15px 18px;
+  border-radius:0 13px 13px 0;
+  margin:16px 0;
+}
+
+.formula{
+  position:relative;
+  background:#10182e;
+  color:#f4f7ff;
+  border-radius:14px;
+  padding:20px 55px 20px 20px;
+  margin:15px 0;
+  overflow:auto;
+  font-family:"Cambria Math",Cambria,Georgia,serif;
+  font-size:20px;
+  text-align:center;
+}
+.formula small{
+  display:block;
+  margin-top:8px;
+  color:#aab8d8;
+  font-family:Inter,Arial,sans-serif;
+  font-size:12px;
+}
+.copy-btn{
+  position:absolute;
+  top:10px;
+  right:10px;
+  border:1px solid #435174;
+  background:#1d2948;
+  color:#dce5ff;
+  border-radius:8px;
+  padding:6px 9px;
+  cursor:pointer;
+  font-size:11px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:17px 0;
+  font-size:14px;
+}
+th,td{
+  border:1px solid var(--border);
+  padding:11px 12px;
+  vertical-align:top;
+}
+th{
+  background:#edf3ff;
+  color:#20366f;
+  text-align:left;
+}
+tr:nth-child(even) td{background:#fbfcfe}
+
+.diagram{
+  margin:20px 0;
+  padding:15px;
+  background:#f8fbff;
+  border:1px solid var(--border);
+  border-radius:15px;
+  overflow:auto;
+}
+.diagram-title{
+  text-align:center;
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+svg{
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:auto;
+}
+.svg-label{
+  font-family:Arial,sans-serif;
+  fill:#172033;
+  font-size:14px;
+  font-weight:700;
+}
+.svg-line{stroke:#172033;stroke-width:3}
+.svg-thin{stroke:#617089;stroke-width:2}
+.svg-fill{fill:#dce7ff;stroke:#315bea;stroke-width:3}
+
+.steps{
+  counter-reset:step;
+  list-style:none;
+  padding:0;
+}
+.steps li{
+  counter-increment:step;
+  position:relative;
+  padding:13px 15px 13px 52px;
+  border-bottom:1px dashed var(--border);
+}
+.steps li:before{
+  content:counter(step);
+  position:absolute;
+  left:8px;
+  top:10px;
+  width:29px;
+  height:29px;
+  border-radius:50%;
+  background:var(--primary);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  font-size:12px;
+}
+
+.numerical{
+  border:2px solid #cddaff;
+  border-radius:17px;
+  margin:22px 0;
+  overflow:hidden;
+}
+.num-head{
+  padding:14px 18px;
+  background:#edf3ff;
+  color:#213b91;
+  font-weight:900;
+}
+.num-body{padding:18px}
+.num-row{
+  margin:9px 0;
+  padding:9px 12px;
+  border-radius:9px;
+  background:#f7f9fc;
+}
+.num-row b{
+  display:inline-block;
+  min-width:155px;
+  color:#213b91;
+}
+.answer{
+  background:#eafbf5;
+  border:1px solid #bcebdc;
+  padding:13px;
+  border-radius:10px;
+  font-weight:800;
+}
+
+details{
+  border:1px solid var(--border);
+  border-radius:12px;
+  margin:12px 0;
+  background:#fff;
+}
+summary{
+  cursor:pointer;
+  padding:13px 15px;
+  font-weight:800;
+  color:#24355e;
+}
+details .inside{padding:0 15px 15px}
+
+.badge{
+  display:inline-block;
+  padding:4px 9px;
+  border-radius:999px;
+  background:#e9efff;
+  color:#2b4ac4;
+  font-size:11px;
+  font-weight:900;
+}
+ul.check{
+  list-style:none;
+  padding-left:0;
+}
+ul.check li{
+  padding:7px 0 7px 27px;
+  position:relative;
+}
+ul.check li:before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:var(--accent);
+  font-weight:900;
+}
+
+.quiz{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  margin:13px 0;
+}
+.quiz strong{display:block;margin-bottom:8px}
+.option{
+  padding:7px 10px;
+  background:#f7f9fc;
+  border-radius:8px;
+  margin:5px 0;
+}
+.answer-key{
+  color:#08765f;
+  font-weight:800;
+  margin-top:9px;
+}
+
+.search-wrap{
+  margin:20px 0;
+  display:flex;
+  gap:10px;
+}
+.search-wrap input{
+  flex:1;
+  border:1px solid var(--border);
+  padding:13px;
+  border-radius:11px;
+  outline:none;
+}
+mark{
+  background:#fff0a8;
+  border-radius:3px;
+}
+
+.footer{
+  margin-top:25px;
+  background:#10182e;
+  color:#b9c5dc;
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+}
+.footer strong{color:white}
+
+.backtop{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:45px;
+  height:45px;
+  border:0;
+  border-radius:50%;
+  background:var(--primary);
+  color:white;
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(49,91,234,.3);
+  display:none;
+}
+
+.mobile-toc{display:none}
+
+@media(max-width:1050px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{display:none}
+  .mobile-toc{display:block}
+  .grid3{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .layout{padding:12px 10px 35px}
+  .hero{padding:27px 20px;border-radius:20px}
+  .hero h1{font-size:34px}
+  .section{padding:20px 16px}
+  .grid,.grid3{grid-template-columns:1fr}
+  .topbar-inner{padding:8px 12px}
+  .toolbar .tool-btn:nth-child(2){display:none}
+  table{font-size:12px}
+  th,td{padding:8px}
+  .formula{font-size:17px}
+}
+
+@media print{
+  body{background:white;color:#000}
+  .topbar,.sidebar,.mobile-toc,.toolbar,.backtop,.search-wrap{display:none!important}
+  .layout{display:block;max-width:none;padding:0}
+  .hero{
+    color:#000;
+    background:white;
+    border:2px solid #222;
+    box-shadow:none;
+  }
+  .section{
+    box-shadow:none;
+    break-inside:auto;
+    border:1px solid #aaa;
+  }
+  .formula{
+    color:#000;
+    background:#f2f2f2;
+    border:1px solid #777;
+  }
+  .copy-btn{display:none}
+  a{color:#000}
+  .footer{background:white;color:#000;border:1px solid #555}
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">PX</div>
+      <div>
+        PrinceXmahto Study
+        <small>SBTE Bihar Diploma Study Materials</small>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <button class="tool-btn" onclick="window.print()">🖨 Print</button>
+      <button class="tool-btn" onclick="document.body.classList.toggle('dark-temp')">◐ View</button>
+      <button class="tool-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h3>Unit 5 Navigation</h3>
+    <input class="toc-search" id="tocSearch" placeholder="Search topic...">
+
+    <ul class="toc" id="toc">
+      <li><a href="#overview">5.0 Unit Overview</a></li>
+      <li><a href="#objectives">Learning Objectives</a></li>
+      <li><a href="#basics">5.1 Basic Concepts</a></li>
+      <li><a href="#machine">Simple Lifting Machine</a></li>
+      <li><a href="#load-effort">Load & Effort</a></li>
+      <li><a href="#ma-vr">MA, VR & Efficiency</a></li>
+      <li><a href="#law">Law of Machine</a></li>
+      <li><a href="#ideal">5.2 Ideal Machine</a></li>
+      <li><a href="#friction">Friction in Machine</a></li>
+      <li><a href="#reversible">Reversible Machines</a></li>
+      <li><a href="#vr-machines">5.3 Velocity Ratios</a></li>
+      <li><a href="#wheelaxle">Wheel & Axle</a></li>
+      <li><a href="#diffaxle">Differential Axle & Wheel</a></li>
+      <li><a href="#worm">Worm & Worm Wheel</a></li>
+      <li><a href="#crab">Crab Winch</a></li>
+      <li><a href="#screwjack">Screw Jack</a></li>
+      <li><a href="#weston">Weston's Differential Pulley</a></li>
+      <li><a href="#geared">Geared Pulley Block</a></li>
+      <li><a href="#graphs">5.4 Graphs</a></li>
+      <li><a href="#numericals">Solved Numericals</a></li>
+      <li><a href="#selection">Machine Selection</a></li>
+      <li><a href="#mistakes">Common Mistakes</a></li>
+      <li><a href="#questions">Important Questions</a></li>
+      <li><a href="#mcq">MCQs</a></li>
+      <li><a href="#revision">One-Shot Revision</a></li>
+      <li><a href="#formula-sheet">Formula Sheet</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+
+    <section class="hero" id="overview">
+      <div class="hero-kicker">Diploma • SBTE Bihar • Semester I</div>
+      <h1>Unit 5<br>Simple Lifting Machine</h1>
+      <p>
+        Complete textbook-style study material for Engineering Mechanics,
+        prepared around the official SBTE Bihar Unit-5 syllabus with concepts,
+        formulas, machine mechanisms, velocity-ratio derivations, graphs,
+        solved numericals and examination revision.
+      </p>
+
+      <div class="hero-meta">
+        <span>Engineering Mechanics</span>
+        <span>Course Code: 2625104</span>
+        <span>Electronics Engineering</span>
+        <span>Semester I</span>
+        <span>CO-2 • CO-5</span>
+      </div>
+    </section>
+
+    <!-- Official source: Unit 5 syllabus, TSO 5a–5g and topics 5.1–5.4.
+         Source file: 178557818834721. Electronics Engineering(10).pdf
+         :contentReference[oaicite:0]{index=0}
+         Exact Unit-5 syllabus retrieval:
+         :contentReference[oaicite:1]{index=1} -->
+
+    <section class="section mobile-toc">
+      <h2>📚 Quick Navigation</h2>
+      <select onchange="if(this.value)location.hash=this.value" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:10px">
+        <option value="">Select topic</option>
+        <option value="#basics">5.1 Basic Concepts</option>
+        <option value="#ideal">5.2 Ideal Machine</option>
+        <option value="#vr-machines">5.3 Velocity Ratios</option>
+        <option value="#graphs">5.4 Graphs</option>
+        <option value="#numericals">Solved Numericals</option>
+        <option value="#revision">Revision</option>
+      </select>
+    </section>
+
+    <section class="section" id="objectives">
+      <div class="kicker">Syllabus Mapping</div>
+      <h2>What You Should Learn From Unit 5</h2>
+      <p class="lead">
+        The official syllabus connects this unit with CO-2 and CO-5 and gives
+        seven major Theory Session Outcomes (TSOs).
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <span class="badge">TSO 5a</span>
+          <h3>Describe Components</h3>
+          <p>Given lifting machine ke components ko identify aur describe karna.</p>
+        </div>
+        <div class="card">
+          <span class="badge">TSO 5b</span>
+          <h3>Differentiate Working Principles</h3>
+          <p>Do lifting machines ke working principles ko compare/differentiate karna.</p>
+        </div>
+        <div class="card">
+          <span class="badge">TSO 5c</span>
+          <h3>Determine VR & Efficiency</h3>
+          <p>Given machine ke velocity ratio aur efficiency determine karna.</p>
+        </div>
+        <div class="card">
+          <span class="badge">TSO 5d</span>
+          <h3>Calculate Effort & Load</h3>
+          <p>Machine relation ka use karke required effort ya lifted load calculate karna.</p>
+        </div>
+        <div class="card">
+          <span class="badge">TSO 5e</span>
+          <h3>Draw Graphs</h3>
+          <p>Given experimental/data values se required machine graphs draw karna.</p>
+        </div>
+        <div class="card">
+          <span class="badge">TSO 5f</span>
+          <h3>Interpret Graphs</h3>
+          <p>Graph ke slope, intercept, trend aur machine behaviour ko interpret karna.</p>
+        </div>
+        <div class="card">
+          <span class="badge">TSO 5g</span>
+          <h3>Select Relevant Machine</h3>
+          <p>Given purpose ke according relevant lifting machine select karke justification dena.</p>
+        </div>
+      </div>
+
+      <div class="definition">
+        <strong>Official Unit Coverage:</strong>
+        5.1 Simple lifting machine, load, effort, mechanical advantage,
+        applications and advantages, velocity ratio, efficiency and law of machine;
+        5.2 ideal machine, friction, maximum MA and efficiency, reversible/non-reversible
+        machines and reversibility condition; 5.3 velocity ratios of specified machines;
+        5.4 specified machine graphs.
+      </div>
+    </section>
+
+    <section class="section" id="basics">
+      <div class="kicker">5.1 • Fundamental Concepts</div>
+      <h2>Simple Lifting Machine</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        A lifting machine is a mechanical device used to lift or move a load
+        by applying an effort, generally with mechanical advantage and/or a
+        change in direction or distance of motion.
+      </div>
+
+      <p>
+        Real life mein heavy load ko directly lift karna difficult hota hai.
+        Lifting machine ka main purpose human effort ko mechanically useful
+        banana hai. Machine input side par effort receive karti hai aur output
+        side par load ko move karti hai.
+      </p>
+
+      <h3>Basic Input–Output Concept</h3>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 1 — Basic operation of a lifting machine</div>
+        <svg viewBox="0 0 850 300" aria-label="Basic lifting machine diagram">
+          <rect x="300" y="85" width="250" height="105" rx="18" class="svg-fill"/>
+          <text x="425" y="135" text-anchor="middle" class="svg-label">LIFTING</text>
+          <text x="425" y="158" text-anchor="middle" class="svg-label">MACHINE</text>
+
+          <line x1="120" y1="138" x2="295" y2="138" class="svg-line"/>
+          <polygon points="295,138 275,128 275,148" fill="#172033"/>
+          <text x="120" y="112" text-anchor="middle" class="svg-label">Effort P</text>
+          <text x="120" y="165" text-anchor="middle" class="svg-label">INPUT</text>
+
+          <line x1="555" y1="138" x2="730" y2="138" class="svg-line"/>
+          <polygon points="730,138 710,128 710,148" fill="#172033"/>
+          <text x="730" y="112" text-anchor="middle" class="svg-label">Load W</text>
+          <text x="730" y="165" text-anchor="middle" class="svg-label">OUTPUT</text>
+
+          <line x1="425" y1="190" x2="425" y2="245" class="svg-line"/>
+          <polygon points="425,260 415,240 435,240" fill="#172033"/>
+          <text x="425" y="285" text-anchor="middle" class="svg-label">Useful load movement</text>
+        </svg>
+      </div>
+
+      <h3>Why Do We Use a Lifting Machine?</h3>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Effort Reduction</h3>
+          <p>
+            Suitable machine arrangement se comparatively smaller effort se
+            larger load lift kiya ja sakta hai.
+          </p>
+        </div>
+        <div class="card">
+          <h3>2. Direction Change</h3>
+          <p>
+            Kuch machines effort ki direction ko convenient direction mein
+            change karti hain.
+          </p>
+        </div>
+        <div class="card">
+          <h3>3. Controlled Movement</h3>
+          <p>
+            Load ko controlled and gradual movement ke saath lift kiya ja sakta hai.
+          </p>
+        </div>
+        <div class="card">
+          <h3>4. Mechanical Advantage</h3>
+          <p>
+            Machine geometry aur transmission ke through force multiplication
+            provide kar sakti hai.
+          </p>
+        </div>
+      </div>
+
+      <h3 id="load-effort">Load and Effort</h3>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Load (W)</h3>
+          <p>
+            Load machine dwara lifted/resisted useful external force hai.
+            Usually load ko <strong>W</strong> se denote kiya jata hai.
+          </p>
+          <p><strong>Common SI unit:</strong> Newton (N)</p>
+        </div>
+
+        <div class="card">
+          <h3>Effort (P)</h3>
+          <p>
+            Machine ko operate karne ke liye applied input force ko
+            <strong>effort</strong> kehte hain. Isse generally <strong>P</strong>
+            se denote karte hain.
+          </p>
+          <p><strong>Common SI unit:</strong> Newton (N)</p>
+        </div>
+      </div>
+
+      <h3 id="ma-vr">Mechanical Advantage (MA)</h3>
+
+      <div class="definition">
+        <strong>Mechanical Advantage</strong> tells us how many times the
+        machine multiplies the applied effort in terms of load.
+      </div>
+
+      <div class="formula" data-copy="MA = W / P">
+        MA = W / P
+        <button class="copy-btn">Copy</button>
+        <small>W = Load, P = Effort</small>
+      </div>
+
+      <p>
+        Agar <strong>W = 1000 N</strong> aur <strong>P = 200 N</strong> hai,
+        then machine ka MA = 5. Iska simple meaning hai ki load effort ka
+        5 times hai.
+      </p>
+
+      <div class="warning">
+        <strong>Important:</strong>
+        Mechanical Advantage dimensionless quantity hai. Iski koi SI unit nahi hoti.
+      </div>
+
+      <h3>Interpretation of MA</h3>
+      <table>
+        <tr>
+          <th>Condition</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td>MA &gt; 1</td>
+          <td>Load is greater than applied effort; force multiplication occurs.</td>
+        </tr>
+        <tr>
+          <td>MA = 1</td>
+          <td>Load and effort are equal in magnitude.</td>
+        </tr>
+        <tr>
+          <td>MA &lt; 1</td>
+          <td>Effort is greater than load; machine may provide speed/distance or other mechanical advantage.</td>
+        </tr>
+      </table>
+
+      <h3>Velocity Ratio (VR)</h3>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Velocity ratio is the ratio of the distance moved by effort to the
+        distance moved by load in the same time.
+      </div>
+
+      <div class="formula" data-copy="VR = distance moved by effort / distance moved by load">
+        VR = Distance moved by effort / Distance moved by load
+        <button class="copy-btn">Copy</button>
+        <small>VR is dimensionless</small>
+      </div>
+
+      <p>
+        Agar effort point 500 mm move karta hai aur load 50 mm move karta hai,
+        then VR = 500/50 = 10.
+      </p>
+
+      <h3>Why is VR usually greater than 1?</h3>
+      <p>
+        Many lifting machines mein effort ko comparatively larger distance
+        move karna padta hai so that load comparatively smaller distance
+        move kare. This arrangement helps in obtaining mechanical advantage.
+      </p>
+
+      <h3>Efficiency of Machine</h3>
+
+      <div class="definition">
+        Machine ki efficiency useful output aur input ke ratio ko percentage
+        form mein express karti hai.
+      </div>
+
+      <div class="formula" data-copy="η = (MA / VR) × 100%">
+        η = (MA / VR) × 100%
+        <button class="copy-btn">Copy</button>
+        <small>η = efficiency in percent</small>
+      </div>
+
+      <div class="formula" data-copy="MA = η × VR / 100">
+        MA = η × VR / 100
+        <button class="copy-btn">Copy</button>
+        <small>Useful when efficiency and VR are given</small>
+      </div>
+
+      <div class="formula" data-copy="VR = 100 × MA / η">
+        VR = 100 × MA / η
+        <button class="copy-btn">Copy</button>
+        <small>Useful when MA and efficiency are given</small>
+      </div>
+
+      <div class="tip">
+        <strong>Golden relationship:</strong>
+        For an actual machine, efficiency is generally less than 100%, therefore
+        MA is generally less than VR.
+      </div>
+
+      <h3>Applications and Advantages of Lifting Machines</h3>
+
+      <ul class="check">
+        <li>Heavy loads ko manageable effort se lift karna.</li>
+        <li>Load movement ko controlled banana.</li>
+        <li>Mechanical advantage obtain karna.</li>
+        <li>Manual handling ko comparatively easier banana.</li>
+        <li>Workshops, garages, construction and material-handling situations mein use.</li>
+        <li>Specific application ke according force, speed, direction aur motion relationship obtain karna.</li>
+      </ul>
+
+      <h3 id="law">Law of Machine</h3>
+
+      <div class="definition">
+        For a particular machine under a given condition, the effort is
+        represented by a linear relation with load:
+      </div>
+
+      <div class="formula" data-copy="P = mW + C">
+        P = mW + C
+        <button class="copy-btn">Copy</button>
+        <small>m = constant/slope of machine relation, C = effort required at zero load</small>
+      </div>
+
+      <p>
+        Here <strong>P</strong> is effort and <strong>W</strong> is load.
+        <strong>m</strong> machine constant/slope ko represent karta hai,
+        while <strong>C</strong> represents the intercept or no-load effort
+        under the adopted linear model.
+      </p>
+
+      <h4>Determination of m and C from two observations</h4>
+
+      <div class="formula">
+        m = (P₂ − P₁) / (W₂ − W₁)
+        <br><br>
+        C = P₁ − mW₁
+      </div>
+
+      <h4>Meaning of the Law of Machine</h4>
+      <p>
+        Law of machine tells us that given machine ke operating range mein
+        load badhne par required effort approximately linearly increase kar
+        sakta hai. Graphical analysis mein isi relation ka important role hai.
+      </p>
+    </section>
+
+    <section class="section" id="ideal">
+      <div class="kicker">5.2 • Machine Performance</div>
+      <h2>Ideal Machine</h2>
+
+      <div class="definition">
+        <strong>Ideal machine</strong> woh theoretical machine hai jisme
+        friction aur other energy losses ko zero maana jata hai.
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Input = Output</h3>
+          <p>Energy loss nahi maana jata.</p>
+        </div>
+        <div class="card">
+          <h3>Efficiency</h3>
+          <p>η = 100%</p>
+        </div>
+        <div class="card">
+          <h3>MA and VR</h3>
+          <p>MA = VR</p>
+        </div>
+      </div>
+
+      <div class="formula">
+        η = 100%
+        <br><br>
+        MA = VR
+      </div>
+
+      <h3>Ideal Effort</h3>
+
+      <p>
+        Agar machine ideal ho, then actual frictional loss nahi hota.
+        Load ko lift karne ke liye required theoretical effort ko
+        <strong>ideal effort</strong> kehte hain.
+      </p>
+
+      <div class="formula" data-copy="Pᵢ = W / VR">
+        Pᵢ = W / VR
+        <button class="copy-btn">Copy</button>
+        <small>Pᵢ = ideal effort</small>
+      </div>
+
+      <h3 id="friction">Friction in Machine</h3>
+
+      <p>
+        Real machines mein moving surfaces ke contact, bearings, gears,
+        ropes, screw threads, pulley surfaces etc. ke karan resistance
+        develop hota hai. Is resistance ko machine friction ke context mein
+        consider kiya jata hai.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Effect on Effort</h3>
+          <p>
+            Actual machine ko same load lift karne ke liye ideal machine se
+            greater effort require ho sakta hai.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Effect on Efficiency</h3>
+          <p>
+            Frictional losses increase hone par useful output/input ratio
+            decrease hota hai.
+          </p>
+        </div>
+      </div>
+
+      <h3>Effort Lost in Friction</h3>
+
+      <div class="formula" data-copy="Effort lost in friction = Actual effort − Ideal effort">
+        Effort lost in friction = P − Pᵢ
+        <button class="copy-btn">Copy</button>
+      </div>
+
+      <p>
+        Is quantity ko force terms mein express kiya jata hai. Agar actual
+        effort 160 N aur ideal effort 120 N hai, then friction ke against
+        additional effort = 40 N.
+      </p>
+
+      <h3>Maximum Mechanical Advantage</h3>
+
+      <p>
+        Law of machine:
+      </p>
+
+      <div class="formula">
+        P = mW + C
+      </div>
+
+      <p>
+        Mechanical advantage:
+      </p>
+
+      <div class="formula">
+        MA = W/P
+        = W/(mW+C)
+      </div>
+
+      <p>
+        Very large load condition mein, practical limiting behaviour:
+      </p>
+
+      <div class="formula">
+        MA<sub>max/limiting</sub> ≈ 1/m
+      </div>
+
+      <div class="warning">
+        <strong>Exam note:</strong>
+        This limiting value is obtained from the machine-law model when
+        W becomes very large. It should not be confused with the actual MA
+        at an arbitrary finite load.
+      </div>
+
+      <h3>Maximum Efficiency</h3>
+
+      <p>
+        Since:
+      </p>
+
+      <div class="formula">
+        η = (MA/VR) × 100%
+      </div>
+
+      <p>
+        For a fixed machine VR, efficiency increases when MA increases.
+        Under the ideal limiting model:
+      </p>
+
+      <div class="formula">
+        η<sub>max/limiting</sub> ≈ [1/(m × VR)] × 100%
+      </div>
+
+      <h3 id="reversible">Reversible and Non-Reversible Machines</h3>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Reversible Machine</h3>
+          <p>
+            A machine is called reversible when the load can, under suitable
+            conditions, drive the machine backward after the effort is removed.
+          </p>
+          <p>
+            Standard textbook treatment commonly associates
+            <strong>η &gt; 50%</strong> with a reversible machine.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Non-Reversible / Self-Locking Machine</h3>
+          <p>
+            A machine is non-reversible when the load cannot drive the machine
+            backward by itself under the considered condition.
+          </p>
+          <p>
+            Standard textbook criterion commonly associates
+            <strong>η &lt; 50%</strong> with a non-reversible machine.
+          </p>
+        </div>
+      </div>
+
+      <h3>Condition for Reversibility</h3>
+
+      <div class="formula">
+        η &gt; 50% → Reversible
+        <br><br>
+        η &lt; 50% → Non-reversible / Self-locking
+        <br><br>
+        η ≈ 50% → Limiting condition
+      </div>
+
+      <div class="tip">
+        <strong>Concept:</strong>
+        Reversibility ka relation machine ke energy loss and geometry se hai.
+        A machine with high resistance to reverse motion may be preferred where
+        self-locking behaviour is useful.
+      </div>
+
+      <h3>Important Difference Table</h3>
+
+      <table>
+        <tr>
+          <th>Point</th>
+          <th>Reversible</th>
+          <th>Non-Reversible</th>
+        </tr>
+        <tr>
+          <td>Reverse motion</td>
+          <td>Load may drive machine backward under suitable condition.</td>
+          <td>Load does not drive machine backward by itself under considered condition.</td>
+        </tr>
+        <tr>
+          <td>Textbook efficiency criterion</td>
+          <td>η &gt; 50%</td>
+          <td>η &lt; 50%</td>
+        </tr>
+        <tr>
+          <td>Self-locking tendency</td>
+          <td>Lower</td>
+          <td>Higher</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section" id="vr-machines">
+      <div class="kicker">5.3 • Velocity Ratios</div>
+      <h2>Velocity Ratio of Simple Lifting Machines</h2>
+
+      <p class="lead">
+        Is section mein syllabus mein specifically diye gaye lifting machines
+        ke velocity-ratio relationships ko understand karna important hai.
+        Formula yaad karne se pehle machine ke moving parts aur displacement
+        relation ko samajhna better hai.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>1. Simple Wheel & Axle</h3>
+          <p>Wheel radius aur axle radius ke ratio se VR.</p>
+        </div>
+        <div class="card">
+          <h3>2. Differential Axle & Wheel</h3>
+          <p>Two axle radii ke difference ka role hota hai.</p>
+        </div>
+        <div class="card">
+          <h3>3. Worm & Worm Wheel</h3>
+          <p>Worm starts aur worm-wheel teeth ke basis par VR.</p>
+        </div>
+        <div class="card">
+          <h3>4. Crab Winch</h3>
+          <p>Handle/gear train ratios combined hote hain.</p>
+        </div>
+        <div class="card">
+          <h3>5. Screw Jack</h3>
+          <p>Handle circumference aur screw lead/pitch se VR.</p>
+        </div>
+        <div class="card">
+          <h3>6. Weston Differential Pulley</h3>
+          <p>Two pulley diameters ka difference determine karta hai VR.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="wheelaxle">
+      <div class="kicker">Machine 1</div>
+      <h2>Simple Wheel and Axle</h2>
+
+      <div class="definition">
+        A simple wheel and axle consists of a larger wheel rigidly attached
+        to a smaller axle. The effort is applied at the wheel and the load
+        is connected to the axle.
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 2 — Simple wheel and axle</div>
+        <svg viewBox="0 0 850 360">
+          <circle cx="425" cy="165" r="115" fill="#dce7ff" stroke="#315bea" stroke-width="4"/>
+          <circle cx="425" cy="165" r="42" fill="#fff" stroke="#183aa9" stroke-width="4"/>
+          <circle cx="425" cy="165" r="7" fill="#172033"/>
+          <line x1="425" y1="165" x2="540" y2="165" class="svg-line"/>
+          <text x="565" y="170" class="svg-label">R = wheel radius</text>
+
+          <line x1="425" y1="165" x2="467" y2="165" class="svg-line"/>
+          <text x="430" y="205" class="svg-label">r = axle radius</text>
+
+          <line x1="220" y1="90" x2="300" y2="90" class="svg-line"/>
+          <polygon points="300,90 280,80 280,100" fill="#172033"/>
+          <text x="210" y="70" class="svg-label">Effort P</text>
+
+          <line x1="467" y1="207" x2="467" y2="295" class="svg-line"/>
+          <polygon points="467,295 457,275 477,275" fill="#172033"/>
+          <rect x="440" y="295" width="55" height="35" class="svg-fill"/>
+          <text x="510" y="318" class="svg-label">Load W</text>
+        </svg>
+      </div>
+
+      <h3>Working Principle</h3>
+      <p>
+        Jab wheel rotate hota hai, axle bhi same angular displacement se
+        rotate karta hai because both are rigidly connected. Effort point
+        wheel ke circumference par larger distance travel karta hai, while
+        load attached to axle comparatively smaller distance travel karta hai.
+      </p>
+
+      <h3>Velocity Ratio Derivation</h3>
+
+      <p>
+        Let one complete revolution occur.
+      </p>
+
+      <ul class="check">
+        <li>Distance moved by effort = circumference of wheel = 2πR</li>
+        <li>Distance moved by load = circumference of axle = 2πr</li>
+      </ul>
+
+      <div class="formula">
+        VR = 2πR / 2πr
+        <br><br>
+        <strong>VR = R/r</strong>
+      </div>
+
+      <h3>Applications</h3>
+      <ul class="check">
+        <li>Hand-operated winding arrangements.</li>
+        <li>Simple lifting and pulling mechanisms.</li>
+        <li>Manual force multiplication systems.</li>
+      </ul>
+
+      <div class="exam">
+        <strong>Exam point:</strong>
+        Simple wheel and axle ke VR mein wheel radius aur axle radius ka ratio
+        use hota hai, diameter ratio bhi equivalent hai because 2 factors cancel.
+      </div>
+    </section>
+
+    <section class="section" id="diffaxle">
+      <div class="kicker">Machine 2</div>
+      <h2>Differential Axle and Wheel</h2>
+
+      <div class="definition">
+        Differential axle and wheel mein axle ke do different radii hote hain.
+        Rope/chain arrangement aur unequal axle diameters ke karan small
+        difference in circumference load-supporting system mein use hota hai.
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 3 — Differential axle and wheel: conceptual arrangement</div>
+        <svg viewBox="0 0 900 390">
+          <circle cx="310" cy="165" r="105" class="svg-fill"/>
+          <circle cx="310" cy="165" r="35" fill="#fff" stroke="#183aa9" stroke-width="4"/>
+          <circle cx="310" cy="165" r="58" fill="none" stroke="#315bea" stroke-width="4"/>
+          <text x="310" y="168" text-anchor="middle" class="svg-label">Wheel</text>
+
+          <path d="M275 165 C275 245, 345 245, 345 165" fill="none" stroke="#172033" stroke-width="5"/>
+          <line x1="345" y1="165" x2="345" y2="315" class="svg-line"/>
+          <rect x="318" y="315" width="55" height="35" class="svg-fill"/>
+          <text x="390" y="338" class="svg-label">Load W</text>
+
+          <line x1="205" y1="85" x2="120" y2="85" class="svg-line"/>
+          <polygon points="120,85 140,75 140,95" fill="#172033"/>
+          <text x="75" y="65" class="svg-label">Effort P</text>
+
+          <text x="560" y="120" class="svg-label">Larger axle radius = R</text>
+          <text x="560" y="155" class="svg-label">Smaller axle radius = r</text>
+          <text x="560" y="210" class="svg-label">Difference = R − r</text>
+        </svg>
+      </div>
+
+      <h3>Velocity Ratio</h3>
+
+      <p>
+        Standard arrangement mein one revolution of the wheel produces a
+        difference in rope movement equal to the circumference difference
+        of the two axle portions.
+      </p>
+
+      <div class="formula">
+        Distance moved by effort = 2πR
+        <br><br>
+        Relative distance available for load = 2π(R − r)
+        <br><br>
+        <strong>VR = R / (R − r)</strong>
+      </div>
+
+      <p>
+        Kuch textbook notation mein machine ko wheel-and-axle differential
+        arrangement ke form mein define karke dimensions ko different symbols
+        se express kiya jata hai. Isliye numerical mein given diagram ke
+        labels ko carefully follow karna zaroori hai.
+      </p>
+
+      <div class="tip">
+        <strong>Important notation rule:</strong>
+        Agar problem explicitly standard differential axle-and-wheel arrangement
+        mein wheel radius ko R aur two axle radii ko r₁, r₂ deta hai, then
+        displacement derivation should be done from the actual rope movement.
+        Formula blindly substitute na karein.
+      </div>
+
+      <h3>Conceptual Advantage</h3>
+      <p>
+        Two axle radii ka difference small hone par load-supporting movement
+        per revolution small hota hai, resulting in a comparatively high
+        velocity ratio.
+      </p>
+    </section>
+
+    <section class="section" id="worm">
+      <div class="kicker">Machine 3</div>
+      <h2>Worm and Worm Wheel</h2>
+
+      <div class="definition">
+        Worm and worm wheel mechanism mein a screw-like worm ek toothed wheel
+        ke saath mesh karta hai. Worm ki rotation worm wheel ko rotate karti hai.
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 4 — Worm and worm wheel</div>
+        <svg viewBox="0 0 900 390">
+          <g transform="translate(115,145)">
+            <path d="M0 0 C40 -40,80 40,120 0 S200 -40,240 0" fill="none" stroke="#315bea" stroke-width="28"/>
+            <line x1="0" y1="0" x2="240" y2="0" class="svg-line"/>
+          </g>
+          <text x="220" y="245" class="svg-label">Worm</text>
+
+          <circle cx="610" cy="180" r="110" fill="#dce7ff" stroke="#315bea" stroke-width="4"/>
+          <circle cx="610" cy="180" r="42" fill="#fff" stroke="#183aa9" stroke-width="4"/>
+          <circle cx="610" cy="180" r="7" fill="#172033"/>
+
+          <g stroke="#183aa9" stroke-width="3">
+            <line x1="610" y1="70" x2="610" y2="100"/>
+            <line x1="610" y1="260" x2="610" y2="290"/>
+            <line x1="500" y1="180" x2="530" y2="180"/>
+            <line x1="690" y1="180" x2="720" y2="180"/>
+          </g>
+
+          <text x="610" y="330" text-anchor="middle" class="svg-label">Worm wheel</text>
+          <text x="110" y="90" class="svg-label">Input rotation</text>
+          <text x="690" y="90" class="svg-label">Output rotation</text>
+        </svg>
+      </div>
+
+      <h3>Working Principle</h3>
+      <ol class="steps">
+        <li>Effort is applied to rotate the worm.</li>
+        <li>Worm threads engage with teeth of the worm wheel.</li>
+        <li>Worm wheel rotates at a reduced speed.</li>
+        <li>The output rotation can be used for lifting through a drum/rope arrangement.</li>
+      </ol>
+
+      <h3>Velocity Ratio</h3>
+
+      <div class="formula">
+        VR = Number of teeth on worm wheel / Number of starts of worm
+      </div>
+
+      <p>
+        For a single-start worm, one complete worm revolution advances the
+        worm wheel by one tooth. For a two-start worm, the advance is two teeth
+        per revolution. Hence the number of worm starts directly affects VR.
+      </p>
+
+      <h3>Example Interpretation</h3>
+      <p>
+        If worm wheel has 40 teeth and the worm is single-start:
+      </p>
+
+      <div class="formula">
+        VR = 40 / 1 = 40
+      </div>
+
+      <div class="exam">
+        <strong>Exam tip:</strong>
+        Worm wheel ke teeth ko numerator aur worm ke number of starts ko
+        denominator mein identify karna easy memory rule hai.
+      </div>
+    </section>
+
+    <section class="section" id="crab">
+      <div class="kicker">Machine 4</div>
+      <h2>Single Purchase and Double Purchase Crab Winch</h2>
+
+      <p>
+        Crab winch ek geared lifting arrangement hai jisme handle ke rotation
+        ko gear train ke through drum tak transmit kiya jata hai. Gear train
+        speed reduce karta hai and torque multiplication provide karta hai.
+      </p>
+
+      <h3>Single Purchase Crab Winch</h3>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 5 — Conceptual single-purchase crab winch</div>
+        <svg viewBox="0 0 900 380">
+          <circle cx="190" cy="175" r="60" class="svg-fill"/>
+          <circle cx="190" cy="175" r="20" fill="#fff" stroke="#183aa9" stroke-width="3"/>
+          <line x1="190" y1="115" x2="190" y2="55" class="svg-line"/>
+          <text x="120" y="40" class="svg-label">Handle</text>
+
+          <circle cx="390" cy="175" r="100" class="svg-fill"/>
+          <circle cx="390" cy="175" r="32" fill="#fff" stroke="#183aa9" stroke-width="3"/>
+          <text x="350" y="310" class="svg-label">Large gear</text>
+
+          <circle cx="620" cy="175" r="45" fill="#eef4ff" stroke="#315bea" stroke-width="4"/>
+          <text x="585" y="260" class="svg-label">Pinion / drum side</text>
+
+          <line x1="665" y1="175" x2="665" y2="310" class="svg-line"/>
+          <rect x="638" y="310" width="55" height="35" class="svg-fill"/>
+          <text x="710" y="333" class="svg-label">Load W</text>
+
+          <line x1="250" y1="175" x2="285" y2="175" class="svg-line"/>
+          <polygon points="285,175 265,165 265,185" fill="#172033"/>
+        </svg>
+      </div>
+
+      <p>
+        Single-purchase arrangement mein one gear pair transmission provide
+        karta hai. Exact VR notation depends on how the handle radius, drum
+        radius and gear teeth are labelled.
+      </p>
+
+      <div class="formula">
+        VR = (R/r) × (T<sub>driven</sub>/T<sub>driver</sub>)
+      </div>
+
+      <p>
+        Here R = effort handle radius, r = load drum radius, and gear-tooth
+        ratio must be taken according to the actual driving/driven gear labels.
+      </p>
+
+      <h3>Double Purchase Crab Winch</h3>
+
+      <p>
+        Double purchase crab winch mein two gear pairs hote hain. Therefore
+        total velocity ratio individual stage ratios ka product hota hai.
+      </p>
+
+      <div class="formula">
+        VR = (R/r)
+        × (T₂/T₁)
+        × (T₄/T₃)
+      </div>
+
+      <p>
+        In this notation T₁–T₂ first gear pair and T₃–T₄ second gear pair
+        ko represent karte hain. Actual question mein gear labels alag ho
+        sakte hain, so driving and driven gear identify first.
+      </p>
+
+      <h3>Single vs Double Purchase</h3>
+
+      <table>
+        <tr>
+          <th>Feature</th>
+          <th>Single Purchase</th>
+          <th>Double Purchase</th>
+        </tr>
+        <tr>
+          <td>Gear pairs</td>
+          <td>One major gear pair</td>
+          <td>Two gear pairs</td>
+        </tr>
+        <tr>
+          <td>Total transmission ratio</td>
+          <td>One gear ratio × handle/drum ratio</td>
+          <td>Two gear ratios × handle/drum ratio</td>
+        </tr>
+        <tr>
+          <td>Mechanical arrangement</td>
+          <td>Comparatively simpler</td>
+          <td>More stages of reduction</td>
+        </tr>
+        <tr>
+          <td>Typical use concept</td>
+          <td>Moderate lifting arrangements</td>
+          <td>Higher reduction applications</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section" id="screwjack">
+      <div class="kicker">Machine 5</div>
+      <h2>Screw Jack</h2>
+
+      <div class="definition">
+        Screw jack is a lifting machine in which rotary motion of a handle
+        is converted into linear motion of a screw to lift the load.
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 6 — Screw jack</div>
+        <svg viewBox="0 0 900 470">
+          <rect x="250" y="310" width="400" height="55" rx="8" class="svg-fill"/>
+          <text x="450" y="345" text-anchor="middle" class="svg-label">Base</text>
+
+          <rect x="390" y="120" width="120" height="195" class="svg-fill"/>
+          <line x1="410" y1="120" x2="410" y2="315" class="svg-line"/>
+          <line x1="435" y1="120" x2="435" y2="315" class="svg-line"/>
+          <line x1="460" y1="120" x2="460" y2="315" class="svg-line"/>
+          <line x1="485" y1="120" x2="485" y2="315" class="svg-line"/>
+
+          <rect x="300" y="65" width="300" height="45" rx="8" class="svg-fill"/>
+          <text x="450" y="93" text-anchor="middle" class="svg-label">Load W</text>
+
+          <line x1="450" y1="120" x2="450" y2="35" class="svg-line"/>
+          <line x1="310" y1="35" x2="590" y2="35" class="svg-line"/>
+          <polygon points="590,35 570,25 570,45" fill="#172033"/>
+          <text x="620" y="40" class="svg-label">Handle movement</text>
+
+          <text x="680" y="190" class="svg-label">Screw</text>
+          <text x="680" y="220" class="svg-label">pitch / lead p</text>
+          <text x="680" y="250" class="svg-label">handle radius l</text>
+        </svg>
+      </div>
+
+      <h3>Working Principle</h3>
+      <ol class="steps">
+        <li>Effort is applied at the handle.</li>
+        <li>Handle rotation causes the screw to rotate.</li>
+        <li>Thread geometry converts rotary motion into axial motion.</li>
+        <li>The load-supporting head moves upward or downward.</li>
+      </ol>
+
+      <h3>Velocity Ratio of Screw Jack</h3>
+
+      <p>
+        Suppose handle radius/effective length is <strong>l</strong> and
+        screw lead is <strong>p</strong>.
+      </p>
+
+      <p>
+        For one complete revolution:
+      </p>
+
+      <ul class="check">
+        <li>Distance moved by effort = 2πl</li>
+        <li>Distance moved by load = p</li>
+      </ul>
+
+      <div class="formula">
+        VR = 2πl / p
+      </div>
+
+      <div class="warning">
+        <strong>Pitch vs Lead:</strong>
+        Single-start screw mein lead = pitch. Multi-start screw mein lead
+        generally pitch × number of starts. Numerical mein question mein
+        jo quantity explicitly given ho usko carefully interpret karein.
+      </div>
+
+      <h3>Applications</h3>
+      <ul class="check">
+        <li>Vehicle lifting arrangements.</li>
+        <li>Mechanical workshop lifting.</li>
+        <li>Controlled vertical lifting.</li>
+        <li>Applications where gradual movement and high force multiplication are required.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="weston">
+      <div class="kicker">Machine 6</div>
+      <h2>Weston's Differential Pulley Block</h2>
+
+      <div class="definition">
+        Weston's differential pulley block is a lifting mechanism using two
+        pulleys of unequal effective diameters attached together and an
+        endless chain arrangement.
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 7 — Conceptual Weston differential pulley block</div>
+        <svg viewBox="0 0 900 470">
+          <circle cx="450" cy="125" r="85" class="svg-fill"/>
+          <circle cx="450" cy="125" r="58" fill="#fff" stroke="#183aa9" stroke-width="4"/>
+          <text x="450" y="115" text-anchor="middle" class="svg-label">Large</text>
+          <text x="450" y="137" text-anchor="middle" class="svg-label">pulley</text>
+
+          <path d="M365 125 C310 170,310 300,365 350" fill="none" stroke="#172033" stroke-width="5"/>
+          <path d="M535 125 C590 170,590 300,535 350" fill="none" stroke="#172033" stroke-width="5"/>
+
+          <circle cx="450" cy="255" r="48" fill="#eef4ff" stroke="#315bea" stroke-width="4"/>
+          <text x="450" y="260" text-anchor="middle" class="svg-label">Lower</text>
+
+          <rect x="420" y="300" width="60" height="45" class="svg-fill"/>
+          <text x="505" y="328" class="svg-label">Load W</text>
+
+          <text x="150" y="100" class="svg-label">Endless chain</text>
+          <text x="650" y="110" class="svg-label">D = larger diameter</text>
+          <text x="650" y="145" class="svg-label">d = smaller diameter</text>
+        </svg>
+      </div>
+
+      <h3>Velocity Ratio</h3>
+
+      <p>
+        Standard Weston differential pulley arrangement mein one revolution
+        of the upper differential pulley causes the two supporting chain
+        portions to move through unequal distances. Their difference produces
+        the lifting motion.
+      </p>
+
+      <div class="formula">
+        VR = 2D / (D − d)
+      </div>
+
+      <p>
+        Here <strong>D</strong> is the effective diameter of the larger
+        upper pulley and <strong>d</strong> is the effective diameter of the
+        smaller upper pulley.
+      </p>
+
+      <div class="tip">
+        <strong>Memory:</strong>
+        Weston differential pulley → numerator mein 2D, denominator mein
+        D − d.
+      </div>
+    </section>
+
+    <section class="section" id="geared">
+      <div class="kicker">Machine 7</div>
+      <h2>Geared Pulley Block</h2>
+
+      <div class="definition">
+        A geared pulley block uses a gear transmission between the input
+        chain/handle and the lifting pulley system so that the operator can
+        lift a comparatively heavy load with controlled effort.
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 8 — Conceptual geared pulley block</div>
+        <svg viewBox="0 0 900 450">
+          <circle cx="245" cy="130" r="65" fill="#dce7ff" stroke="#315bea" stroke-width="4"/>
+          <circle cx="245" cy="130" r="25" fill="#fff" stroke="#183aa9" stroke-width="3"/>
+          <text x="245" y="135" text-anchor="middle" class="svg-label">G1</text>
+
+          <circle cx="400" cy="130" r="105" fill="#eef4ff" stroke="#315bea" stroke-width="4"/>
+          <circle cx="400" cy="130" r="32" fill="#fff" stroke="#183aa9" stroke-width="3"/>
+          <text x="400" y="135" text-anchor="middle" class="svg-label">G2</text>
+
+          <circle cx="535" cy="130" r="55" fill="#dce7ff" stroke="#315bea" stroke-width="4"/>
+          <circle cx="535" cy="130" r="20" fill="#fff" stroke="#183aa9" stroke-width="3"/>
+          <text x="535" y="135" text-anchor="middle" class="svg-label">G3</text>
+
+          <circle cx="650" cy="130" r="90" fill="#eef4ff" stroke="#315bea" stroke-width="4"/>
+          <circle cx="650" cy="130" r="28" fill="#fff" stroke="#183aa9" stroke-width="3"/>
+          <text x="650" y="135" text-anchor="middle" class="svg-label">G4</text>
+
+          <line x1="650" y1="220" x2="650" y2="330" class="svg-line"/>
+          <circle cx="650" cy="350" r="45" fill="#dce7ff" stroke="#315bea" stroke-width="4"/>
+          <text x="650" y="355" text-anchor="middle" class="svg-label">Pulley</text>
+
+          <line x1="605" y1="350" x2="515" y2="350" class="svg-line"/>
+          <line x1="515" y1="350" x2="515" y2="405" class="svg-line"/>
+          <rect x="485" y="405" width="60" height="30" class="svg-fill"/>
+          <text x="565" y="425" class="svg-label">Load W</text>
+
+          <text x="150" y="270" class="svg-label">Gear train</text>
+          <text x="150" y="300" class="svg-label">transmits motion</text>
+        </svg>
+      </div>
+
+      <h3>Working Principle</h3>
+      <ol class="steps">
+        <li>Input chain/handle causes the driving gear to rotate.</li>
+        <li>Driving gear rotates the next gear in the train.</li>
+        <li>Multiple gear stages can provide speed reduction.</li>
+        <li>Output motion drives the lifting pulley arrangement.</li>
+      </ol>
+
+      <h3>Velocity Ratio Approach</h3>
+
+      <p>
+        Geared pulley block ka exact VR machine ke gear arrangement, number
+        of pulley supporting strands and gear dimensions par depend karta hai.
+        Therefore numerical problem mein diagram ke according derive karna
+        safest approach hai.
+      </p>
+
+      <div class="formula">
+        Total gear ratio
+        =
+        Product of individual driven/driver gear ratios
+      </div>
+
+      <p>
+        Agar pulley arrangement ka own velocity ratio <strong>n</strong> hai
+        aur gear train ratio <strong>G</strong> hai, then:
+      </p>
+
+      <div class="formula">
+        VR<sub>total</sub> = G × n
+      </div>
+
+      <div class="warning">
+        <strong>Important:</strong>
+        Geared pulley block ke liye ek single universal numerical formula
+        assume nahi karna chahiye without knowing the actual arrangement.
+        Question mein given gear teeth and pulley geometry ko follow karein.
+      </div>
+    </section>
+
+    <section class="section" id="graphs">
+      <div class="kicker">5.4 • Graphical Analysis</div>
+      <h2>Graphs of Lifting Machine</h2>
+
+      <p>
+        Official syllabus mein following graphs included hain:
+        Load vs Effort, Load vs Ideal Effort, Load vs Effort Lost in Friction,
+        Load vs MA and Load vs Efficiency.
+      </p>
+
+      <div class="definition">
+        <strong>Graphing rule:</strong>
+        Syllabus mein graph names “Load verses Effort” etc. diye gaye hain.
+        Exam mein axes ko clearly label karein. Data table se points accurately
+        plot karke smooth/appropriate trend line draw karein.
+      </div>
+
+      <h3>1. Load vs Effort</h3>
+
+      <p>
+        Law of machine:
+      </p>
+
+      <div class="formula">
+        P = mW + C
+      </div>
+
+      <p>
+        Isliye effort aur load ke beech linear relationship obtain hota hai
+        for the applicable machine-law range.
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 9 — Load–Effort linear relationship</div>
+        <svg viewBox="0 0 750 430">
+          <line x1="90" y1="350" x2="680" y2="350" class="svg-line"/>
+          <line x1="90" y1="350" x2="90" y2="60" class="svg-line"/>
+          <polyline points="120,320 220,275 320,230 420,185 520,140 620,95"
+                    fill="none" stroke="#315bea" stroke-width="5"/>
+          <text x="680" y="380" text-anchor="end" class="svg-label">Load W</text>
+          <text x="55" y="70" class="svg-label">Effort P</text>
+          <text x="130" y="315" class="svg-label">C</text>
+          <text x="490" y="120" class="svg-label">P = mW + C</text>
+        </svg>
+      </div>
+
+      <h3>Graph Interpretation</h3>
+      <ul class="check">
+        <li>Slope represents the machine constant m when axes are W horizontally and P vertically.</li>
+        <li>Y-intercept represents C.</li>
+        <li>Linear trend indicates applicability of the machine-law model.</li>
+      </ul>
+
+      <h3>2. Load vs Ideal Effort</h3>
+
+      <div class="formula">
+        Pᵢ = W/VR
+      </div>
+
+      <p>
+        If VR is constant, ideal effort is directly proportional to load.
+        Therefore the ideal-effort graph passes through the origin.
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">Figure 10 — Ideal effort graph</div>
+        <svg viewBox="0 0 750 430">
+          <line x1="90" y1="350" x2="680" y2="350" class="svg-line"/>
+          <line x1="90" y1="350" x2="90" y2="60" class="svg-line"/>
+          <line x1="90" y1="350" x2="620" y2="90" stroke="#00a884" stroke-width="5"/>
+          <circle cx="90" cy="350" r="6" fill="#172033"/>
+          <text x="680" y="380" text-anchor="end" class="svg-label">Load W</text>
+          <text x="55" y="70" class="svg-label">Ideal Effort Pᵢ</text>
+          <text x="430" y="165" class="svg-label">Pᵢ = W/VR</text>
+        </svg>
+      </div>
+
+      <h3>3. Load vs Effort Lost in Friction</h3>
+
+      <div class="formula">
+        Effort lost = P − Pᵢ
+      </div>
+
+      <p>
+        For every load value, actual effort and ideal effort calculate karke
+        difference plot kiya ja sakta hai.
+      </p>
+
+      <h3>4. Load vs Mechanical Advantage</h3>
+
+      <div class="formula">
+        MA = W/P
+        <br><br>
+        P = mW + C
+        <br><br>
+        MA = W/(mW+C)
+      </div>
+
+      <p>
+        At small load, C ka effect significant ho sakta hai. Load increase
+        hone par MA limiting value ke approach kar sakta hai.
+      </p>
+
+      <h3>5. Load vs Efficiency</h3>
+
+      <div class="formula">
+        η = (MA/VR) × 100%
+      </div>
+
+      <p>
+        If VR is constant, efficiency ka variation MA ke variation ko follow
+        karega. Real machine mein efficiency generally 100% se below hoti hai.
+      </p>
+
+      <h3>How to Draw Any Machine Graph in Exam</h3>
+
+      <ol class="steps">
+        <li>Given observation table ko carefully read karein.</li>
+        <li>Required dependent and independent quantities identify karein.</li>
+        <li>Suitable scale choose karein.</li>
+        <li>Both axes with quantity and unit label karein.</li>
+        <li>Data points accurately mark karein.</li>
+        <li>Trend ke according line/curve draw karein.</li>
+        <li>Graph title and important intercept/slope mention karein.</li>
+      </ol>
+    </section>
+
+    <section class="section" id="numericals">
+      <div class="kicker">Practice • TSO 5c & 5d</div>
+      <h2>Long Solved Numericals</h2>
+
+      <p class="lead">
+        Har numerical ko exam-friendly fixed format mein solve kiya gaya hai:
+        GIVEN → FIND → FORMULA → WHY THIS FORMULA → SUBSTITUTION →
+        CALCULATION → ANSWER.
+      </p>
+
+      <!-- Numerical 1 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 1 — Mechanical Advantage</div>
+        <div class="num-body">
+          <p>A machine lifts a load of 1200 N by an effort of 200 N. Find MA.</p>
+
+          <div class="num-row"><b>GIVEN</b> W = 1200 N, P = 200 N</div>
+          <div class="num-row"><b>FIND</b> Mechanical Advantage</div>
+          <div class="num-row"><b>FORMULA</b> MA = W/P</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> MA is defined as load divided by effort.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> MA = 1200/200</div>
+          <div class="num-row"><b>CALCULATION</b> MA = 6</div>
+          <div class="answer"><b>ANSWER:</b> Mechanical Advantage = 6</div>
+        </div>
+      </div>
+
+      <!-- Numerical 2 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 2 — Velocity Ratio from Distances</div>
+        <div class="num-body">
+          <p>Effort moves through 600 mm while load moves through 60 mm. Find VR.</p>
+
+          <div class="num-row"><b>GIVEN</b> Distance by effort = 600 mm; distance by load = 60 mm</div>
+          <div class="num-row"><b>FIND</b> VR</div>
+          <div class="num-row"><b>FORMULA</b> VR = distance moved by effort / distance moved by load</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> VR is defined by displacement ratio.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> VR = 600/60</div>
+          <div class="num-row"><b>CALCULATION</b> VR = 10</div>
+          <div class="answer"><b>ANSWER:</b> Velocity Ratio = 10</div>
+        </div>
+      </div>
+
+      <!-- Numerical 3 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 3 — Efficiency</div>
+        <div class="num-body">
+          <p>A machine has MA = 5 and VR = 8. Find efficiency.</p>
+
+          <div class="num-row"><b>GIVEN</b> MA = 5, VR = 8</div>
+          <div class="num-row"><b>FIND</b> η</div>
+          <div class="num-row"><b>FORMULA</b> η = (MA/VR) × 100%</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> Machine efficiency is MA-to-VR ratio expressed as percentage.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> η = (5/8) × 100</div>
+          <div class="num-row"><b>CALCULATION</b> η = 62.5%</div>
+          <div class="answer"><b>ANSWER:</b> Efficiency = 62.5%</div>
+        </div>
+      </div>
+
+      <!-- Numerical 4 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 4 — Find Effort from MA</div>
+        <div class="num-body">
+          <p>A machine lifts 1500 N load and has MA = 6. Find effort.</p>
+
+          <div class="num-row"><b>GIVEN</b> W = 1500 N, MA = 6</div>
+          <div class="num-row"><b>FIND</b> P</div>
+          <div class="num-row"><b>FORMULA</b> MA = W/P</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> MA definition relates load and effort.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> 6 = 1500/P</div>
+          <div class="num-row"><b>CALCULATION</b> P = 1500/6 = 250 N</div>
+          <div class="answer"><b>ANSWER:</b> Required effort = 250 N</div>
+        </div>
+      </div>
+
+      <!-- Numerical 5 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 5 — Ideal Effort</div>
+        <div class="num-body">
+          <p>Load is 1000 N and VR is 5. Find ideal effort.</p>
+
+          <div class="num-row"><b>GIVEN</b> W = 1000 N, VR = 5</div>
+          <div class="num-row"><b>FIND</b> Ideal effort Pᵢ</div>
+          <div class="num-row"><b>FORMULA</b> Pᵢ = W/VR</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> In an ideal machine MA = VR and MA = W/Pᵢ.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> Pᵢ = 1000/5</div>
+          <div class="num-row"><b>CALCULATION</b> Pᵢ = 200 N</div>
+          <div class="answer"><b>ANSWER:</b> Ideal effort = 200 N</div>
+        </div>
+      </div>
+
+      <!-- Numerical 6 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 6 — Effort Lost in Friction</div>
+        <div class="num-body">
+          <p>Actual effort is 260 N and ideal effort is 200 N. Find effort lost in friction.</p>
+
+          <div class="num-row"><b>GIVEN</b> P = 260 N, Pᵢ = 200 N</div>
+          <div class="num-row"><b>FIND</b> Effort lost in friction</div>
+          <div class="num-row"><b>FORMULA</b> P − Pᵢ</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> Actual effort includes ideal effort plus additional effort due to losses.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> 260 − 200</div>
+          <div class="num-row"><b>CALCULATION</b> 60 N</div>
+          <div class="answer"><b>ANSWER:</b> Effort lost in friction = 60 N</div>
+        </div>
+      </div>
+
+      <!-- Numerical 7 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 7 — Law of Machine from Two Observations</div>
+        <div class="num-body">
+          <p>
+            For a machine, effort is 80 N at load 200 N and 140 N at load 500 N.
+            Find the law of machine.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> W₁ = 200 N, P₁ = 80 N; W₂ = 500 N, P₂ = 140 N</div>
+          <div class="num-row"><b>FIND</b> m and C; equation P = mW + C</div>
+          <div class="num-row"><b>FORMULA</b> m = (P₂−P₁)/(W₂−W₁)</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> m is the slope of the P–W straight line.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> m = (140−80)/(500−200) = 60/300</div>
+          <div class="num-row"><b>CALCULATION</b> m = 0.2</div>
+          <div class="num-row"><b>FORMULA FOR C</b> C = P₁ − mW₁</div>
+          <div class="num-row"><b>SUBSTITUTION</b> C = 80 − (0.2 × 200)</div>
+          <div class="num-row"><b>CALCULATION</b> C = 40 N</div>
+          <div class="answer"><b>ANSWER:</b> Law of machine: <strong>P = 0.2W + 40</strong></div>
+        </div>
+      </div>
+
+      <!-- Numerical 8 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 8 — Effort for a Given Load</div>
+        <div class="num-body">
+          <p>
+            A machine obeys P = 0.2W + 40. Find effort required to lift 800 N.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> P = 0.2W + 40, W = 800 N</div>
+          <div class="num-row"><b>FIND</b> P</div>
+          <div class="num-row"><b>FORMULA</b> P = mW + C</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> Given machine law directly relates effort and load.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> P = 0.2(800) + 40</div>
+          <div class="num-row"><b>CALCULATION</b> P = 160 + 40 = 200 N</div>
+          <div class="answer"><b>ANSWER:</b> Required effort = 200 N</div>
+        </div>
+      </div>
+
+      <!-- Numerical 9 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 9 — MA from Machine Law</div>
+        <div class="num-body">
+          <p>
+            Machine law is P = 0.25W + 50. Find MA when W = 1000 N.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> P = 0.25W + 50, W = 1000 N</div>
+          <div class="num-row"><b>FIND</b> MA</div>
+          <div class="num-row"><b>FORMULA</b> P = 0.25W + 50; MA = W/P</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> First actual effort is found from machine law, then MA from definition.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> P = 0.25(1000)+50</div>
+          <div class="num-row"><b>CALCULATION</b> P = 300 N; MA = 1000/300 = 3.333</div>
+          <div class="answer"><b>ANSWER:</b> MA ≈ 3.33</div>
+        </div>
+      </div>
+
+      <!-- Numerical 10 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 10 — Simple Wheel and Axle VR</div>
+        <div class="num-body">
+          <p>Wheel radius is 250 mm and axle radius is 50 mm. Find VR.</p>
+
+          <div class="num-row"><b>GIVEN</b> R = 250 mm, r = 50 mm</div>
+          <div class="num-row"><b>FIND</b> VR</div>
+          <div class="num-row"><b>FORMULA</b> VR = R/r</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> One revolution gives effort distance 2πR and load distance 2πr.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> VR = 250/50</div>
+          <div class="num-row"><b>CALCULATION</b> VR = 5</div>
+          <div class="answer"><b>ANSWER:</b> Velocity Ratio = 5</div>
+        </div>
+      </div>
+
+      <!-- Numerical 11 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 11 — Wheel and Axle Efficiency</div>
+        <div class="num-body">
+          <p>
+            A wheel and axle has wheel radius 300 mm and axle radius 60 mm.
+            If actual effort for a 900 N load is 200 N, find MA, VR and efficiency.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> R = 300 mm, r = 60 mm, W = 900 N, P = 200 N</div>
+          <div class="num-row"><b>FIND</b> MA, VR, η</div>
+          <div class="num-row"><b>FORMULA</b> MA = W/P; VR = R/r; η = (MA/VR)×100%</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> These are the standard machine performance relations.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> MA = 900/200 = 4.5</div>
+          <div class="num-row"><b>CALCULATION</b> VR = 300/60 = 5</div>
+          <div class="num-row"><b>EFFICIENCY</b> η = (4.5/5)×100 = 90%</div>
+          <div class="answer"><b>ANSWER:</b> MA = 4.5, VR = 5, Efficiency = 90%</div>
+        </div>
+      </div>
+
+      <!-- Numerical 12 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 12 — Worm and Worm Wheel</div>
+        <div class="num-body">
+          <p>
+            A worm wheel has 60 teeth and the worm is single-start. Find VR.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> T = 60 teeth, worm starts = 1</div>
+          <div class="num-row"><b>FIND</b> VR</div>
+          <div class="num-row"><b>FORMULA</b> VR = number of worm-wheel teeth / number of worm starts</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> One worm revolution advances the wheel by the number of worm starts.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> VR = 60/1</div>
+          <div class="num-row"><b>CALCULATION</b> VR = 60</div>
+          <div class="answer"><b>ANSWER:</b> Velocity Ratio = 60</div>
+        </div>
+      </div>
+
+      <!-- Numerical 13 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 13 — Two-Start Worm</div>
+        <div class="num-body">
+          <p>
+            A worm wheel has 80 teeth and the worm is two-start. Find VR.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> T = 80, starts = 2</div>
+          <div class="num-row"><b>FIND</b> VR</div>
+          <div class="num-row"><b>FORMULA</b> VR = T / starts</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> Each worm revolution advances the wheel by the number of starts.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> VR = 80/2</div>
+          <div class="num-row"><b>CALCULATION</b> VR = 40</div>
+          <div class="answer"><b>ANSWER:</b> Velocity Ratio = 40</div>
+        </div>
+      </div>
+
+      <!-- Numerical 14 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 14 — Screw Jack VR</div>
+        <div class="num-body">
+          <p>
+            Handle radius is 350 mm and screw lead is 7 mm. Find VR.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> l = 350 mm, p = 7 mm</div>
+          <div class="num-row"><b>FIND</b> VR</div>
+          <div class="num-row"><b>FORMULA</b> VR = 2πl/p</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> One handle revolution moves effort through 2πl while screw moves load through p.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> VR = 2π(350)/7</div>
+          <div class="num-row"><b>CALCULATION</b> VR = 100π ≈ 314.16</div>
+          <div class="answer"><b>ANSWER:</b> VR ≈ 314.16</div>
+        </div>
+      </div>
+
+      <!-- Numerical 15 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 15 — Screw Jack Efficiency</div>
+        <div class="num-body">
+          <p>
+            A screw jack has VR = 250 and lifts 5000 N with an effort of 40 N.
+            Find efficiency.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> W = 5000 N, P = 40 N, VR = 250</div>
+          <div class="num-row"><b>FIND</b> η</div>
+          <div class="num-row"><b>FORMULA</b> MA = W/P; η = (MA/VR)×100%</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> Efficiency requires actual MA and VR.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> MA = 5000/40 = 125</div>
+          <div class="num-row"><b>CALCULATION</b> η = (125/250)×100 = 50%</div>
+          <div class="answer"><b>ANSWER:</b> Efficiency = 50%</div>
+        </div>
+      </div>
+
+      <!-- Numerical 16 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 16 — Weston Differential Pulley</div>
+        <div class="num-body">
+          <p>
+            The larger pulley diameter is 200 mm and smaller pulley diameter
+            is 180 mm. Find VR.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> D = 200 mm, d = 180 mm</div>
+          <div class="num-row"><b>FIND</b> VR</div>
+          <div class="num-row"><b>FORMULA</b> VR = 2D/(D−d)</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> Standard Weston differential pulley displacement relation.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> VR = 2(200)/(200−180)</div>
+          <div class="num-row"><b>CALCULATION</b> VR = 400/20 = 20</div>
+          <div class="answer"><b>ANSWER:</b> Velocity Ratio = 20</div>
+        </div>
+      </div>
+
+      <!-- Numerical 17 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 17 — MA and Efficiency Together</div>
+        <div class="num-body">
+          <p>
+            A machine lifts 2000 N with an effort of 500 N. Its VR is 6.
+            Find MA and efficiency.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> W = 2000 N, P = 500 N, VR = 6</div>
+          <div class="num-row"><b>FIND</b> MA and η</div>
+          <div class="num-row"><b>FORMULA</b> MA = W/P; η = (MA/VR)×100%</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> MA comes from load/effort; efficiency comes from MA/VR.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> MA = 2000/500 = 4</div>
+          <div class="num-row"><b>CALCULATION</b> η = (4/6)×100 = 66.67%</div>
+          <div class="answer"><b>ANSWER:</b> MA = 4; Efficiency ≈ 66.67%</div>
+        </div>
+      </div>
+
+      <!-- Numerical 18 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 18 — Reversibility Check</div>
+        <div class="num-body">
+          <p>
+            A machine has MA = 3 and VR = 5. Determine efficiency and discuss
+            reversibility according to the standard textbook criterion.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> MA = 3, VR = 5</div>
+          <div class="num-row"><b>FIND</b> η and machine category by criterion</div>
+          <div class="num-row"><b>FORMULA</b> η = (MA/VR)×100%</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> Efficiency is the ratio of actual MA to VR.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> η = (3/5)×100</div>
+          <div class="num-row"><b>CALCULATION</b> η = 60%</div>
+          <div class="num-row"><b>INTERPRETATION</b> Standard criterion: η &gt; 50% corresponds to reversible behaviour.</div>
+          <div class="answer"><b>ANSWER:</b> Efficiency = 60%; by the stated textbook criterion, it is reversible.</div>
+        </div>
+      </div>
+
+      <!-- Numerical 19 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 19 — Limiting MA from Machine Law</div>
+        <div class="num-body">
+          <p>
+            A machine obeys P = 0.25W + 60. Find the limiting MA according
+            to the machine-law model.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> m = 0.25</div>
+          <div class="num-row"><b>FIND</b> Limiting MA</div>
+          <div class="num-row"><b>FORMULA</b> MA<sub>limiting</sub> ≈ 1/m</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> It follows from MA = W/(mW+C) as W becomes very large.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> MA = 1/0.25</div>
+          <div class="num-row"><b>CALCULATION</b> MA = 4</div>
+          <div class="answer"><b>ANSWER:</b> Limiting MA ≈ 4</div>
+        </div>
+      </div>
+
+      <!-- Numerical 20 -->
+      <div class="numerical">
+        <div class="num-head">Numerical 20 — Load from Machine Law</div>
+        <div class="num-body">
+          <p>
+            Machine law is P = 0.2W + 30. If available effort is 130 N,
+            find the corresponding load.
+          </p>
+
+          <div class="num-row"><b>GIVEN</b> P = 130 N, P = 0.2W + 30</div>
+          <div class="num-row"><b>FIND</b> W</div>
+          <div class="num-row"><b>FORMULA</b> P = mW + C</div>
+          <div class="num-row"><b>WHY THIS FORMULA</b> Machine law directly relates effort and load.</div>
+          <div class="num-row"><b>SUBSTITUTION</b> 130 = 0.2W + 30</div>
+          <div class="num-row"><b>CALCULATION</b> 100 = 0.2W → W = 500 N</div>
+          <div class="answer"><b>ANSWER:</b> Load = 500 N</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="selection">
+      <div class="kicker">TSO 5g • Application</div>
+      <h2>Selection of Relevant Lifting Machine</h2>
+
+      <p>
+        Machine selection mein sirf formula nahi, application requirement
+        dekhna hota hai. Given purpose, required lifting behaviour, available
+        effort, compactness, control and reverse-motion characteristics ko
+        consider karke relevant machine justify ki ja sakti hai.
+      </p>
+
+      <table>
+        <tr>
+          <th>Purpose / Situation</th>
+          <th>Relevant Machine</th>
+          <th>Reason / Justification</th>
+        </tr>
+        <tr>
+          <td>Vehicle ko manually lift karna</td>
+          <td>Screw jack</td>
+          <td>Rotary handle motion ko controlled vertical screw motion mein convert karta hai.</td>
+        </tr>
+        <tr>
+          <td>Simple force multiplication</td>
+          <td>Wheel and axle</td>
+          <td>Different radii ke karan input distance aur output distance differ karte hain.</td>
+        </tr>
+        <tr>
+          <td>High reduction through screw gearing</td>
+          <td>Worm and worm wheel</td>
+          <td>Worm-tooth engagement large speed reduction provide kar sakta hai.</td>
+        </tr>
+        <tr>
+          <td>Manual heavy lifting with gear stages</td>
+          <td>Crab winch</td>
+          <td>Gear train input rotation ko drum rotation mein transmit karta hai.</td>
+        </tr>
+        <tr>
+          <td>Differential pulley lifting arrangement</td>
+          <td>Weston's differential pulley block</td>
+          <td>Unequal pulley diameters ki differential movement lifting motion create karti hai.</td>
+        </tr>
+        <tr>
+          <td>Gear-based pulley lifting</td>
+          <td>Geared pulley block</td>
+          <td>Gear transmission aur pulley arrangement combined lifting mechanism provide karta hai.</td>
+        </tr>
+      </table>
+
+      <div class="exam">
+        <strong>TSO 5g answer pattern:</strong>
+        “For the given purpose, ______ machine is relevant because ______.
+        Its working principle uses ______, which provides the required
+        lifting/control/reduction characteristic.”
+      </div>
+    </section>
+
+    <section class="section" id="mistakes">
+      <div class="kicker">Exam Protection</div>
+      <h2>Common Mistakes Students Make</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>01. MA and VR Mix-up</h3>
+          <p>MA = W/P, while VR is distance-effort/distance-load.</p>
+        </div>
+        <div class="card">
+          <h3>02. Efficiency Formula Wrong</h3>
+          <p>η = MA/VR × 100, not VR/MA × 100.</p>
+        </div>
+        <div class="card">
+          <h3>03. Ideal vs Actual Effort</h3>
+          <p>Ideal effort frictionless condition ka theoretical value hai.</p>
+        </div>
+        <div class="card">
+          <h3>04. Gear Driver/Driven Confusion</h3>
+          <p>Gear ratio mein pehle identify karein kaun driver hai aur kaun driven.</p>
+        </div>
+        <div class="card">
+          <h3>05. Screw Jack Pitch/Lead</h3>
+          <p>Question mein single-start/multi-start condition check karein.</p>
+        </div>
+        <div class="card">
+          <h3>06. Graph Axis Missing</h3>
+          <p>Axis quantity + unit + proper scale ke bina graph incomplete ho sakta hai.</p>
+        </div>
+        <div class="card">
+          <h3>07. Units Ignore Karna</h3>
+          <p>Length ratios mein same unit use karein.</p>
+        </div>
+        <div class="card">
+          <h3>08. Machine Diagram Ignore Karna</h3>
+          <p>Complex machines mein formula se pehle mechanism identify karein.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="questions">
+      <div class="kicker">Exam Preparation</div>
+      <h2>Important Questions</h2>
+
+      <h3>Very Short Answer</h3>
+      <ol>
+        <li>Define a simple lifting machine.</li>
+        <li>What is load?</li>
+        <li>What is effort?</li>
+        <li>Define mechanical advantage.</li>
+        <li>Define velocity ratio.</li>
+        <li>Write the efficiency relation.</li>
+        <li>What is an ideal machine?</li>
+        <li>What is effort lost in friction?</li>
+        <li>State the law of machine.</li>
+        <li>What is a reversible machine?</li>
+        <li>What is a non-reversible machine?</li>
+        <li>Write the standard condition for reversibility.</li>
+      </ol>
+
+      <h3>Short Answer</h3>
+      <ol>
+        <li>Explain the difference between MA and VR.</li>
+        <li>Explain why actual efficiency is below 100% in a real machine.</li>
+        <li>Explain the significance of the constant C in P = mW + C.</li>
+        <li>Explain ideal effort and effort lost in friction.</li>
+        <li>Differentiate reversible and non-reversible machines.</li>
+        <li>Explain the working principle of a screw jack.</li>
+        <li>Explain the working principle of worm and worm wheel.</li>
+        <li>Explain the principle of differential axle and wheel.</li>
+        <li>Differentiate single purchase and double purchase crab winch.</li>
+        <li>Explain the purpose of a differential pulley block.</li>
+      </ol>
+
+      <h3>Long Answer / Derivation</h3>
+      <ol>
+        <li>Derive the velocity ratio of a simple wheel and axle.</li>
+        <li>Explain the law of machine and show how m and C can be obtained.</li>
+        <li>Explain ideal machine, friction, MA and efficiency.</li>
+        <li>Derive the velocity ratio of a screw jack.</li>
+        <li>Explain worm and worm wheel with velocity ratio.</li>
+        <li>Explain single purchase and double purchase crab winch with gear ratios.</li>
+        <li>Explain Weston's differential pulley block and its velocity ratio.</li>
+        <li>Explain Load–Effort graph and its interpretation.</li>
+        <li>Explain Load–Ideal Effort graph.</li>
+        <li>Explain Load–MA and Load–Efficiency graphs.</li>
+      </ol>
+
+      <h3>Numerical Practice</h3>
+      <ol>
+        <li>Calculate MA when W and P are given.</li>
+        <li>Calculate VR from effort and load displacement.</li>
+        <li>Calculate efficiency from MA and VR.</li>
+        <li>Find effort from load and MA.</li>
+        <li>Find ideal effort from load and VR.</li>
+        <li>Find effort lost in friction.</li>
+        <li>Determine law of machine from two observations.</li>
+        <li>Find effort for a given load using P = mW + C.</li>
+        <li>Find limiting MA.</li>
+        <li>Calculate wheel-and-axle VR.</li>
+        <li>Calculate worm-and-worm-wheel VR.</li>
+        <li>Calculate screw-jack VR.</li>
+        <li>Calculate Weston differential pulley VR.</li>
+        <li>Calculate efficiency and discuss reversibility.</li>
+      </ol>
+    </section>
+
+    <section class="section" id="mcq">
+      <div class="kicker">Quick Test</div>
+      <h2>MCQs — Unit 5</h2>
+
+      <div class="quiz">
+        <strong>1. Mechanical Advantage is:</strong>
+        <div class="option">A. P/W</div>
+        <div class="option">B. W/P</div>
+        <div class="option">C. W×P</div>
+        <div class="option">D. W+P</div>
+        <div class="answer-key">Answer: B — W/P</div>
+      </div>
+
+      <div class="quiz">
+        <strong>2. Velocity ratio is:</strong>
+        <div class="option">A. Load / effort</div>
+        <div class="option">B. Effort / load</div>
+        <div class="option">C. Distance moved by effort / distance moved by load</div>
+        <div class="option">D. Load × effort</div>
+        <div class="answer-key">Answer: C</div>
+      </div>
+
+      <div class="quiz">
+        <strong>3. Efficiency of a machine is:</strong>
+        <div class="option">A. MA×VR</div>
+        <div class="option">B. MA/VR × 100</div>
+        <div class="option">C. VR/MA × 100</div>
+        <div class="option">D. MA+VR</div>
+        <div class="answer-key">Answer: B</div>
+      </div>
+
+      <div class="quiz">
+        <strong>4. In an ideal machine:</strong>
+        <div class="option">A. η = 0%</div>
+        <div class="option">B. η = 50%</div>
+        <div class="option">C. η = 100%</div>
+        <div class="option">D. η &gt; 100%</div>
+        <div class="answer-key">Answer: C</div>
+      </div>
+
+      <div class="quiz">
+        <strong>5. Law of machine is commonly written as:</strong>
+        <div class="option">A. P = mW + C</div>
+        <div class="option">B. P = W/mC</div>
+        <div class="option">C. W = mP + C only</div>
+        <div class="option">D. P = W − C only</div>
+        <div class="answer-key">Answer: A</div>
+      </div>
+
+      <div class="quiz">
+        <strong>6. Simple wheel and axle has VR:</strong>
+        <div class="option">A. r/R</div>
+        <div class="option">B. R/r</div>
+        <div class="option">C. R+r</div>
+        <div class="option">D. R−r</div>
+        <div class="answer-key">Answer: B</div>
+      </div>
+
+      <div class="quiz">
+        <strong>7. Screw jack converts:</strong>
+        <div class="option">A. Linear motion into heat</div>
+        <div class="option">B. Rotary motion into controlled linear motion</div>
+        <div class="option">C. Heat into rotary motion</div>
+        <div class="option">D. Electrical energy into light only</div>
+        <div class="answer-key">Answer: B</div>
+      </div>
+
+      <div class="quiz">
+        <strong>8. For a single-start worm with 50-tooth worm wheel, VR is:</strong>
+        <div class="option">A. 5</div>
+        <div class="option">B. 10</div>
+        <div class="option">C. 25</div>
+        <div class="option">D. 50</div>
+        <div class="answer-key">Answer: D</div>
+      </div>
+
+      <div class="quiz">
+        <strong>9. Effort lost in friction is:</strong>
+        <div class="option">A. P + Pᵢ</div>
+        <div class="option">B. P − Pᵢ</div>
+        <div class="option">C. P×Pᵢ</div>
+        <div class="option">D. P/Pᵢ</div>
+        <div class="answer-key">Answer: B</div>
+      </div>
+
+      <div class="quiz">
+        <strong>10. For a standard textbook reversibility criterion, η &gt; 50% indicates:</strong>
+        <div class="option">A. Reversible machine</div>
+        <div class="option">B. Non-reversible machine</div>
+        <div class="option">C. Ideal machine necessarily</div>
+        <div class="option">D. No machine</div>
+        <div class="answer-key">Answer: A</div>
+      </div>
+
+      <div class="quiz">
+        <strong>11. In P = mW + C, m represents:</strong>
+        <div class="option">A. Intercept</div>
+        <div class="option">B. Slope of P-W relation</div>
+        <div class="option">C. Load</div>
+        <div class="option">D. Efficiency</div>
+        <div class="answer-key">Answer: B</div>
+      </div>
+
+      <div class="quiz">
+        <strong>12. In the standard Weston differential pulley formula, VR is:</strong>
+        <div class="option">A. D/(D+d)</div>
+        <div class="option">B. 2D/(D−d)</div>
+        <div class="option">C. D−d</div>
+        <div class="option">D. d/D</div>
+        <div class="answer-key">Answer: B</div>
+      </div>
+    </section>
+
+    <section class="section" id="revision">
+      <div class="kicker">One-Shot Revision</div>
+      <h2>Unit 5 — 15 Minute Revision</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Core Quantities</h3>
+          <p><strong>Load:</strong> W</p>
+          <p><strong>Effort:</strong> P</p>
+          <p><strong>MA:</strong> W/P</p>
+          <p><strong>VR:</strong> distance effort / distance load</p>
+          <p><strong>η:</strong> MA/VR × 100%</p>
+        </div>
+
+        <div class="card">
+          <h3>Machine Law</h3>
+          <p>P = mW + C</p>
+          <p>m = slope</p>
+          <p>C = intercept</p>
+          <p>Limiting MA ≈ 1/m</p>
+        </div>
+
+        <div class="card">
+          <h3>Ideal Machine</h3>
+          <p>η = 100%</p>
+          <p>MA = VR</p>
+          <p>Ideal effort Pᵢ = W/VR</p>
+          <p>Friction effort = P−Pᵢ</p>
+        </div>
+
+        <div class="card">
+          <h3>Reversibility</h3>
+          <p>η &gt; 50% → reversible</p>
+          <p>η &lt; 50% → non-reversible</p>
+          <p>η ≈ 50% → limiting condition</p>
+        </div>
+
+        <div class="card">
+          <h3>Wheel & Axle</h3>
+          <p>VR = R/r</p>
+        </div>
+
+        <div class="card">
+          <h3>Worm & Worm Wheel</h3>
+          <p>VR = teeth / worm starts</p>
+        </div>
+
+        <div class="card">
+          <h3>Screw Jack</h3>
+          <p>VR = 2πl/p</p>
+        </div>
+
+        <div class="card">
+          <h3>Weston Differential</h3>
+          <p>VR = 2D/(D−d)</p>
+        </div>
+
+        <div class="card">
+          <h3>Crab Winch</h3>
+          <p>Overall VR = handle/drum ratio × gear ratios.</p>
+        </div>
+      </div>
+
+      <h3>Five Graphs to Remember</h3>
+      <ol class="steps">
+        <li>Load vs Effort → machine law P = mW + C.</li>
+        <li>Load vs Ideal Effort → Pᵢ = W/VR.</li>
+        <li>Load vs Effort Lost in Friction → P − Pᵢ.</li>
+        <li>Load vs MA → MA = W/P.</li>
+        <li>Load vs Efficiency → η = MA/VR × 100.</li>
+      </ol>
+
+      <h3>Seven TSO Revision Lines</h3>
+      <ul class="check">
+        <li>Components describe karo.</li>
+        <li>Working principles differentiate karo.</li>
+        <li>VR and efficiency determine karo.</li>
+        <li>Effort and load calculate karo.</li>
+        <li>Given data se graph draw karo.</li>
+        <li>Graph interpret karo.</li>
+        <li>Purpose ke according relevant machine select karke justification do.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="formula-sheet">
+      <div class="kicker">Last Page Before Exam</div>
+      <h2>Complete Formula Sheet</h2>
+
+      <table>
+        <tr>
+          <th>Topic</th>
+          <th>Formula</th>
+          <th>Symbols</th>
+        </tr>
+        <tr>
+          <td>Mechanical Advantage</td>
+          <td>MA = W/P</td>
+          <td>W = load, P = effort</td>
+        </tr>
+        <tr>
+          <td>Velocity Ratio</td>
+          <td>VR = distance by effort / distance by load</td>
+          <td>Displacements in same time</td>
+        </tr>
+        <tr>
+          <td>Efficiency</td>
+          <td>η = MA/VR × 100%</td>
+          <td>η in percent</td>
+        </tr>
+        <tr>
+          <td>MA from efficiency</td>
+          <td>MA = ηVR/100</td>
+          <td>η in percent</td>
+        </tr>
+        <tr>
+          <td>Ideal effort</td>
+          <td>Pᵢ = W/VR</td>
+          <td>Pᵢ = ideal effort</td>
+        </tr>
+        <tr>
+          <td>Effort lost in friction</td>
+          <td>P − Pᵢ</td>
+          <td>P = actual effort</td>
+        </tr>
+        <tr>
+          <td>Law of machine</td>
+          <td>P = mW + C</td>
+          <td>m = slope, C = intercept</td>
+        </tr>
+        <tr>
+          <td>Machine-law slope</td>
+          <td>m = (P₂−P₁)/(W₂−W₁)</td>
+          <td>Two observations</td>
+        </tr>
+        <tr>
+          <td>Machine-law intercept</td>
+          <td>C = P₁−mW₁</td>
+          <td>Any known observation</td>
+        </tr>
+        <tr>
+          <td>Limiting MA</td>
+          <td>MA<sub>limiting</sub> ≈ 1/m</td>
+          <td>Large-load limit</td>
+        </tr>
+        <tr>
+          <td>Wheel & Axle</td>
+          <td>VR = R/r</td>
+          <td>R = wheel radius, r = axle radius</td>
+        </tr>
+        <tr>
+          <td>Worm & Worm Wheel</td>
+          <td>VR = T/n</td>
+          <td>T = wheel teeth, n = worm starts</td>
+        </tr>
+        <tr>
+          <td>Screw Jack</td>
+          <td>VR = 2πl/p</td>
+          <td>l = handle radius/effective length, p = lead</td>
+        </tr>
+        <tr>
+          <td>Weston Differential Pulley</td>
+          <td>VR = 2D/(D−d)</td>
+          <td>D = larger pulley diameter, d = smaller</td>
+        </tr>
+        <tr>
+          <td>Single Purchase Crab Winch</td>
+          <td>VR = (R/r)(T<sub>driven</sub>/T<sub>driver</sub>)</td>
+          <td>Use actual driver/driven labels</td>
+        </tr>
+        <tr>
+          <td>Double Purchase Crab Winch</td>
+          <td>VR = (R/r)(T₂/T₁)(T₄/T₃)</td>
+          <td>Two gear-pair ratios</td>
+        </tr>
+      </table>
+
+      <div class="exam">
+        <strong>Final exam checklist:</strong>
+        Formula likhne ke baad symbols define karo → units check karo →
+        substitution clearly show karo → final answer box karo → graph mein
+        axes and units label karo → machine question mein working principle
+        mention karo.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="kicker">Ultra Quick Recall</div>
+      <h2>Remember This Sequence</h2>
+
+      <div class="formula">
+        LOAD W
+        →
+        EFFORT P
+        →
+        MA = W/P
+        →
+        VR = dP/dW
+        →
+        η = MA/VR × 100
+        →
+        P = mW + C
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Force</h3>
+          <p>MA tells how load compares with effort.</p>
+        </div>
+        <div class="card">
+          <h3>Motion</h3>
+          <p>VR tells how effort distance compares with load distance.</p>
+        </div>
+        <div class="card">
+          <h3>Performance</h3>
+          <p>Efficiency connects MA and VR.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>PrinceXmahto Study</strong>
+      <br>
+      SBTE Bihar Diploma Study Materials
+      <br><br>
+      <span>Course: Engineering Mechanics • Course Code: 2625104</span>
+      <br>
+      <span>Branch: Electronics Engineering • Semester I • Unit 5</span>
+      <br><br>
+      © 2026 PrinceXmahto Study
+      <br>
+      Made for Diploma Students.
+    </footer>
+
+  </main>
+</div>
+
+<button class="backtop" id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* Reading progress */
+window.addEventListener("scroll", function(){
+  const scrollTop = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const percent = height > 0 ? (scrollTop / height) * 100 : 0;
+  document.getElementById("progress").style.width = percent + "%";
+
+  const top = document.getElementById("backtop");
+  top.style.display = scrollTop > 500 ? "block" : "none";
+});
+
+/* Smooth TOC navigation */
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+  link.addEventListener("click", function(e){
+    const id = this.getAttribute("href");
+    const target = document.querySelector(id);
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  });
+});
+
+/* Formula copy buttons */
+document.querySelectorAll(".formula").forEach(function(box){
+  const btn = box.querySelector(".copy-btn");
+  if(!btn) return;
+
+  btn.addEventListener("click", function(){
+    const formula = box.getAttribute("data-copy") || box.innerText.replace("Copy","").trim();
+
+    navigator.clipboard.writeText(formula).then(function(){
+      const old = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(function(){
+        btn.textContent = old;
+      },1200);
+    }).catch(function(){
+      btn.textContent = "Select";
+    });
+  });
+});
+
+/* Sidebar search */
+const tocSearch = document.getElementById("tocSearch");
+
+tocSearch.addEventListener("input", function(){
+  const q = this.value.toLowerCase();
+
+  document.querySelectorAll("#toc li").forEach(function(item){
+    item.style.display = item.textContent.toLowerCase().includes(q) ? "" : "none";
+  });
+});
+
+/* Content search using Ctrl + K */
+document.addEventListener("keydown", function(e){
+  if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k"){
+    e.preventDefault();
+    const search = document.getElementById("tocSearch");
+    search.focus();
+  }
+});
+
+/* Highlight current TOC section */
+const sections = document.querySelectorAll("section[id]");
+const links = document.querySelectorAll("#toc a");
+
+const observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      links.forEach(function(link){
+        link.style.background = "";
+        link.style.color = "";
+      });
+
+      const active = document.querySelector('#toc a[href="#' + entry.target.id + '"]');
+      if(active){
+        active.style.background = "var(--surface2)";
+        active.style.color = "var(--primary)";
+      }
+    }
+  });
+},{
+  rootMargin:"-20% 0px -65% 0px",
+  threshold:0
+});
+
+sections.forEach(function(section){
+  observer.observe(section);
+});
+</script>
+
+</body>
+</html>
