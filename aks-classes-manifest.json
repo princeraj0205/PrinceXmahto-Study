@@ -1,0 +1,18 @@
+{
+  "name": "AKS Technical Classes",
+  "short_name": "AKS Classes",
+  "start_url": "/technical-classes.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0b0f",
+  "theme_color": "#0b0b0f",
+  "description": "Mobile launcher for the official AKS Technical Classes ClassX platform.",
+  "icons": [
+    {
+      "src": "assets/princexmahto-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
