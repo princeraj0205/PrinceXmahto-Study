@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Windows 11 Virtual Desktop — PrinceXmahto</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:"Segoe UI",Arial,sans-serif}
+body{background:#0879c9;color:#111}
+#desktop{position:fixed;inset:0;background:linear-gradient(135deg,#0067b8 0%,#0879cf 45%,#6bc4ef 100%);overflow:hidden}
+.wallpaper{position:absolute;inset:0;opacity:.35;background:radial-gradient(ellipse at 50% 45%,#fff 0 2%,transparent 25%),radial-gradient(ellipse at 70% 55%,#8ee4ff 0 10%,transparent 38%),radial-gradient(ellipse at 30% 60%,#004a91 0 10%,transparent 40%)}
+.icon{position:absolute;width:82px;text-align:center;color:white;font-size:12px;padding:8px;border-radius:6px;user-select:none;cursor:pointer}.icon:hover{background:#ffffff20}.icon .ico{font-size:34px;display:block;margin-bottom:5px}.i1{top:28px;left:25px}.i2{top:120px;left:25px}.i3{top:212px;left:25px}
+.taskbar{position:absolute;left:0;right:0;bottom:0;height:62px;background:#f5f7fbe8;backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;z-index:1000;border-top:1px solid #ffffff70}.taskapps{display:flex;gap:5px}.tb{width:48px;height:48px;border:0;background:transparent;border-radius:8px;font-size:24px;cursor:pointer}.tb:hover{background:#ffffffaa}.clock{position:absolute;right:15px;text-align:right;font-size:12px;line-height:16px}
+.start{display:none;position:absolute;bottom:70px;left:50%;transform:translateX(-50%);width:min(620px,92vw);height:570px;background:#f5f7fbf5;backdrop-filter:blur(25px);border:1px solid #fff;border-radius:14px;padding:28px;z-index:999;box-shadow:0 20px 60px #0005}.start.show{display:block}.search{width:100%;padding:12px 16px;border:1px solid #ccc;border-radius:8px;background:#fff;font-size:15px}.start h3{margin:25px 0 12px}.apps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.app{border:0;background:transparent;padding:15px 5px;border-radius:8px;cursor:pointer}.app:hover{background:#0000000b}.app span{font-size:28px;display:block;margin-bottom:5px}.app small{font-size:11px}
+.window{position:absolute;width:700px;height:470px;max-width:calc(100vw - 30px);max-height:calc(100vh - 100px);left:50%;top:45%;transform:translate(-50%,-50%);background:#f7f7f7;border:1px solid #bbb;border-radius:10px;box-shadow:0 18px 60px #0006;display:none;overflow:hidden;z-index:100}.window.open{display:block}.titlebar{height:44px;background:#f3f3f3;display:flex;align-items:center;padding-left:15px;cursor:move}.title{flex:1;font-size:14px}.controls button{width:44px;height:44px;border:0;background:transparent;font-size:15px}.controls button:hover{background:#ddd}.content{height:calc(100% - 44px);overflow:auto}
+.browserbar{display:flex;padding:10px;gap:8px;background:#eee}.browserbar input{flex:1;padding:9px;border:1px solid #ccc;border-radius:7px}.browserpage{padding:25px;font-size:16px}.browserpage h1{font-size:30px}.notearea{width:100%;height:100%;border:0;resize:none;padding:20px;font:15px Consolas,monospace;outline:0}.calc{padding:20px}.calc input{width:100%;padding:15px;font-size:24px;text-align:right;margin-bottom:10px}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.keys button{padding:18px;border:1px solid #ddd;background:white;border-radius:7px;font-size:17px;cursor:pointer}.explorer{padding:20px}.file{display:inline-block;padding:18px;width:130px}.file span{font-size:35px;display:block}
+.boot{position:fixed;inset:0;background:#080808;color:white;z-index:5000;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:"Segoe UI"}.bootlogo{font-size:60px;margin-bottom:30px}.spinner{width:28px;height:28px;border:3px solid #555;border-top-color:white;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}} 
+@media(max-width:700px){.window{width:calc(100vw - 16px);height:calc(100vh - 95px)}.apps{grid-template-columns:repeat(4,1fr)}.start{height:500px}.icon{left:8px}.i2{top:120px}.i3{top:212px}}
+</style>
+</head>
+<body>
+<div class="boot" id="boot"><div class="bootlogo">⊞</div><div class="spinner"></div></div>
+<div id="desktop"><div class="wallpaper"></div>
+<div class="icon i1" onclick="openWin('explorer')"><span class="ico">📁</span>File Explorer</div>
+<div class="icon i2" onclick="openWin('browser')"><span class="ico">🌐</span>Browser</div>
+<div class="icon i3" onclick="openWin('notepad')"><span class="ico">📝</span>Notepad</div>
+<div class="start" id="start"><input class="search" placeholder="Search apps, files, settings" oninput="filterApps(this.value)"><h3>Recommended</h3><div class="apps" id="apps">
+<button class="app" data-name="Browser" onclick="openWin('browser')"><span>🌐</span><small>Browser</small></button>
+<button class="app" data-name="File Explorer" onclick="openWin('explorer')"><span>📁</span><small>File Explorer</small></button>
+<button class="app" data-name="Notepad" onclick="openWin('notepad')"><span>📝</span><small>Notepad</small></button>
+<button class="app" data-name="Calculator" onclick="openWin('calc')"><span>🧮</span><small>Calculator</small></button>
+<button class="app" data-name="Settings" onclick="openWin('settings')"><span>⚙️</span><small>Settings</small></button>
+</div></div>
+<div class="window" id="browser"><div class="titlebar" data-drag="browser"><div class="title">🌐 Browser</div><div class="controls"><button onclick="minWin('browser')">—</button><button onclick="closeWin('browser')">×</button></div></div><div class="content"><div class="browserbar"><input id="url" value="https://www.google.com" onkeydown="if(event.key==='Enter')navigate()"><button onclick="navigate()">Go</button></div><div class="browserpage" id="browserpage"><h1>Virtual Browser</h1><p>This is a browser simulation inside the virtual desktop.</p><p>Websites can be opened in a real browser tab using the button below.</p><button onclick="window.open(document.getElementById('url').value,'_blank')">Open in real browser ↗</button></div></div></div>
+<div class="window" id="notepad"><div class="titlebar" data-drag="notepad"><div class="title">📝 Notepad</div><div class="controls"><button onclick="minWin('notepad')">—</button><button onclick="closeWin('notepad')">×</button></div></div><div class="content"><textarea class="notearea" placeholder="Type here..."></textarea></div></div>
+<div class="window" id="explorer"><div class="titlebar" data-drag="explorer"><div class="title">📁 File Explorer</div><div class="controls"><button onclick="minWin('explorer')">—</button><button onclick="closeWin('explorer')">×</button></div></div><div class="content explorer"><div class="file">📁<br>Documents</div><div class="file">📁<br>Downloads</div><div class="file">📁<br>Pictures</div><div class="file">📁<br>Desktop</div></div></div>
+<div class="window" id="calc"><div class="titlebar" data-drag="calc"><div class="title">🧮 Calculator</div><div class="controls"><button onclick="minWin('calc')">—</button><button onclick="closeWin('calc')">×</button></div></div><div class="content calc"><input id="calcdisplay" readonly><div class="keys"><button onclick="c('7')">7</button><button onclick="c('8')">8</button><button onclick="c('9')">9</button><button onclick="c('/')">÷</button><button onclick="c('4')">4</button><button onclick="c('5')">5</button><button onclick="c('6')">6</button><button onclick="c('*')">×</button><button onclick="c('1')">1</button><button onclick="c('2')">2</button><button onclick="c('3')">3</button><button onclick="c('-')">−</button><button onclick="c('0')">0</button><button onclick="c('.')">.</button><button onclick="calc()">=</button><button onclick="c('+')">+</button><button onclick="clr()">C</button></div></div></div>
+<div class="window" id="settings"><div class="titlebar" data-drag="settings"><div class="title">⚙️ Settings</div><div class="controls"><button onclick="minWin('settings')">—</button><button onclick="closeWin('settings')">×</button></div></div><div class="content" style="padding:25px"><h2>Settings</h2><p>Virtual Windows Desktop</p><hr><p>Theme: Windows 11 style</p><p>Environment: Browser sandbox</p><p>Status: Running</p></div></div>
+<div class="taskbar"><div class="taskapps"><button class="tb" onclick="toggleStart()">⊞</button><button class="tb" onclick="openWin('browser')">🌐</button><button class="tb" onclick="openWin('explorer')">📁</button><button class="tb" onclick="openWin('notepad')">📝</button><button class="tb" onclick="openWin('calc')">🧮</button></div><div class="clock" id="clock"></div></div>
+</div>
+<script>
+setTimeout(()=>document.getElementById('boot').remove(),1200);
+let z=100;
+function toggleStart(){document.getElementById('start').classList.toggle('show')}
+function openWin(id){document.getElementById('start').classList.remove('show');const w=document.getElementById(id);w.classList.add('open');w.style.zIndex=++z}
+function closeWin(id){document.getElementById(id).classList.remove('open')}
+function minWin(id){document.getElementById(id).classList.remove('open')}
+function filterApps(q){document.querySelectorAll('.app').forEach(a=>a.style.display=a.dataset.name.toLowerCase().includes(q.toLowerCase())?'block':'none')}
+function navigate(){const u=document.getElementById('url').value;document.getElementById('browserpage').innerHTML='<h1>Virtual Browser</h1><p>Address:</p><p>'+u.replaceAll('<','&lt;')+'</p><button onclick="window.open(\''+u.replaceAll("'","\\'")+'\',\'_blank\')">Open in real browser ↗</button>'}
+function c(v){document.getElementById('calcdisplay').value+=v}function clr(){document.getElementById('calcdisplay').value=''}function calc(){try{document.getElementById('calcdisplay').value=String(Function('return '+document.getElementById('calcdisplay').value)())}catch{document.getElementById('calcdisplay').value='Error'}}
+setInterval(()=>{const d=new Date();document.getElementById('clock').innerHTML=d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})+'<br>'+d.toLocaleDateString();},1000);
+document.querySelectorAll('.window').forEach(w=>{w.addEventListener('mousedown',()=>w.style.zIndex=++z);const bar=w.querySelector('.titlebar');let drag=false,ox=0,oy=0;bar.addEventListener('mousedown',e=>{drag=true;ox=e.clientX-w.offsetLeft;oy=e.clientY-w.offsetTop});document.addEventListener('mousemove',e=>{if(drag){w.style.left=(e.clientX-ox)+'px';w.style.top=(e.clientY-oy)+'px';w.style.transform='none'}});document.addEventListener('mouseup',()=>drag=false)});
+</script></body></html>
