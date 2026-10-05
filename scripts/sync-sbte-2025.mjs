@@ -50,34 +50,56 @@ const branchesToRun=branchOptions.filter(t=>!/^select|choose|all branch$/i.test(
 console.log('BRANCHES_FOUND='+branchesToRun.length);
 
 const found=[];
-for(const item of branchesToRun){
-  await choose(1,item.text);
+const allBranch=branchOptions.find(t=>/all\s*branch/i.test(t.trim()));
+if(allBranch){
+  await choose(1,allBranch);
   await choose(2,semText);
   await choose(3,t=>/^regular$/i.test(t.trim()));
   await page.getByRole('button',{name:/^search$/i}).click();
-  await page.waitForTimeout(1200);
-
+  await page.waitForTimeout(1800);
   const rows=await page.locator('table tbody tr').evaluateAll(trs=>trs.map(tr=>({
     cells:[...tr.querySelectorAll('td')].map(x=>x.textContent.trim()),
     links:[...tr.querySelectorAll('a')].map(a=>({href:a.href,text:a.textContent.trim()}))
   })));
   for(const row of rows){
+    const b=findBranch(row.cells[1]||''); if(!b) continue;
     for(const link of row.links){
       const href=link.href;
-      if(!/^https:\/\/sbte\.bihar\.gov\.in\//i.test(href)) continue;
-      if(!/\.pdf(?:$|[?#])|questionbank/i.test(href)) continue;
+      if(!/^https:\/\/sbte\.bihar\.gov\.in\//i.test(href)||!/\.pdf(?:$|[?#])|questionbank/i.test(href)) continue;
       const clean=href.split('?')[0].split('#')[0];
       const filename=clean.split('/').pop().replace(/\.pdf$/i,'');
-      const code=/^[A-Za-z0-9_-]{5,}$/.test(filename)?filename:'';
-      if(!code) continue;
-      const name=(row.cells[3]||row.cells[2]||'').trim()||code;
-      found.push({branchId:item.b.id,branchCode:item.b.code,branchName:item.b.name,code,name,url:href});
+      if(!/^[A-Za-z0-9_-]{5,}$/.test(filename)) continue;
+      const name=(row.cells[3]||row.cells[2]||'').trim()||filename;
+      found.push({branchId:b.id,branchCode:b.code,branchName:b.name,code:filename,name,url:href});
     }
   }
-  console.log('DONE '+item.b.code+' '+item.b.name+' rows='+rows.length);
-}
-
-await browser.close();
+  console.log('ALL_BRANCH_ROWS='+rows.length);
+}else{
+  const branchesToRun=branchOptions.filter(t=>!/^select|choose|all branch$/i.test(t)).map(t=>({text:t,b:findBranch(t)})).filter(x=>x.b);
+  console.log('BRANCHES_FOUND='+branchesToRun.length);
+  for(const item of branchesToRun){
+    await choose(1,item.text);
+    await choose(2,semText);
+    await choose(3,t=>/^regular$/i.test(t.trim()));
+    await page.getByRole('button',{name:/^search$/i}).click();
+    await page.waitForTimeout(1000);
+    const rows=await page.locator('table tbody tr').evaluateAll(trs=>trs.map(tr=>({
+      cells:[...tr.querySelectorAll('td')].map(x=>x.textContent.trim()),
+      links:[...tr.querySelectorAll('a')].map(a=>({href:a.href,text:a.textContent.trim()}))
+    })));
+    for(const row of rows){
+      for(const link of row.links){
+        const href=link.href;
+        if(!/^https:\/\/sbte\.bihar\.gov\.in\//i.test(href)||!/\.pdf(?:$|[?#])|questionbank/i.test(href)) continue;
+        const clean=href.split('?')[0].split('#')[0];
+        const filename=clean.split('/').pop().replace(/\.pdf$/i,'');
+        if(!/^[A-Za-z0-9_-]{5,}$/.test(filename)) continue;
+        const name=(row.cells[3]||row.cells[2]||'').trim()||filename;
+        found.push({branchId:item.b.id,branchCode:item.b.code,branchName:item.b.name,code:filename,name,url:href});
+      }
+    }
+  }
+}await browser.close();
 const unique=[...new Map(found.map(x=>[x.branchId+'|'+x.code+'|'+x.url,x])).values()];
 if(!unique.length) throw new Error('SBTE returned zero official Semester-I 2025 PDFs; refusing to modify archive.');
 
