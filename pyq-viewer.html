@@ -19,6 +19,6 @@
 <script>
 const p=new URLSearchParams(location.search), src=p.get('src'), title=p.get('title')||'PYQ Collection';
 document.getElementById('title').textContent=title;
-if(src){const u=decodeURIComponent(src);document.getElementById('frame').src=u;document.getElementById('open').href=u}else{document.getElementById('frame').src='https://sbte.bihar.gov.in/previous-year-questions';document.getElementById('open').href='https://sbte.bihar.gov.in/previous-year-questions'}
+if(src){let u=decodeURIComponent(src);const m=u.match(/drive\.google\.com\/file\/d\/([^/]+)/);if(m)u='https://drive.google.com/file/d/'+m[1]+'/preview';document.getElementById('frame').src=u;document.getElementById('open').href=u}else{document.getElementById('frame').src='https://sbte.bihar.gov.in/previous-year-questions';document.getElementById('open').href='https://sbte.bihar.gov.in/previous-year-questions'}
 </script>
 </body></html>
