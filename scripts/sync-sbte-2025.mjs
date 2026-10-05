@@ -44,7 +44,7 @@ const listCombo=async(index)=>{
 await choose(0,t=>t.includes('2025'));
 const branchOptions=await listCombo(1);
 const semesterOptions=await listCombo(2);
-const semText=semesterOptions.find(t=>/semester\s*[- ]?1\b|1st\s*semester/i.test(t));
+const semText=semesterOptions.find(t=>/^1$/.test(t.trim())||/semester\s*[- ]?1\b|1st\s*semester/i.test(t));
 if(!semText) throw new Error('Semester-I option not found: '+semesterOptions.join(' | '));
 const branchesToRun=branchOptions.filter(t=>!/^select|choose|all branch$/i.test(t)).map(t=>({text:t,b:findBranch(t)})).filter(x=>x.b);
 console.log('BRANCHES_FOUND='+branchesToRun.length);
