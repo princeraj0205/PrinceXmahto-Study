@@ -1,0 +1,31 @@
+name: Sync SBTE 2025 Semester-I PYQs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-sbte-2025.yml'
+      - 'scripts/sync-sbte-2025.mjs'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/sync-sbte-2025.mjs
+      - name: Commit verified SBTE PDFs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sbte-pyq-data.js
+          git diff --cached --quiet || git commit -m "Sync official SBTE 2025 Semester-I PYQs"
+          git push
