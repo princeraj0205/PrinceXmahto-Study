@@ -21,3 +21,28 @@ Object.assign(window.PX_PYQ.branches,{
 });
 const B=window.PX_PYQ.branches; B["Computer Science & Engineering"]=B.CSE; B["Automobile Engineering"]=B["Mechanical Engineering (Automobile)"]; B["Agricultural Engineering"]=B["Agricultural Engineering"]; B["Civil Engineering"]=B["Civil Engineering"]; B["Electrical Engineering"]=B["Electrical Engineering"]; B["Electronics Engineering"]=B["Electronics Engineering"]; B["Mechanical Engineering"]=B["Mechanical Engineering"]; B["Chemical Engineering"]=B["Chemical Engineering"]; B["Modern Office Practice"]=B["Modern Office Practice"]; B["Printing Technology"]=B["Printing Technology"]; B["Textile Engineering"]=B["Textile Engineering"]; B["Architectural Assistantship"]=B["Architectural Assistantship"];
 B["Ceramics Engineering"]=[["3","Ceramic and Raw Materials","2013303"],["3","Glass Technology-I","2013304"],["3","Enamel Technology","2013305"],["4","Geology for Ceramic Engineering","2013401"],["4","Chemistry for Ceramic Engineering","2013402"],["4","Chemical Engineering","2013403"],["4","Pottery & Porcelain Technology-I","2013404"],["4","Refractory Technology-I","2013405"],["5","Cement Technology","2013501"],["5","Refractory Technology-II","2013502"],["5","Pottery & Porcelain Technology-II","2013503"],["5","Ceramic Engineering Drawing","2013504"],["6","Modern Furnace Technology","2013602"],["6","Modern & Electronic Ceramics","2013603"],["6","Monolithics and Steel Plant Refractories","2013604"]];
+
+// 1st-semester split: shared/common papers are kept separate from branch-specific papers.
+window.PX_PYQ.commonFirstSem=[
+["1","Basic Engg. Mathematics","T2400101"],
+["1","Applied Physics-A","T2400102A"],
+["1","Applied Physics-B","T2400102B"],
+["1","Applied Chemistry-A","T2400103A"],
+["1","Communication Skills (English)","T2400104"],
+["1","Engineering Drawing","T2425105"]
+];
+window.PX_PYQ.firstSemBranches={
+"CSE":[["1","Fundamentals of Electrical and Electronic Engg.","T2420103"],["1","Python Programming","T2418103"],["1","Fundamental of IT System","T2418104"]],
+"Electrical Engineering":[["1","Fundamentals of Electrical and Electronic Engg.","T2420103"],["1","Applied Physics-B","T2400102B"],["1","Python Programming","T2418103"]],
+"Electronics Engineering":[["1","Applied Physics-B","T2400102B"],["1","Python Programming","T2418103"]],
+"Mechanical Engineering":[["1","Fundamentals of Mechanical Engg.","T2425103"],["1","Python Programming","T2418103"],["1","Engineering Drawing","T2425105"]],
+"Mechanical Engineering (Automobile)":[["1","Fundamentals of Mechanical Engg.","T2425103"],["1","Python Programming","T2418103"],["1","Engineering Drawing","T2425105"]],
+"Civil Engineering":[["1","Fundamentals of Mechanical Engg.","T2425103"],["1","Python Programming","T2418103"]],
+"Agricultural Engineering":[["1","Fundamentals of Electrical and Electronic Engg.","T2420103"],["1","Applied Chemistry-A","T2400103A"],["1","Python Programming","T2418103"]],
+"Chemical Engineering":[["1","Fundamentals of Electrical and Electronic Engg.","T2420103"],["1","Applied Chemistry-A","T2400103A"],["1","Python Programming","T2418103"]],
+"Textile Engineering":[["1","Fundamentals of Electrical and Electronic Engg.","T2420103"],["1","Python Programming","T2418103"]],
+"Architectural Assistantship":[["1","Python Programming","T2418103"]],
+"Modern Office Practice":[["1","Python Programming","T2418103"]],
+"Printing Technology":[["1","Python Programming","T2418103"]],
+"Ceramics Engineering":[["1","Applied Chemistry-A","T2400103A"]]
+};
