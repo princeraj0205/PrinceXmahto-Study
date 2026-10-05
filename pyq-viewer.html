@@ -13,12 +13,12 @@
 <header class="topbar"><a class="brand" href="./"><img src="assets/princexmahto-logo.svg" alt="PrinceXmahto"><span>PrinceXmahto <b>Study</b></span></a><div class="top-links"><a class="nav-btn main-btn" href="pyq-1st-year.html">← PYQ 1st Year</a></div></header>
 <main class="viewer">
 <div class="viewer-head"><div><div class="eyebrow">PRINCEXMAHTO STUDY · WATERMARK VIEW</div><h1 id="title">PYQ Collection</h1></div><div class="viewer-actions"><a id="open" class="btn primary" target="_blank" rel="noopener">Open Source ↗</a><a class="btn" href="pyq-1st-year.html">All 1st Year PYQs</a></div></div>
-<div class="frame-wrap"><iframe id="frame" title="PYQ collection"></iframe><div class="wm">PrinceXmahto</div></div>
+<div class="frame-wrap"><object id="pdf" data="" type="application/pdf" aria-label="PYQ PDF"><iframe id="frame" title="PYQ collection"></iframe></object><div class="wm">PrinceXmahto</div></div>
 <div class="hint">Light PrinceXmahto branding is overlaid on this viewer. The original source document is not modified.</div>
 </main>
 <script>
 const p=new URLSearchParams(location.search), src=p.get('src'), title=p.get('title')||'PYQ Collection';
 document.getElementById('title').textContent=title;
-if(src){let u=decodeURIComponent(src);const m=u.match(/drive\.google\.com\/file\/d\/([^/]+)/);if(m)u='https://drive.google.com/file/d/'+m[1]+'/preview';document.getElementById('frame').src=u;document.getElementById('open').href=u}else{document.getElementById('frame').src='https://sbte.bihar.gov.in/previous-year-questions';document.getElementById('open').href='https://sbte.bihar.gov.in/previous-year-questions'}
+if(src){const u=decodeURIComponent(src);document.getElementById('pdf').data=u;document.getElementById('frame').src=u;document.getElementById('open').href=u}else{document.getElementById('pdf').data='https://sbte.bihar.gov.in/previous-year-questions';document.getElementById('frame').src='https://sbte.bihar.gov.in/previous-year-questions';document.getElementById('open').href='https://sbte.bihar.gov.in/previous-year-questions'}
 </script>
 </body></html>
