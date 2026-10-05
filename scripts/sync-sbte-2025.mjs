@@ -19,11 +19,11 @@ const page=await browser.newPage({viewport:{width:1440,height:1000}});
 await page.goto(SOURCE,{waitUntil:'networkidle',timeout:90000});
 await page.waitForTimeout(1800);
 
-const combos=page.locator('[role="combobox"]');
+const combos=page.locator('div[role="combobox"]');
 if(await combos.count()<4) throw new Error('SBTE filter controls not found');
 const optionTexts=async()=>{
   await page.waitForTimeout(250);
-  return await page.locator('[role="option"]').allTextContents();
+  return await page.locator('[role="listbox"] [role="option"]').allTextContents();
 };
 const choose=async(index,matcher)=>{
   const box=combos.nth(index);
