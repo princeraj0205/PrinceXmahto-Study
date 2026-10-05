@@ -1,1 +1,1 @@
-window.PX_PYQ={common:[],branches:{}};
+window.PX_PYQ={common:[["1","Mathematics-I","2001101"],["1","Applied Physics-I","2001102"],["1","Applied Chemistry","2001103"],["1","Communication Skills in English","2001104"],["1","Engineering Graphics","2001105"],["2","Mathematics-II","2002201"],["2","Applied Physics-II","2002202"],["2","Introduction to IT Systems","2002203"],["2","Fundamental of Electrical & Electronics Engineering","2002204"],["2","Engineering Mechanics","2002205"]],branches:{}};
