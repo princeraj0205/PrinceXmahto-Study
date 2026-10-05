@@ -5,9 +5,18 @@ const p=new URLSearchParams(location.search),bid=p.get('branch')||'cse',sem=p.ge
 const names={ag:'Agricultural Engineering',auto:'Automobile Engineering',cer:'Ceramics Engineering',chem:'Chemical Engineering',ce:'Civil Engineering',cre:'Civil Engineering (Rural Engineering)',cse:'Computer Science & Engineering',ee:'Electrical Engineering',elx:'Electronics Engineering',me:'Mechanical Engineering',mop:'Modern Office Practice',pt:'Printing Technology',te:'Textile Engineering',mea:'Mechanical Engineering (Automobile)',aa:'Architectural Assistantship'};
 const branch=names[bid]||bid;const semName={1:'1st Semester',2:'2nd Semester',3:'3rd Semester',4:'4th Semester',5:'5th Semester',6:'6th Semester'}[sem]||('Semester '+sem);
 document.title=name+' PYQ | PrinceXmahto Study';document.getElementById('title').textContent=name;document.getElementById('subjectCrumb').textContent=name;document.getElementById('branchMeta').textContent=branch;document.getElementById('semMeta').textContent=semName;document.getElementById('codeMeta').textContent=code||'Subject code not verified';document.getElementById('semCrumb').textContent=semName;document.getElementById('branchLink').textContent=branch;document.getElementById('branchLink').href='sbte-pyq-browser.html?branch='+encodeURIComponent(bid)+'&sem='+encodeURIComponent(sem);document.getElementById('back').href='sbte-pyq-browser.html?branch='+encodeURIComponent(bid)+'&sem='+encodeURIComponent(sem);
-const verified={};
-const indexed={};
-if(code==='2018305'){indexed['2025']='Indexed paper found';indexed['2024']='Indexed paper found';indexed['2023']='Indexed paper found';}
-const years=document.getElementById('years'), count=document.getElementById('count');const keys=Object.keys(indexed).sort((a,b)=>b-a);
-if(!keys.length){count.textContent='No verified individual PDF is currently attached to this subject.';years.innerHTML='<div class="year"><div class="num">—</div><div class="status">No verified PDF yet</div><span class="btn disabled">PDF unavailable</span></div>'}else{count.textContent=keys.length+' indexed paper'+(keys.length>1?'s':'')+' found; direct PDF verification is still required.';keys.forEach(y=>{const card=document.createElement('div');card.className='year';card.innerHTML='<div class="num">'+y+'</div><div class="status">'+indexed[y]+'</div>'+(verified[y]?'<a class="btn pdf" target="_blank" rel="noopener" href="'+verified[y]+'">View PDF ↗</a>':'<span class="btn disabled">PDF not verified</span>');years.appendChild(card)})}
+const verified={
+'2001101':{
+'2023':'https://www.docsansar.com/uploads/boards/sbte/study-materials/1-and-2-SEM/Previous-Year-Question/Mathematics-I-2023-Even-1-Year.pdf'
+},
+'2018401':{
+'2023':'https://www.docsansar.com/uploads/study-materials/sbteboard/diploma/Computer_Science_Engineering/4/Previous_Year_Questions/pdf/os_question_2023.pdf'
+},
+'2018305':{
+'2022':'https://drive.google.com/uc?export=download&id=1W9VyyGffPm20aJ1CoH7e9El7C_PZpmR1'
+}
+};
+const papers=verified[code]||{};
+const years=document.getElementById('years'), count=document.getElementById('count');const keys=Object.keys(papers).sort((a,b)=>b-a);
+if(!keys.length){count.textContent='No verified individual PDF is currently attached to this subject.';years.innerHTML='<div class="year"><div class="num">—</div><div class="status">No verified PDF yet</div><span class="btn disabled">PDF unavailable</span></div>'}else{count.textContent=keys.length+' verified individual PDF'+(keys.length>1?'s':'')+' available.';keys.forEach(y=>{const card=document.createElement('div');card.className='year';card.innerHTML='<div class="num">'+y+'</div><div class="status">'+'Verified PDF file'+'</div>'+(verified[y]?'<a class="btn pdf" target="_blank" rel="noopener" href="'+verified[y]+'">View PDF ↗</a>':'<span class="btn disabled">PDF not verified</span>');years.appendChild(card)})}
 </script></body></html>
