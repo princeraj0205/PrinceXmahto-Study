@@ -678,7 +678,7 @@ window.PX_PYQ={
     "verifiedPdfs": 39
   },
   "synced2025": {
-    "at": "2026-10-05T17:17:18.874Z",
+    "at": "2026-10-05T17:21:28.857Z",
     "count": 39,
     "source": "https://sbte.bihar.gov.in/previous-year-questions"
   }
