@@ -1,77 +1,395 @@
-window.PX_PYQ={common:[["1","Mathematics-I","2001101"],["1","Applied Physics-I","2001102"],["1","Applied Chemistry","2001103"],["1","Communication Skills in English","2001104"],["1","Engineering Graphics","2001105"],["2","Mathematics-II","2002201"],["2","Applied Physics-II","2002202"],["2","Introduction to IT Systems","2002203"],["2","Fundamental of Electrical & Electronics Engineering","2002204"],["2","Engineering Mechanics","2002205"]],branches:{}};
-
-Object.assign(window.PX_PYQ.branches,{
-"CSE":[["3","Discrete Mathematics","2018301"],["3","Computer Organization & Architecture","2018303"],["3","Digital Electronic & Microprocessor","2018304"],["3","Web Technology","2018305"],["4","Operating System","2018401"],["4","Database Management System","2018402"],["4","Data Structure & Algorithms Using C","2018403"],["4","Python Programming","2018404"],["4","Computer Graphics","2018405"],["5","Mobile Computing","2018501"],["5","Computer Hardware & Networking","2018502"],["5","OOP through Java","2018503A"],["5","OOP through C++","2018503B"],["5","System Administration","2018504A"],["5","Multimedia Technology","2018504B"],["5","Project Management","2018505A"],["5","Environmental Science","2018505B"],["6","System Software","1618602"],["6","Visual Basic","1618603"],["6","Computer Graphics","1618604"],["6","Artificial Intelligence & Expert System","1618605A"],["6","E-Commerce","1618605B"],["6","Multimedia","1618605C"]],
-"Electrical Engineering":[["3","Introduction to Electric Power Generation Systems","2020301"],["3","Electrical Circuits","2020302"],["3","Electrical & Electronic Measurements","2020303"],["3","Electric Motors and Transformers","2020304"],["3","Fundamentals of Basic Electronics & Digital Electronics","2020305"],["4","Power Electronics","2020401"],["4","Electric Power Transmission and Distribution","2020402"],["4","Induction, Synchronous & Special Electrical Machines","2020403"],["4","Solar Power Technologies","2020404"],["4","Industrial Drives","2020405"],["5","Microprocessor & Microcontroller","2020501"],["5","Energy Conservation and Audit","2020502"],["5","Switchgear and Protection","2020503C"],["5","Illumination Practices","2020504A"],["5","Industrial Automation & Control","2020504B"],["5","Electric Traction","2020504C"],["5","Soft Computing Techniques","2020505A"],["6","Building Electrification","2020602"],["6","Utilization of Electrical Energy","2020603"],["6","Network Theory","2020604A"]],
-"Electronics Engineering":[["3","Principles of Electronic Communication","2021301"],["3","Electronic Devices and Circuits","2021302"],["3","Digital Electronics","2021303"],["3","Electronic Measurements and Instrumentation","2021304"],["3","Electric Circuits and Network","2021305"],["4","Microcontroller and its Applications","2021401"],["4","Consumer Electronics","2021402"],["4","Digital Communication Systems","2021403"],["4","Electronic Equipment Maintenance","2021404"],["4","Linear Integrated Circuits","2021405"],["5","Embedded Systems","2021501"],["5","Mobile and Wireless Communication","2021502"],["5","Industrial Automation","2021503"],["5","Microwave & Radar","2021504"],["5","Renewable Energy Technologies","2021505A"],["6","Computer Networking and Data Communication","2021602"],["6","Mechatronics","2021603"],["6","Product Design","2021604"]],
-"Civil Engineering":[["3","Building Construction and Construction Materials","2015301"],["3","Basic Surveying","2015302"],["3","Mechanics of Materials","2015303"],["3","Concrete Technology","2015304"],["3","Geo Technical Engineering","2015305"],["4","Hydraulics","2015401"],["4","Advance Surveying","2015402"],["4","Theory of Structure","2015403"],["4","Building Planning and Drawing","2015404"],["4","Transportation Engineering","2015405"],["5","Design of Steel and R.C.C Structure","2015501"],["5","Estimating and Costing","2015502"],["5","Water Resources Engineering","2015503"],["5","Precast and Prestressed Concrete","2015504A"],["5","Construction Management","2015504B"],["5","Rural Construction Technology","2015504C"],["5","Traffic Engineering","2015505A"],["5","Solid Waste Management","2015505B"],["5","Advanced Construction Technology","2015505C"],["6","Public Health Engineering","2015602"],["6","Advanced Design of Structures","2015603"],["6","Tendering and Accounts","2015604A"],["6","Disaster Management","2015604B"],["6","Project Management","2015605B"]]
-});
-Object.assign(window.PX_PYQ.branches,{
-"Mechanical Engineering":[["3","Basic Mechanical Engineering","2025301"],["3","Material Science & Engineering","2025302"],["3","Fluid Mechanics & Hydraulic Machinery","2025303"],["3","Manufacturing Engineering-I","2025304"],["3","Thermal Engineering-I","2025305"],["4","Measurements & Metrology","2025401"],["4","Strength of Material","2025402"],["4","Thermal Engineering-II","2025403"],["4","Theory of Machine & Mechanisms","2025404"],["4","Tool Engineering","2025405"],["5","Production & Operations Management","2025501"],["5","Computer Aided Design & Manufacturing","2025502"],["5","Automobile Engineering","2025503"],["5","Refrigeration & Air-conditioning","2025504A"],["5","Heat Transfer","2025504B"],["5","Power Plant Engineering","2025504C"],["5","Industrial Engineering & Management","2025505A"],["5","Farm Equipment & Farm Machinery","2025505B"],["6","Design of Machine Elements","2025602"],["6","Advanced Manufacturing Processes","2025603"],["6","Energy Conservation & Audit","2025604A"],["6","Operations Research","2025605B"]],
-"Agricultural Engineering":[["3","Surveying and Levelling","2011303"],["3","Refrigeration & Air-Conditioning","2011304"],["3","Principles of Agricultural Production","2011305"],["4","Soil Science & Soil Mechanics","2011401"],["4","Machine Drawing","2011402"],["4","Hydraulics & Fluid Mechanics","2011403"],["4","Farm Power & Tractor","2011404"],["4","Workshop Technology","2011405"],["5","Farm Structure & Estimation","2011501"],["5","Irrigation & Drainage Engineering","2011502"],["5","Farm & Land Development Machinery","2011503"],["5","Farm Structural Drawing","2011504"],["6","Mechanics of Structure","2011602"],["6","Farm Tractor & Non-Conventional Energy","2011603"],["6","Post-Harvest Technology","2011604"]],
-"Chemical Engineering":[["3","Introduction to Chemical Engineering","2014301"],["3","Chemical Process Calculations","2014302"],["3","Industrial Chemistry","2014303"],["3","Mechanical Operation","2014304"],["3","Momentum Transfer","2014305"],["4","Process Heat Transfer","2014401"],["4","Chemical Engineering Thermodynamics","2014402"],["4","Mass Transfer-I","2014403"],["4","Chemical Technology","2014404"],["4","Plant Utilities","2014405"],["5","Mass Transfer-II","2014501"],["5","Chemical Reaction Engineering","2014502"],["5","Process Control & Instrumentation","2014503"],["5","Petrochemical Technology","2014504"],["6","Energy Management","2014602"],["6","Process Equipment Design","2014603"],["6","Environmental Technology","2014604B"]],
-"Modern Office Practice":[["3","Language and Communication Skill-II","2026301"],["3","Managerial Economics","2026303"],["3","Management Information System","2026304"],["3","E-Typing-I","2026305"],["4","Principle of Management & HR Management","2026401"],["4","Management Accountancy","2026402"],["4","Secretarial Practice","2026403"],["4","E-Typing-II (English+Hindi)","2026404"],["4","Money and Banking","2026405"],["5","Professional Language & Communication Skill","2026501"],["5","Office Equipment Services & Office Automation","2026502"],["5","Commercial & Industrial Law","2026503"],["5","Short Hand-I (English)","2026504"],["5","Business Organisation & Management","2026505"],["6","Commercial Arithmetic & Business Statistics","2026602"],["6","Interpersonal Communication","2026603"],["6","Short Hand-II (Hindi)","2026604"],["6","Auditing","2026605A"]],
-"Printing Technology":[["3","Basics of Printing Technology","2027303"],["3","Printer's Science","2027304"],["3","Press Work","2027305"],["4","Letter Assembly-I","2027401"],["4","Binding & Finishing-I","2027402"],["4","Printing Process-I","2027403"],["4","Printer's Design","2027404"],["4","Reproduction & Photography-I","2027405"],["5","Pre-Press Technology","2027501"],["5","Surface Preparation","2027502"],["5","Reproduction & Photography-II","2027503"],["5","Computer Aided Printing","2027504"],["6","Binding & Finishing-II","2027602"],["6","Printing Process-II","2027603"],["6","Accountancy, Costing & Estimating","2027604"]]
-});
-Object.assign(window.PX_PYQ.branches,{
-"Textile Engineering":[["3","Textile Fibres","2028303"],["3","Yarn Manufacture-I","2028304"],["3","Fabric Manufacture-I","2028305"],["4","Yarn Preparation & Weaving Calculation","2028401"],["4","Textile Testing","2028402"],["4","Textile Chemistry-I","2028403"],["4","Fabric Structure & Design-I","2028404"],["4","Man Made Fiber Technology","2028405"],["5","Yarn Manufacture-II","2028501"],["5","Fabric Manufacture-II","2028502"],["5","Fabric Structure and Design-II","2028503"],["5","Yarn Preparation & Weaving Calculation-II","2028504"],["6","Textile Management","2028601"],["6","Textile Chemistry-II","2028602"],["6","Textile Testing & Quality Control","2028603"],["6","Processing of Synthetic & their Blends","2028604"]],
-"Architectural Assistantship":[["3","Perspective, Sciography & Free Hand Sketch","2037301"],["3","Building Materials","2037302"],["3","Architectural Design & Drawing-I","2037303"],["3","Computer Application in Architecture","2037304"],["3","Climatology","2037305"],["4","Building Construction-I","2037401"],["4","History of Architecture","2037402"],["4","Ecology & Environment","2037403"],["4","Building Services, Sanitation & Air Conditioning","2037404"],["4","Interior Design & Rendering","2037405"],["5","Building Construction-II","2037501"],["5","Computer Aided Design & Drafting","2037502"],["5","Architecture & Town Planning","2037503"],["5","Contemporary Architecture","2037504"],["6","Architectural Design & Drawing-II","2037601"],["6","RCC & Steel Structure Design","2037602"],["6","Professional Practice & Byelaws","2037603"],["6","Acoustics & Illumination","2037604"]],
-"Mechanical Engineering (Automobile)":[["3","Automobile Transmission System","2033301"],["3","Automobile Manufacturing Process","2033503"],["4","Automobile Engines","2033401"],["4","Automobile System","2033403"],["4","Basic Electrical & Electronics","2033405"],["5","Advanced Automobile Engine","2033501"],["5","Automotive Electrical & Electronics System","2033504"],["6","Hybrid Vehicles","2033602"],["6","Transport Management","2033603"],["6","Automobile Component Design","2033604B"],["6","Vehicle Maintenance","2033304"]],
-"Common / 1st Year":[["1","Mathematics-I","2001101"],["1","Applied Physics-I","2001102"],["1","Applied Chemistry","2001103"],["1","Communication Skills in English","2001104"],["1","Engineering Graphics","2001105"],["2","Mathematics-II","2002201"],["2","Applied Physics-II","2002202"],["2","Introduction to IT Systems","2002203"],["2","Fundamental of Electrical & Electronics Engineering","2002204"],["2","Engineering Mechanics","2002205"]]
-});
-const B=window.PX_PYQ.branches; B["Computer Science & Engineering"]=B.CSE; B["Automobile Engineering"]=B["Mechanical Engineering (Automobile)"]; B["Agricultural Engineering"]=B["Agricultural Engineering"]; B["Civil Engineering"]=B["Civil Engineering"]; B["Electrical Engineering"]=B["Electrical Engineering"]; B["Electronics Engineering"]=B["Electronics Engineering"]; B["Mechanical Engineering"]=B["Mechanical Engineering"]; B["Chemical Engineering"]=B["Chemical Engineering"]; B["Modern Office Practice"]=B["Modern Office Practice"]; B["Printing Technology"]=B["Printing Technology"]; B["Textile Engineering"]=B["Textile Engineering"]; B["Architectural Assistantship"]=B["Architectural Assistantship"];
-B["Ceramics Engineering"]=[["3","Ceramic and Raw Materials","2013303"],["3","Glass Technology-I","2013304"],["3","Enamel Technology","2013305"],["4","Geology for Ceramic Engineering","2013401"],["4","Chemistry for Ceramic Engineering","2013402"],["4","Chemical Engineering","2013403"],["4","Pottery & Porcelain Technology-I","2013404"],["4","Refractory Technology-I","2013405"],["5","Cement Technology","2013501"],["5","Refractory Technology-II","2013502"],["5","Pottery & Porcelain Technology-II","2013503"],["5","Ceramic Engineering Drawing","2013504"],["6","Modern Furnace Technology","2013602"],["6","Modern & Electronic Ceramics","2013603"],["6","Monolithics and Steel Plant Refractories","2013604"]];
-
-// 1st-semester split: shared/common papers are kept separate from branch-specific papers.
-window.PX_PYQ.commonFirstSem=[["1","Mathematics-I","2001101"],["1","Applied Physics-I","2001102"],["1","Applied Chemistry","2001103"],["1","Communication Skills in English","2001104"],["1","Engineering Graphics","2001105"]];
-window.PX_PYQ.firstSemBranches={
-"CSE":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Python Programming","T2418103"]],
-"Electrical Engineering":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"],["1","Fundamentals of IT and C Programming","T2418105"]],
-"Electronics Engineering":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"],["1","Fundamentals of IT and C Programming","T2418105"]],
-"Mechanical Engineering":[["1","Python Programming","T2418103"],["1","Applied Chemistry-A","T2400103A"],["1","Engg. Mechanics","T2425104"],["1","Engineering Drawing","T2425105"]],
-"Mechanical Engineering (Automobile)":[["1","Python Programming","T2418103"],["1","Applied Chemistry-A","T2400103A"],["1","Engg. Mechanics","T2425104"],["1","Engineering Drawing","T2425105"]],
-"Civil Engineering":[["1","Applied Physics-A","T2400102A"],["1","Applied Chemistry-A","T2400103A"],["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"],["1","Fundamentals of Mechanical Engg.","T2425103"]],
-"Agricultural Engineering":[["1","Applied Physics-A","T2400102A"],["1","Applied Chemistry-A","T2400103A"],["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"]],
-"Chemical Engineering":[["1","Applied Physics-A","T2400102A"],["1","Applied Chemistry-A","T2400103A"],["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"],["1","Fundamentals of Mechanical Engg.","T2425103"]],
-"Textile Engineering":[["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"],["1","Python Programming","T2418103"]],
-"Architectural Assistantship":[["1","Engg. Drawing & Graphics","T2415105"],["1","Python Programming","T2418103"]],
-"Modern Office Practice":[["1","Python Programming","T2418103"]],
-"Printing Technology":[["1","Python Programming","T2418103"]],
-"Ceramics Engineering":[["1","Applied Chemistry-A","T2400103A"],["1","Engg. Drawing & Graphics","T2415105"]],
-"Instrumentation and Control Engineering":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"]],
-"Costume Design and Garment Technology":[["1","Python Programming","T2418103"]],
-"Electronics and Communication Engineering":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Engg. Mechanics","T2425104"]],
-"Electrical & Electronics Engineering":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Engg. Mechanics","T2425104"]],
-"Library and Information Science":[["1","Python Programming","T2418103"]],
-"Electronics (Robotics)":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"]],
-"Artificial Intelligence & Machine Learning":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Python Programming","T2418103"]],
-"Civil Engineering (Construction Technology)":[["1","Applied Physics-A","T2400102A"],["1","Applied Chemistry-A","T2400103A"],["1","Fundamentals of Mechanical Engg.","T2425103"]],
-"Mechanical Engineering (CAD/CAM)":[["1","Python Programming","T2418103"],["1","Applied Chemistry-A","T2400103A"]],
-"Mining Engineering":[["1","Applied Physics-A","T2400102A"],["1","Applied Chemistry-A","T2400103A"],["1","Engg. Mechanics","T2425104"]],
-"Fire Technology & Safety":[["1","Applied Physics-A","T2400102A"],["1","Applied Chemistry-A","T2400103A"],["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"]],
-"Food Processing & Preservation":[["1","Applied Physics-A","T2400102A"],["1","Applied Chemistry-A","T2400103A"],["1","Engg. Mechanics","T2425104"]],
-"Computer Aided Costume Design & Dress Making":[["1","Python Programming","T2418103"]],
-"Fashion & Clothing Technology":[["1","Python Programming","T2418103"]],
-"Garment Technology":[["1","Python Programming","T2418103"]],
-"Textile Technology":[["1","Engg. Mechanics","T2425104"],["1","Engg. Drawing & Graphics","T2415105"]],
-"Computer Engineering":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Python Programming","T2418103"]],
-"Electronics":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"]],
-"Information Science":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"]],
-"Construction Technology & Management":[["1","Applied Physics-A","T2400102A"],["1","Applied Chemistry-A","T2400103A"],["1","Fundamentals of Mechanical Engg.","T2425103"]],
-"Artificial Intelligence":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Python Programming","T2418103"]],
-"Computer Science":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Python Programming","T2418103"]],
-"Microelectronics & VLSI":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Engg. Mechanics","T2425104"]],
-"EV-Technology":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Fundamentals of IT and C Programming","T2418105"]],
-"Renewable Energy":[["1","Python Programming","T2418103"]],
-"Information Technology":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Fundamentals of IT and C Programming","T2418105"]],
-"Leather Technology":[["1","Python Programming","T2418103"]],
-"Computer Science & Information Technology":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Python Programming","T2418103"]],
-"Electronics Communication & Instrumentation Engineering":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Engg. Mechanics","T2425104"]],
-"Electronics & Electrical Engineering":[["1","Applied Physics-B","T2400102B"],["1","Applied Chemistry-B","T2400103B"],["1","Engg. Mechanics","T2425104"]],
-"Medical Laboratory Technology":[["1","Python Programming","T2418103"]],
-"Computer Application":[["1","Python Programming","T2418103"]]
+window.PX_PYQ={
+  "version": "2026.10",
+  "semester": 1,
+  "source": "https://sbte.bihar.gov.in/",
+  "curriculumSource": "https://sbte.bihar.gov.in/curriculum",
+  "pyqSource": "https://sbte.bihar.gov.in/previous-year-questions",
+  "branches": [
+    {
+      "id": "ag",
+      "code": "11",
+      "name": "Agricultural Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "auto",
+      "code": "12",
+      "name": "Automobile Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "cer",
+      "code": "13",
+      "name": "Ceramics Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "chem",
+      "code": "14",
+      "name": "Chemical Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ce",
+      "code": "15",
+      "name": "Civil Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "cre",
+      "code": "16",
+      "name": "Civil Engineering (Rural Engineering)",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "cse",
+      "code": "18",
+      "name": "Computer Science & Engineering",
+      "semester": 1,
+      "subjects": [
+        {
+          "code": "2600101",
+          "name": "Basic Engineering Mathematics",
+          "papers": {}
+        },
+        {
+          "code": "2600102B",
+          "name": "Applied Physics - B",
+          "papers": {}
+        },
+        {
+          "code": "2600103B",
+          "name": "Applied Chemistry - B",
+          "papers": {}
+        },
+        {
+          "code": "2625104",
+          "name": "Engineering Mechanics",
+          "papers": {}
+        },
+        {
+          "code": "2615105",
+          "name": "Engineering Drawing & Graphics",
+          "papers": {}
+        },
+        {
+          "code": "2620105",
+          "name": "Electrical and Electronics Workshop",
+          "papers": {}
+        },
+        {
+          "code": "2600006",
+          "name": "Environmental Education and Sustainable Development",
+          "papers": {}
+        }
+      ]
+    },
+    {
+      "id": "ee",
+      "code": "20",
+      "name": "Electrical Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "elx",
+      "code": "21",
+      "name": "Electronics Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "me",
+      "code": "25",
+      "name": "Mechanical Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "mop",
+      "code": "26",
+      "name": "Modern Office Practice",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "pt",
+      "code": "27",
+      "name": "Printing Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "te",
+      "code": "28",
+      "name": "Textile Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "mea",
+      "code": "33",
+      "name": "Mechanical Engineering (Automobile)",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "aa",
+      "code": "37",
+      "name": "Architectural Assistantship",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ece",
+      "code": "38",
+      "name": "Electronics and Communication Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "eee",
+      "code": "39",
+      "name": "Electrical & Electronics Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "lis",
+      "code": "41",
+      "name": "Library and Information Science",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "robot",
+      "code": "43",
+      "name": "Electronics (Robotics)",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "aiml",
+      "code": "44",
+      "name": "Artificial Intelligence (AI) and Machine Learning",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ct",
+      "code": "45",
+      "name": "Civil Engineering (Construction Technology)",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "cad",
+      "code": "46",
+      "name": "Mechanical Engineering (CAD/CAM)",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "mining",
+      "code": "47",
+      "name": "Mining Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "fts",
+      "code": "48",
+      "name": "Fire Technology and Safety",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "fpp",
+      "code": "49",
+      "name": "Food Processing and Preservation",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ccdd",
+      "code": "50",
+      "name": "Computer Aided Costume Design and Dress Making",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "fct",
+      "code": "51",
+      "name": "Fashion and Clothing Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "gt",
+      "code": "52",
+      "name": "Garment Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "tt",
+      "code": "53",
+      "name": "Textile Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "comp",
+      "code": "56",
+      "name": "Computer Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "electronics",
+      "code": "57",
+      "name": "Electronics",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "is",
+      "code": "58",
+      "name": "Information Science",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ctm",
+      "code": "59",
+      "name": "Construction Technology and Management",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ai",
+      "code": "66",
+      "name": "Artificial Intelligence (AI)",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "cs",
+      "code": "67",
+      "name": "Computer Science",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "mvlsi",
+      "code": "68",
+      "name": "Microelectronics and VLSI",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ev",
+      "code": "69",
+      "name": "EV-Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "re",
+      "code": "70",
+      "name": "Renewable Energy",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "it",
+      "code": "71",
+      "name": "Information Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "lt",
+      "code": "72",
+      "name": "Leather Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "csit",
+      "code": "73",
+      "name": "Computer Science and Information Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ecie",
+      "code": "74",
+      "name": "Electronics Communication and Instrumentation Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ec",
+      "code": "75",
+      "name": "Electronics and Electrical Engineering",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "mlt",
+      "code": "76",
+      "name": "Medical Laboratory Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
+      "id": "ca",
+      "code": "77",
+      "name": "Computer Application",
+      "semester": 1,
+      "subjects": []
+    }
+  ],
+  "commonFirstSem": [
+    {
+      "code": "2001101",
+      "name": "Mathematics-I",
+      "papers": {
+        "2023": "https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/february2024/2001101.pdf",
+        "2024": "https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/2001101.pdf"
+      }
+    },
+    {
+      "code": "2001102",
+      "name": "Applied Physics-I",
+      "papers": {}
+    },
+    {
+      "code": "2001103",
+      "name": "Applied Chemistry",
+      "papers": {}
+    },
+    {
+      "code": "2001104",
+      "name": "Communication Skills in English",
+      "papers": {}
+    },
+    {
+      "code": "2001105",
+      "name": "Engineering Graphics",
+      "papers": {}
+    }
+  ],
+  "stats": {
+    "branches": 47,
+    "verifiedSubjects": 1,
+    "verifiedPdfs": 2
+  }
 };
-window.PX_PYQ.firstSemBranches["Automobile Engineering"]=window.PX_PYQ.firstSemBranches["Mechanical Engineering (Automobile)"];
-window.PX_PYQ.firstSemBranches["Civil Engineering (Rural Engineering)"]=window.PX_PYQ.firstSemBranches["Civil Engineering"];
-
-window.PX_PYQ.firstSemBranches["Computer Science & Engineering"]=window.PX_PYQ.firstSemBranches["CSE"];
