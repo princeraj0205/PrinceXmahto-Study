@@ -71,3 +71,5 @@ window.PX_PYQ.firstSemBranches={
 "Medical Laboratory Technology":[["1","Python Programming","T2418103"]],
 "Computer Application":[["1","Python Programming","T2418103"]]
 };
+window.PX_PYQ.firstSemBranches["Automobile Engineering"]=window.PX_PYQ.firstSemBranches["Mechanical Engineering (Automobile)"];
+window.PX_PYQ.firstSemBranches["Civil Engineering (Rural Engineering)"]=window.PX_PYQ.firstSemBranches["Civil Engineering"];
