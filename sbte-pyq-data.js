@@ -1,5 +1,5 @@
 window.PX_PYQ={
-  "version": "2026.10.1",
+  "version": "2026.10.2",
   "semester": 1,
   "source": "https://sbte.bihar.gov.in/",
   "curriculumSource": "https://sbte.bihar.gov.in/curriculum",
@@ -256,14 +256,16 @@ window.PX_PYQ={
       "code": "2001103",
       "name": "Applied Chemistry",
       "papers": {
-        "2024": "https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/february2024/2001103.pdf"
+        "2023": "https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/february2024/2001103.pdf",
+        "2024": "https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/2001103.pdf"
       }
     },
     {
       "code": "2001104",
       "name": "Communication Skills in English",
       "papers": {
-        "2024": "https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/february2024/2001104.pdf"
+        "2023": "https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/february2024/2001104.pdf",
+        "2024": "https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/2001104.pdf"
       }
     },
     {
@@ -275,7 +277,7 @@ window.PX_PYQ={
   "stats": {
     "branches": 8,
     "verifiedSubjects": 24,
-    "verifiedPdfs": 29
+    "verifiedPdfs": 31
   },
   "synced2025": {
     "at": "2026-10-05T17:21:28.857Z",
