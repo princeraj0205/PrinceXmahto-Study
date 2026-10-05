@@ -54,7 +54,19 @@ const verified={
 '2024':'https://www.docsansar.com/uploads/boards/sbte/study-materials/4-SEM/Previous-Year-Question/2025404%20-%20Theory%20of%20Machine%20_%20Mechanisms.pdf'
 }
 };
-const papers=verified[code]||{};
+'T2400102A':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2400102A.pdf'},
+'T2400102B':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2400102B.pdf'},
+'T2400103A':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2400103A.pdf'},
+'T2400103B':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2400103B.pdf'},
+'T2400104':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2400104.pdf'},
+'T2400105A':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2400105A.pdf'},
+'T2415105':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2415105.pdf'},
+'T2420103':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2420103.pdf'},
+'T2425103':{'2024':'https://gpkaimur.ac.in/uploads/pyqs/1769762658_Fundamentals%20of%20Mechanical%20Engg.%20.pdf'},
+'T2425104':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2425104.pdf'},
+'T2425105':{'2024':'https://gpkaimur.ac.in/uploads/pyqs/1769762552_Engineering%20drawing.pdf'},
+'T2418103':{'2024':'https://sbte.bihar.gov.in/sbteweb/assesets/component/pages/questionBank/questionbank/2024/july2024/T2418103.pdf'},
+'T2418105':{'2024':'https://diplomastudyzone.in/wp-content/uploads/2025/11/T2418105.pdf'},const papers=verified[code]||{};
 const years=document.getElementById('years'), count=document.getElementById('count');const keys=Object.keys(papers).sort((a,b)=>b-a);
 if(!keys.length){count.textContent='No verified individual PDF is currently attached to this subject.';years.innerHTML='<div class="year"><div class="num">—</div><div class="status">No verified PDF yet</div><span class="btn disabled">PDF unavailable</span></div>'}else{count.textContent=keys.length+' verified individual PDF'+(keys.length>1?'s':'')+' available.';keys.forEach(y=>{const card=document.createElement('div');card.className='year';card.innerHTML='<div class="num">'+y+'</div><div class="status">'+'Verified PDF file'+'</div>'+(papers[y]?'<a class="btn pdf" target="_blank" rel="noopener noreferrer" href="'+papers[y]+'">Open PDF ↗</a>':'<span class="btn disabled">PDF not verified</span>');years.appendChild(card)})}
 </script></body></html>
