@@ -73,3 +73,5 @@ window.PX_PYQ.firstSemBranches={
 };
 window.PX_PYQ.firstSemBranches["Automobile Engineering"]=window.PX_PYQ.firstSemBranches["Mechanical Engineering (Automobile)"];
 window.PX_PYQ.firstSemBranches["Civil Engineering (Rural Engineering)"]=window.PX_PYQ.firstSemBranches["Civil Engineering"];
+
+window.PX_PYQ.firstSemBranches["Computer Science & Engineering"]=window.PX_PYQ.firstSemBranches["CSE"];
