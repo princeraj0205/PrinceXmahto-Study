@@ -83,7 +83,7 @@ form.addEventListener('submit',async e=>{
   if(!data.user){show('Authentication failed.','danger');btn.disabled=false;return}
   const {data:profile,error:pe}=await S.from('profiles').select('role').eq('id',data.user.id).maybeSingle();
   if(pe||profile?.role!=='admin'){await S.auth.signOut();show('This account is not authorized as an administrator.','danger');btn.disabled=false;return}
-  show('Access granted. Opening dashboard…','ok');location.replace('admin.html?fresh='+Date.now());
+  show('Access granted. Opening dashboard…','ok');location.replace('secure-admin.html?fresh='+Date.now());
 });
 forgot.addEventListener('click',async e=>{
   e.preventDefault();
