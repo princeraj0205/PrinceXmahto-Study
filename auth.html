@@ -37,7 +37,7 @@ body:before{width:420px;height:420px;left:-180px;top:-170px;background:radial-gr
     <form id="loginForm">
       <div class="field"><label for="username">Username</label><input id="username" autocomplete="username" placeholder="Enter admin username" required></div>
       <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Enter admin password" required></div>
-      <button id="login" type="submit">Unlock Admin Dashboard →</button>
+      <button id="login" type="submit">Unlock Admin Dashboard →</button><a href="#" id="forgot" style="display:block;text-align:center;margin-top:16px;color:#d4af37;text-decoration:none;font-size:13px;font-weight:700">Forgot password?</a>
     </form>
     <div id="msg" class="msg"></div>
     <a class="back" href="./">← Back to PrinceXmahto Study</a>
@@ -48,6 +48,30 @@ body:before{width:420px;height:420px;left:-180px;top:-170px;background:radial-gr
 <script>
 const S=window.supabase.createClient('https://dvoioacvqrujywwqqygo.supabase.co','sb_publishable_XJ-KHZyM2H9-ADJudvRKlw_9Mr17W1J');
 const form=document.getElementById('loginForm'),msg=document.getElementById('msg'),btn=document.getElementById('login');
+const forgot=document.getElementById('forgot');
+const ADMIN_EMAIL='princeraj74682@gmail.com';
+function showRecovery(){
+  document.querySelector('.eyebrow').textContent='PASSWORD RECOVERY';
+  document.querySelector('h2').textContent='Set a new password.';
+  document.querySelector('.mini').textContent='Choose a new password for your administrator account.';
+  form.innerHTML='<div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" minlength="8" autocomplete="new-password" placeholder="Enter new password" required></div><div class="field"><label for="confirmPassword">Confirm password</label><input id="confirmPassword" type="password" minlength="8" autocomplete="new-password" placeholder="Confirm new password" required></div><button type="submit">Update Password →</button>';
+  form.onsubmit=async e=>{
+    e.preventDefault();
+    const p=document.getElementById('newPassword').value,q=document.getElementById('confirmPassword').value;
+    if(p.length<8)return show('Password must be at least 8 characters.','danger');
+    if(p!==q)return show('Passwords do not match.','danger');
+    const {error}=await S.auth.updateUser({password:p});
+    if(error)return show(error.message,'danger');
+    show('Password updated successfully. Returning to Admin Login…','ok');
+    await S.auth.signOut();
+    setTimeout(()=>location.href='auth.html',1200);
+  };
+  forgot.style.display='none';
+}
+S.auth.onAuthStateChange((event)=>{
+  if(event==='PASSWORD_RECOVERY') showRecovery();
+});
+
 function show(text,cls){msg.textContent=text;msg.className='msg '+cls}
 form.addEventListener('submit',async e=>{
   e.preventDefault();show('Authenticating administrator…','');btn.disabled=true;
@@ -60,6 +84,14 @@ form.addEventListener('submit',async e=>{
   const {data:profile,error:pe}=await S.from('profiles').select('role').eq('id',data.user.id).maybeSingle();
   if(pe||profile?.role!=='admin'){await S.auth.signOut();show('This account is not authorized as an administrator.','danger');btn.disabled=false;return}
   show('Access granted. Opening dashboard…','ok');location.href='analytics.html?v='+Date.now();
+});
+forgot.addEventListener('click',async e=>{
+  e.preventDefault();
+  forgot.textContent='Sending reset link…';
+  const {error}=await S.auth.resetPasswordForEmail(ADMIN_EMAIL,{redirectTo:location.origin+location.pathname});
+  if(error){show(error.message,'danger');forgot.textContent='Forgot password?';return}
+  show('Reset link sent to your administrator email. Check your inbox.','ok');
+  forgot.textContent='Reset email sent ✓';
 });
 </script>
 </body>
