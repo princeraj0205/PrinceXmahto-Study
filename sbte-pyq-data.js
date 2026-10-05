@@ -6,6 +6,63 @@ window.PX_PYQ={
   "pyqSource": "https://sbte.bihar.gov.in/previous-year-questions",
   "branches": [
     {
+      "id": "cse",
+      "code": "18",
+      "name": "Computer Science & Engineering",
+      "semester": 1,
+      "subjects": [
+        {
+          "code": "1767849979308T2418104",
+          "name": "1",
+          "papers": {
+            "2025": "https://sbte.bihar.gov.in/uploads/1767849979308T2418104.pdf"
+          }
+        },
+        {
+          "code": "1767686174416T2420103",
+          "name": "1",
+          "papers": {
+            "2025": "https://sbte.bihar.gov.in/uploads/1767686174416T2420103.pdf"
+          }
+        },
+        {
+          "code": "1767612977254T2400102B",
+          "name": "1",
+          "papers": {
+            "2025": "https://sbte.bihar.gov.in/uploads/1767612977254T2400102B.pdf"
+          }
+        },
+        {
+          "code": "17676125716112001102",
+          "name": "1",
+          "papers": {
+            "2025": "https://sbte.bihar.gov.in/uploads/17676125716112001102.pdf"
+          }
+        },
+        {
+          "code": "17673548499182002201",
+          "name": "1",
+          "papers": {
+            "2025": "https://sbte.bihar.gov.in/uploads/17673548499182002201.pdf"
+          }
+        },
+        {
+          "code": "17673524700172001101",
+          "name": "1",
+          "papers": {
+            "2025": "https://sbte.bihar.gov.in/uploads/17673524700172001101.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "id": "it",
+      "code": "71",
+      "name": "Information Technology",
+      "semester": 1,
+      "subjects": []
+    },
+    {
       "id": "ce",
       "code": "15",
       "name": "Civil Engineering",
@@ -63,51 +120,52 @@ window.PX_PYQ={
       "subjects": []
     },
     {
-      "id": "cse",
-      "code": "18",
-      "name": "Computer Science & Engineering",
+      "id": "me",
+      "code": "25",
+      "name": "Mechanical Engineering",
       "semester": 1,
       "subjects": [
         {
-          "code": "1767849979308T2418104",
+          "code": "1767850135228T2425105",
           "name": "1",
           "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/1767849979308T2418104.pdf"
+            "2025": "https://sbte.bihar.gov.in/uploads/1767850135228T2425105.pdf"
           }
         },
         {
-          "code": "1767686174416T2420103",
+          "code": "17676857667052002203",
           "name": "1",
           "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/1767686174416T2420103.pdf"
+            "2025": "https://sbte.bihar.gov.in/uploads/17676857667052002203.pdf"
           }
         },
         {
-          "code": "1767612977254T2400102B",
+          "code": "1767613268130T2418103",
           "name": "1",
           "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/1767612977254T2400102B.pdf"
+            "2025": "https://sbte.bihar.gov.in/uploads/1767613268130T2418103.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "id": "te",
+      "code": "28",
+      "name": "Textile Engineering",
+      "semester": 1,
+      "subjects": [
+        {
+          "code": "1767685893964T2400103C",
+          "name": "1",
+          "papers": {
+            "2025": "https://sbte.bihar.gov.in/uploads/1767685893964T2400103C.pdf"
           }
         },
         {
-          "code": "17676125716112001102",
+          "code": "1767591388093T2428101",
           "name": "1",
           "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/17676125716112001102.pdf"
-          }
-        },
-        {
-          "code": "17673548499182002201",
-          "name": "1",
-          "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/17673548499182002201.pdf"
-          }
-        },
-        {
-          "code": "17673524700172001101",
-          "name": "1",
-          "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/17673524700172001101.pdf"
+            "2025": "https://sbte.bihar.gov.in/uploads/1767591388093T2428101.pdf"
           }
         }
       ]
@@ -176,64 +234,6 @@ window.PX_PYQ={
           }
         }
       ]
-    },
-    {
-      "id": "me",
-      "code": "25",
-      "name": "Mechanical Engineering",
-      "semester": 1,
-      "subjects": [
-        {
-          "code": "1767850135228T2425105",
-          "name": "1",
-          "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/1767850135228T2425105.pdf"
-          }
-        },
-        {
-          "code": "17676857667052002203",
-          "name": "1",
-          "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/17676857667052002203.pdf"
-          }
-        },
-        {
-          "code": "1767613268130T2418103",
-          "name": "1",
-          "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/1767613268130T2418103.pdf"
-          }
-        }
-      ]
-    },
-    {
-      "id": "te",
-      "code": "28",
-      "name": "Textile Engineering",
-      "semester": 1,
-      "subjects": [
-        {
-          "code": "1767685893964T2400103C",
-          "name": "1",
-          "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/1767685893964T2400103C.pdf"
-          }
-        },
-        {
-          "code": "1767591388093T2428101",
-          "name": "1",
-          "papers": {
-            "2025": "https://sbte.bihar.gov.in/uploads/1767591388093T2428101.pdf"
-          }
-        }
-      ]
-    },
-    {
-      "id": "it",
-      "code": "71",
-      "name": "Information Technology",
-      "semester": 1,
-      "subjects": []
     }
   ],
   "commonFirstSem": [
