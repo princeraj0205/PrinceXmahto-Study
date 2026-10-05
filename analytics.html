@@ -6,7 +6,7 @@
 <link rel="icon" href="assets/princexmahto-logo.svg">
 <style>
 :root{--bg:#050d18;--panel:#0b1829;--panel2:#0e2034;--line:#203852;--text:#f7fbff;--muted:#91a7bd;--gold:#d4af37;--ok:#68d391;--danger:#ff8e8e}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#12304d 0,#050d18 42%);color:var(--text);font:14px Inter,Arial,sans-serif;min-height:100vh;visibility:hidden}.ready{visibility:visible}.wrap{max-width:1550px;margin:auto;padding:28px 18px 70px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.brand{display:flex;gap:13px;align-items:center}.brand img{width:46px}.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:900}.top h1{margin:5px 0;font-size:30px}.muted{color:var(--muted)}button,input,select{border:1px solid var(--line);background:#081525;color:var(--text);border-radius:11px;padding:10px 12px}button{cursor:pointer}button:hover{border-color:#42627f}.security{margin:18px 0;padding:11px 14px;border:1px solid #25445e;border-radius:12px;background:#091727;color:#b9cce0}.security b{color:var(--ok)}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:20px 0}.stat,.panel{background:rgba(11,24,41,.95);border:1px solid var(--line);border-radius:17px}.stat{padding:17px}.stat b{display:block;font-size:27px;margin-top:7px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}.panel{overflow:auto}table{width:100%;border-collapse:collapse;min-width:1250px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}th{color:#b8c9db;font-size:12px;position:sticky;top:0;background:#0c1a2b;z-index:2}td small{color:var(--muted)}code{color:#dbe8f5}.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#13263a;border:1px solid #28445e;font-size:11px}.event-page_view{color:#8fd3ff}.event-click{color:#ffd77b}.event-page_exit{color:#b7a4ff}.danger{color:var(--danger)}.empty{padding:30px;text-align:center;color:var(--muted)}#app{display:none}.location{line-height:1.4}.user strong{display:block}.user span{font-size:12px;color:var(--muted)}@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.grid{grid-template-columns:repeat(2,1fr)}.wrap{padding:18px 12px}.top h1{font-size:24px}}@media(max-width:430px){.grid{grid-template-columns:1fr}}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#12304d 0,#050d18 42%);color:var(--text);font:14px Inter,Arial,sans-serif;min-height:100vh}.ready{visibility:visible}.wrap{max-width:1550px;margin:auto;padding:28px 18px 70px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.brand{display:flex;gap:13px;align-items:center}.brand img{width:46px}.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:900}.top h1{margin:5px 0;font-size:30px}.muted{color:var(--muted)}button,input,select{border:1px solid var(--line);background:#081525;color:var(--text);border-radius:11px;padding:10px 12px}button{cursor:pointer}button:hover{border-color:#42627f}.security{margin:18px 0;padding:11px 14px;border:1px solid #25445e;border-radius:12px;background:#091727;color:#b9cce0}.security b{color:var(--ok)}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:20px 0}.stat,.panel{background:rgba(11,24,41,.95);border:1px solid var(--line);border-radius:17px}.stat{padding:17px}.stat b{display:block;font-size:27px;margin-top:7px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}.panel{overflow:auto}table{width:100%;border-collapse:collapse;min-width:1250px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}th{color:#b8c9db;font-size:12px;position:sticky;top:0;background:#0c1a2b;z-index:2}td small{color:var(--muted)}code{color:#dbe8f5}.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#13263a;border:1px solid #28445e;font-size:11px}.event-page_view{color:#8fd3ff}.event-click{color:#ffd77b}.event-page_exit{color:#b7a4ff}.danger{color:var(--danger)}.empty{padding:30px;text-align:center;color:var(--muted)}#app{display:none}.location{line-height:1.4}.user strong{display:block}.user span{font-size:12px;color:var(--muted)}@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.grid{grid-template-columns:repeat(2,1fr)}.wrap{padding:18px 12px}.top h1{font-size:24px}}@media(max-width:430px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <div class="brand"><img src="assets/princexmahto-logo.svg"><div><div class="eyebrow">PRINCEXMAHTO STUDY · PRIVATE</div><h1>Visitor Analytics</h1><div id="adminIdentity" class="muted">Secure admin dashboard</div></div></div>
   <div><button id="refresh">↻ Refresh</button> <button id="logout">Sign out</button></div>
 </header>
-<div id="status" class="security">🔐 Verifying administrator session…</div>
+<div id="status" class="security">🔐 Checking administrator access…</div><div id="loginBox" class="security" style="display:none">You are not signed in. <button onclick="location.href='auth.html'">Open secure login</button></div>
 <section id="app">
 <div class="grid">
   <div class="stat"><span class="muted">Events</span><b id="events">—</b></div>
@@ -58,8 +58,9 @@ function render(){
  }).join('')||'<tr><td colspan="8" class="empty">No events found for this period.</td></tr>';
 }
 async function load(){
- const {data:{session}}=await S.auth.getSession();
- if(!session){location.replace('auth.html');return}
+ const {data:{session},error:sessionError}=await S.auth.getSession();
+ if(sessionError){$('status').innerHTML='<span class="danger">Session error: '+esc(sessionError.message)+'</span>';return}
+ if(!session){$('status').innerHTML='<span class="danger">Login required.</span>'; $('loginBox').style.display='block'; return}
  $('status').textContent='Loading protected analytics…';
  const days=Number($('range').value);
  const r=await fetch(URL+'/functions/v1/visitor-analytics?days='+days,{headers:{apikey:KEY,Authorization:'Bearer '+session.access_token}});
@@ -77,6 +78,14 @@ async function load(){
 }
 $('refresh').onclick=load;$('range').onchange=load;$('type').onchange=render;$('search').oninput=render;
 $('logout').onclick=async()=>{await S.auth.signOut();location.replace('auth.html')};
-(async()=>{const {data:{session}}=await S.auth.getSession();if(!session){location.replace('auth.html');return}document.body.classList.add('ready');await load()})();
+(async()=>{
+ try{
+   const {data:{session},error}=await S.auth.getSession();
+   if(error){$('status').innerHTML='<span class="danger">Authentication error: '+esc(error.message)+'</span>';return}
+   await load();
+ }catch(e){
+   $('status').innerHTML='<span class="danger">Dashboard error: '+esc(e?.message||e)+'</span>';
+ }
+})();
 </script>
 </body></html>
