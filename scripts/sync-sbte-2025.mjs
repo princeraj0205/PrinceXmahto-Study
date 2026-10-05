@@ -25,7 +25,11 @@ const page=await browser.newPage({viewport:{width:1440,height:1000}});
 await page.goto(SOURCE,{waitUntil:'networkidle',timeout:90000});
 await page.waitForTimeout(1500);
 const selects=page.locator('select');
-if(await selects.count()<3) throw new Error('SBTE page controls changed: expected at least 3 select controls');
+if(await selects.count()<3){
+  console.log('CONTROL_DUMP',JSON.stringify(await page.locator('input,button,[role=combobox]').evaluateAll(es=>es.map(e=>({tag:e.tagName,role:e.getAttribute('role'),name:e.getAttribute('name'),type:e.getAttribute('type'),placeholder:e.getAttribute('placeholder'),text:e.textContent.trim(),aria:e.getAttribute('aria-label')}))),null,2));
+  console.log('BODY_TEXT', (await page.locator('body').innerText()).slice(0,12000));
+  throw new Error('SBTE page controls changed: expected at least 3 native select controls');
+}
 const info=await selects.evaluateAll(ss=>ss.map(s=>({options:[...s.options].map(o=>({text:o.textContent.trim(),value:o.value}))})));
 const year=info[0].options.find(o=>/2025/.test(o.text)||o.value==='2025');
 if(!year) throw new Error('SBTE 2025 exam-year option not found');
