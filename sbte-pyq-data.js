@@ -1,5 +1,5 @@
 window.PX_PYQ={
-  "version": "2026.10.2025sync",
+  "version": "2026.10",
   "semester": 1,
   "source": "https://sbte.bihar.gov.in/",
   "curriculumSource": "https://sbte.bihar.gov.in/curriculum",
@@ -96,41 +96,6 @@ window.PX_PYQ={
       "name": "Computer Science & Engineering",
       "semester": 1,
       "subjects": [
-        {
-          "code": "2600101",
-          "name": "Basic Engineering Mathematics",
-          "papers": {}
-        },
-        {
-          "code": "2600102B",
-          "name": "Applied Physics - B",
-          "papers": {}
-        },
-        {
-          "code": "2600103B",
-          "name": "Applied Chemistry - B",
-          "papers": {}
-        },
-        {
-          "code": "2625104",
-          "name": "Engineering Mechanics",
-          "papers": {}
-        },
-        {
-          "code": "2615105",
-          "name": "Engineering Drawing & Graphics",
-          "papers": {}
-        },
-        {
-          "code": "2620105",
-          "name": "Electrical and Electronics Workshop",
-          "papers": {}
-        },
-        {
-          "code": "2600006",
-          "name": "Environmental Education and Sustainable Development",
-          "papers": {}
-        },
         {
           "code": "1767849979308T2418104",
           "name": "1",
