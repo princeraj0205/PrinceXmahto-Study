@@ -10,63 +10,76 @@ const data=ctx.window.PX_PYQ;
 const norm=s=>String(s||'').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,' ').trim();
 const branches=data.branches.map(b=>({...b,n:norm(b.name)}));
 const findBranch=t=>{
-  const n=norm(t), code=(String(t).match(/\b(\d{2})\b/)||[])[1];
+  const n=norm(t), m=String(t).match(/\b(\d{2})\b/), code=m?.[1];
   return branches.find(b=>code&&b.code===code)||branches.find(b=>n.includes(b.n)||b.n.includes(n));
-};
-const codeFrom=(href,row)=>{
-  const m=String(href).match(/\/([^/?#]+?)(?:\.pdf)?(?:[?#].*)?$/i);
-  if(m&&/^[A-Za-z0-9_-]{5,}$/.test(m[1])) return m[1].replace(/\.pdf$/i,'');
-  const c=String(row).match(/\b(?:T|P|20|26|16|24|25|202)\w{4,}\b/i);
-  return c?c[0]:'';
 };
 
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1000}});
 await page.goto(SOURCE,{waitUntil:'networkidle',timeout:90000});
-await page.waitForTimeout(1500);
-const selects=page.locator('select');
-if(await selects.count()<3){
-  console.log('CONTROL_DUMP',JSON.stringify(await page.locator('input,button,[role=combobox]').evaluateAll(es=>es.map(e=>({tag:e.tagName,role:e.getAttribute('role'),name:e.getAttribute('name'),type:e.getAttribute('type'),placeholder:e.getAttribute('placeholder'),text:e.textContent.trim(),aria:e.getAttribute('aria-label')}))),null,2));
-  console.log('BODY_TEXT', (await page.locator('body').innerText()).slice(0,12000));
-  throw new Error('SBTE page controls changed: expected at least 3 native select controls');
-}
-const info=await selects.evaluateAll(ss=>ss.map(s=>({options:[...s.options].map(o=>({text:o.textContent.trim(),value:o.value}))})));
-const year=info[0].options.find(o=>/2025/.test(o.text)||o.value==='2025');
-if(!year) throw new Error('SBTE 2025 exam-year option not found');
-await selects.nth(0).selectOption(year.value);
-await page.waitForTimeout(700);
-const branchOpts=await selects.nth(1).locator('option').evaluateAll(os=>os.map(o=>({text:o.textContent.trim(),value:o.value})));
-const semOpts=await selects.nth(2).locator('option').evaluateAll(os=>os.map(o=>({text:o.textContent.trim(),value:o.value})));
-const sem=semOpts.find(o=>/^1(?:st)?\s*semester/i.test(o.text)||/semester[- ]?1\b/i.test(o.text)||o.value==='1');
-if(!sem) throw new Error('SBTE Semester-I option not found');
+await page.waitForTimeout(1800);
+
+const combos=page.locator('[role="combobox"]');
+if(await combos.count()<4) throw new Error('SBTE filter controls not found');
+const optionTexts=async()=>{
+  await page.waitForTimeout(250);
+  return await page.locator('[role="option"]').allTextContents();
+};
+const choose=async(index,matcher)=>{
+  const box=combos.nth(index);
+  await box.click();
+  const opts=await optionTexts();
+  const i=opts.findIndex(t=>typeof matcher==='function'?matcher(t.trim()):norm(t)===norm(matcher));
+  if(i<0){await page.keyboard.press('Escape');throw new Error('Option not found in combo '+index+': '+opts.join(' | '));}
+  await page.locator('[role="option"]').nth(i).click();
+  await page.waitForTimeout(650);
+};
+const listCombo=async(index)=>{
+  await combos.nth(index).click();
+  const opts=(await optionTexts()).map(x=>x.trim()).filter(Boolean);
+  await page.keyboard.press('Escape');
+  return [...new Set(opts)];
+};
+
+await choose(0,t=>t.includes('2025'));
+const branchOptions=await listCombo(1);
+const semesterOptions=await listCombo(2);
+const semText=semesterOptions.find(t=>/semester\s*[- ]?1\b|1st\s*semester/i.test(t));
+if(!semText) throw new Error('Semester-I option not found: '+semesterOptions.join(' | '));
+const branchesToRun=branchOptions.filter(t=>!/^select|choose|all branch$/i.test(t)).map(t=>({text:t,b:findBranch(t)})).filter(x=>x.b);
+console.log('BRANCHES_FOUND='+branchesToRun.length);
 
 const found=[];
-for(const bo of branchOpts){
-  if(!bo.value||/select|choose|all branch/i.test(bo.text)) continue;
-  const b=findBranch(bo.text); if(!b) continue;
-  await selects.nth(1).selectOption(bo.value);
-  await selects.nth(2).selectOption(sem.value);
-  const ss=page.locator('select');
-  if(await ss.count()>3){
-    const opts=await ss.nth(3).locator('option').evaluateAll(os=>os.map(o=>({text:o.textContent.trim(),value:o.value})));
-    const reg=opts.find(o=>/regular/i.test(o.text)); if(reg) await ss.nth(3).selectOption(reg.value);
-  }
-  await page.getByRole('button',{name:/search/i}).first().click();
-  await page.waitForTimeout(900);
-  const rows=await page.locator('table tbody tr').evaluateAll(trs=>trs.map(tr=>({cells:[...tr.querySelectorAll('td')].map(x=>x.textContent.trim()),links:[...tr.querySelectorAll('a')].map(a=>a.href)})));
+for(const item of branchesToRun){
+  await choose(1,item.text);
+  await choose(2,semText);
+  await choose(3,t=>/^regular$/i.test(t.trim()));
+  await page.getByRole('button',{name:/^search$/i}).click();
+  await page.waitForTimeout(1200);
+
+  const rows=await page.locator('table tbody tr').evaluateAll(trs=>trs.map(tr=>({
+    cells:[...tr.querySelectorAll('td')].map(x=>x.textContent.trim()),
+    links:[...tr.querySelectorAll('a')].map(a=>({href:a.href,text:a.textContent.trim()}))
+  })));
   for(const row of rows){
-    for(const href of row.links){
-      if(!/\.pdf(?:$|[?#])|questionbank/i.test(href)||!/^https:\/\/sbte\.bihar\.gov\.in\//i.test(href)) continue;
-      const name=(row.cells[3]||row.cells[2]||'').trim();
-      const code=codeFrom(href,name+' '+row.cells.join(' '));
-      if(code) found.push({branchId:b.id,branchCode:b.code,branchName:b.name,code,name:name||code,url:href});
+    for(const link of row.links){
+      const href=link.href;
+      if(!/^https:\/\/sbte\.bihar\.gov\.in\//i.test(href)) continue;
+      if(!/\.pdf(?:$|[?#])|questionbank/i.test(href)) continue;
+      const clean=href.split('?')[0].split('#')[0];
+      const filename=clean.split('/').pop().replace(/\.pdf$/i,'');
+      const code=/^[A-Za-z0-9_-]{5,}$/.test(filename)?filename:'';
+      if(!code) continue;
+      const name=(row.cells[3]||row.cells[2]||'').trim()||code;
+      found.push({branchId:item.b.id,branchCode:item.b.code,branchName:item.b.name,code,name,url:href});
     }
   }
+  console.log('DONE '+item.b.code+' '+item.b.name+' rows='+rows.length);
 }
-await browser.close();
 
+await browser.close();
 const unique=[...new Map(found.map(x=>[x.branchId+'|'+x.code+'|'+x.url,x])).values()];
-if(unique.length===0) throw new Error('SBTE returned zero verified official Semester-I 2025 PDFs; refusing to overwrite archive.');
+if(!unique.length) throw new Error('SBTE returned zero official Semester-I 2025 PDFs; refusing to modify archive.');
 
 for(const x of unique){
   const b=data.branches.find(b=>b.id===x.branchId); if(!b) continue;
