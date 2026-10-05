@@ -77,6 +77,6 @@ async function load(){
 }
 $('refresh').onclick=load;$('range').onchange=load;$('type').onchange=render;$('search').oninput=render;
 $('logout').onclick=async()=>{await S.auth.signOut();location.replace('auth.html')};
-(async()=>{document.body.classList.add('ready');const {data:{session}}=await S.auth.getSession();if(!session){location.replace('auth.html');return}await load()})();
+(async()=>{const {data:{session}}=await S.auth.getSession();if(!session){location.replace('auth.html');return}document.body.classList.add('ready');await load()})();
 </script>
 </body></html>
