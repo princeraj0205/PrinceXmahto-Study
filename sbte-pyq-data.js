@@ -284,4 +284,74 @@ window.PX_PYQ={
     "count": 24,
     "source": "https://sbte.bihar.gov.in/previous-year-questions"
   }
+
+  ,"multiSemester": {
+    "sourceYear": "2024-25",
+    "source": "https://sbte.bihar.gov.in/curriculum",
+    "pyqSource": "https://sbte.bihar.gov.in/previous-year-questions",
+    "coverageNote": "Curriculum metadata below is verified from official SBTE Bihar curriculum documents. No PYQ URL is included unless an original official PDF can be verified.",
+    "common": {
+      "2": [
+        {"code":"2400104","name":"Communication Skills (English)","papers":{}},
+        {"code":"2400107","name":"Professional Ethics","papers":{}},
+        {"code":"2400108","name":"Essence of Indian Knowledge System and Tradition","papers":{}}
+      ],
+      "3": [
+        {"code":"2418306","name":"Summer Internship – I","papers":{}},
+        {"code":"2400008","name":"Sports, Yoga and Meditation","papers":{}},
+        {"code":"2400111","name":"Principles of Management","papers":{}}
+      ],
+      "4": [
+        {"code":"2400006","name":"Environmental Education and Sustainable Development","papers":{}},
+        {"code":"2400408","name":"Employability Skills Development","papers":{}},
+        {"code":"2400110","name":"Community/Society Development","papers":{}}
+      ],
+      "5": [
+        {"code":"2400505","name":"Entrepreneurship Development & Start-ups","papers":{}},
+        {"code":"2418506","name":"Summer Internship – II","papers":{}}
+      ],
+      "6": [
+        {"code":"2418605","name":"Major Project","papers":{}}
+      ]
+    },
+    "branches": {
+      "cse": {
+        "code":"18","name":"Computer Science & Engineering",
+        "2":[
+          {"code":"2418101","name":"Programming with C","papers":{}},
+          {"code":"2418102","name":"Web Technology","papers":{}},
+          {"code":"2400103B","name":"Applied Chemistry -B","papers":{}},
+          {"code":"2400105B","name":"Applied Mathematics -B","papers":{}}
+        ],
+        "3":[
+          {"code":"2418301","name":"Data Structures and Algorithm","papers":{}},
+          {"code":"2418302","name":"Operating System","papers":{}},
+          {"code":"2418303","name":"Discrete Structures","papers":{}},
+          {"code":"2418304","name":"Digital Electronics & Microprocessor","papers":{}},
+          {"code":"2418305","name":"Python Programming","papers":{}}
+        ],
+        "4":[
+          {"code":"2418401","name":"Java Programming","papers":{}},
+          {"code":"2418402","name":"Theory of Computation","papers":{}},
+          {"code":"2418403","name":"Database Management System","papers":{}},
+          {"code":"2418404","name":"Computer Organization & Architecture","papers":{}},
+          {"code":"2418405","name":"Computer Troubleshooting & Maintenance","papers":{}}
+        ],
+        "5":[
+          {"code":"2418501","name":"Data Communication and Computer Network","papers":{}},
+          {"code":"2418502","name":"Software Engineering","papers":{}},
+          {"code":"2418503","name":"Programme Elective – I (Any One)","papers":{}},
+          {"code":"2400504","name":"Open Elective / COE – Basic (Any One)","papers":{}}
+        ],
+        "6":[
+          {"code":"2418601","name":"Cloud Computing","papers":{}},
+          {"code":"2418602","name":"Computer Network with Linux and Windows","papers":{}},
+          {"code":"2418603","name":"Programme Elective – II (Any One)","papers":{}},
+          {"code":"2400604","name":"Open Elective / COE – Advanced (Any One)","papers":{}},
+          {"code":"2418605","name":"Major Project","papers":{}}
+        ]
+      }
+    }
+  }
+
 };
